@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { services } from '../data/services';
+import { kajabiProcess } from '../data/process';
+import { faqs } from '../data/faqs';
+---
+<Layout title="Kajabi Services" description="Kajabi Services for Course Creators, Coaches, and Training Teams. TheEduAssist helps you build a cleaner Kajabi system.">
+
+        <section class="py-20 bg-slate-100 px-4 text-center">
+            <h1 class="text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto leading-tight">Kajabi Services for Course Creators, Coaches, and Training Teams</h1>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">From course setup and website design to funnels, email automation, content upload, and migration, TheEduAssist helps you build a cleaner Kajabi system that is easier to launch and easier to manage.</p>
+            <a href="/book-free-audit/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-8">Who This Is For</h2>
+                <div class="flex flex-wrap justify-center gap-4">
+                    {['Coaches', 'Consultants', 'Course Creators', 'Membership Businesses', 'Corporate Training Teams', 'Wellness & Movement Educators', 'Schools and Institutes'].map(t => (
+                        <span class="px-5 py-2 bg-slate-50 border border-slate-200 rounded text-slate-700">{t}</span>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-slate-50 border-y border-slate-200">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Our Kajabi Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    {services.kajabiServices.map(s => (
+                        <div class="bg-white p-6 rounded shadow-sm border border-slate-200 text-center font-medium text-slate-800">{s}</div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Common Problems We Solve</h2>
+                <ul class="space-y-4 text-lg text-slate-600 list-disc pl-6">
+                    <li>Messy, disorganized course content that confuses learners.</li>
+                    <li>Struggling to migrate from another platform without losing data.</li>
+                    <li>Funnels and email automations that are complicated to set up.</li>
+                    <li>Needing a professional, branded look for landing pages.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="py-20 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Our Kajabi Process</h2>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
+                    {kajabiProcess.map(step => (
+                        <div class="bg-white p-6 rounded border border-slate-200 shadow-sm font-medium text-blue-700">{step}</div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                <div class="space-y-6">
+                    {faqs.kajabi.map(faq => (
+                        <div class="border-b border-slate-200 pb-4">
+                            <h3 class="font-bold text-lg mb-2">{faq.question}</h3>
+                            <p class="text-slate-600">{faq.answer}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-blue-600 text-white text-center">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-6">Let's build your Kajabi platform</h2>
+                <a href="/book-free-audit/" class="bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg shadow-lg hover:bg-slate-50 inline-block">Book Free Audit</a>
+            </div>
+        </section>
+
+</Layout>

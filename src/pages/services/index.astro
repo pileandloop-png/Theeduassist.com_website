@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { services } from '../../data/services';
+---
+<Layout title="Services Overview" description="Explore TheEduAssist's core services, organized by course design, platforms, engagement, and content support.">
+
+        <section class="py-20 bg-slate-100 text-center px-4">
+            <h1 class="text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto">Our Services</h1>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">We help organizations design, build, and migrate professional eLearning and training experiences.</p>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                    {services.categories.map(category => (
+                        <div>
+                            <h2 class="text-2xl font-bold text-blue-600 mb-6 border-b border-slate-200 pb-2">{category.title}</h2>
+                            <ul class="space-y-3 text-lg text-slate-700">
+                                {category.items.map(item => (
+                                    <li>
+                                        {item.link ? (
+                                            <a href={item.link} class="hover:text-blue-600 underline">{item.label}</a>
+                                        ) : (
+                                            item.label
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-blue-50 text-center">
+            <h2 class="text-3xl font-bold mb-6">Not sure which service you need?</h2>
+            <a href="/book-free-audit/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
+        </section>
+
+</Layout>
