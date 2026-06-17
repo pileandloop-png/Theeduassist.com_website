@@ -1,0 +1,44 @@
+---
+import Button from '../ui/Button.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  primaryCtaLabel: string;
+  primaryCtaLink: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaLink?: string;
+  trustText?: string;
+}
+
+const {
+  title,
+  subtitle,
+  primaryCtaLabel,
+  primaryCtaLink,
+  secondaryCtaLabel,
+  secondaryCtaLink,
+  trustText
+} = Astro.props;
+---
+<section class="py-20 bg-slate-100 text-center px-4 md:py-28">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+      {title}
+    </h1>
+    <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+      {subtitle}
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+      <Button href={primaryCtaLink} variant="primary" size="lg">{primaryCtaLabel}</Button>
+      {secondaryCtaLabel && secondaryCtaLink && (
+        <Button href={secondaryCtaLink} variant="outline" size="lg">{secondaryCtaLabel}</Button>
+      )}
+    </div>
+    {trustText && (
+      <p class="text-sm text-slate-500 font-medium">
+        {trustText}
+      </p>
+    )}
+  </div>
+</section>

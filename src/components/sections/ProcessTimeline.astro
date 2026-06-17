@@ -1,0 +1,52 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+interface Step {
+  step: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  steps: string[] | Step[];
+  className?: string;
+}
+
+const { title = "Our Process", steps, className = '' } = Astro.props;
+
+const isStringArray = (arr: any[]): arr is string[] => typeof arr[0] === 'string';
+---
+<section class={`py-20 bg-slate-50 border-t border-slate-200 ${className}`}>
+  <div class="max-w-7xl mx-auto px-4">
+    <SectionHeader title={title} />
+
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+      {isStringArray(steps) ? (
+        steps.map((step, index) => (
+          <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm text-center relative">
+            {index < steps.length - 1 && (
+              <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-slate-200 z-10"></div>
+            )}
+            <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center font-bold mx-auto mb-4">
+              {index + 1}
+            </div>
+            <div class="font-medium text-slate-800">{step.replace(/^\d+\.\s*/, '')}</div>
+          </div>
+        ))
+      ) : (
+        steps.map((step, index) => (
+          <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm text-center relative">
+            {index < steps.length - 1 && (
+              <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-slate-200 z-10"></div>
+            )}
+            <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center font-bold mx-auto mb-4">
+              {index + 1}
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">{step.step.replace(/^\d+\.\s*/, '')}</h3>
+            <p class="text-sm text-slate-600">{step.description}</p>
+          </div>
+        ))
+      )}
+    </div>
+  </div>
+</section>

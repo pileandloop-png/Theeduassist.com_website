@@ -3,18 +3,46 @@ import Layout from "../../layouts/Layout.astro";
 ---
 <Layout title="Privacy Policy" description="Privacy Policy for TheEduAssist.">
 
-        <section class="py-20 bg-white px-4">
-            <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl font-bold text-slate-900 mb-8">Privacy Policy</h1>
-                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
-                    <p class="text-yellow-800 font-medium">Disclaimer: This page is a general placeholder and should be reviewed by a legal professional before launch.</p>
-                </div>
-                <div class="prose prose-slate max-w-none text-slate-600">
-                    <p>At TheEduAssist, your privacy is important to us. This privacy policy document outlines the types of personal information received and collected by TheEduAssist and how it is used.</p>
-                    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Information Collection</h2>
-                    <p>We only collect information about you if we have a reason to do so, such as providing our services, communicating with you, or making our services better.</p>
-                </div>
-            </div>
-        </section>
+  <section class="py-20 bg-slate-100 px-4 text-center">
+    <h1 class="text-4xl font-bold text-slate-900 mb-4 max-w-4xl mx-auto">Privacy Policy</h1>
+    <p class="text-slate-600">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+  </section>
+
+  <section class="py-12 bg-amber-50 border-y border-amber-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-amber-800 font-medium flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+        </svg>
+        This page is a general placeholder and should be reviewed by a legal professional before launch.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 prose prose-slate">
+      <h2>1. Introduction</h2>
+      <p>Welcome to TheEduAssist. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website.</p>
+
+      <h2>2. The data we collect about you</h2>
+      <p>Personal data, or personal information, means any information about an individual from which that person can be identified. We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
+      <ul>
+        <li><strong>Identity Data</strong> includes first name, last name, username or similar identifier.</li>
+        <li><strong>Contact Data</strong> includes billing address, delivery address, email address and telephone numbers.</li>
+        <li><strong>Technical Data</strong> includes internet protocol (IP) address, browser type and version, time zone setting and location.</li>
+      </ul>
+
+      <h2>3. How we use your personal data</h2>
+      <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+      <ul>
+        <li>Where we need to perform the contract we are about to enter into or have entered into with you.</li>
+        <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
+        <li>Where we need to comply with a legal obligation.</li>
+      </ul>
+
+      <h2>4. Contact Us</h2>
+      <p>If you have any questions about this privacy policy or our privacy practices, please contact us at info@theeduassist.com.</p>
+    </div>
+  </section>
 
 </Layout>

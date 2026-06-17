@@ -1,0 +1,67 @@
+---
+import Card from '../ui/Card.astro';
+import Button from '../ui/Button.astro';
+
+const paths = [
+  {
+    title: "I want to launch a Kajabi course",
+    situation: "You have content ready but need help organizing, designing, and launching it cleanly on Kajabi.",
+    help: "We structure the course, design the pages, set up the funnels, and handle the technical setup.",
+    cta: "Explore Kajabi Services",
+    link: "/kajabi-services/"
+  },
+  {
+    title: "I need to move or clean up my LMS",
+    situation: "Your current platform is messy, or you're moving to a new LMS (Moodle, LearnWorlds, etc.).",
+    help: "We migrate your content securely and organize the learning paths for a better user experience.",
+    cta: "View LMS Migration",
+    link: "/services/lms-implementation-migration/"
+  },
+  {
+    title: "I want custom eLearning content",
+    situation: "You have raw training material (PDFs, slide decks) that needs to become interactive modules.",
+    help: "We design storyboards, interactive lessons, and LMS-ready packages.",
+    cta: "View Custom eLearning",
+    link: "/services/custom-elearning-development/"
+  },
+  {
+    title: "I want to improve an existing course",
+    situation: "Your course is live but students aren't engaging, or the setup feels clunky.",
+    help: "We audit the learner journey, restructure the content, and optimize the platform flow.",
+    cta: "Book a Free Audit",
+    link: "/book-free-audit/"
+  }
+];
+---
+<section class="py-24 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900">Choose Your Path</h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">Find the right service based on your current situation and goals.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {paths.map(path => (
+        <Card className="flex flex-col h-full bg-white hover:border-blue-300 transition-colors">
+          <h3 class="text-xl font-bold text-blue-700 mb-4">{path.title}</h3>
+
+          <div class="mb-4">
+            <h4 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Situation</h4>
+            <p class="text-slate-700">{path.situation}</p>
+          </div>
+
+          <div class="mb-8 flex-grow">
+            <h4 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">How we help</h4>
+            <p class="text-slate-700">{path.help}</p>
+          </div>
+
+          <div class="mt-auto pt-6 border-t border-slate-100">
+            <Button href={path.link} variant="outline" className="w-full sm:w-auto">
+              {path.cta}
+            </Button>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

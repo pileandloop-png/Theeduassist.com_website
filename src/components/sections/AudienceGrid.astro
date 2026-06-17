@@ -1,0 +1,22 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import { audienceSegments } from '../../data/audienceSegments';
+---
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <SectionHeader title="Who This Is For" />
+    <div class="flex flex-wrap justify-center gap-4">
+      {audienceSegments.map(segment => (
+        <div class="group relative">
+          <span class="inline-block px-5 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-700 font-medium cursor-default hover:border-blue-300 hover:bg-blue-50 transition-colors">
+            {segment.title}
+          </span>
+          <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-800 text-white text-sm rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-20 pointer-events-none">
+            {segment.description}
+            <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

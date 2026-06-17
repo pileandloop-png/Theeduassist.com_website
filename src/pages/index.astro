@@ -1,113 +1,45 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { platforms } from '../data/platforms';
-import { services } from '../data/services';
-import { trainingSolutions } from '../data/trainingSolutions';
+import HomeHero from "../components/sections/HomeHero.astro";
+import PlatformStrip from "../components/sections/PlatformStrip.astro";
+import CoreServicesGrid from "../components/sections/CoreServicesGrid.astro";
+import KajabiHighlight from "../components/sections/KajabiHighlight.astro";
+import ComparisonBlock from "../components/sections/ComparisonBlock.astro";
+import TrainingSolutionsGrid from "../components/sections/TrainingSolutionsGrid.astro";
+import WhyTheEduAssist from "../components/sections/WhyTheEduAssist.astro";
+import ProcessTimeline from "../components/sections/ProcessTimeline.astro";
+import CaseStudyPreviewGrid from "../components/sections/CaseStudyPreviewGrid.astro";
+import FinalCTA from "../components/sections/FinalCTA.astro";
 import { process } from '../data/process';
-import { caseStudies } from '../data/caseStudies';
 ---
 <Layout title="Custom eLearning, Kajabi, and LMS Solutions" description="TheEduAssist helps coaches, businesses, training teams, and educational organizations turn content into engaging online learning experiences.">
 
-        <section class="py-20 bg-slate-100 text-center px-4">
-            <h1 class="text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto leading-tight">Custom eLearning, Kajabi, and LMS Solutions Built to Launch Faster</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">TheEduAssist helps coaches, businesses, training teams, and educational organizations turn content into engaging online learning experiences, from course design and Kajabi setup to LMS migration, automation, and learner analytics.</p>
-            <div class="flex justify-center gap-4">
-                <a href="/book-free-audit/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
-                <a href="/services/" class="bg-white text-blue-600 border border-blue-600 px-6 py-3 rounded-md font-medium hover:bg-slate-50">Explore Services</a>
-            </div>
-        </section>
+  <HomeHero
+    title="Custom eLearning, Kajabi, and LMS Solutions Built to Launch Faster"
+    subtitle="TheEduAssist helps coaches, course creators, educators, training teams, and businesses turn content into engaging online learning experiences, from course design and Kajabi setup to LMS migration, automation, and learner analytics."
+    primaryCtaLabel="Book Free Audit"
+    primaryCtaLink="/book-free-audit/"
+    secondaryCtaLabel="Explore Services"
+    secondaryCtaLink="/services/"
+    trustText="Practical course design, platform setup, and launch support without fake promises or unnecessary complexity."
+  />
 
-        <section class="py-12 border-y border-slate-200 bg-white">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <h2 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-6">Platforms We Work With</h2>
-                <div class="flex flex-wrap justify-center gap-4">
-                    {platforms.map(p => (
-                        <span class="px-4 py-2 bg-slate-50 border border-slate-200 rounded text-slate-700 text-sm">{p}</span>
-                    ))}
-                </div>
-            </div>
-        </section>
+  <PlatformStrip />
 
-        <section class="py-20 bg-slate-50">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Core Services</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {services.coreServices.map(service => (
-                        <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-                            <h3 class="text-xl font-bold mb-3">{service.title}</h3>
-                            <p class="text-slate-600 mb-4">{service.description}</p>
-                            {service.link && <a href={service.link} class="text-blue-600 font-medium hover:underline">Learn more &rarr;</a>}
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+  <CoreServicesGrid />
 
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-6">Expert Kajabi Services</h2>
-                <p class="text-lg text-slate-600 mb-8">From course setup and website design to funnels, email automation, content upload, and migration, we help you build a cleaner Kajabi system that is easier to launch and manage.</p>
-                <a href="/kajabi-services/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Explore Kajabi Services</a>
-            </div>
-        </section>
+  <KajabiHighlight />
 
-        <section class="py-20 bg-slate-50 border-t border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-12">Training Solutions We Build</h2>
-                <div class="flex flex-wrap justify-center gap-4">
-                    {trainingSolutions.map(t => (
-                        <span class="px-5 py-2 bg-white border border-blue-100 rounded-full text-blue-800 shadow-sm">{t}</span>
-                    ))}
-                </div>
-            </div>
-        </section>
+  <ComparisonBlock />
 
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-8">Why Work With TheEduAssist?</h2>
-                <p class="text-lg text-slate-600 mb-6">We focus on clear, practical, and outcome-driven learning solutions. We don't use generic AI jargon or promise fake results. Our goal is to create structured, engaging learning experiences that work for your organization.</p>
-                <p class="text-lg text-slate-600">Whether you need custom eLearning, LMS migration, or Kajabi setup, we deliver professional work tailored to your specific needs.</p>
-            </div>
-        </section>
+  <TrainingSolutionsGrid />
 
-        <section class="py-20 bg-slate-50 border-t border-slate-200">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Our Process</h2>
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
-                    {process.map(p => (
-                        <div class="bg-white p-6 rounded border border-slate-200 shadow-sm">
-                            <div class="text-blue-600 font-bold mb-2">{p.step}</div>
-                            <p class="text-sm text-slate-600">{p.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+  <WhyTheEduAssist />
 
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="flex justify-between items-end mb-12 border-b border-slate-200 pb-4">
-                    <h2 class="text-3xl font-bold">Client Success Stories</h2>
-                    <a href="/case-studies/" class="text-blue-600 font-medium hover:underline">View all &rarr;</a>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {caseStudies.map(cs => (
-                        <div class="border border-slate-200 rounded-lg p-6">
-                            <div class="text-xs font-bold tracking-wider text-blue-600 uppercase mb-2">{cs.clientType}</div>
-                            <h3 class="text-xl font-bold mb-3">{cs.title}</h3>
-                            <p class="text-slate-600">{cs.summary}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+  <ProcessTimeline steps={process} />
 
-        <section class="py-20 bg-blue-600 text-white text-center">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-bold mb-6">Ready to improve your eLearning experience?</h2>
-                <p class="text-xl text-blue-100 mb-10">Let's discuss how we can structure, build, or migrate your learning content.</p>
-                <a href="/book-free-audit/" class="bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg shadow-lg hover:bg-slate-50">Book Free Audit</a>
-            </div>
-        </section>
+  <CaseStudyPreviewGrid />
+
+  <FinalCTA />
 
 </Layout>

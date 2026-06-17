@@ -3,18 +3,50 @@ import Layout from "../../layouts/Layout.astro";
 ---
 <Layout title="Terms and Conditions" description="Terms and Conditions for TheEduAssist.">
 
-        <section class="py-20 bg-white px-4">
-            <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl font-bold text-slate-900 mb-8">Terms and Conditions</h1>
-                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
-                    <p class="text-yellow-800 font-medium">Disclaimer: This page is a general placeholder and should be reviewed by a legal professional before launch.</p>
-                </div>
-                <div class="prose prose-slate max-w-none text-slate-600">
-                    <p>Welcome to TheEduAssist. These terms and conditions outline the rules and regulations for the use of TheEduAssist's Website and services.</p>
-                    <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Acceptance of Terms</h2>
-                    <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use TheEduAssist if you do not agree to take all of the terms and conditions stated on this page.</p>
-                </div>
-            </div>
-        </section>
+  <section class="py-20 bg-slate-100 px-4 text-center">
+    <h1 class="text-4xl font-bold text-slate-900 mb-4 max-w-4xl mx-auto">Terms and Conditions</h1>
+    <p class="text-slate-600">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+  </section>
+
+  <section class="py-12 bg-amber-50 border-y border-amber-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-amber-800 font-medium flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+        </svg>
+        This page is a general placeholder and should be reviewed by a legal professional before launch.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 prose prose-slate">
+      <h2>1. Introduction</h2>
+      <p>These terms and conditions outline the rules and regulations for the use of TheEduAssist's Website.</p>
+      <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use TheEduAssist if you do not agree to take all of the terms and conditions stated on this page.</p>
+
+      <h2>2. License</h2>
+      <p>Unless otherwise stated, TheEduAssist and/or its licensors own the intellectual property rights for all material on TheEduAssist. All intellectual property rights are reserved. You may access this from TheEduAssist for your own personal use subjected to restrictions set in these terms and conditions.</p>
+      <p>You must not:</p>
+      <ul>
+        <li>Republish material from TheEduAssist</li>
+        <li>Sell, rent or sub-license material from TheEduAssist</li>
+        <li>Reproduce, duplicate or copy material from TheEduAssist</li>
+        <li>Redistribute content from TheEduAssist</li>
+      </ul>
+
+      <h2>3. Disclaimer</h2>
+      <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>
+      <ul>
+        <li>limit or exclude our or your liability for death or personal injury;</li>
+        <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
+        <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
+        <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
+      </ul>
+
+      <h2>4. Contact Us</h2>
+      <p>If you have any questions about these Terms, please contact us at info@theeduassist.com.</p>
+    </div>
+  </section>
 
 </Layout>

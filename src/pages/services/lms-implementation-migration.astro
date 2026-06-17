@@ -1,39 +1,75 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HomeHero from "../../components/sections/HomeHero.astro";
+import FinalCTA from "../../components/sections/FinalCTA.astro";
+import Card from "../../components/ui/Card.astro";
+import Badge from "../../components/ui/Badge.astro";
 ---
-<Layout title="LMS Implementation & Migration" description="TheEduAssist helps teams set up, organize, migrate, and improve LMS platforms without losing content structure.">
+<Layout title="LMS Implementation & Migration" description="Set up, organize, migrate, and improve LMS platforms without losing content structure or learner experience.">
 
-        <section class="py-20 bg-slate-100 text-center px-4">
-            <h1 class="text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto leading-tight">LMS Implementation & Migration</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">TheEduAssist helps teams set up, organize, migrate, and improve LMS platforms without losing content structure, learner experience, or operational clarity.</p>
-            <a href="/book-free-audit/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
-        </section>
+  <HomeHero
+    title="LMS Implementation & Migration"
+    subtitle="Set up, organize, migrate, and improve LMS platforms without losing content structure, learner experience, or operational clarity."
+    primaryCtaLabel="Book Free Audit"
+    primaryCtaLink="/book-free-audit/"
+  />
 
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-bold mb-6">What We Help With</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-slate-600">
-                    <div>
-                        <h3 class="font-bold text-slate-900 mb-2">Migration Support</h3>
-                        <p>Moving your data securely from an old system to a new one seamlessly.</p>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 mb-2">Setup and Configuration</h3>
-                        <p>Configuring settings, roles, and permissions to match your operational needs.</p>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 mb-2">Content Organization</h3>
-                        <p>Restructuring categories and learning paths for better user experience.</p>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 mb-2">Testing and Launch</h3>
-                        <p>Ensuring everything works perfectly before your learners log in.</p>
-                    </div>
-                </div>
+  <section class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900">What We Help With</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">We handle the technical complexities of LMS management so your team can focus on creating great content.</p>
+      </div>
 
-                <h2 class="text-3xl font-bold mt-16 mb-6">Platforms We Support</h2>
-                <p class="text-slate-600">Moodle, Tutor LMS, LearnWorlds, Docebo, WordPress LMS, and other leading LMS platforms.</p>
-            </div>
-        </section>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-600 mb-16">
+        <Card>
+          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+          </div>
+          <h3 class="font-bold text-xl text-slate-900 mb-3">Migration Support</h3>
+          <p>Moving your data securely from an old system to a new one seamlessly, without losing student progress or content structure.</p>
+        </Card>
+
+        <Card>
+          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <h3 class="font-bold text-xl text-slate-900 mb-3">Setup and Configuration</h3>
+          <p>Configuring settings, roles, and permissions to match your operational needs and organizational hierarchy.</p>
+        </Card>
+
+        <Card>
+          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+          </div>
+          <h3 class="font-bold text-xl text-slate-900 mb-3">Content Organization</h3>
+          <p>Restructuring categories and learning paths to create a logical, easy-to-navigate user experience.</p>
+        </Card>
+
+        <Card>
+          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="font-bold text-xl text-slate-900 mb-3">Testing and Launch</h3>
+          <p>Rigorous quality assurance testing to ensure everything works perfectly before your learners log in.</p>
+        </Card>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-lg p-8 text-center">
+        <h2 class="text-2xl font-bold mb-6 text-slate-900">Platforms We Support</h2>
+        <div class="flex flex-wrap justify-center gap-3">
+          {['Moodle', 'Tutor LMS', 'LearnWorlds', 'Docebo', 'WordPress LMS'].map(p => (
+            <Badge variant="outline">{p}</Badge>
+          ))}
+        </div>
+        <p class="text-xs text-slate-500 mt-6">Note: Platform support does not imply official partnership with these vendors.</p>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA
+    title="Planning an LMS migration?"
+    subtitle="Let's discuss how we can make the transition smooth and secure."
+  />
 
 </Layout>

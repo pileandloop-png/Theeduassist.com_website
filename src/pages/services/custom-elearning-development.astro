@@ -1,48 +1,71 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HomeHero from "../../components/sections/HomeHero.astro";
+import ProcessTimeline from "../../components/sections/ProcessTimeline.astro";
+import FinalCTA from "../../components/sections/FinalCTA.astro";
+import { process } from '../../data/process';
 ---
 <Layout title="Custom eLearning Development" description="Custom eLearning Development helps organizations turn raw training material into structured, interactive, learner-friendly digital courses.">
 
-        <section class="py-20 bg-slate-100 text-center px-4">
-            <h1 class="text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto leading-tight">Custom eLearning Development</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">Custom eLearning Development helps organizations turn raw training material into structured, interactive, learner-friendly digital courses.</p>
-            <a href="/book-free-audit/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
-        </section>
+  <HomeHero
+    title="Custom eLearning Development"
+    subtitle="Turn raw training material into structured, interactive, learner-friendly digital courses."
+    primaryCtaLabel="Book Free Audit"
+    primaryCtaLink="/book-free-audit/"
+  />
 
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6">What We Build</h2>
-                    <p class="text-slate-600 mb-4">We create engaging digital learning experiences tailored specifically to your audience's needs and your organization's goals.</p>
-                    <h2 class="text-3xl font-bold mt-10 mb-6">Who It Is For</h2>
-                    <ul class="list-disc pl-5 space-y-2 text-slate-600">
-                        <li>Corporate Training Teams</li>
-                        <li>Educational Institutions</li>
-                        <li>Professional Associations</li>
-                        <li>Course Creators</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-bold mb-6">Deliverables</h2>
-                    <ul class="list-disc pl-5 space-y-2 text-slate-600">
-                        <li>Course outlines</li>
-                        <li>Storyboards</li>
-                        <li>Interactive lessons</li>
-                        <li>Assessments & quizzes</li>
-                        <li>Learner activities</li>
-                        <li>LMS-ready packages</li>
-                        <li>Facilitator/learner resources</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+  <section class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div>
+        <h2 class="text-3xl font-bold mb-6 text-slate-900">What We Build</h2>
+        <p class="text-lg text-slate-600 mb-10 leading-relaxed">We create engaging digital learning experiences tailored specifically to your audience's needs and your organization's goals.</p>
 
-        <section class="py-20 bg-slate-50 text-center">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-bold mb-6">Process & FAQs</h2>
-                <p class="text-slate-600 mb-8">Our process starts with a thorough Discovery phase, moving through Strategy, Development, Review, and Launch. Contact us to learn more about timelines and specific requirements.</p>
-                <a href="/contact/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Contact Us</a>
-            </div>
-        </section>
+        <h2 class="text-2xl font-bold mb-6 text-slate-900">Who It Is For</h2>
+        <ul class="space-y-3 text-slate-600">
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Corporate Training Teams</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Educational Institutions</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Professional Associations</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Course Creators</li>
+        </ul>
+      </div>
+
+      <div class="bg-slate-50 p-8 rounded-lg border border-slate-200">
+        <h2 class="text-2xl font-bold mb-6 text-slate-900 border-b border-slate-200 pb-4">Deliverables</h2>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Learning outlines & storyboards
+          </li>
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Interactive lessons
+          </li>
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Assessments & quizzes
+          </li>
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Learner activities
+          </li>
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            LMS-ready content
+          </li>
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Facilitator & learner support material
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <ProcessTimeline steps={process} />
+
+  <FinalCTA
+    title="Ready to build your custom course?"
+    subtitle="Let's discuss how we can turn your training material into an interactive experience."
+  />
 
 </Layout>

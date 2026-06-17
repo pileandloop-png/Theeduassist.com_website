@@ -1,81 +1,110 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { services } from '../data/services';
+import HomeHero from "../components/sections/HomeHero.astro";
+import AudienceGrid from "../components/sections/AudienceGrid.astro";
+import ProcessTimeline from "../components/sections/ProcessTimeline.astro";
+import FAQAccordion from "../components/ui/FAQAccordion.astro";
+import FinalCTA from "../components/sections/FinalCTA.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
+import Card from "../components/ui/Card.astro";
+import { kajabiServices } from '../data/kajabiServices';
 import { kajabiProcess } from '../data/process';
 import { faqs } from '../data/faqs';
 ---
 <Layout title="Kajabi Services" description="Kajabi Services for Course Creators, Coaches, and Training Teams. TheEduAssist helps you build a cleaner Kajabi system.">
 
-        <section class="py-20 bg-slate-100 px-4 text-center">
-            <h1 class="text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto leading-tight">Kajabi Services for Course Creators, Coaches, and Training Teams</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">From course setup and website design to funnels, email automation, content upload, and migration, TheEduAssist helps you build a cleaner Kajabi system that is easier to launch and easier to manage.</p>
-            <a href="/book-free-audit/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
-        </section>
+  <HomeHero
+    title="Kajabi Services for Course Creators, Coaches, and Training Teams"
+    subtitle="From course setup and website design to funnels, email automation, content upload, and migration, TheEduAssist helps you build a cleaner Kajabi system that is easier to launch and easier to manage."
+    primaryCtaLabel="Book Free Audit"
+    primaryCtaLink="/book-free-audit/"
+  />
 
-        <section class="py-16 bg-white">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-8">Who This Is For</h2>
-                <div class="flex flex-wrap justify-center gap-4">
-                    {['Coaches', 'Consultants', 'Course Creators', 'Membership Businesses', 'Corporate Training Teams', 'Wellness & Movement Educators', 'Schools and Institutes'].map(t => (
-                        <span class="px-5 py-2 bg-slate-50 border border-slate-200 rounded text-slate-700">{t}</span>
-                    ))}
-                </div>
-            </div>
-        </section>
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6 text-slate-900">What We Help You Build</h2>
+      <p class="text-lg text-slate-600 leading-relaxed">
+        We specialize in taking the technical heavy lifting off your plate so you can focus on your content and your students. Whether you're starting from scratch, migrating from another platform, or cleaning up a messy Kajabi account, we provide structured, professional implementation.
+      </p>
+    </div>
+  </section>
 
-        <section class="py-20 bg-slate-50 border-y border-slate-200">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Our Kajabi Services</h2>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    {services.kajabiServices.map(s => (
-                        <div class="bg-white p-6 rounded shadow-sm border border-slate-200 text-center font-medium text-slate-800">{s}</div>
-                    ))}
-                </div>
-            </div>
-        </section>
+  <AudienceGrid />
 
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Common Problems We Solve</h2>
-                <ul class="space-y-4 text-lg text-slate-600 list-disc pl-6">
-                    <li>Messy, disorganized course content that confuses learners.</li>
-                    <li>Struggling to migrate from another platform without losing data.</li>
-                    <li>Funnels and email automations that are complicated to set up.</li>
-                    <li>Needing a professional, branded look for landing pages.</li>
-                </ul>
-            </div>
-        </section>
+  <section class="py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4">
+      <SectionHeader title="Our Kajabi Services" />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {kajabiServices.map(s => (
+          <Card className="hover:border-blue-300 transition-colors">
+            <h3 class="text-lg font-bold mb-3 text-blue-700">{s.title}</h3>
+            <p class="text-sm text-slate-600">{s.description}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
 
-        <section class="py-20 bg-slate-50 border-t border-slate-200">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Our Kajabi Process</h2>
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
-                    {kajabiProcess.map(step => (
-                        <div class="bg-white p-6 rounded border border-slate-200 shadow-sm font-medium text-blue-700">{step}</div>
-                    ))}
-                </div>
-            </div>
-        </section>
+  <section class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div>
+        <h2 class="text-3xl font-bold mb-6 text-slate-900">Common Problems We Solve</h2>
+        <ul class="space-y-4 text-slate-600">
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Course content is scattered across files and confusing to organize
+          </li>
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Kajabi pages look unfinished or unprofessional
+          </li>
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Lessons are uploaded but the learner journey feels broken
+          </li>
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Funnels, pipelines, and email automations are confusing
+          </li>
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Migration from another platform feels too risky to do alone
+          </li>
+          <li class="flex items-start">
+            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Pre-launch and post-launch technical tasks are unclear
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold mb-6 text-slate-900">What You Can Bring To Us</h2>
+        <p class="text-slate-600 mb-6">You don't need a perfect setup to start working with us. We can take your raw materials and build the system.</p>
+        <ul class="grid grid-cols-2 gap-3 text-sm text-slate-700 font-medium">
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Videos & PDFs</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Slide Decks & Worksheets</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Old Course Links</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Existing Kajabi Account</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Notion/Drive Outlines</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Migration Questions</li>
+          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Launch Timelines</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-                <div class="space-y-6">
-                    {faqs.kajabi.map(faq => (
-                        <div class="border-b border-slate-200 pb-4">
-                            <h3 class="font-bold text-lg mb-2">{faq.question}</h3>
-                            <p class="text-slate-600">{faq.answer}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+  <ProcessTimeline title="Our Kajabi Process" steps={kajabiProcess} className="bg-slate-50 border-t border-slate-200" />
 
-        <section class="py-20 bg-blue-600 text-white text-center">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-bold mb-6">Let's build your Kajabi platform</h2>
-                <a href="/book-free-audit/" class="bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg shadow-lg hover:bg-slate-50 inline-block">Book Free Audit</a>
-            </div>
-        </section>
+  <section class="py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <SectionHeader title="Frequently Asked Questions" />
+      <FAQAccordion items={faqs.kajabi} />
+    </div>
+  </section>
+
+  <FinalCTA
+    title="Let's build your Kajabi platform"
+    subtitle="Book a 30-minute discussion to review your goals, your content, and your timeline."
+    ctaLabel="Book Free Audit"
+  />
 
 </Layout>

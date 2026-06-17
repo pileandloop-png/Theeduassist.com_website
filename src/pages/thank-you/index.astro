@@ -1,12 +1,39 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/ui/Button.astro";
 ---
 <Layout title="Thank You" description="Thank you for contacting TheEduAssist.">
 
-        <section class="py-32 bg-slate-50 text-center px-4 flex-grow flex flex-col justify-center items-center">
-            <h1 class="text-4xl font-bold text-slate-900 mb-6">Thank You</h1>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">Thank you for contacting TheEduAssist. Your request has been received. Our team will review your details and respond with the next step.</p>
-            <a href="/" class="text-blue-600 font-medium hover:underline">&larr; Return to Homepage</a>
-        </section>
+  <section class="py-32 bg-slate-50 text-center px-4 flex-grow flex flex-col justify-center items-center min-h-[60vh]">
+    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+
+    <h1 class="text-4xl font-bold text-slate-900 mb-6">Message Received</h1>
+
+    <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+      Thank you for reaching out to TheEduAssist. Your request has been securely received by our team. We will review your details and be in touch soon with the next steps.
+    </p>
+
+    <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 max-w-xl w-full mb-10">
+      <h2 class="font-bold text-slate-900 mb-4 text-lg">While you wait, you can:</h2>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <Button href="/kajabi-services/" variant="outline">View Kajabi Services</Button>
+        <Button href="/services/" variant="outline">Explore All Services</Button>
+      </div>
+      <div class="mt-6 pt-6 border-t border-slate-100 text-sm text-slate-500">
+        <p>Prefer to speak with us sooner? <a href="/book-free-audit/" class="text-blue-600 font-medium hover:underline">Book a Free Audit call</a>.</p>
+      </div>
+    </div>
+
+    <a href="/" class="text-slate-500 font-medium hover:text-blue-600 transition-colors flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Return to Homepage
+    </a>
+  </section>
 
 </Layout>

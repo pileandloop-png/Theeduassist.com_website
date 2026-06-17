@@ -1,29 +1,58 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HomeHero from "../../components/sections/HomeHero.astro";
+import FinalCTA from "../../components/sections/FinalCTA.astro";
+import Card from "../../components/ui/Card.astro";
 ---
 <Layout title="AI-Powered eLearning" description="TheEduAssist uses AI carefully to support course planning, content structuring, learner engagement, and training workflows.">
 
-        <section class="py-20 bg-slate-100 text-center px-4">
-            <h1 class="text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto leading-tight">AI-Powered eLearning</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">TheEduAssist uses AI carefully to support course planning, content structuring, learner engagement, assessments, and training workflows while keeping human review at the center.</p>
-            <a href="/book-free-audit/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
-        </section>
+  <HomeHero
+    title="AI-Powered eLearning"
+    subtitle="Use AI carefully to support course planning, content structuring, learner engagement, assessments, and training workflows, with human review at the center."
+    primaryCtaLabel="Book Free Audit"
+    primaryCtaLink="/book-free-audit/"
+  />
 
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-bold mb-6">Use Cases & Capabilities</h2>
-                <ul class="list-disc pl-5 space-y-3 text-slate-600 mb-10">
-                    <li>Accelerated content structuring and outlining</li>
-                    <li>Automated assessment and quiz generation</li>
-                    <li>Personalized learner feedback models</li>
-                    <li>Streamlined training administration workflows</li>
-                </ul>
+  <section class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      <div>
+        <h2 class="text-3xl font-bold mb-8 text-slate-900">Practical AI Use Cases</h2>
+        <div class="space-y-6">
+          <Card className="border-l-4 border-l-blue-500">
+            <h3 class="font-bold text-lg mb-2 text-slate-900">Accelerated Content Structuring</h3>
+            <p class="text-slate-600">Using AI to quickly draft course outlines, module structures, and learning objectives based on your raw material.</p>
+          </Card>
 
-                <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
-                    <h3 class="font-bold text-blue-900 mb-2">Human Review and Quality Control</h3>
-                    <p class="text-blue-800 text-sm">Responsible AI Note: We believe AI is a tool to enhance, not replace, human expertise. All AI-assisted content and structures undergo rigorous human review to ensure accuracy, pedagogical soundness, and alignment with your specific goals.</p>
-                </div>
-            </div>
-        </section>
+          <Card className="border-l-4 border-l-blue-500">
+            <h3 class="font-bold text-lg mb-2 text-slate-900">Assessment Generation</h3>
+            <p class="text-slate-600">Automating the creation of quiz questions, knowledge checks, and varied assessment formats from existing content.</p>
+          </Card>
+
+          <Card className="border-l-4 border-l-blue-500">
+            <h3 class="font-bold text-lg mb-2 text-slate-900">Workflow Automation</h3>
+            <p class="text-slate-600">Streamlining training administration workflows and repetitive tasks in your LMS or Kajabi setup.</p>
+          </Card>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 p-8 rounded-lg border border-blue-100 sticky top-8">
+        <div class="w-16 h-16 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+        </div>
+        <h3 class="text-2xl font-bold text-blue-900 mb-4">Responsible AI Note</h3>
+        <p class="text-blue-800 text-lg leading-relaxed font-medium">
+          AI can support drafting, structuring, and workflow planning, but final learning design, quality review, and client decisions remain human-led.
+        </p>
+        <p class="text-blue-700 mt-4">
+          We believe AI is a tool to enhance, not replace, human expertise. All AI-assisted content undergoes rigorous human review to ensure accuracy and pedagogical soundness.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA
+    title="Want to explore AI in your training?"
+    subtitle="Let's discuss safe, practical ways to integrate AI into your learning workflows."
+  />
 
 </Layout>

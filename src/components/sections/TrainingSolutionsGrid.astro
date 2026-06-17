@@ -1,0 +1,15 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import Badge from '../ui/Badge.astro';
+import { trainingSolutions } from '../../data/trainingSolutions';
+---
+<section class="py-20 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-5xl mx-auto px-4 text-center">
+    <SectionHeader title="Training Solutions We Build" />
+    <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+      {trainingSolutions.map(t => (
+        <Badge variant="pill" className="text-sm md:text-base px-6 py-3">{t}</Badge>
+      ))}
+    </div>
+  </div>
+</section>

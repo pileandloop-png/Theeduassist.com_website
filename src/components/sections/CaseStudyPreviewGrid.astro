@@ -1,0 +1,30 @@
+---
+import Card from '../ui/Card.astro';
+import { caseStudies } from '../../data/caseStudies';
+---
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 pb-4">
+      <div>
+        <h2 class="text-3xl font-bold text-slate-900">Client Success Stories</h2>
+        <p class="text-slate-600 mt-2">Real projects. Real outcomes. No fake metrics.</p>
+      </div>
+      <a href="/case-studies/" class="text-blue-600 font-medium hover:text-blue-800 transition-colors mt-4 md:mt-0 flex items-center">
+        View all case studies
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {caseStudies.map(cs => (
+        <Card className="hover:border-blue-200 transition-colors">
+          <div class="text-xs font-bold tracking-wider text-blue-600 uppercase mb-3">{cs.clientType}</div>
+          <h3 class="text-xl font-bold mb-3 text-slate-900">{cs.title}</h3>
+          <p class="text-slate-600 leading-relaxed mb-4">{cs.summary}</p>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

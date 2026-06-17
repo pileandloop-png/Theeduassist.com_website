@@ -1,13 +1,26 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HomeHero from "../../components/sections/HomeHero.astro";
 ---
-<Layout title="Careers" description="Career opportunities at TheEduAssist.">
+<Layout title="Careers" description="Join TheEduAssist team. We are always looking for talented learning professionals.">
 
-        <section class="py-32 bg-white text-center px-4 flex-grow flex flex-col justify-center items-center">
-            <h1 class="text-5xl font-bold text-slate-900 mb-6">Careers</h1>
-            <div class="bg-slate-50 border border-slate-200 p-8 rounded-lg max-w-2xl mx-auto">
-                <p class="text-lg text-slate-700">TheEduAssist occasionally opens remote internship and project-based roles. Current openings will be listed here when available.</p>
-            </div>
-        </section>
+  <HomeHero
+    title="Careers at TheEduAssist"
+    subtitle="Join a team of dedicated learning professionals, instructional designers, and technical experts."
+    primaryCtaLabel="View Services"
+    primaryCtaLink="/services/"
+  />
+
+  <section class="py-24 bg-white text-center px-4">
+    <div class="max-w-3xl mx-auto bg-slate-50 p-10 rounded-lg border border-slate-200">
+      <h2 class="text-2xl font-bold mb-4 text-slate-900">Current Openings</h2>
+      <p class="text-lg text-slate-600 leading-relaxed mb-6">
+        There are currently no active roles open at this time. We are always interested in connecting with talented instructional designers, Kajabi experts, and LMS specialists.
+      </p>
+      <p class="text-slate-600">
+        Feel free to send your resume and portfolio to <a href="mailto:info@theeduassist.com" class="text-blue-600 font-bold hover:underline">info@theeduassist.com</a> and we will keep it on file for future opportunities.
+      </p>
+    </div>
+  </section>
 
 </Layout>
