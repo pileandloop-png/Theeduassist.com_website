@@ -30,7 +30,7 @@
 Run these locally before opening any PR or doing a manual deployment:
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 npm run build
 npm run preview
 ```

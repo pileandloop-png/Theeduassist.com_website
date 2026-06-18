@@ -1,12 +1,14 @@
 
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://theeduassist.com',
+  vite: {
+    plugins: [tailwindcss()]
+  },
   integrations: [
-    tailwind(),
     sitemap({
       filter: (page) =>
         page !== 'https://theeduassist.com/thank-you/' &&
