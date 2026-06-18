@@ -3,6 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 import FAQAccordion from "../../components/ui/FAQAccordion.astro";
 import { ctaBlocks } from '../../data/ctaBlocks';
 import Card from "../../components/ui/Card.astro";
+import AuditRequestForm from "../../components/forms/AuditRequestForm.astro";
+import FormNotice from "../../components/forms/FormNotice.astro";
 
 const auditFaqs = [
   {
@@ -112,22 +114,28 @@ const jsonLd = [
       </div>
 
       <div class="lg:col-span-5">
-        <div class="bg-blue-600 rounded-xl p-8 text-white shadow-xl sticky top-8">
-          <h3 class="text-2xl font-bold mb-6">Schedule Your Call</h3>
-          <p class="text-blue-100 mb-8">Ready to get started? Schedule a 30-minute discussion with our team.</p>
+        <div class="bg-slate-50 rounded-xl p-8 border border-slate-200 shadow-sm sticky top-8">
+          <h3 class="text-2xl font-bold mb-6 text-slate-900">Request Audit</h3>
+
+          <FormNotice />
+
+          <p class="text-sm text-slate-500 mb-6 italic">Note: The form backend will be connected in a future phase. For now, please book a 30-minute introductory call using the calendar below or email us directly at <a href="mailto:info@theeduassist.com" class="text-blue-600 hover:underline">info@theeduassist.com</a>.</p>
 
           <a
             href={ctaBlocks.calendly.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-md font-bold text-lg hover:bg-slate-50 transition-colors shadow-sm mb-6"
+            class="block w-full bg-blue-600 text-white text-center px-6 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors shadow-sm mb-6"
           >
             {ctaBlocks.calendly.label}
           </a>
 
-          <div class="text-center text-sm text-blue-200">
-            <p>Can't find a time that works?</p>
-            <a href="/contact/" class="underline hover:text-white transition-colors">Contact us directly</a>
+          <div class="text-center text-sm text-slate-500">
+            <p>Or request an audit manually:</p>
+          </div>
+
+          <div class="mt-6 opacity-70">
+            <AuditRequestForm />
           </div>
         </div>
       </div>

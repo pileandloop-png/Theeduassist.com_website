@@ -1,0 +1,41 @@
+---
+export interface Props {
+  formType: 'contact' | 'project' | 'audit';
+}
+
+const { formType } = Astro.props;
+---
+
+<!-- Anti-spam honeypot -->
+<div style="display:none;" aria-hidden="true">
+  <label for="website_url_hp">Website</label>
+  <input type="text" id="website_url_hp" name="website_url_hp" tabindex="-1" autocomplete="off" />
+</div>
+
+<!-- Tracking fields populated by client JS -->
+<input type="hidden" name="formType" value={formType} />
+<input type="hidden" name="pageUrl" class="js-tracking-url" value="" />
+<input type="hidden" name="referrer" class="js-tracking-ref" value="" />
+<input type="hidden" name="utmSource" class="js-tracking-utm-source" value="" />
+<input type="hidden" name="utmMedium" class="js-tracking-utm-medium" value="" />
+<input type="hidden" name="utmCampaign" class="js-tracking-utm-campaign" value="" />
+<input type="hidden" name="utmContent" class="js-tracking-utm-content" value="" />
+<input type="hidden" name="utmTerm" class="js-tracking-utm-term" value="" />
+<input type="hidden" name="submittedAt" class="js-tracking-time" value="" />
+
+<script>
+  // Script to populate hidden tracking fields safely on the client
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    document.querySelectorAll('.js-tracking-url').forEach(el => (el as HTMLInputElement).value = window.location.href);
+    document.querySelectorAll('.js-tracking-ref').forEach(el => (el as HTMLInputElement).value = document.referrer);
+    document.querySelectorAll('.js-tracking-time').forEach(el => (el as HTMLInputElement).value = new Date().toISOString());
+
+    document.querySelectorAll('.js-tracking-utm-source').forEach(el => (el as HTMLInputElement).value = urlParams.get('utm_source') || '');
+    document.querySelectorAll('.js-tracking-utm-medium').forEach(el => (el as HTMLInputElement).value = urlParams.get('utm_medium') || '');
+    document.querySelectorAll('.js-tracking-utm-campaign').forEach(el => (el as HTMLInputElement).value = urlParams.get('utm_campaign') || '');
+    document.querySelectorAll('.js-tracking-utm-content').forEach(el => (el as HTMLInputElement).value = urlParams.get('utm_content') || '');
+    document.querySelectorAll('.js-tracking-utm-term').forEach(el => (el as HTMLInputElement).value = urlParams.get('utm_term') || '');
+  });
+</script>
