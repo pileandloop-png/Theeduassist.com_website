@@ -1,0 +1,106 @@
+---
+import FormField from './FormField.astro';
+import TextAreaField from './TextAreaField.astro';
+import SelectField from './SelectField.astro';
+import HiddenTrackingFields from './HiddenTrackingFields.astro';
+import TurnstileWidget from './TurnstileWidget.astro';
+
+const platformOptions = [
+  { value: 'kajabi', label: 'Kajabi' },
+  { value: 'moodle', label: 'Moodle' },
+  { value: 'learnworlds', label: 'LearnWorlds' },
+  { value: 'thinkific', label: 'Thinkific' },
+  { value: 'teachable', label: 'Teachable' },
+  { value: 'wordpress', label: 'WordPress LMS' },
+  { value: 'tutorlms', label: 'Tutor LMS' },
+  { value: 'podia', label: 'Podia' },
+  { value: 'notsure', label: 'Not sure yet' },
+  { value: 'other', label: 'Other' },
+];
+
+const stageOptions = [
+  { value: 'idea', label: 'Idea stage' },
+  { value: 'content_ready', label: 'Content is ready' },
+  { value: 'platform_selected', label: 'Platform selected' },
+  { value: 'existing_improvement', label: 'Existing setup needs improvement' },
+  { value: 'migrating', label: 'Migrating from another platform' },
+  { value: 'launched_support', label: 'Already launched but needs support' },
+];
+
+const budgetOptions = [
+  { value: 'notsure', label: 'Not sure yet' },
+  { value: 'under_500', label: 'Under $500' },
+  { value: '500_1500', label: '$500–$1,500' },
+  { value: '1500_3000', label: '$1,500–$3,000' },
+  { value: '3000_5000', label: '$3,000–$5,000' },
+  { value: 'over_5000', label: '$5,000+' },
+];
+
+const timelineOptions = [
+  { value: 'asap', label: 'As soon as possible' },
+  { value: 'this_month', label: 'This month' },
+  { value: '1_2_months', label: '1–2 months' },
+  { value: '3_plus_months', label: '3+ months' },
+  { value: 'flexible', label: 'Flexible' },
+];
+---
+
+<form action="/api/submit-lead" method="POST" class="space-y-5" id="project-form">
+  <HiddenTrackingFields formType="project" />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <FormField name="fullName" label="Full Name" required={true} placeholder="Your Name" />
+    <FormField name="email" label="Email Address" type="email" required={true} placeholder="Your Email" />
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <FormField name="company" label="Company / Organization" placeholder="Company Name" />
+    <FormField name="website" label="Website" type="url" placeholder="https://..." />
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <SelectField name="currentPlatform" label="Current Platform" options={platformOptions} required={true} />
+    <SelectField name="projectStage" label="Project Stage" options={stageOptions} required={true} />
+  </div>
+
+  <SelectField name="serviceNeeded" label="Service Needed" options={[
+    { value: 'kajabi', label: 'Kajabi Services' },
+    { value: 'lms', label: 'LMS Implementation or Migration' },
+    { value: 'custom', label: 'Custom eLearning Development' },
+    { value: 'ai', label: 'AI-Powered eLearning' },
+    { value: 'upload', label: 'Course Upload or Cleanup' },
+    { value: 'funnel', label: 'Funnel or Email Automation' },
+    { value: 'analytics', label: 'Learning Analytics' },
+    { value: 'general', label: 'General Inquiry' }
+  ]} />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <SelectField name="budgetRange" label="Budget Range" options={budgetOptions} required={true} />
+    <SelectField name="timeline" label="Timeline" options={timelineOptions} required={true} />
+  </div>
+
+  <TextAreaField name="projectDetails" label="Project Details" required={true} placeholder="Tell us more about your goals..." rows={5} />
+
+  <TurnstileWidget />
+
+  <p class="text-xs text-slate-500">By submitting this form, you agree to our Privacy Policy.</p>
+
+  <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition-colors w-full md:w-auto" id="submit-project-btn">
+    Submit Inquiry
+  </button>
+</form>
+
+<script>
+  document.getElementById('project-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('submit-project-btn') as HTMLButtonElement;
+    if(btn) {
+      btn.disabled = true;
+      btn.innerText = 'Submitting...';
+    }
+
+    setTimeout(() => {
+      window.location.href = '/thank-you/?type=project';
+    }, 1000);
+  });
+</script>

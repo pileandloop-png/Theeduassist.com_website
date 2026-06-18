@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Leads collection rules
+    match /leads/{leadId} {
+      // Admins (Firebase Functions) bypass these rules entirely.
+      // Therefore, public reads and writes are denied here.
+      // All submissions must go through the backend function.
+      allow read, write: if false;
+    }
+
+  }
+}

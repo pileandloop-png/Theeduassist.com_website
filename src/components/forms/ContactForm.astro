@@ -1,0 +1,62 @@
+---
+import FormField from './FormField.astro';
+import TextAreaField from './TextAreaField.astro';
+import SelectField from './SelectField.astro';
+import HiddenTrackingFields from './HiddenTrackingFields.astro';
+import TurnstileWidget from './TurnstileWidget.astro';
+
+const serviceOptions = [
+  { value: 'kajabi', label: 'Kajabi Services' },
+  { value: 'lms', label: 'LMS Implementation or Migration' },
+  { value: 'custom', label: 'Custom eLearning Development' },
+  { value: 'ai', label: 'AI-Powered eLearning' },
+  { value: 'upload', label: 'Course Upload or Cleanup' },
+  { value: 'funnel', label: 'Funnel or Email Automation' },
+  { value: 'analytics', label: 'Learning Analytics' },
+  { value: 'general', label: 'General Inquiry' },
+];
+---
+
+<form action="/api/submit-lead" method="POST" class="space-y-5" id="contact-form">
+  <HiddenTrackingFields formType="contact" />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <FormField name="fullName" label="Full Name" required={true} placeholder="Your Name" />
+    <FormField name="email" label="Email Address" type="email" required={true} placeholder="Your Email" />
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <FormField name="company" label="Company / Organization" placeholder="Company Name" />
+    <FormField name="website" label="Website" type="url" placeholder="https://..." />
+  </div>
+
+  <SelectField name="serviceNeeded" label="Service Needed" options={serviceOptions} required={true} />
+
+  <TextAreaField name="message" label="Message" required={true} placeholder="How can we help?" rows={5} />
+
+  <TurnstileWidget />
+
+  <p class="text-xs text-slate-500">By submitting this form, you agree to our Privacy Policy.</p>
+
+  <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition-colors w-full md:w-auto" id="submit-contact-btn">
+    Submit Message
+  </button>
+</form>
+
+<script>
+  // Placeholder frontend handler for later integration with Firebase or /api routes
+  document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+    // We are currently simulating submission to /thank-you/?type=contact
+    e.preventDefault();
+    const btn = document.getElementById('submit-contact-btn') as HTMLButtonElement;
+    if(btn) {
+      btn.disabled = true;
+      btn.innerText = 'Submitting...';
+    }
+
+    // Simulate API call and redirect
+    setTimeout(() => {
+      window.location.href = '/thank-you/?type=contact';
+    }, 1000);
+  });
+</script>
