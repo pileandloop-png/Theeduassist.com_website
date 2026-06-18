@@ -1,0 +1,5 @@
+Record Type,Name,Value/Target,Priority,TTL,Proxy Status,Source,Keep/Remove,Notes
+A,@,192.0.2.1,,Auto,Proxied,GoDaddy,Keep,Website root
+CNAME,www,theeduassist.com,,Auto,Proxied,GoDaddy,Keep,www redirect
+MX,@,mail.theeduassist.com,10,Auto,DNS Only,cPanel,Keep,Main mail server
+TXT,@,v=spf1 mx a ~all,,Auto,DNS Only,cPanel,Keep,SPF record

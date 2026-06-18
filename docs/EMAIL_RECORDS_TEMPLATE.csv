@@ -1,0 +1,9 @@
+Record Purpose,Record Type,Name,Value/Target,Priority,TTL,Proxy Status,Test Status,Notes
+Mail server A record,A,mail,192.0.2.100,,Auto,DNS Only,Pending,Must be DNS Only
+MX record,MX,@,mail.theeduassist.com,0,Auto,DNS Only,Pending,Primary MX
+SPF TXT,TXT,@,v=spf1 mx a ~all,,Auto,DNS Only,Pending,Sender Policy Framework
+DKIM TXT,TXT,default._domainkey,v=DKIM1; k=rsa; p=...,,Auto,DNS Only,Pending,DomainKeys Identified Mail
+DMARC TXT,TXT,_dmarc,v=DMARC1; p=none;,,Auto,DNS Only,Pending,Domain-based Message Authentication
+autodiscover CNAME,CNAME,autodiscover,autodiscover.theeduassist.com,,Auto,DNS Only,Pending,For email client setup
+webmail CNAME,CNAME,webmail,theeduassist.com,,Auto,DNS Only,Pending,Webmail access
+cpanel CNAME,CNAME,cpanel,theeduassist.com,,Auto,DNS Only,Pending,cPanel access

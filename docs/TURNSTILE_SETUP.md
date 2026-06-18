@@ -1,6 +1,6 @@
 # Cloudflare Turnstile Setup
 
-Turnstile is used to protect forms from spam and bots without presenting an annoying CAPTCHA.
+Turnstile is used to protect forms from spam and bots without presenting an annoying CAPTCHA. It provides an invisible or non-intrusive challenge that verifies real users, improving user experience over traditional CAPTCHAs.
 
 ## Setup Instructions
 
@@ -22,3 +22,7 @@ Turnstile tokens expire after a few minutes. If a user leaves the form open for 
 ## Testing
 - Without the secret key configured on the backend, you cannot fully test Turnstile.
 - You can test failure by submitting an empty token or an invalid one to ensure the backend rejects it.
+
+## Important Reminders
+- **Do not expose secret key:** The `TURNSTILE_SECRET_KEY` must never be sent to the frontend.
+- **Widget alone is not enough:** Do not claim spam protection is complete with the frontend widget only. Server-side validation is strictly required.
