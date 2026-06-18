@@ -2,23 +2,62 @@
 import { site } from '../data/site';
 import { navigation } from '../data/navigation';
 ---
-<footer class="bg-slate-900 text-slate-300 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+<footer class="bg-brand-primary text-slate-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
             <div class="text-2xl font-bold text-white mb-4">{site.name}</div>
-            <p class="mb-4">Custom eLearning, Kajabi, and LMS Solutions Built to Launch Faster</p>
-            <p>Email: <a href={`mailto:${site.email}`} class="text-blue-400">{site.email}</a></p>
-            <p>Serving clients remotely.</p>
+            <p class="mb-4">TheEduAssist delivers fast, flexible, and impactful eLearning solutions that help teams upskill, adapt, and succeed in a changing business world.</p>
+            <p>Email: <a href={`mailto:${site.email}`} class="text-brand-accent hover:text-white">{site.email}</a></p>
+            <!-- Verify address before launch -->
+            <!-- <p>9030 35th Ave SW, Seattle, United States</p> -->
+            <div class="flex space-x-4 mt-6">
+                <a href={site.social.linkedIn} target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="LinkedIn">LinkedIn</a>
+                <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="Facebook">Facebook</a>
+                <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="Instagram">Instagram</a>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-white font-bold mb-4">Ready to improve your eLearning?</h3>
+                <a href="/book-free-audit/" class="inline-block bg-brand-accent text-brand-navy px-5 py-2 rounded-md font-medium hover:bg-white hover:text-brand-primary">Get a Free Consultation</a>
+            </div>
         </div>
         <div>
-            <h3 class="text-white font-bold mb-4">Quick Links</h3>
+            <h3 class="text-white font-bold mb-4">Services</h3>
             <ul class="space-y-2">
-                {navigation.footerQuickLinks.map((item) => (
-                    <li><a href={item.href} class="hover:text-white">{item.label}</a></li>
-                ))}
+                <li><a href="/services/custom-elearning-development/" class="hover:text-white">Custom eLearning Development</a></li>
+                <li><a href="/services/" class="hover:text-white">Gamified Learning</a></li>
+                <li><a href="/services/" class="hover:text-white">Microlearning & Microsimulations</a></li>
+                <li><a href="/services/" class="hover:text-white">Audio & Video Production</a></li>
+                <li><a href="/services/" class="hover:text-white">Rapid eLearning</a></li>
+                <li><a href="/services/" class="hover:text-white">Mobile Learning Solutions</a></li>
+                <li><a href="/services/lms-implementation-migration/" class="hover:text-white">LMS Implementation and Migration</a></li>
+                <li><a href="/services/" class="hover:text-white">eLearning Localization</a></li>
+                <li><a href="/services/" class="hover:text-white">Legacy Content Conversion</a></li>
+                <li><a href="/services/" class="hover:text-white">AR & VR Solutions</a></li>
+                <li><a href="/services/" class="hover:text-white">Dashboards & Analytics</a></li>
             </ul>
         </div>
         <div>
+            <h3 class="text-white font-bold mb-4">Training Solutions</h3>
+            <ul class="space-y-2">
+                <li><a href="/services/" class="hover:text-white">Sales Training</a></li>
+                <li><a href="/services/" class="hover:text-white">Induction & Onboarding Training</a></li>
+                <li><a href="/services/" class="hover:text-white">Leadership Training</a></li>
+                <li><a href="/services/" class="hover:text-white">Professional Skills Training</a></li>
+                <li><a href="/services/" class="hover:text-white">Product Training</a></li>
+                <li><a href="/services/" class="hover:text-white">Soft Skills Training</a></li>
+                <li><a href="/services/" class="hover:text-white">Customer Service Training</a></li>
+                <li><a href="/services/" class="hover:text-white">Field & Frontline Staff Training</a></li>
+                <li><a href="/services/" class="hover:text-white">Truck Driver Training (Canada & USA)</a></li>
+                <li><a href="/services/" class="hover:text-white">Franchise Training</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-white font-bold mb-4">Company</h3>
+            <ul class="space-y-2 mb-8">
+                {navigation.footerCompanyLinks?.map((item) => (
+                    <li><a href={item.href} class="hover:text-white">{item.label}</a></li>
+                ))}
+            </ul>
             <h3 class="text-white font-bold mb-4">Legal & Trust</h3>
             <ul class="space-y-2">
                 {navigation.footerLegalLinks.map((item) => (
@@ -26,12 +65,8 @@ import { navigation } from '../data/navigation';
                 ))}
             </ul>
         </div>
-        <div>
-            <h3 class="text-white font-bold mb-4">Ready to improve your eLearning?</h3>
-            <a href="/book-free-audit/" class="inline-block bg-blue-600 text-white px-5 py-2 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
-        </div>
     </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-center text-sm">
-        &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-brand-navy text-center text-sm">
+        &copy; 2026, {site.name}. All rights reserved.
     </div>
 </footer>

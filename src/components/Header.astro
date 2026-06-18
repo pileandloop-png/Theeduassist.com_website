@@ -2,14 +2,14 @@
 import { site } from '../data/site';
 import { navigation } from '../data/navigation';
 ---
-<header class="bg-white border-b border-slate-200">
+<header class="bg-white border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <a href="/" class="text-2xl font-bold text-blue-600">{site.name}</a>
+        <a href="/" class="text-2xl font-bold text-brand-primary">{site.name}</a>
         <nav class="hidden md:flex space-x-6">
             {navigation.header.map((item) => (
-                <a href={item.href} class="text-slate-600 hover:text-blue-600">{item.label}</a>
+                <a href={item.href} class="text-brand-textMuted hover:text-brand-primary">{item.label}</a>
             ))}
         </nav>
-        <a href="/book-free-audit/" class="bg-blue-600 text-white px-5 py-2 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
+        <a href="/book-free-audit/" class="bg-brand-primary text-white px-5 py-2 rounded-md font-medium hover:bg-brand-navy">Book Free Audit</a>
     </div>
 </header>

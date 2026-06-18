@@ -8,32 +8,32 @@ export const services = {
     },
     {
       title: 'Custom eLearning Development',
-      description: 'Structured, interactive, learner-friendly digital courses.',
+      description: 'Create engaging, tailor-made eLearning courses designed around your goals, content, and learners’ needs.',
       link: '/services/custom-elearning-development/',
     },
     {
       title: 'LMS Implementation & Migration',
-      description: 'Set up, organize, and migrate LMS platforms without losing content structure.',
+      description: 'Set up, organize, or move your LMS with clearer structure, safer migration planning, and smoother learner access.',
       link: '/services/lms-implementation-migration/',
     },
     {
       title: 'AI-Powered eLearning',
-      description: 'Support course planning, content structuring, and learner engagement with careful AI integration.',
+      description: 'Use AI-supported learning workflows to plan, structure, and improve digital learning experiences with human quality review.',
       link: '/services/ai-powered-elearning/',
     },
     {
       title: 'Gamified Learning',
-      description: 'Interactive and engaging learning experiences.',
+      description: 'Add interaction, challenges, and reward-based learning elements that improve motivation without distracting from outcomes.',
       link: undefined,
     },
     {
       title: 'Microlearning & Microsimulations',
-      description: 'Bite-sized, focused learning modules for quick skill acquisition.',
+      description: 'Deliver focused lessons and practice-based scenarios through bite-sized modules and realistic simulations.',
       link: undefined,
     },
     {
       title: 'Legacy Content Conversion',
-      description: 'Modernize and update existing training materials into interactive digital formats.',
+      description: 'Modernize old Flash, PowerPoint, PDF, or classroom material into mobile-friendly digital learning content.',
       link: undefined,
     },
     {
@@ -43,7 +43,7 @@ export const services = {
     },
     {
       title: 'Dashboards & Analytics',
-      description: 'Track learner progress and evaluate the effectiveness of your training programs.',
+      description: 'Use dashboards and learning insights to track progress, identify gaps, and improve training decisions.',
       link: undefined,
     },
     {

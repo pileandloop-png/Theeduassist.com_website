@@ -1,21 +1,21 @@
 
 export const caseStudies = [
   {
-    clientType: 'Government and skills development',
+    clientType: 'Government & Skills Development',
     title: 'SQA-Aligned Vocational Training',
-    summary: 'TheEduAssist supported the conversion of vocational training material into structured, LMS-ready digital learning content aligned with SQA-style requirements.',
+    summary: 'Developed SQA-compliant vocational eLearning courses for a Malaysian government institute to support skills-based workforce development.',
     note: 'Detailed case study content will be refined during migration.',
   },
   {
-    clientType: 'Corporate training',
+    clientType: 'Corporate Training',
     title: 'Business Analytics for Corporate Teams',
-    summary: 'TheEduAssist helped structure business analytics learning content for corporate learners, focusing on practical skills, clear learning flow, and learner-friendly delivery.',
+    summary: 'Created business analytics training content for corporate teams to improve data understanding and decision-making.',
     note: 'Detailed case study content will be refined during migration.',
   },
   {
-    clientType: 'Publishing and education',
+    clientType: 'Educational',
     title: 'Language Courses for a Book Publisher',
-    summary: 'TheEduAssist supported digital language course development for a publishing-focused education client, helping convert learning material into online course experiences.',
+    summary: 'Supported a publishing client with engaging language course content for students and training audiences.',
     note: 'Detailed case study content will be refined during migration.',
   },
 ];

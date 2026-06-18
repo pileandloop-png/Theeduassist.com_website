@@ -1,0 +1,55 @@
+---
+import { tools } from '../../data/tools';
+---
+
+<section class="py-12 bg-white border-y border-brand-border overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
+    <h2 class="text-2xl font-bold text-brand-primary mb-2">Most Used Tools</h2>
+    <p class="text-brand-textMuted max-w-2xl mx-auto text-sm">
+      We work across popular course, LMS, and learning technology platforms to help teams organize, deliver, and improve online learning.
+    </p>
+  </div>
+
+  <div class="relative flex overflow-x-hidden group" aria-label="Most Used Tools Slider">
+    <div class="py-4 animate-marquee whitespace-nowrap flex items-center group-hover:pause motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:flex-wrap motion-reduce:justify-center">
+      {tools.map((tool) => (
+        <span class="inline-block mx-4 px-6 py-3 bg-brand-softBg border border-brand-border rounded-full text-brand-primary font-medium shadow-sm whitespace-nowrap">
+          {tool.name}
+        </span>
+      ))}
+      <!-- Duplicate for seamless scroll unless reduced motion -->
+      <div class="hidden motion-safe:flex">
+         {tools.map((tool) => (
+            <span class="inline-block mx-4 px-6 py-3 bg-brand-softBg border border-brand-border rounded-full text-brand-primary font-medium shadow-sm whitespace-nowrap" aria-hidden="true">
+              {tool.name}
+            </span>
+          ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 text-center">
+      <p class="text-xs text-brand-textMuted italic">
+          Platform support does not imply official partnership unless stated.
+      </p>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%); /* Adjust based on duplication */
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .pause {
+    animation-play-state: paused;
+  }
+</style>

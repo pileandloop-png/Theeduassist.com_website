@@ -8,18 +8,18 @@ interface Props {
 
 const { href, variant = 'primary', size = 'md', className = '' } = Astro.props;
 
-const baseStyles = "inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2";
+const baseStyles = "inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2";
 const sizes = {
   sm: "px-4 py-2 text-sm",
   md: "px-6 py-3 text-base",
   lg: "px-8 py-4 text-lg font-bold shadow-lg"
 };
 const variants = {
-  primary: "bg-blue-600 text-white hover:bg-blue-700",
-  secondary: "bg-slate-800 text-white hover:bg-slate-900",
-  outline: "bg-white text-blue-600 border border-blue-600 hover:bg-slate-50",
-  ghost: "bg-transparent text-blue-600 hover:bg-blue-50",
-  white: "bg-white text-blue-600 hover:bg-slate-50 shadow-sm"
+  primary: "bg-brand-primary text-white hover:bg-brand-navy",
+  secondary: "bg-brand-accent text-brand-navy hover:bg-white hover:text-brand-primary",
+  outline: "bg-white text-brand-primary border border-brand-primary hover:bg-brand-softBg",
+  ghost: "bg-transparent text-brand-primary hover:bg-brand-softBlue",
+  white: "bg-white text-brand-primary hover:bg-brand-softBg shadow-sm"
 };
 ---
 <a href={href} class={`${baseStyles} ${sizes[size]} ${variants[variant]} ${className}`}>
