@@ -1,31 +1,36 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { caseStudies } from '../../data/caseStudies';
+import HomeHero from "../../components/sections/HomeHero.astro";
+import CaseStudyPreviewGrid from "../../components/sections/CaseStudyPreviewGrid.astro";
+import FinalCTA from "../../components/sections/FinalCTA.astro";
 ---
-<Layout title="Case Studies" description="Read how TheEduAssist has helped clients build successful eLearning solutions.">
+<Layout title="Case Studies" description="Explore how TheEduAssist has helped clients structure, migrate, and build professional learning solutions.">
 
-        <section class="py-20 bg-slate-100 text-center px-4">
-            <h1 class="text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto">Case Studies</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">Explore our professional work in custom eLearning, LMS setup, and instructional design.</p>
-        </section>
+  <HomeHero
+    title="Client Case Studies"
+    subtitle="Real projects. Real outcomes. We focus on practical delivery and clear results without relying on fake metrics or exaggerated claims."
+    primaryCtaLabel="Book Free Audit"
+    primaryCtaLink="/book-free-audit/"
+  />
 
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+  <section class="py-12 bg-amber-50 border-y border-amber-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-amber-800 font-medium flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+        </svg>
+        Detailed case study content, including specific implementations and methodologies, will be refined during our upcoming platform migration.
+      </p>
+    </div>
+  </section>
 
-                {caseStudies.map(cs => (
-                    <div class="border border-slate-200 rounded-lg p-8 shadow-sm">
-                        <div class="text-sm font-bold tracking-wider text-blue-600 uppercase mb-3">Client Type: {cs.clientType}</div>
-                        <h2 class="text-2xl font-bold mb-4">{cs.title}</h2>
-                        <p class="text-slate-600 mb-6">{cs.summary}</p>
-                        <p class="text-xs text-slate-400 italic">Note: {cs.note}</p>
-                    </div>
-                ))}
+  <div class="pt-12">
+    <CaseStudyPreviewGrid />
+  </div>
 
-            </div>
-        </section>
-
-        <section class="py-16 bg-slate-50 text-center">
-            <a href="/book-free-audit/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
-        </section>
+  <FinalCTA
+    title="Want to discuss a similar project?"
+    subtitle="Let's look at your requirements and see how we can help."
+  />
 
 </Layout>

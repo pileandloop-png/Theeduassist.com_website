@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  centered?: boolean;
+  className?: string;
+  titleClassName?: string;
+}
+
+const { title, description, centered = true, className = '', titleClassName = '' } = Astro.props;
+---
+<div class={`mb-12 ${centered ? 'text-center' : ''} ${className}`}>
+  <h2 class={`text-3xl font-bold mb-6 ${titleClassName}`}>{title}</h2>
+  {description && <p class={`text-lg text-slate-600 ${centered ? 'max-w-3xl mx-auto' : ''}`}>{description}</p>}
+  <slot />
+</div>

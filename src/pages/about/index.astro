@@ -1,29 +1,79 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HomeHero from "../../components/sections/HomeHero.astro";
+import ProcessTimeline from "../../components/sections/ProcessTimeline.astro";
+import FinalCTA from "../../components/sections/FinalCTA.astro";
+import Card from "../../components/ui/Card.astro";
+import SectionHeader from "../../components/ui/SectionHeader.astro";
 ---
 <Layout title="About TheEduAssist" description="Learn about TheEduAssist, what we build, and why clients choose us for their learning solutions.">
 
-        <section class="py-20 bg-slate-100 text-center px-4">
-            <h1 class="text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto">About TheEduAssist</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-10">Professional, practical, and outcome-focused learning solutions.</p>
-            <a href="/book-free-audit/" class="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700">Book Free Audit</a>
-        </section>
+  <HomeHero
+    title="About TheEduAssist"
+    subtitle="Professional, practical, and outcome-focused learning solutions for course creators, training teams, and businesses."
+    primaryCtaLabel="Book Free Audit"
+    primaryCtaLink="/book-free-audit/"
+  />
 
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 space-y-12">
-                <div>
-                    <h2 class="text-3xl font-bold mb-4">Who We Are</h2>
-                    <p class="text-lg text-slate-600">TheEduAssist is a dedicated team of learning professionals, instructional designers, and technical experts. We serve clients remotely, providing reliable support for eLearning and platform management.</p>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-bold mb-4">What We Help Clients Build</h2>
-                    <p class="text-lg text-slate-600">We help turn raw content and ideas into structured, engaging online learning experiences. From full custom course design to setting up robust LMS platforms and Kajabi ecosystems, we handle the technical and pedagogical heavy lifting.</p>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-bold mb-4">Why Clients Work With Us</h2>
-                    <p class="text-lg text-slate-600">Clients choose us for our practical delivery approach. We do not use generic AI jargon, make exaggerated claims, or promise fake results. We deliver clear, outcome-focused solutions tailored to actual learner needs.</p>
-                </div>
-            </div>
-        </section>
+  <section class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl font-bold mb-4 text-slate-900">Who We Are</h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8">TheEduAssist is a dedicated team of learning professionals, instructional designers, and technical experts. We serve clients remotely, providing reliable support for eLearning and platform management.</p>
+
+        <h2 class="text-3xl font-bold mb-4 text-slate-900">What We Help Build</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">We help turn raw content and ideas into structured, engaging online learning experiences. From full custom course design to setting up robust LMS platforms and Kajabi ecosystems, we handle the technical and pedagogical heavy lifting.</p>
+      </div>
+
+      <div class="bg-blue-50 border border-blue-100 rounded-lg p-8">
+        <h2 class="text-2xl font-bold mb-4 text-blue-900">Why Clients Work With Us</h2>
+        <p class="text-lg text-blue-800 leading-relaxed mb-6">Clients choose us for our practical delivery approach. We do not use generic AI jargon, make exaggerated claims, or promise fake results. We deliver clear, outcome-focused solutions tailored to actual learner needs.</p>
+        <ul class="space-y-3 text-blue-800 font-medium">
+          <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> No fake metrics</li>
+          <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> No exaggerated claims</li>
+          <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Transparent timelines</li>
+          <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Focus on actual learner experience</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4">
+      <SectionHeader title="Our Approach" />
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <Card className="text-center relative">
+          <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-slate-200 z-10"></div>
+          <h3 class="font-bold text-slate-900 mb-2">1. Understand</h3>
+          <p class="text-sm text-slate-600">Review the raw content and goals.</p>
+        </Card>
+        <Card className="text-center relative">
+          <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-slate-200 z-10"></div>
+          <h3 class="font-bold text-slate-900 mb-2">2. Map</h3>
+          <p class="text-sm text-slate-600">Design the learner journey.</p>
+        </Card>
+        <Card className="text-center relative">
+          <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-slate-200 z-10"></div>
+          <h3 class="font-bold text-slate-900 mb-2">3. Build</h3>
+          <p class="text-sm text-slate-600">Structure the platform or course.</p>
+        </Card>
+        <Card className="text-center relative">
+          <div class="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-slate-200 z-10"></div>
+          <h3 class="font-bold text-slate-900 mb-2">4. Review</h3>
+          <p class="text-sm text-slate-600">Test and improve the flow.</p>
+        </Card>
+        <Card className="text-center relative">
+          <h3 class="font-bold text-slate-900 mb-2">5. Launch</h3>
+          <p class="text-sm text-slate-600">Prepare for a smooth rollout.</p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA
+    title="Ready to work together?"
+    subtitle="Book a free audit to discuss your project and see if we're a good fit."
+  />
 
 </Layout>

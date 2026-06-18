@@ -1,0 +1,89 @@
+---
+// A pure CSS/HTML implementation of tabs to avoid JS overhead
+interface Tab {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  tabs: Tab[];
+  name: string; // Group name for radio buttons
+  defaultActiveId?: string;
+  className?: string;
+}
+
+const { tabs, name, defaultActiveId = tabs[0]?.id, className = '' } = Astro.props;
+---
+<div class={`tabs-container ${className}`}>
+  <div class="flex flex-wrap gap-2 mb-8 border-b border-slate-200" role="tablist">
+    {tabs.map((tab) => (
+      <div class="relative">
+        <input
+          type="radio"
+          name={name}
+          id={`${name}-${tab.id}`}
+          class="peer sr-only"
+          checked={tab.id === defaultActiveId}
+        />
+        <label
+          for={`${name}-${tab.id}`}
+          class="inline-block px-6 py-3 text-sm font-medium text-slate-600 cursor-pointer hover:text-slate-900 peer-checked:text-blue-600 peer-checked:border-b-2 peer-checked:border-blue-600 transition-colors"
+          role="tab"
+          tabindex="0"
+        >
+          {tab.label}
+        </label>
+      </div>
+    ))}
+  </div>
+
+  <div class="tab-panels relative">
+    <slot />
+  </div>
+</div>
+
+<style>
+  /* Base style for all content divs with a specific data attribute pattern */
+  .tab-panels > div[data-tab-content] {
+    display: none;
+  }
+
+  /*
+   * This is a bit tricky with pure CSS in Astro components because slot content
+   * isn't in the same scope. The wrapper logic needs to be handled outside or
+   * we use a global style trick.
+   * For the static site, we'll use a small inline script just for this component
+   * if pure CSS gets too complex, but let's try a simple script that's minimal.
+   */
+</style>
+
+<script>
+  // Minimal vanilla JS to handle the tab switching to keep it lightweight
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabContainers = document.querySelectorAll('.tabs-container');
+
+    tabContainers.forEach(container => {
+      const radios = container.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+      const panels = container.querySelectorAll<HTMLElement>('.tab-panels > div[data-tab-content]');
+
+      const updatePanels = () => {
+        const checkedId = Array.from(radios).find(r => r.checked)?.id.split('-').pop();
+        panels.forEach(panel => {
+          if (panel.dataset.tabContent === checkedId) {
+            panel.style.display = 'block';
+            panel.classList.add('animate-fade-in');
+          } else {
+            panel.style.display = 'none';
+          }
+        });
+      };
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updatePanels);
+      });
+
+      // Initialize
+      updatePanels();
+    });
+  });
+</script>

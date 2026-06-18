@@ -1,41 +1,124 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import FAQAccordion from "../../components/ui/FAQAccordion.astro";
+import { ctaBlocks } from '../../data/ctaBlocks';
+import Card from "../../components/ui/Card.astro";
+
+const auditFaqs = [
+  {
+    question: "Is this really free?",
+    answer: "Yes, the 30-minute audit call is completely free. We use this time to understand your goals and see if we are a good fit to help you."
+  },
+  {
+    question: "Do I need to have my content ready?",
+    answer: "No, you don't need everything ready. Bring whatever you have—even if it's just an outline, some videos, or an old course. We can guide you on the next steps."
+  },
+  {
+    question: "Is this a sales pitch?",
+    answer: "No, it's a working session. We will look at your current setup, answer your questions, and give you actionable advice. If you want our help implementing the advice, we will provide a proposal afterward."
+  }
+];
 ---
 <Layout title="Book Free Audit" description="Book a free audit with TheEduAssist to review your course structure, platform setup, and launch strategy.">
 
-        <section class="py-20 bg-slate-100 text-center px-4 border-b border-slate-200">
-            <h1 class="text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto">Book Your Free eLearning Audit</h1>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto">A professional, no-obligation review of your course, platform, or content structure.</p>
-        </section>
+  <section class="py-20 md:py-28 bg-slate-900 text-white text-center px-4 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500 to-transparent"></div>
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="inline-block px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm font-bold mb-6 tracking-wide uppercase border border-blue-700">
+        No Obligation Call
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Book Your Free eLearning Audit</h1>
+      <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">A professional, no-obligation review of your course, platform setup, or content structure.</p>
+    </div>
+  </section>
 
-        <section class="py-20 bg-white">
-            <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6">What the audit includes</h2>
-                    <ul class="list-disc pl-5 space-y-3 text-lg text-slate-600 mb-10">
-                        <li>Course or platform review</li>
-                        <li>Kajabi or LMS setup review</li>
-                        <li>Content structure review</li>
-                        <li>User journey review</li>
-                    </ul>
-
-                    <h2 class="text-3xl font-bold mb-6">Who it is for</h2>
-                    <p class="text-lg text-slate-600 mb-10">Coaches, course creators, corporate training teams, and educational organizations looking to improve or launch their digital learning programs.</p>
-
-                    <h2 class="text-3xl font-bold mb-6">What you get after</h2>
-                    <ul class="list-disc pl-5 space-y-3 text-lg text-slate-600">
-                        <li>A clear launch roadmap</li>
-                        <li>Actionable feedback on your current setup</li>
-                        <li>A next-step proposal tailored to your needs</li>
-                    </ul>
-                </div>
-
-                <div class="bg-slate-50 p-8 rounded-lg border border-slate-200 text-center flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold mb-6">Ready to start?</h3>
-                    <p class="text-slate-600 mb-8">Reach out to us directly to schedule your audit call.</p>
-                    <a href="/contact/" class="bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg shadow-sm hover:bg-blue-700">Contact Us to Schedule</a>
-                </div>
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-7 space-y-12">
+        <div>
+          <h2 class="text-3xl font-bold mb-6 text-slate-900 border-b border-slate-200 pb-4">What the audit covers</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex items-start">
+              <svg class="h-6 w-6 text-blue-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-slate-700 font-medium">Kajabi setup review</span>
             </div>
-        </section>
+            <div class="flex items-start">
+              <svg class="h-6 w-6 text-blue-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-slate-700 font-medium">LMS migration readiness</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="h-6 w-6 text-blue-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-slate-700 font-medium">Course content structure</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="h-6 w-6 text-blue-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-slate-700 font-medium">Learner journey review</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="h-6 w-6 text-blue-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-slate-700 font-medium">Funnel and email flow</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="h-6 w-6 text-blue-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-slate-700 font-medium">Launch priorities</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold mb-6 text-slate-900 border-b border-slate-200 pb-4">Who should book</h2>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            Coaches, course creators, corporate training teams, and educational organizations who are actively looking to improve, migrate, or launch their digital learning programs in the near future.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold mb-6 text-slate-900 border-b border-slate-200 pb-4">What you will leave with</h2>
+          <ul class="space-y-4 text-slate-600">
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold mr-3 flex-shrink-0">1</div>
+              <span class="mt-1">A clear understanding of your technical launch roadmap.</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold mr-3 flex-shrink-0">2</div>
+              <span class="mt-1">Actionable feedback on your current course or platform setup.</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold mr-3 flex-shrink-0">3</div>
+              <span class="mt-1">A tailored proposal outlining how TheEduAssist can help you execute.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="bg-blue-600 rounded-xl p-8 text-white shadow-xl sticky top-8">
+          <h3 class="text-2xl font-bold mb-6">Schedule Your Call</h3>
+          <p class="text-blue-100 mb-8">Ready to get started? Schedule a 30-minute discussion with our team.</p>
+
+          <a
+            href={ctaBlocks.calendly.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-md font-bold text-lg hover:bg-slate-50 transition-colors shadow-sm mb-6"
+          >
+            {ctaBlocks.calendly.label}
+          </a>
+
+          <div class="text-center text-sm text-blue-200">
+            <p>Can't find a time that works?</p>
+            <a href="/contact/" class="underline hover:text-white transition-colors">Contact us directly</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-10 text-center text-slate-900">Audit FAQs</h2>
+      <FAQAccordion items={auditFaqs} />
+    </div>
+  </section>
 
 </Layout>
