@@ -1,59 +1,43 @@
-# TheEduAssist Brand Style Guide
+# Brand Style Guide: TheEduAssist
 
-## Logo Description
-The logo is a circular badge/emblem with these colors:
-* Outer ring: Light Green (`#77BA55`)
-* Inner circle: Dark Slate Blue (`#27496D`)
-* Text/icons: White (`#FFFFFF`)
-* Borders: White (`#FFFFFF`)
+## Brand Identity
+**Name:** TheEduAssist
+**Tagline:** E-Learning Design Agency
+**Message:** At TheEduAssist, we turn eLearning into engaging, practical, and learner-focused experiences that go beyond basic compliance.
 
-Currently missing image logo should fall back to the text wordmark `TheEduAssist`. Expected logo file location: `public/brand/theeduassist-logo.svg`.
+## Color Palette
+- **Primary Dark Slate Blue:** `#27496D`
+- **Brand Green:** `#77BA55`
+- **White:** `#FFFFFF`
+- **Soft Background:** `#F8FAFC`
+- **Soft Green Tint:** `#F3FAF0`
+- **Soft Blue Tint:** `#EFF6FF`
+- **Charcoal Text:** `#1F2937`
+- **Muted Text:** `#64748B`
+- **Border:** `#E5E7EB`
 
-## Brand Colors
-### Primary Brand Colors
-* **Dark Slate Blue (`#27496D`)**: Used for main headers, primary buttons, hero backgrounds, and footer.
-* **Light Green (`#77BA55`)**: Used for positive accents, badges, check marks, and secondary highlights.
-* **White (`#FFFFFF`)**: Used for text on dark backgrounds, primary container backgrounds, borders in logo.
+## Logo Usage
+- `public/brand/theeduassist-logo.svg`: Primary logo (Header/Footer).
+- `public/brand/theeduassist-logo-mark.svg`: Logo mark (Favicon).
+- `public/brand/theeduassist-logo-wordmark.svg`: Wordmark only.
 
-### Supporting Colors
-* **Deep Navy (`#0B1F3A`)**: Used sparingly for very dark accents or text. Dark Slate Blue should remain the main brand dark.
-* **Soft Background (`#F8FAFC`)**: Used for alternate section backgrounds.
-* **Soft Green Tint (`#F3FAF0`)**: Used for light positive state backgrounds.
-* **Soft Blue Tint (`#EFF6FF`)**: Used for light primary state backgrounds.
-* **Charcoal Text (`#1F2937`)**: Primary body text color.
-* **Muted Text (`#64748B`)**: Secondary body text color and less important details.
-* **Border (`#E5E7EB`)**: Standard element border color.
+## Typography
+Use clean, sans-serif fonts suitable for digital learning environments. System-ui defaults are appropriate.
 
-## Typography Direction
-* Professional, modern, clean, warm, practical.
-* Not childish, not over-corporate, not template-like.
+## Contact Information
+- **Email Display:** Info@theeduassist.com
+- **Mailto:** mailto:Info@theeduassist.com
+- **Calendly:** https://calendly.com/eduassist-talk/30min?month
 
-## UI Rules
-* Use rounded cards, subtle shadows, clean spacing, clear CTAs.
-* Primary Button: Dark Slate Blue background, white text. Hover state: Deep Navy.
-* Secondary Button: Light Green background, Deep Navy text. Hover state: White background, Dark Slate Blue text.
-* Ensure color contrast ratio passes accessibility standards.
+## Social Links
+- **LinkedIn:** https://www.linkedin.com/company/theeduassist
+- **Instagram:** https://www.instagram.com/theeduassist
+- **Facebook:** https://www.facebook.com/people/Theeduassist/61576126813447/
 
-## Footer Rules
-* Footer uses Dark Slate Blue background.
-* Includes "Verify address before launch" for address.
-* Four columns: Intro/Contact, Services, Training Solutions, Company & Legal.
-* Copyright exactly: `© 2026, TheEduAssist. All rights reserved.`
+## Footer Copyright
+`© 2026, TheEduAssist. All rights reserved.`
 
-## Links
-* **Calendly CTA**: `https://calendly.com/eduassist-talk/30min?month`
-* **LinkedIn**: `https://www.linkedin.com/company/theeduassist`
-* **Facebook**: `https://www.facebook.com/people/Theeduassist/61576126813447/`
-* **Instagram**: `https://www.instagram.com/theeduassist`
-
-## Platform Slider Rules & Accessibility Notes
-* Most Used Tools slider must pause on hover/focus.
-* Must respect `prefers-reduced-motion` to disable animation.
-* Does not claim official partnership; must include note: `Platform support does not imply official partnership unless stated.`
-* Do not autoplay important text content or trap focus.
-
-## No Fake Claims Rule
-* Do not claim official Kajabi/LMS partnerships unless verified.
-* Do not display fake response-time promises.
-* Remove fake/unverified stats.
-* No exaggerated claims (e.g., 'revolutionize learning', 'unleash your potential').
+## No Fake Claims Policy
+- Do not use fake testimonials, awards, stats, or client names.
+- Do not claim official partnerships (e.g., Kajabi) unless verified.
+- Do not hotlink copyrighted logos from third-party sites without permission.

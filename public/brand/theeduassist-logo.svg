@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="100%" height="100%">
+  <!-- Logo Mark -->
+  <g transform="translate(10, 10)">
+    <!-- Outer ring / accent green -->
+    <circle cx="40" cy="40" r="35" fill="none" stroke="#77BA55" stroke-width="8"/>
+    <!-- Inner circle / main blue -->
+    <circle cx="40" cy="40" r="25" fill="#27496D"/>
+    <!-- Text and icons / white -->
+    <text x="40" y="47" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">EA</text>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(100, 45)">
+    <text font-family="system-ui, sans-serif" fill="#27496D">
+      <tspan font-size="32" font-weight="bold">TheEduAssist</tspan>
+    </text>
+  </g>
+
+  <!-- Tagline -->
+  <g transform="translate(100, 70)">
+    <text font-family="system-ui, sans-serif" fill="#77BA55" font-size="14" font-weight="600" letter-spacing="1">E-Learning Design Agency</text>
+  </g>
+</svg>

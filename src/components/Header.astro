@@ -4,7 +4,9 @@ import { navigation } from '../data/navigation';
 ---
 <header class="bg-white border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <a href="/" class="text-2xl font-bold text-brand-primary">{site.name}</a>
+        <a href="/" class="flex items-center space-x-2" aria-label="TheEduAssist Home">
+            <img src="/brand/theeduassist-logo.svg" alt="TheEduAssist Logo" class="h-10 w-auto" />
+        </a>
         <nav class="hidden md:flex space-x-6">
             {navigation.header.map((item) => (
                 <a href={item.href} class="text-brand-textMuted hover:text-brand-primary">{item.label}</a>
