@@ -1,12 +1,6 @@
 ---
-<<<<<<< HEAD
-// src/components/sections/ToolsLogoSlider.astro
-import { getPlatformsForBadges } from '../../sanity/queries';
-
-const tools = await getPlatformsForBadges();
-=======
-import { tools } from '../../data/tools';
->>>>>>> 15b4f1c25ad7de4c37740baf48ab5e30f64d70f7
+const { tools } = Astro.props;
+const safeTools = Array.isArray(tools) ? tools : [];
 ---
 
 <section class="py-12 bg-white border-y border-brand-border overflow-hidden">
@@ -19,14 +13,14 @@ import { tools } from '../../data/tools';
 
   <div class="relative flex overflow-x-hidden group" aria-label="Most Used Tools Slider">
     <div class="py-4 animate-marquee whitespace-nowrap flex items-center group-hover:pause motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:flex-wrap motion-reduce:justify-center">
-      {tools.map((tool) => (
+      {safeTools.map((tool) => (
         <span class="inline-block mx-4 px-6 py-3 bg-brand-softBg border border-brand-border rounded-full text-brand-primary font-medium shadow-sm whitespace-nowrap">
           {tool.name}
         </span>
       ))}
       <!-- Duplicate for seamless scroll unless reduced motion -->
       <div class="hidden motion-safe:flex">
-         {tools.map((tool) => (
+         {safeTools.map((tool) => (
             <span class="inline-block mx-4 px-6 py-3 bg-brand-softBg border border-brand-border rounded-full text-brand-primary font-medium shadow-sm whitespace-nowrap" aria-hidden="true">
               {tool.name}
             </span>

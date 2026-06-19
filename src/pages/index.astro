@@ -13,12 +13,15 @@ import CaseStudyPreviewGrid from "../components/sections/CaseStudyPreviewGrid.as
 import FinalCTA from "../components/sections/FinalCTA.astro";
 import { process } from '../data/process';
 import { organizationSchema, websiteSchema, professionalServiceSchema } from '../lib/schema';
+import { getPlatformsForBadges } from '../sanity/queries';
 
 const jsonLd = [
   organizationSchema(),
   websiteSchema(),
   professionalServiceSchema()
 ];
+
+const tools = await getPlatformsForBadges();
 ---
 <Layout
   title="Custom eLearning, Kajabi, and LMS Solutions"
@@ -35,7 +38,7 @@ const jsonLd = [
     secondaryCtaLink="/services/"
   />
 
-  <ToolsLogoSlider />
+  <ToolsLogoSlider tools={tools} />
 
   <CoreServicesGrid />
 
