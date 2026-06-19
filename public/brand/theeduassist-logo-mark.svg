@@ -1,10 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-  <g transform="translate(10, 10)">
-    <!-- Outer ring / accent green -->
-    <circle cx="40" cy="40" r="35" fill="none" stroke="#77BA55" stroke-width="8"/>
-    <!-- Inner circle / main blue -->
-    <circle cx="40" cy="40" r="25" fill="#27496D"/>
-    <!-- Text and icons / white -->
-    <text x="40" y="47" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">EA</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="150" height="150">
+  <circle cx="75" cy="75" r="70" fill="#77BA55" stroke="#FFFFFF" stroke-width="2" />
+  <circle cx="75" cy="75" r="55" fill="#27496D" stroke="#FFFFFF" stroke-width="2" />
+  <!-- Open Book -->
+  <path d="M 55 95 Q 65 100 75 95 Q 85 100 95 95 L 95 105 Q 85 110 75 105 Q 65 110 55 105 Z" fill="#FFFFFF" />
+  <!-- Desktop Monitor -->
+  <rect x="50" y="55" width="50" height="35" rx="3" fill="none" stroke="#FFFFFF" stroke-width="2" />
+  <line x1="50" y1="83" x2="100" y2="83" stroke="#FFFFFF" stroke-width="2" />
+  <line x1="68" y1="92" x2="82" y2="92" stroke="#FFFFFF" stroke-width="2" />
+  <rect x="73" y="85" width="4" height="7" fill="#FFFFFF" />
+  <!-- Graduation Cap -->
+  <path d="M 75 62 L 60 68 L 75 74 L 90 68 Z" fill="#FFFFFF" />
+  <line x1="90" y1="68" x2="90" y2="78" stroke="#FFFFFF" stroke-width="1.5" />
+  <polygon points="89,78 91,78 90,81" fill="#FFFFFF" />
 </svg>

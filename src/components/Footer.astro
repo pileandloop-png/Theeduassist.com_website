@@ -1,51 +1,49 @@
 ---
-import { getSiteSettings, getAllPages } from '../sanity/queries';
+import { getSiteSettings } from '../sanity/queries';
 
 const siteSettings = await getSiteSettings();
 const site = siteSettings || { name: 'TheEduAssist', email: 'Info@theeduassist.com', social: {} };
 
-const pages = await getAllPages();
-const navigation = pages && pages.length > 0 ? {
-    footerCompanyLinks: pages.slice(0,8).map(p => ({ label: p.title, href: `/${p.slug?.current || ''}/` })),
-    footerLegalLinks: []
-} : {
+const navigation = {
     footerCompanyLinks: [
         { label: 'Home', href: '/' },
-        { label: 'Blogs', href: '/blog/' },
-        { label: 'Career', href: '/careers/' },
+        { label: 'Services', href: '/services/' },
+        { label: 'Kajabi Services', href: '/kajabi-services/' },
+        { label: 'Blog', href: '/blog/' },
+        { label: 'Case Studies', href: '/case-studies/' },
         { label: 'About Us', href: '/about/' },
         { label: 'Contact Us', href: '/contact/' },
-        { label: 'Case Studies', href: '/case-studies/' },
-        { label: 'Terms & Conditions', href: '/terms-and-conditions/' },
     ],
     footerLegalLinks: [
         { label: 'Privacy Policy', href: '/privacy-policy/' },
+        { label: 'Terms & Conditions', href: '/terms-and-conditions/' },
         { label: 'Disclaimer', href: '/disclaimer/' },
         { label: 'Editorial Policy', href: '/editorial-policy/' },
         { label: 'AI Use Policy', href: '/ai-use-policy/' },
         { label: 'Accessibility Statement', href: '/accessibility-statement/' },
+        { label: 'Cookie Policy', href: '/cookie-policy/' },
     ]
 };
 ---
-<footer class="bg-brand-primary text-slate-300 py-12">
+<footer class="bg-brand-primary text-slate-300 py-12 border-t border-brand-navy">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
             <div class="mb-4">
-                <img src="/brand/theeduassist-logo.svg" alt="TheEduAssist Logo" class="h-12 w-auto brightness-0 invert opacity-90" />
+                <img src="/brand/theeduassist-logo-wordmark.svg" alt="TheEduAssist Logo" class="h-12 w-auto brightness-0 invert opacity-90" />
             </div>
-            <p class="mb-4">TheEduAssist delivers fast, flexible, and impactful eLearning solutions that help teams upskill, adapt, and succeed in a changing business world.</p>
-            <p>Email: <a href={`mailto:${site.email}`} class="text-brand-accent hover:text-white">{site.email}</a></p>
-            <!-- Verify address before launch -->
-            <!-- <p>9030 35th Ave SW, Seattle, United States</p> -->
-                <div class="flex space-x-4 mt-6">
-                    <a href={site?.social?.linkedIn || '#'} target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="LinkedIn">LinkedIn</a>
-                    <a href={site?.social?.facebook || '#'} target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="Facebook">Facebook</a>
-                    <a href={site?.social?.instagram || '#'} target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="Instagram">Instagram</a>
-                </div>
-                <p>Email: <a href={`mailto:${site?.email || 'info@theeduassist.com'}`} class="text-brand-accent hover:text-white">{site?.email || 'info@theeduassist.com'}</a></p>
+            <p class="mb-4 leading-relaxed">TheEduAssist helps teams design, build, migrate, and improve online learning across LMS platforms, course websites, Kajabi, and AI-supported learning workflows.</p>
+
+            <p class="mb-2">Email: <a href="mailto:Info@theeduassist.com" class="text-brand-accent hover:text-white transition-colors focus-ring rounded-sm">Info@theeduassist.com</a></p>
+
+            <div class="flex space-x-4 mt-6">
+                <a href="https://www.linkedin.com/company/theeduassist" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors focus-ring rounded-sm" aria-label="LinkedIn">LinkedIn</a>
+                <a href="https://www.facebook.com/people/Theeduassist/61576126813447/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors focus-ring rounded-sm" aria-label="Facebook">Facebook</a>
+                <a href="https://www.instagram.com/theeduassist" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors focus-ring rounded-sm" aria-label="Instagram">Instagram</a>
+            </div>
+
             <div class="mt-8">
-                <h3 class="text-white font-bold mb-4">Ready to improve your eLearning?</h3>
-                <a href="/book-free-audit/" class="inline-block bg-brand-accent text-brand-navy px-5 py-2 rounded-md font-medium hover:bg-white hover:text-brand-primary">Get a Free Consultation</a>
+                <h3 class="text-white font-bold mb-4 text-lg">Ready to improve your eLearning?</h3>
+                <a href="/book-free-audit/" class="inline-block bg-brand-accent text-brand-navy px-5 py-2 rounded-md font-medium hover-lift click-press focus-ring transition-colors hover:bg-white">Get a Free Consultation</a>
             </div>
         </div>
         <div>
@@ -95,6 +93,6 @@ const navigation = pages && pages.length > 0 ? {
         </div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-brand-navy text-center text-sm">
-        &copy; 2026, {site.name}. All rights reserved.
+        &copy; 2026, {site?.name || 'TheEduAssist'}. All rights reserved.
     </div>
 </footer>

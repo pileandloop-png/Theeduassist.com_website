@@ -1,2 +1,11 @@
 node_modules/
 dist/
+
+.env
+.env.local
+.env.production
+.env.development
+.env.preview
+functions/.env
+functions/.env.local
+functions/.secret.local

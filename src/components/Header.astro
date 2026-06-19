@@ -1,53 +1,39 @@
 ---
 import { getSiteSettings, getAllPages } from '../sanity/queries';
+import MobileMenu from './layout/MobileMenu.astro';
 
 const siteSettings = await getSiteSettings();
 const site = siteSettings || { name: 'TheEduAssist', email: 'Info@theeduassist.com', social: {} };
 
-// Build a simple navigation from pages if available, otherwise fallback to static
-const pages = await getAllPages();
-const navigation = pages && pages.length > 0 ? {
-    header: pages.slice(0,6).map(p => ({ label: p.title, href: `/${p.slug?.current || ''}/` })),
-    footerCompanyLinks: pages.slice(0,8).map(p => ({ label: p.title, href: `/${p.slug?.current || ''}/` })),
-    footerLegalLinks: []
-} : {
-    header: [
-        { label: 'Home', href: '/' },
-        { label: 'Kajabi Services', href: '/kajabi-services/' },
-        { label: 'Blog', href: '/blog/' },
-        { label: 'Case Studies', href: '/case-studies/' },
-        { label: 'Services', href: '/services/' },
-        { label: 'Contact Us', href: '/contact/' },
-        { label: 'About Us', href: '/about/' },
-    ],
-    footerCompanyLinks: [
-        { label: 'Home', href: '/' },
-        { label: 'Blogs', href: '/blog/' },
-        { label: 'Career', href: '/careers/' },
-        { label: 'About Us', href: '/about/' },
-        { label: 'Contact Us', href: '/contact/' },
-        { label: 'Case Studies', href: '/case-studies/' },
-        { label: 'Terms & Conditions', href: '/terms-and-conditions/' },
-    ],
-    footerLegalLinks: [
-        { label: 'Privacy Policy', href: '/privacy-policy/' },
-        { label: 'Disclaimer', href: '/disclaimer/' },
-        { label: 'Editorial Policy', href: '/editorial-policy/' },
-        { label: 'AI Use Policy', href: '/ai-use-policy/' },
-        { label: 'Accessibility Statement', href: '/accessibility-statement/' },
-    ]
-};
+const desktopNav = [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services/' },
+    { label: 'LMS Solutions', href: '/services/lms-implementation-migration/' },
+    { label: 'Kajabi Services', href: '/kajabi-services/' },
+    { label: 'Blog', href: '/blog/' },
+    { label: 'Case Studies', href: '/case-studies/' },
+    { label: 'About Us', href: '/about/' },
+    { label: 'Contact Us', href: '/contact/' },
+];
+
 ---
-<header class="bg-white border-b border-brand-border">
+<header class="bg-white border-b border-brand-border relative z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <a href="/" class="flex items-center space-x-2" aria-label="TheEduAssist Home">
-            <img src="/brand/theeduassist-logo.svg" alt="TheEduAssist Logo" class="h-10 w-auto" />
+        <a href="/" class="flex items-center space-x-2 focus-ring rounded-sm" aria-label="TheEduAssist Home">
+            <img src="/brand/theeduassist-logo-wordmark.svg" alt="TheEduAssist e-learning design agency logo" class="h-10 w-auto hidden sm:block" />
+            <div class="flex items-center sm:hidden">
+                <img src="/brand/theeduassist-logo-mark.svg" alt="TheEduAssist e-learning design agency logo" class="h-10 w-auto mr-2" />
+                <span class="font-bold text-brand-primary text-lg">TheEduAssist</span>
+            </div>
         </a>
-        <nav class="hidden md:flex space-x-6">
-            {navigation.header.map((item) => (
-                <a href={item.href} class="text-brand-textMuted hover:text-brand-primary">{item.label}</a>
+        <nav class="hidden lg:flex space-x-6 items-center">
+            {desktopNav.map((item) => (
+                <a href={item.href} class="text-brand-textMuted hover:text-brand-primary font-medium focus-ring rounded-sm px-1 py-0.5 transition-colors">{item.label}</a>
             ))}
+            <a href="/book-free-audit/" class="bg-brand-primary text-white px-5 py-2 rounded-md font-medium hover-lift click-press focus-ring transition-colors">Book Free Audit</a>
         </nav>
-        <a href="/book-free-audit/" class="bg-brand-primary text-white px-5 py-2 rounded-md font-medium hover:bg-brand-navy">Book Free Audit</a>
+        <div class="lg:hidden flex items-center">
+            <MobileMenu />
+        </div>
     </div>
 </header>

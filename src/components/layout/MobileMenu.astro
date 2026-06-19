@@ -1,0 +1,110 @@
+---
+const mobileLinks = [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services/' },
+    { label: 'LMS Solutions', href: '/services/lms-implementation-migration/' },
+    { label: 'Kajabi Services', href: '/kajabi-services/' },
+    { label: 'Blog', href: '/blog/' },
+    { label: 'Case Studies', href: '/case-studies/' },
+    { label: 'About Us', href: '/about/' },
+    { label: 'Contact Us', href: '/contact/' },
+    { label: 'Book Free Audit', href: '/book-free-audit/' },
+    { label: 'Schedule a 30-Minute Discussion', href: 'https://calendly.com/eduassist-talk/30min?month', external: true },
+];
+---
+
+<mobile-menu class="relative block">
+  <button
+    id="mobile-menu-btn"
+    type="button"
+    class="inline-flex items-center justify-center p-2 rounded-md text-brand-primary hover:text-brand-navy hover:bg-brand-softBg focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-accent transition-colors focus-ring"
+    aria-controls="mobile-menu-panel"
+    aria-expanded="false"
+  >
+    <span class="sr-only">Open main menu</span>
+    <span class="mr-2 font-medium">Menu</span>
+    <!-- Icon when menu is closed. -->
+    <svg id="icon-closed" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+    <!-- Icon when menu is open. -->
+    <svg id="icon-open" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <!-- Mobile menu panel -->
+  <div
+    id="mobile-menu-panel"
+    class="hidden absolute top-full right-0 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden z-50 origin-top-right transition-opacity duration-200"
+  >
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {mobileLinks.map((link) => (
+        <a
+          href={link.href}
+          class="block px-3 py-2 rounded-md text-base font-medium text-brand-textMain hover:text-brand-primary hover:bg-brand-softBg focus-ring mobile-link"
+          {...(link.external ? { target: '_blank', rel: 'noopener noreferrer', 'aria-label': link.label } : {})}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</mobile-menu>
+
+<script>
+  class MobileMenu extends HTMLElement {
+    constructor() {
+      super();
+      this.btn = this.querySelector('#mobile-menu-btn');
+      this.panel = this.querySelector('#mobile-menu-panel');
+      this.iconClosed = this.querySelector('#icon-closed');
+      this.iconOpen = this.querySelector('#icon-open');
+      this.links = this.querySelectorAll('.mobile-link');
+      this.isOpen = false;
+
+      this.toggleMenu = this.toggleMenu.bind(this);
+      this.closeMenu = this.closeMenu.bind(this);
+      this.handleEscape = this.handleEscape.bind(this);
+
+      this.btn?.addEventListener('click', this.toggleMenu);
+      window.addEventListener('keydown', this.handleEscape);
+      this.links.forEach(link => link.addEventListener('click', this.closeMenu));
+    }
+
+    toggleMenu() {
+      this.isOpen = !this.isOpen;
+      this.btn?.setAttribute('aria-expanded', this.isOpen.toString());
+      if (this.isOpen) {
+        this.panel?.classList.remove('hidden');
+        this.iconClosed?.classList.add('hidden');
+        this.iconClosed?.classList.remove('block');
+        this.iconOpen?.classList.remove('hidden');
+        this.iconOpen?.classList.add('block');
+      } else {
+        this.panel?.classList.add('hidden');
+        this.iconClosed?.classList.remove('hidden');
+        this.iconClosed?.classList.add('block');
+        this.iconOpen?.classList.add('hidden');
+        this.iconOpen?.classList.remove('block');
+      }
+    }
+
+    closeMenu() {
+      if (this.isOpen) {
+        this.toggleMenu();
+      }
+    }
+
+    handleEscape(e: KeyboardEvent) {
+      if (e.key === 'Escape' && this.isOpen) {
+        this.closeMenu();
+        if (this.btn instanceof HTMLElement) {
+          this.btn.focus();
+        }
+      }
+    }
+  }
+
+  customElements.define('mobile-menu', MobileMenu);
+</script>

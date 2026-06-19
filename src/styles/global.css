@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+:root {
+  --color-brand-blue: #27496D;
+  --color-brand-green: #77BA55;
+  --color-brand-white: #FFFFFF;
+  --color-brand-soft: #F8FAFC;
+  --color-brand-soft-green: #F3FAF0;
+  --color-brand-soft-blue: #EFF6FF;
+  --color-text-main: #1F2937;
+  --color-text-muted: #64748B;
+  --color-border: #E5E7EB;
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 14px 35px rgba(39, 73, 109, 0.10);
+  --radius-card: 1.25rem;
+}
+
 @theme {
   --color-brand-primary: #27496D;
   --color-brand-accent: #77BA55;
@@ -10,4 +25,64 @@
   --color-brand-textMain: #1F2937;
   --color-brand-textMuted: #64748B;
   --color-brand-border: #E5E7EB;
+}
+
+@layer utilities {
+  .brand-gradient {
+    background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green));
+  }
+  .brand-card {
+    background-color: var(--color-brand-white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--color-border);
+  }
+  .brand-card-dark {
+    background-color: var(--color-brand-blue);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    color: var(--color-brand-white);
+  }
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+  .click-press {
+    transition: transform 0.1s ease;
+  }
+  .click-press:active {
+    transform: scale(0.98);
+  }
+  .focus-ring {
+    outline: 2px solid var(--color-brand-green);
+    outline-offset: 2px;
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+  .animate-soft-scale {
+    animation: softScale 0.6s ease-out forwards;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes softScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
 }
