@@ -1,11 +1,18 @@
 ---
 import StatelessTabs from '../ui/StatelessTabs.astro';
-import { serviceCategories } from '../../data/serviceCategories';
+import { getAllServices } from '../../sanity/queries';
 
-const tabs = serviceCategories.map((cat, index) => ({
-  id: `cat-${index}`,
-  label: cat.title
-}));
+const services = await getAllServices();
+// Derive simple categories from services (group by category field if present)
+const categoriesMap = new Map();
+for (const s of services) {
+  const cat = s.category || 'General';
+  if (!categoriesMap.has(cat)) categoriesMap.set(cat, []);
+  categoriesMap.get(cat).push(s);
+}
+const serviceCategories = Array.from(categoriesMap.entries()).map(([title, items]) => ({ title, items }));
+
+const tabs = serviceCategories.map((cat, index) => ({ id: `cat-${index}`, label: cat.title }));
 ---
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4">

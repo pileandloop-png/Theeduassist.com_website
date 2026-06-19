@@ -7,9 +7,12 @@ import FAQAccordion from "../components/ui/FAQAccordion.astro";
 import FinalCTA from "../components/sections/FinalCTA.astro";
 import SectionHeader from "../components/ui/SectionHeader.astro";
 import Card from "../components/ui/Card.astro";
-import { kajabiServices } from '../data/kajabiServices';
+import { getAllKajabiServices, getFaqsByCategory } from '../sanity/queries';
+
+const kajabiServices = await getAllKajabiServices();
+const faqs = { kajabi: await getFaqsByCategory('kajabi') };
+// Note: `kajabiProcess` remains static in `src/data/process` if you want to keep the custom step flow.
 import { kajabiProcess } from '../data/process';
-import { faqs } from '../data/faqs';
 import { serviceSchema, faqPageSchema, breadcrumbSchema } from '../lib/schema';
 
 const jsonLd = [

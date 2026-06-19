@@ -1,25 +1,12 @@
 ---
-// src/components/sections/HomeBlogPreview.astro
-const blogPosts = [
-  {
-    title: "How to Convert Legacy Training Content to Modern eLearning",
-    category: "eLearning Strategy",
-    date: "Pending Migration",
-    url: "/blog/"
-  },
-  {
-    title: "How to Build a Corporate eLearning Program on a Budget: A Complete 2026 Guide",
-    category: "Corporate Training",
-    date: "Pending Migration",
-    url: "/blog/"
-  },
-  {
-    title: "Kajabi Major Updates 2026: AI Cofounder, Expert Agents, Amplify & More",
-    category: "Platform News",
-    date: "Pending Migration",
-    url: "/blog/"
-  }
-];
+import { getAllPosts } from '../../sanity/queries';
+
+const blogPosts = (await getAllPosts()).slice(0,3).map(p => ({
+  title: p.title,
+  category: p.category || (p.tags && p.tags[0]) || 'Blog',
+  date: p.publishedAt ? new Date(p.publishedAt).toLocaleDateString() : 'Unpublished',
+  url: `/blog/${p.slug?.current || ''}/`
+}));
 ---
 <section class="py-24 bg-white border-b border-brand-border/50">
   <div class="container mx-auto px-4">

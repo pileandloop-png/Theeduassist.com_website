@@ -1,6 +1,8 @@
 ---
 import SectionHeader from '../ui/SectionHeader.astro';
-import { audienceSegments } from '../../data/audienceSegments';
+import { getAudienceSegments } from '../../sanity/queries';
+
+const audienceSegments = await getAudienceSegments();
 ---
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 text-center">

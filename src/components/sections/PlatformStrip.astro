@@ -1,6 +1,8 @@
 ---
 import Badge from '../ui/Badge.astro';
-import { platforms } from '../../data/platforms';
+import { getPlatformsForBadges } from '../../sanity/queries';
+
+const platforms = await getPlatformsForBadges();
 ---
 <section class="py-12 border-y border-slate-200 bg-white">
   <div class="max-w-7xl mx-auto px-4 text-center">

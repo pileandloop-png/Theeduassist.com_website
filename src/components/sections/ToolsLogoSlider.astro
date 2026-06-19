@@ -1,6 +1,8 @@
 ---
 // src/components/sections/ToolsLogoSlider.astro
-import { tools } from '../../data/tools';
+import { getPlatformsForBadges } from '../../sanity/queries';
+
+const tools = await getPlatformsForBadges();
 ---
 <section class="py-16 bg-white overflow-hidden border-b border-brand-border">
   <div class="container mx-auto px-4 mb-10 text-center">

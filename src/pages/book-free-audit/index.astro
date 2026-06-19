@@ -1,7 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import FAQAccordion from "../../components/ui/FAQAccordion.astro";
-import { ctaBlocks } from '../../data/ctaBlocks';
+import { getCtaBlocks } from '../../sanity/queries';
+
+const ctaBlocks = (await getCtaBlocks()).reduce((acc, block) => {
+  acc[(block.title || 'default').toLowerCase().replace(/\s+/g, '-')] = block;
+  return acc;
+}, {} as any);
 import Card from "../../components/ui/Card.astro";
 import AuditRequestForm from "../../components/forms/AuditRequestForm.astro";
 import FormNotice from "../../components/forms/FormNotice.astro";
@@ -122,12 +127,12 @@ const jsonLd = [
           <p class="text-sm text-slate-500 mb-6 italic">Note: The form backend will be connected in a future phase. For now, please book a 30-minute introductory call using the calendar below or email us directly at <a href="mailto:info@theeduassist.com" class="text-blue-600 hover:underline">info@theeduassist.com</a>.</p>
 
           <a
-            href={ctaBlocks.calendly.href}
+            href={ctaBlocks['calendly']?.ctas?.[0]?.url || '#'}
             target="_blank"
             rel="noopener noreferrer"
             class="block w-full bg-blue-600 text-white text-center px-6 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors shadow-sm mb-6"
           >
-            {ctaBlocks.calendly.label}
+            {ctaBlocks['calendly']?.ctas?.[0]?.label || 'Book a call'}
           </a>
 
           <div class="text-center text-sm text-slate-500">

@@ -1,6 +1,8 @@
 ---
 import Card from '../ui/Card.astro';
-import { caseStudies } from '../../data/caseStudies';
+import { getAllCaseStudies } from '../../sanity/queries';
+
+const caseStudies = await getAllCaseStudies();
 ---
 <section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4">

@@ -4,20 +4,35 @@ interface Props {
 }
 
 const { className = '' } = Astro.props;
-import { ctaBlocks } from '../../data/ctaBlocks';
+import { getCtaBlocks } from '../../sanity/queries';
+
+const ctaBlocks = (await getCtaBlocks()).reduce((acc, block) => {
+  // merge blocks by slug/title into a handy map
+  const key = (block.title || 'default').toLowerCase().replace(/\s+/g, '-');
+  acc[key] = block;
+  return acc;
+}, {} as any);
 ---
 <div class={`text-center border-t border-slate-200 pt-8 mt-8 ${className}`}>
-  <h3 class="text-lg font-bold mb-4">{ctaBlocks.calendly.text.split('?')[0]}?</h3>
-  <p class="text-slate-600 mb-6">{ctaBlocks.calendly.text.split('?')[1].trim()}</p>
-  <a
-    href={ctaBlocks.calendly.href}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors"
-  >
-    {ctaBlocks.calendly.label}
+  {(() => {
+    const block = ctaBlocks['calendly'] || {};
+    const cta = block.ctas?.[0] || {};
+    return (
+      <>
+        <h3 class="text-lg font-bold mb-4">{block.title || cta.label || 'Book a call'}</h3>
+        {cta.label && <p class="text-slate-600 mb-6">{cta.label}</p>}
+        <a
+          href={cta.url || '#'}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors"
+        >
+          {cta.label || 'Book a call'}
     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-2 -mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
     </svg>
-  </a>
+        </a>
+      </>
+    )
+  })()}
 </div>

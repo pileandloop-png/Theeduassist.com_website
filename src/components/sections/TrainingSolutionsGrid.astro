@@ -1,7 +1,9 @@
 ---
 import SectionHeader from '../ui/SectionHeader.astro';
 import Badge from '../ui/Badge.astro';
-import { trainingSolutions } from '../../data/trainingSolutions';
+import { getTrainingSolutions } from '../../sanity/queries';
+
+const trainingSolutions = await getTrainingSolutions();
 ---
 <section class="py-20 bg-slate-50 border-t border-slate-200">
   <div class="max-w-5xl mx-auto px-4 text-center">

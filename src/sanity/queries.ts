@@ -54,3 +54,53 @@ export async function getTrainingSolutions() {
 export async function getBlogPostsByMigrationStatus(status: string) {
   return await client.fetch(`*[_type == "blogPost" && migrationStatus == $status] | order(publishedAt desc)`, { status })
 }
+
+// Authors
+export async function getAllAuthors() {
+  return await client.fetch(`*[_type == "author"] | order(name asc)`)
+}
+
+export async function getAuthorBySlug(slug: string) {
+  return await client.fetch(`*[_type == "author" && slug.current == $slug][0]`, { slug })
+}
+
+// Posts
+export async function getAllPosts() {
+  // Return all posts including those without `publishedAt` (saved drafts),
+  // ordering by `publishedAt` then `_createdAt` so newest appear first.
+  return await client.fetch(`*[_type == "post"] | order(publishedAt desc, _createdAt desc)`)
+}
+
+export async function getPostBySlug(slug: string) {
+  return await client.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug })
+}
+
+// Testimonials
+export async function getAllTestimonials() {
+  return await client.fetch(`*[_type == "testimonial" && showOnSite == true] | order(orderRank asc)`)
+}
+
+// Case study by slug
+export async function getCaseStudyBySlug(slug: string) {
+  return await client.fetch(`*[_type == "caseStudy" && slug.current == $slug][0]`, { slug })
+}
+
+// Navigation
+export async function getNavigation() {
+  return await client.fetch(`*[_type == "navigation"][0]`)
+}
+
+// CTA blocks
+export async function getCtaBlocks() {
+  return await client.fetch(`*[_type == "ctaBlock"] | order(_createdAt desc)`)
+}
+
+// Process flows
+export async function getProcessByTitle(title: string) {
+  return await client.fetch(`*[_type == "process" && title == $title][0]`, { title })
+}
+
+// Audience segments
+export async function getAudienceSegments() {
+  return await client.fetch(`*[_type == "audienceSegment" && showOnSite == true] | order(orderRank asc)`)
+}

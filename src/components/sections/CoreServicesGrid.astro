@@ -1,7 +1,9 @@
 ---
 import SectionHeader from '../ui/SectionHeader.astro';
 import Card from '../ui/Card.astro';
-import { services } from '../../data/services';
+import { getAllServices } from '../../sanity/queries';
+
+const services = await getAllServices();
 ---
 <section class="py-20 bg-brand-softBg">
   <div class="max-w-7xl mx-auto px-4">

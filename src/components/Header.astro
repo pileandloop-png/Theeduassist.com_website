@@ -1,6 +1,42 @@
 ---
-import { site } from '../data/site';
-import { navigation } from '../data/navigation';
+import { getSiteSettings, getAllPages } from '../sanity/queries';
+
+const siteSettings = await getSiteSettings();
+const site = siteSettings || { name: 'TheEduAssist', email: 'Info@theeduassist.com', social: {} };
+
+// Build a simple navigation from pages if available, otherwise fallback to static
+const pages = await getAllPages();
+const navigation = pages && pages.length > 0 ? {
+    header: pages.slice(0,6).map(p => ({ label: p.title, href: `/${p.slug?.current || ''}/` })),
+    footerCompanyLinks: pages.slice(0,8).map(p => ({ label: p.title, href: `/${p.slug?.current || ''}/` })),
+    footerLegalLinks: []
+} : {
+    header: [
+        { label: 'Home', href: '/' },
+        { label: 'Kajabi Services', href: '/kajabi-services/' },
+        { label: 'Blog', href: '/blog/' },
+        { label: 'Case Studies', href: '/case-studies/' },
+        { label: 'Services', href: '/services/' },
+        { label: 'Contact Us', href: '/contact/' },
+        { label: 'About Us', href: '/about/' },
+    ],
+    footerCompanyLinks: [
+        { label: 'Home', href: '/' },
+        { label: 'Blogs', href: '/blog/' },
+        { label: 'Career', href: '/careers/' },
+        { label: 'About Us', href: '/about/' },
+        { label: 'Contact Us', href: '/contact/' },
+        { label: 'Case Studies', href: '/case-studies/' },
+        { label: 'Terms & Conditions', href: '/terms-and-conditions/' },
+    ],
+    footerLegalLinks: [
+        { label: 'Privacy Policy', href: '/privacy-policy/' },
+        { label: 'Disclaimer', href: '/disclaimer/' },
+        { label: 'Editorial Policy', href: '/editorial-policy/' },
+        { label: 'AI Use Policy', href: '/ai-use-policy/' },
+        { label: 'Accessibility Statement', href: '/accessibility-statement/' },
+    ]
+};
 ---
 <header class="bg-white border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">

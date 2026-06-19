@@ -1,0 +1,38 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getPostBySlug, getAllPosts } from '../../sanity/queries';
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  return posts
+    .filter(p => p?.slug?.current)
+    .map(p => ({ params: { slug: p.slug.current } }));
+}
+
+const { slug } = Astro.params;
+const post = await getPostBySlug(slug);
+---
+
+<Layout title={post?.title || 'Post'} description={post?.seo?.description || ''}>
+  <article class="max-w-4xl mx-auto py-24 px-4">
+    <h1 class="text-4xl font-bold mb-6">{post?.title}</h1>
+    <div class="text-sm text-slate-500 mb-6">{post?.publishedAt ? new Date(post.publishedAt).toLocaleDateString() : 'Unpublished'}</div>
+    <div class="prose max-w-none">
+      {post?.content?.map(block => {
+        if (!block) return null
+        // simple paragraph blocks
+        if (block._type === 'block' && Array.isArray(block.children)) {
+          const text = block.children.map(ch => ch.text || '').join('')
+          return <p>{text}</p>
+        }
+        // image block (basic)
+        if (block._type === 'image' && block.asset?._ref) {
+          const src = `/images/placeholder.png` // fallback placeholder
+          return <img src={src} alt={block.alt || ''} />
+        }
+        // fallback: stringify
+        return <pre>{JSON.stringify(block)}</pre>
+      })}
+    </div>
+  </article>
+</Layout>
