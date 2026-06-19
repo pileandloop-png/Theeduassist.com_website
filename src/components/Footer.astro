@@ -5,15 +5,17 @@ import { navigation } from '../data/navigation';
 <footer class="bg-brand-primary text-slate-300 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-            <div class="text-2xl font-bold text-white mb-4">{site.name}</div>
+            <div class="mb-4">
+                <img src="/brand/theeduassist-logo-mark.svg" alt="TheEduAssist logo mark" class="h-12 w-auto" />
+            </div>
             <p class="mb-4">TheEduAssist delivers fast, flexible, and impactful eLearning solutions that help teams upskill, adapt, and succeed in a changing business world.</p>
-            <p>Email: <a href={`mailto:${site.email}`} class="text-brand-accent hover:text-white">{site.email}</a></p>
+            <p>Email: <a href="mailto:Info@theeduassist.com" class="text-brand-accent hover:text-white">Info@theeduassist.com</a></p>
             <!-- Verify address before launch -->
             <!-- <p>9030 35th Ave SW, Seattle, United States</p> -->
             <div class="flex space-x-4 mt-6">
-                <a href={site.social.linkedIn} target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="LinkedIn">LinkedIn</a>
-                <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="Facebook">Facebook</a>
-                <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="Instagram">Instagram</a>
+                <a href="https://www.linkedin.com/company/theeduassist" target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="TheEduAssist on LinkedIn">LinkedIn</a>
+                <a href="https://www.facebook.com/people/Theeduassist/61576126813447/" target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="TheEduAssist on Facebook">Facebook</a>
+                <a href="https://www.instagram.com/theeduassist" target="_blank" rel="noopener noreferrer" class="hover:text-white" aria-label="TheEduAssist on Instagram">Instagram</a>
             </div>
             <div class="mt-8">
                 <h3 class="text-white font-bold mb-4">Ready to improve your eLearning?</h3>
@@ -67,6 +69,6 @@ import { navigation } from '../data/navigation';
         </div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-brand-navy text-center text-sm">
-        &copy; 2026, {site.name}. All rights reserved.
+        © 2026, TheEduAssist. All rights reserved.
     </div>
 </footer>

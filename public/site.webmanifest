@@ -1,0 +1,15 @@
+{
+  "name": "TheEduAssist",
+  "short_name": "TheEduAssist",
+  "description": "E-Learning Design Agency",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "theme_color": "#27496D",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

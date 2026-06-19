@@ -7,7 +7,21 @@ The logo is a circular badge/emblem with these colors:
 * Text/icons: White (`#FFFFFF`)
 * Borders: White (`#FFFFFF`)
 
-Currently missing image logo should fall back to the text wordmark `TheEduAssist`. Expected logo file location: `public/brand/theeduassist-logo.svg`.
+Tagline: `E-Learning Design Agency`
+
+Logo files are located at:
+* `public/brand/theeduassist-logo.svg`
+* `public/brand/theeduassist-logo-mark.svg`
+* `public/brand/theeduassist-logo-wordmark.svg`
+
+Favicon paths:
+* `public/favicon.svg`
+* `public/site.webmanifest`
+
+### Logo Usage Rules
+* **Header**: Use the horizontal wordmark (`theeduassist-logo-wordmark.svg`) if the circular logo is too large.
+* **Footer**: Use the simplified logo mark (`theeduassist-logo-mark.svg`) or the main logo.
+* **Warning**: Do not hotlink logos from external sources. Always use locally hosted files.
 
 ## Brand Colors
 ### Primary Brand Colors

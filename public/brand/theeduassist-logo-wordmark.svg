@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 150" width="800" height="150">
+  <g transform="translate(10, 10) scale(0.26)">
+    <circle cx="250" cy="250" r="240" fill="#77BA55" stroke="#FFFFFF" stroke-width="6"/>
+    <circle cx="250" cy="250" r="220" fill="#27496D" stroke="#FFFFFF" stroke-width="4"/>
+    <g transform="scale(1.3) translate(-57, -57)">
+      <g fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M 250,150 L 250,130 M 215,140 L 250,150 L 285,140" />
+        <circle cx="250" cy="130" r="5" fill="#FFFFFF"/>
+        <circle cx="215" cy="140" r="5" fill="#FFFFFF"/>
+        <circle cx="285" cy="140" r="5" fill="#FFFFFF"/>
+        <line x1="250" y1="180" x2="250" y2="150" stroke-dasharray="4,4" />
+        <circle cx="250" cy="150" r="4" fill="#FFFFFF"/>
+        <path d="M 235,170 A 20,20 0 0,1 265,170 M 242,180 A 10,10 0 0,1 258,180" />
+        <circle cx="250" cy="188" r="2" fill="#FFFFFF" stroke="none"/>
+        <rect x="205" y="195" width="90" height="60" rx="4" />
+        <line x1="205" y1="240" x2="295" y2="240" />
+        <path d="M 235,255 L 265,255 L 255,270 L 245,270 Z" fill="#FFFFFF"/>
+        <path d="M 250,205 L 225,215 L 250,225 L 275,215 Z" fill="#FFFFFF" stroke="none"/>
+        <path d="M 235,220 L 235,230 A 15,7 0 0,0 265,230 L 265,220" />
+        <line x1="275" y1="215" x2="275" y2="230" stroke-width="2"/>
+        <path d="M 250,310 L 250,285 M 250,310 Q 225,320 200,300 L 200,275 Q 225,295 250,285 Q 275,295 300,275 L 300,300 Q 275,320 250,310 Z" />
+      </g>
+    </g>
+  </g>
+  <text x="160" y="85" fill="#27496D" font-family="sans-serif" font-weight="bold" font-size="64">TheEduAssist</text>
+  <text x="165" y="125" fill="#77BA55" font-family="sans-serif" font-weight="bold" font-size="24" letter-spacing="1">E-LEARNING DESIGN AGENCY</text>
+</svg>
