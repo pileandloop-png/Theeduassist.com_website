@@ -2,14 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import HomeHero from "../components/sections/HomeHero.astro";
 import ToolsLogoSlider from "../components/sections/ToolsLogoSlider.astro";
-import ChooseYourPath from "../components/sections/ChooseYourPath.astro";
-import HomeServicesGrid from "../components/sections/HomeServicesGrid.astro";
-import HomeKajabiHighlight from "../components/sections/HomeKajabiHighlight.astro";
-import LearningSystemInfographic from "../components/sections/LearningSystemInfographic.astro";
-import OnlineAcademyCTA from "../components/sections/OnlineAcademyCTA.astro";
-import HomeCaseStudyProof from "../components/sections/HomeCaseStudyProof.astro";
-import HomeBlogPreview from "../components/sections/HomeBlogPreview.astro";
-import HomeFinalCTA from "../components/sections/HomeFinalCTA.astro";
+import PlatformStrip from "../components/sections/PlatformStrip.astro";
+import CoreServicesGrid from "../components/sections/CoreServicesGrid.astro";
+import KajabiHighlight from "../components/sections/KajabiHighlight.astro";
+import ComparisonBlock from "../components/sections/ComparisonBlock.astro";
+import TrainingSolutionsGrid from "../components/sections/TrainingSolutionsGrid.astro";
+import WhyTheEduAssist from "../components/sections/WhyTheEduAssist.astro";
+import ProcessTimeline from "../components/sections/ProcessTimeline.astro";
+import CaseStudyPreviewGrid from "../components/sections/CaseStudyPreviewGrid.astro";
+import FinalCTA from "../components/sections/FinalCTA.astro";
+import { process } from '../data/process';
 import { organizationSchema, websiteSchema, professionalServiceSchema } from '../lib/schema';
 
 const jsonLd = [
@@ -19,29 +21,36 @@ const jsonLd = [
 ];
 ---
 <Layout
-  title="Custom eLearning, Kajabi, and LMS Solutions | TheEduAssist"
-  description="TheEduAssist helps coaches, course creators, educators, and training teams turn content into structured online learning experiences."
+  title="Custom eLearning, Kajabi, and LMS Solutions"
+  description="TheEduAssist helps coaches, businesses, training teams, and educational organizations turn content into engaging online learning experiences."
   jsonLd={jsonLd}
 >
 
-  <HomeHero />
+  <HomeHero
+    title="Custom eLearning, Kajabi, and LMS Solutions Built to Launch Faster"
+    subtitle="At TheEduAssist, we turn eLearning into engaging, practical, and learner-focused experiences that go beyond basic compliance."
+    primaryCtaLabel="Book Free Audit"
+    primaryCtaLink="/book-free-audit/"
+    secondaryCtaLabel="Explore Services"
+    secondaryCtaLink="/services/"
+  />
 
   <ToolsLogoSlider />
 
-  <ChooseYourPath />
+  <CoreServicesGrid />
 
-  <HomeServicesGrid />
+  <KajabiHighlight />
 
-  <HomeKajabiHighlight />
+  <ComparisonBlock />
 
-  <LearningSystemInfographic />
+  <TrainingSolutionsGrid />
 
-  <OnlineAcademyCTA />
+  <WhyTheEduAssist />
 
-  <HomeCaseStudyProof />
+  <ProcessTimeline steps={process} />
 
-  <HomeBlogPreview />
+  <CaseStudyPreviewGrid />
 
-  <HomeFinalCTA />
+  <FinalCTA />
 
 </Layout>
