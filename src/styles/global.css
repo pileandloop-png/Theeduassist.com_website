@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "./animations.css";
 
 @theme {
   --color-brand-primary: #27496D;
