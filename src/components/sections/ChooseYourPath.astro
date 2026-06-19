@@ -1,0 +1,44 @@
+---
+// src/components/sections/ChooseYourPath.astro
+import { homePathOptions } from '../../data/homePathOptions';
+---
+<section class="py-20 bg-brand-softBg border-b border-brand-border">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
+        Choose the support that matches where you are now
+      </h2>
+      <p class="text-lg text-brand-textMuted">
+        Whether you are launching a course, cleaning up a platform, moving from WordPress, or building training for a team, TheEduAssist helps you find the next practical step.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {homePathOptions.map((option, index) => (
+        <div class={`bg-white rounded-2xl p-8 shadow-sm border border-brand-border hover-lift flex flex-col h-full reveal-card`} style={`animation-delay: ${index * 100}ms;`}>
+          <div class="bg-brand-softBlue w-12 h-12 rounded-full flex items-center justify-center text-brand-primary mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+
+          <h3 class="text-xl font-bold text-brand-navy mb-3">{option.title}</h3>
+
+          <div class="flex-grow space-y-4 mb-8">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-brand-textMuted">Situation</span>
+              <p class="text-brand-textMain mt-1">{option.situation}</p>
+            </div>
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-brand-textMuted">How we help</span>
+              <p class="text-brand-textMain mt-1">{option.howWeHelp}</p>
+            </div>
+          </div>
+
+          <a href={option.ctaLink} class="inline-flex items-center text-brand-primary font-semibold hover:text-brand-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 rounded group">
+            {option.ctaLabel}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
