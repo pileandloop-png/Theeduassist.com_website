@@ -9,6 +9,9 @@ import faq from './documents/faq'
 import platform from './documents/platform'
 import trainingSolution from './documents/trainingSolution'
 import testimonial from './documents/testimonial'
+import category from './documents/category'
+import tag from './documents/tag'
+import homepageContent from './documents/homepageContent'
 
 import seoFields from './objects/seoFields'
 import cta from './objects/cta'
@@ -21,11 +24,14 @@ import link from './objects/link'
 export const schemaTypes = [
   // documents
   siteSettings,
+  homepageContent,
   page,
   service,
   kajabiService,
   caseStudy,
   blogPost,
+  category,
+  tag,
   author,
   faq,
   platform,

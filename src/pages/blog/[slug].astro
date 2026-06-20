@@ -1,38 +1,90 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { getPostBySlug, getAllPosts } from '../../sanity/queries';
+import { fetchFromSanity } from '../../lib/sanity/client';
+import { blogPostSlugsQuery, blogPostBySlugQuery } from '../../lib/sanity/queries';
+import Layout from '../../layouts/Layout.astro';
+import { urlForImage } from '../../lib/sanity/image';
+import { PortableText } from '@portabletext/react';
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts();
-  return posts
-    .filter(p => p?.slug?.current)
-    .map(p => ({ params: { slug: p.slug.current } }));
+  try {
+    const slugs = await fetchFromSanity(blogPostSlugsQuery);
+    if (!Array.isArray(slugs) || slugs.length === 0) {
+      return [];
+    }
+    return slugs.map((slug: string) => ({
+      params: { slug },
+    }));
+  } catch (e) {
+    console.error("Failed to fetch blog post slugs:", e);
+    return [];
+  }
 }
 
 const { slug } = Astro.params;
-const post = await getPostBySlug(slug);
+let post;
+
+try {
+  post = await fetchFromSanity(blogPostBySlugQuery, { slug });
+} catch (e) {
+  console.error(`Failed to fetch blog post ${slug}:`, e);
+}
+
+if (!post) {
+  return new Response("Post not found", { status: 404 });
+}
 ---
 
-<Layout title={post?.title || 'Post'} description={post?.seo?.description || ''}>
-  <article class="max-w-4xl mx-auto py-24 px-4">
-    <h1 class="text-4xl font-bold mb-6">{post?.title}</h1>
-    <div class="text-sm text-slate-500 mb-6">{post?.publishedAt ? new Date(post.publishedAt).toLocaleDateString() : 'Unpublished'}</div>
-    <div class="prose max-w-none">
-      {post?.content?.map(block => {
-        if (!block) return null
-        // simple paragraph blocks
-        if (block._type === 'block' && Array.isArray(block.children)) {
-          const text = block.children.map(ch => ch.text || '').join('')
-          return <p>{text}</p>
-        }
-        // image block (basic)
-        if (block._type === 'image' && block.asset?._ref) {
-          const src = `/images/placeholder.png` // fallback placeholder
-          return <img src={src} alt={block.alt || ''} />
-        }
-        // fallback: stringify
-        return <pre>{JSON.stringify(block)}</pre>
-      })}
+<Layout
+  title={post.seo?.seoTitle || post.title}
+  description={post.seo?.seoDescription || post.excerpt}
+  canonicalPath={post.seo?.canonicalPath || `/blog/${slug}/`}
+>
+  <article class="container mx-auto px-4 py-16 max-w-3xl">
+    <header class="mb-10 text-center">
+      {post.category && (
+        <span class="text-sm font-semibold uppercase tracking-wider text-[var(--color-primary)] mb-4 inline-block">
+          {post.category}
+        </span>
+      )}
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">{post.title}</h1>
+      {post.excerpt && <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-6">{post.excerpt}</p>}
+
+      {post.publishedAt && (
+        <time datetime={post.publishedAt} class="text-slate-500 text-sm">
+          {new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+      )}
+    </header>
+
+    {post.featuredImage && (
+      <div class="mb-12 rounded-lg overflow-hidden shadow-sm">
+        <img
+          src={urlForImage(post.featuredImage)?.width(1200).height(630).url()}
+          alt={post.featuredImage?.alt || post.title}
+          class="w-full h-auto object-cover"
+        />
+      </div>
+    )}
+
+    <div class="prose prose-lg mx-auto prose-slate">
+      {post.body ? (
+        <PortableText value={post.body} />
+      ) : (
+        <p>Content is missing.</p>
+      )}
     </div>
+
+    {post.tags && post.tags.length > 0 && (
+      <div class="mt-12 pt-8 border-t border-slate-200">
+        <h3 class="text-lg font-semibold mb-4 text-slate-800">Tags:</h3>
+        <div class="flex flex-wrap gap-2">
+          {post.tags.map((tag: string) => (
+            <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-sm">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
   </article>
 </Layout>

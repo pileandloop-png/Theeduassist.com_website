@@ -6,32 +6,42 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'siteName',
-      title: 'Site Name',
+      name: 'siteTitle',
+      title: 'Site Title',
       type: 'string',
       initialValue: 'TheEduAssist',
     }),
     defineField({
-      name: 'defaultSeoTitle',
-      title: 'Default SEO Title',
+      name: 'tagline',
+      title: 'Tagline',
       type: 'string',
+      initialValue: 'E-Learning Design Agency',
     }),
     defineField({
-      name: 'defaultSeoDescription',
-      title: 'Default SEO Description',
-      type: 'text',
-    }),
-    defineField({
-      name: 'contactEmail',
-      title: 'Contact Email',
+      name: 'email',
+      title: 'Email',
       type: 'string',
-      initialValue: 'info@theeduassist.com',
+      initialValue: 'Info@theeduassist.com',
     }),
     defineField({
-      name: 'bookingLink',
-      title: 'Booking Link',
+      name: 'calendlyUrl',
+      title: 'Calendly URL',
       type: 'url',
-      initialValue: 'https://calendly.com/eduassist-talk/30min',
+    }),
+    defineField({
+      name: 'linkedInUrl',
+      title: 'LinkedIn URL',
+      type: 'url',
+    }),
+    defineField({
+      name: 'instagramUrl',
+      title: 'Instagram URL',
+      type: 'url',
+    }),
+    defineField({
+      name: 'facebookUrl',
+      title: 'Facebook URL',
+      type: 'url',
     }),
     defineField({
       name: 'primaryCtaLabel',
@@ -41,25 +51,25 @@ export default defineType({
     }),
     defineField({
       name: 'primaryCtaHref',
-      title: 'Primary CTA Link',
+      title: 'Primary CTA Href',
       type: 'string',
       initialValue: '/book-free-audit/',
     }),
     defineField({
-      name: 'footerDisclaimer',
-      title: 'Footer Disclaimer',
+      name: 'platformDisclaimer',
+      title: 'Platform Disclaimer',
+      type: 'string',
+      initialValue: 'Platform support does not imply official partnership unless stated.',
+    }),
+    defineField({
+      name: 'seoTitle',
+      title: 'SEO Title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'seoDescription',
+      title: 'SEO Description',
       type: 'text',
-    }),
-    defineField({
-      name: 'socialLinks',
-      title: 'Social Links',
-      type: 'array',
-      of: [{type: 'link'}],
-    }),
-    defineField({
-      name: 'updatedAt',
-      title: 'Last Updated',
-      type: 'datetime',
     }),
   ],
 })
