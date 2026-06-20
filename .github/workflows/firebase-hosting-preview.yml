@@ -37,8 +37,17 @@ jobs:
       - run: npm run validate:env
       - run: npm run build
       - run: npm run validate:redirects || true
+      - name: Check Firebase service account secret
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "Missing required GitHub Secret: FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD"
+            echo "Add it in: Repo Settings → Secrets and variables → Actions → Secrets"
+            echo "This must contain the Firebase service account JSON for project theeduassist-website-prod."
+            exit 1
+          fi
       - uses: FirebaseExtended/action-hosting-deploy@v0
-        if: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD != '' }}
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD }}

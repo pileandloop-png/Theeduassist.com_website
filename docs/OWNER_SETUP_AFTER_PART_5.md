@@ -34,6 +34,9 @@ SANITY_VIEWER_TOKEN = Sanity token with Viewer permission, only if private read 
 FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD = Firebase deploy service account JSON
 ```
 
+**URGENT NOTE:** The GitHub Secret `FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD` must be added before Firebase preview/live deploy can work.
+Include location: `Repo Settings → Secrets and variables → Actions → Secrets`.
+
 ## Sanity CORS
 
 Go to Sanity Manage:
