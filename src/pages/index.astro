@@ -1,27 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HomeHero from "../components/sections/HomeHero.astro";
-import ToolsLogoSlider from "../components/sections/ToolsLogoSlider.astro";
-import PlatformStrip from "../components/sections/PlatformStrip.astro";
-import CoreServicesGrid from "../components/sections/CoreServicesGrid.astro";
-import KajabiHighlight from "../components/sections/KajabiHighlight.astro";
-import ComparisonBlock from "../components/sections/ComparisonBlock.astro";
-import TrainingSolutionsGrid from "../components/sections/TrainingSolutionsGrid.astro";
-import WhyTheEduAssist from "../components/sections/WhyTheEduAssist.astro";
-import ProcessTimeline from "../components/sections/ProcessTimeline.astro";
-import CaseStudyPreviewGrid from "../components/sections/CaseStudyPreviewGrid.astro";
-import FinalCTA from "../components/sections/FinalCTA.astro";
-import { process } from '../data/process';
+import ToolsPlatformSection from "../components/sections/ToolsPlatformSection.astro";
+import ChooseYourPath from "../components/sections/ChooseYourPath.astro";
+import HomeServicesGrid from "../components/sections/HomeServicesGrid.astro";
+import PlatformSystemInfographic from "../components/sections/PlatformSystemInfographic.astro";
+import KajabiSupportedPlatform from "../components/sections/KajabiSupportedPlatform.astro";
+import LearningWorkflow from "../components/sections/LearningWorkflow.astro";
+import HomeProofCards from "../components/sections/HomeProofCards.astro";
+import HomeBlogPreview from "../components/sections/HomeBlogPreview.astro";
+import HomeFinalCTA from "../components/sections/HomeFinalCTA.astro";
 import { organizationSchema, websiteSchema, professionalServiceSchema } from '../lib/schema';
-import { getPlatformsForBadges } from '../sanity/queries';
 
 const jsonLd = [
   organizationSchema(),
   websiteSchema(),
   professionalServiceSchema()
 ];
-
-const tools = await getPlatformsForBadges();
 ---
 <Layout
   title="Custom eLearning, Kajabi, and LMS Solutions"
@@ -33,30 +28,32 @@ const tools = await getPlatformsForBadges();
     title="Design, Build, and Launch Better Online Learning Systems"
     subtitle="TheEduAssist helps coaches, course creators, educators, and training teams turn content into structured learning experiences across LMS platforms, Kajabi, course websites, AI-supported workflows, and digital training systems."
     heroBadge="Multi-Platform E-Learning Design Agency"
+    trustText="Course strategy, content flow, LMS setup, Kajabi builds, platform migration, automation, testing, and launch support."
     primaryCtaLabel="Book Free Audit"
     primaryCtaLink="/book-free-audit/"
     secondaryCtaLabel="Explore Services"
     secondaryCtaLink="/services/"
     tertiaryCtaLabel="Explore Kajabi Services"
     tertiaryCtaLink="/kajabi-services/"
+    showDashboardVisual={true}
   />
 
-  <ToolsLogoSlider tools={tools} />
+  <ToolsPlatformSection />
 
-  <CoreServicesGrid />
+  <ChooseYourPath />
 
-  <KajabiHighlight />
+  <HomeServicesGrid />
 
-  <ComparisonBlock />
+  <PlatformSystemInfographic />
 
-  <TrainingSolutionsGrid />
+  <LearningWorkflow />
 
-  <WhyTheEduAssist />
+  <KajabiSupportedPlatform />
 
-  <ProcessTimeline steps={process} />
+  <HomeProofCards />
 
-  <CaseStudyPreviewGrid />
+  <HomeBlogPreview />
 
-  <FinalCTA />
+  <HomeFinalCTA />
 
 </Layout>

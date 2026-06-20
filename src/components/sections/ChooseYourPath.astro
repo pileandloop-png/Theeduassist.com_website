@@ -1,0 +1,79 @@
+---
+import Button from '../ui/Button.astro';
+
+const paths = [
+  {
+    title: "Launch a Kajabi course",
+    copy: "Plan your offer, course flow, pages, checkout, email automations, and student experience inside Kajabi.",
+    cta: "Explore Kajabi Services",
+    link: "/kajabi-services/",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />`
+  },
+  {
+    title: "Build or migrate an LMS",
+    copy: "Move from a messy or outdated learning setup into a clearer LMS structure with better learner access.",
+    cta: "View LMS Solutions",
+    link: "/services/lms-implementation-migration/",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />`
+  },
+  {
+    title: "Turn content into eLearning",
+    copy: "Convert raw material, slides, scripts, PDFs, and training documents into structured learner-ready modules.",
+    cta: "View Custom eLearning",
+    link: "/services/custom-elearning-development/",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />`
+  },
+  {
+    title: "Use AI for course planning",
+    copy: "Use AI-supported workflows to speed up outlining, content organization, drafts, and review-ready learning assets.",
+    cta: "Explore AI Learning",
+    link: "/services/ai-powered-elearning/",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />`
+  },
+  {
+    title: "Improve team training",
+    copy: "Create onboarding, internal training, product training, and learning journeys for employees or client education.",
+    cta: "Explore Services",
+    link: "/services/",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />`
+  }
+];
+---
+
+<section class="py-20 bg-brand-softBg px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
+        Choose the support that matches where you are now
+      </h2>
+      <p class="text-lg text-brand-textMuted leading-relaxed">
+        Whether you are launching a course, cleaning up a platform, moving from WordPress, or building training for a team, TheEduAssist helps you find the next practical step.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {paths.map((path, index) => (
+        <a
+          href={path.link}
+          class={`block bg-white rounded-2xl p-8 shadow-sm border border-brand-border/60 hover:border-brand-accent/40 hover:shadow-md transition-all duration-300 hover-lift group focus-ring ${index === 3 ? 'md:col-span-2 lg:col-span-1' : ''} ${index === 4 ? 'md:col-span-2 lg:col-span-2' : ''}`}
+        >
+          <div class="bg-brand-softGreen/50 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-softGreen transition-colors">
+            <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={path.icon} />
+          </div>
+          <h3 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-accent transition-colors">
+            {path.title}
+          </h3>
+          <p class="text-brand-textMuted mb-8 line-clamp-3">
+            {path.copy}
+          </p>
+          <div class="flex items-center text-brand-primary font-medium group-hover:text-brand-accent transition-colors mt-auto">
+            {path.cta}
+            <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

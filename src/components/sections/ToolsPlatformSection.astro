@@ -1,0 +1,73 @@
+---
+const safeTools = [
+  "Kajabi",
+  "Moodle",
+  "Tutor LMS",
+  "LifterLMS",
+  "LearnWorlds",
+  "Thinkific",
+  "Teachable",
+  "Podia",
+  "Docebo",
+  "LearnDash",
+  "WordPress LMS",
+  "iSpring",
+  "Articulate 360",
+  "Rise",
+  "Storyline",
+  "SCORM",
+  "xAPI"
+];
+---
+
+<section class="py-16 bg-white border-y border-brand-border overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-navy mb-4">Most Used Tools and Platforms</h2>
+    <p class="text-brand-textMuted max-w-2xl mx-auto text-base">
+      We support learning projects across LMS platforms, course platforms, content tools, and automation workflows.
+    </p>
+  </div>
+
+  <div class="relative flex overflow-x-hidden group" aria-label="Most Used Tools Slider">
+    <div class="py-4 animate-marquee whitespace-nowrap flex items-center group-hover:pause motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:flex-wrap motion-reduce:justify-center">
+      {safeTools.map((tool) => (
+        <span class="inline-block mx-4 px-6 py-3 bg-brand-softBg border border-brand-border/60 hover:border-brand-accent/40 hover:text-brand-accent transition-colors rounded-full text-brand-navy font-medium shadow-sm whitespace-nowrap">
+          {tool}
+        </span>
+      ))}
+      <!-- Duplicate for seamless scroll unless reduced motion -->
+      <div class="hidden motion-safe:flex">
+         {safeTools.map((tool) => (
+            <span class="inline-block mx-4 px-6 py-3 bg-brand-softBg border border-brand-border/60 hover:border-brand-accent/40 hover:text-brand-accent transition-colors rounded-full text-brand-navy font-medium shadow-sm whitespace-nowrap" aria-hidden="true">
+              {tool}
+            </span>
+          ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 text-center">
+      <p class="text-sm text-brand-textMuted italic">
+          Platform support does not imply official partnership unless stated.
+      </p>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%); /* Adjust based on duplication */
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .pause {
+    animation-play-state: paused;
+  }
+</style>

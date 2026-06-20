@@ -1,0 +1,50 @@
+---
+import Button from '../ui/Button.astro';
+
+const features = [
+  "Course Setup",
+  "Landing Pages",
+  "Offers",
+  "Checkout",
+  "Email Automations",
+  "Communities",
+  "Student Experience",
+  "Migration Support"
+];
+---
+<section class="py-24 bg-brand-softBg relative overflow-hidden border-y border-brand-border/60">
+  <div class="absolute -right-[20%] top-[-10%] w-[50%] h-[120%] bg-white/40 blur-3xl rounded-full transform -rotate-12 z-0 pointer-events-none"></div>
+  <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+    <div class="inline-block px-4 py-1.5 rounded-full bg-brand-softGreen text-brand-accent font-semibold text-xs tracking-wider uppercase mb-6 shadow-sm border border-brand-accent/20">
+      Supported Platform
+    </div>
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-brand-navy">Kajabi is one of the platforms we help you build with</h2>
+    <p class="text-lg text-brand-textMuted mb-12 leading-relaxed max-w-3xl mx-auto">
+      For creators, coaches, and education businesses using Kajabi, TheEduAssist can support course setup, landing pages, offers, checkout, email automations, communities, and student experience while keeping the wider learning system in mind.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3 mb-12 max-w-4xl mx-auto">
+      {features.map(feature => (
+        <span class="inline-flex items-center px-4 py-2 bg-white border border-brand-border/60 rounded-full text-brand-navy text-sm font-medium shadow-sm">
+          <svg class="w-4 h-4 text-brand-accent mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          {feature}
+        </span>
+      ))}
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
+      <Button href="/kajabi-services/" variant="primary" size="lg">
+        Explore Kajabi Services
+      </Button>
+      <Button href="/book-free-audit/" variant="outline" size="lg">
+        Book a Kajabi Audit
+      </Button>
+    </div>
+
+    <p class="text-xs text-brand-textMuted italic max-w-2xl mx-auto">
+      Kajabi is a third-party platform. Platform support does not imply official partnership unless stated.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,124 @@
+---
+import Card from '../ui/Card.astro';
+
+const services = [
+  {
+    title: "Custom eLearning Development",
+    link: "/services/custom-elearning-development/",
+    category: "Content Creation",
+    bestFor: "Turning materials into structured modules.",
+    description: "Convert raw material, slides, scripts, and documents into structured learner-ready modules.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />`
+  },
+  {
+    title: "LMS Implementation & Migration",
+    link: "/services/lms-implementation-migration/",
+    category: "Platform Setup",
+    bestFor: "Moving or upgrading learning systems.",
+    description: "Move from a messy or outdated learning setup into a clearer LMS structure with better learner access.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />`
+  },
+  {
+    title: "Kajabi Services",
+    link: "/kajabi-services/",
+    category: "Platform Setup",
+    bestFor: "Launching courses and marketing funnels.",
+    description: "Plan your offer, course flow, pages, checkout, email automations, and student experience inside Kajabi.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />`
+  },
+  {
+    title: "AI-Powered eLearning",
+    link: "/services/ai-powered-elearning/",
+    category: "Strategy & Planning",
+    bestFor: "Speeding up content outlining and drafts.",
+    description: "Use AI-supported workflows to speed up outlining, content organization, drafts, and review-ready learning assets.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />`
+  },
+  {
+    title: "Corporate Training",
+    link: "/services/",
+    category: "Business Learning",
+    bestFor: "Onboarding and product training.",
+    description: "Create onboarding, internal training, product training, and learning journeys for employees or client education.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />`
+  },
+  {
+    title: "Microlearning & Microsimulations",
+    link: "/services/",
+    category: "Engagement",
+    bestFor: "Bite-sized, practical learning bursts.",
+    description: "Deliver short, focused lessons that fit into daily routines and improve knowledge retention.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />`
+  },
+  {
+    title: "Gamified Learning",
+    link: "/services/",
+    category: "Engagement",
+    bestFor: "Increasing motivation and completion.",
+    description: "Incorporate points, badges, leaderboards, and interactive challenges into your courses.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />`
+  },
+  {
+    title: "Legacy Content Conversion",
+    link: "/services/",
+    category: "Content Updates",
+    bestFor: "Modernizing outdated Flash or PDF training.",
+    description: "Update old training materials into responsive, accessible, modern eLearning formats.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />`
+  },
+  {
+    title: "Dashboards & Analytics",
+    link: "/services/",
+    category: "Strategy & Planning",
+    bestFor: "Tracking learner progress and outcomes.",
+    description: "Set up reporting systems to monitor completions, engagement, and training effectiveness.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />`
+  }
+];
+---
+<section class="py-24 bg-white px-4 border-t border-brand-border/60">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">E-Learning Services Built Around Your Platform and Learners</h2>
+      <p class="text-lg text-brand-textMuted leading-relaxed">
+        From LMS migration and Kajabi setup to custom eLearning and AI-supported planning, TheEduAssist helps you build learning experiences that are organized, usable, and ready to launch.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {services.map(service => (
+        <a href={service.link} class="group block h-full focus-ring rounded-2xl">
+          <Card className="flex flex-col h-full hover-lift border border-brand-border/60 group-hover:border-brand-accent/40 transition-colors bg-brand-softBg">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="bg-brand-softGreen text-brand-accent p-2.5 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={service.icon} />
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary bg-brand-softBlue px-3 py-1 rounded-full">
+                {service.category}
+              </span>
+            </div>
+
+            <h3 class="text-xl font-bold mb-3 text-brand-navy group-hover:text-brand-accent transition-colors">
+              {service.title}
+            </h3>
+
+            <p class="text-brand-textMuted mb-6 flex-grow text-base">
+              {service.description}
+            </p>
+
+            <div class="mt-auto border-t border-brand-border/60 pt-4">
+              <p class="text-sm text-brand-textMuted mb-4 italic">
+                <span class="font-medium not-italic text-brand-navy">Best for:</span> {service.bestFor}
+              </p>
+              <div class="text-brand-primary font-medium inline-flex items-center group-hover:text-brand-accent transition-colors click-press">
+                Explore Service
+                <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </div>
+          </Card>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

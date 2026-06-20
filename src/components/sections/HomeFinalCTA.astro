@@ -1,0 +1,51 @@
+---
+import Button from '../ui/Button.astro';
+---
+<section class="py-24 bg-brand-navy text-white text-center relative overflow-hidden">
+  <!-- Decorative background elements -->
+  <div class="absolute -top-[50%] -right-[20%] w-[80%] h-[200%] bg-brand-softGreen/10 blur-[100px] rounded-full pointer-events-none"></div>
+  <div class="absolute -bottom-[50%] -left-[20%] w-[80%] h-[200%] bg-brand-accent/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto px-4 relative z-10">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-white">Ready to make your course, LMS, or learning system easier to launch?</h2>
+    <p class="text-lg md:text-xl text-brand-softBlue mb-12 max-w-2xl mx-auto">
+      Share your current platform, course idea, or training challenge. We'll help you identify the next practical step.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16">
+      <Button href="/book-free-audit/" variant="primary" size="lg">
+        Book Free Audit
+      </Button>
+      <Button href="https://calendly.com/eduassist-talk/30min?month" variant="outline" size="lg" className="border-brand-softBlue text-brand-softBlue hover:bg-white/10">
+        Schedule a 30-Minute Discussion
+      </Button>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto opacity-80">
+      <div class="bg-white/5 border border-white/10 rounded-xl p-4 hover-lift group">
+        <div class="text-brand-softGreen mb-2 group-hover:scale-110 transition-transform">
+           <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <p class="text-xs font-medium text-brand-softBlue">Practical Steps</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-4 hover-lift group">
+        <div class="text-brand-softGreen mb-2 group-hover:scale-110 transition-transform">
+           <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+        </div>
+        <p class="text-xs font-medium text-brand-softBlue">Platform Agnostic</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-4 hover-lift group">
+        <div class="text-brand-softGreen mb-2 group-hover:scale-110 transition-transform">
+           <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <p class="text-xs font-medium text-brand-softBlue">Faster Launch</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-4 hover-lift group">
+        <div class="text-brand-softGreen mb-2 group-hover:scale-110 transition-transform">
+           <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg>
+        </div>
+        <p class="text-xs font-medium text-brand-softBlue">Clear Support</p>
+      </div>
+    </div>
+  </div>
+</section>

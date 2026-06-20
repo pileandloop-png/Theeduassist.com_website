@@ -1,0 +1,54 @@
+---
+import Card from '../ui/Card.astro';
+
+const caseStudies = [
+  {
+    title: "SQA-Aligned Vocational Training",
+    category: "Government & Skills Development",
+    summary: "Developed structured vocational eLearning content aligned with skills-based workforce development needs.",
+  },
+  {
+    title: "Business Analytics Training",
+    category: "Corporate Learning",
+    summary: "Created practical learning content to help teams understand data, reporting, and decision-making workflows.",
+  },
+  {
+    title: "Language Learning Content",
+    category: "Educational Programs",
+    summary: "Supported educational content development for language learning audiences and structured course delivery.",
+  },
+  {
+    title: "Platform Cleanup and Course Flow",
+    category: "Course Platform Support",
+    summary: "Helped organize course structure, access flow, and learner journey planning for online learning delivery.",
+  }
+];
+---
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-brand-border/60 pb-4">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold text-brand-navy">Practical learning support across different training needs</h2>
+        <p class="text-brand-textMuted mt-2 text-lg">TheEduAssist supports different types of learning projects, from course platforms to workforce training and content conversion.</p>
+      </div>
+      <a href="/case-studies/" class="text-brand-primary font-medium hover:text-brand-accent transition-colors mt-6 md:mt-0 flex items-center group whitespace-nowrap focus-ring rounded-md click-press">
+        View Case Studies
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {caseStudies.map(cs => (
+        <a href="/case-studies/" class="block h-full group focus-ring rounded-2xl">
+          <Card className="flex flex-col h-full bg-brand-softBg hover:bg-white border border-brand-border/60 group-hover:border-brand-accent/40 group-hover:shadow-md hover-lift transition-all">
+            <div class="text-xs font-bold tracking-wider text-brand-primary uppercase mb-3 bg-brand-softBlue inline-block px-3 py-1 rounded-full">{cs.category}</div>
+            <h3 class="text-xl font-bold mb-3 text-brand-navy group-hover:text-brand-accent transition-colors">{cs.title}</h3>
+            <p class="text-brand-textMuted leading-relaxed">{cs.summary}</p>
+          </Card>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
