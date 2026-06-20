@@ -1,0 +1,60 @@
+---
+import { fetchFromSanity, projectId, dataset } from '../lib/sanity/client';
+import { latestBlogPostsQuery } from '../lib/sanity/queries';
+import Layout from '../layouts/Layout.astro';
+
+let connectionStatus = "Testing...";
+let documentCount = 0;
+let errorMsg = null;
+
+try {
+  const posts = await fetchFromSanity(latestBlogPostsQuery);
+  if (Array.isArray(posts)) {
+    connectionStatus = "Sanity connected";
+    documentCount = posts.length;
+    if (documentCount === 0) {
+      connectionStatus = "Sanity is connected, but no published content was found yet.";
+    }
+  } else {
+    connectionStatus = "Sanity connection failed: Unexpected response format.";
+  }
+} catch (error) {
+  connectionStatus = "Sanity connection failed";
+  errorMsg = error.message || "An unknown error occurred.";
+}
+---
+
+<Layout title="Sanity Connection Test" description="Testing connection to Sanity CMS" noindex={true}>
+  <div class="container mx-auto px-4 py-16 max-w-3xl">
+    <h1 class="text-3xl font-bold mb-8 text-slate-800">Sanity Connection Test</h1>
+
+    <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Connection Status</h2>
+        <p class={`text-lg ${connectionStatus.includes('failed') ? 'text-red-600' : 'text-green-600'}`}>
+          {connectionStatus}
+        </p>
+        {errorMsg && (
+          <p class="mt-2 text-sm text-red-500 bg-red-50 p-3 rounded">
+            Error details: {errorMsg}
+          </p>
+        )}
+      </div>
+
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">Configuration</h2>
+        <ul class="space-y-2 text-slate-600">
+          <li><strong>Project ID:</strong> {projectId}</li>
+          <li><strong>Dataset:</strong> {dataset}</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Data</h2>
+        <p class="text-slate-600">
+          Found <strong>{documentCount}</strong> published blog posts.
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>

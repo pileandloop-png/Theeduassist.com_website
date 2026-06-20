@@ -12,6 +12,15 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
+    }),
+    defineField({
       name: 'role',
       title: 'Role',
       type: 'string',
@@ -24,17 +33,20 @@ export default defineType({
     defineField({
       name: 'image',
       title: 'Image',
-      type: 'imageWithAlt',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
-      name: 'socialLinks',
-      title: 'Social Links',
+      name: 'sameAs',
+      title: 'Same As (URLs)',
       type: 'array',
-      of: [{type: 'link'}],
+      of: [{type: 'url'}],
     }),
     defineField({
-      name: 'showOnSite',
-      title: 'Show On Site',
+      name: 'isActive',
+      title: 'Is Active',
       type: 'boolean',
       initialValue: true,
     }),

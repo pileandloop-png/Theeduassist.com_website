@@ -1,46 +1,68 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import HomeHero from "../../components/sections/HomeHero.astro";
-import { getAllPosts } from '../../sanity/queries';
+import { fetchFromSanity } from '../../lib/sanity/client';
+import { latestBlogPostsQuery } from '../../lib/sanity/queries';
+import Layout from '../../layouts/Layout.astro';
+import { urlForImage } from '../../lib/sanity/image';
 
-const posts = await getAllPosts();
+let posts = [];
+try {
+  const result = await fetchFromSanity(latestBlogPostsQuery);
+  if (Array.isArray(result)) {
+    posts = result;
+  }
+} catch (e) {
+  console.error("Failed to fetch blog posts for index:", e);
+}
 ---
-<Layout title="Blog" description="TheEduAssist Blog - Insights on eLearning, Kajabi, and LMS solutions.">
 
-  <HomeHero
-    title="TheEduAssist Blog"
-    subtitle="Insights and practical advice on course design, platform setup, and eLearning strategy."
-    primaryCtaLabel="Book Free Audit"
-    primaryCtaLink="/book-free-audit/"
-  />
+<Layout title="Blog" description="Latest articles, insights, and guides from TheEduAssist." canonicalPath="/blog/">
+  <div class="container mx-auto px-4 py-16 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-8 text-slate-800 text-center">Our Blog</h1>
 
-  <section class="py-24 bg-white text-center px-4">
-    <div class="max-w-5xl mx-auto">
-      <div class="mb-12 text-left">
-        <h1 class="text-3xl font-bold">Blog</h1>
-        <p class="text-slate-600">Latest articles and guides on eLearning and Kajabi.</p>
+    {posts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {posts.map((post: any) => (
+          <article class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+            {post.featuredImage && (
+              <img
+                src={urlForImage(post.featuredImage)?.width(600).height(400).url()}
+                alt={post.featuredImage?.alt || post.title}
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="p-6">
+              <h2 class="text-2xl font-bold mb-3 text-slate-800">
+                <a href={`/blog/${post.slug.current}`} class="hover:text-[var(--color-primary)] transition-colors">
+                  {post.title}
+                </a>
+              </h2>
+              {post.excerpt && <p class="text-slate-600 mb-4 line-clamp-3">{post.excerpt}</p>}
+              <a href={`/blog/${post.slug.current}`} class="text-[var(--color-primary)] font-medium hover:underline">
+                Read Article &rarr;
+              </a>
+            </div>
+          </article>
+        ))}
       </div>
-
-      {posts && posts.length > 0 ? (
-        <div class="grid md:grid-cols-2 gap-8">
-          {posts.map(post => (
-            <article class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-              <h2 class="text-xl font-bold mb-2"><a href={`/blog/${post.slug?.current || ''}/`} class="text-blue-600 hover:underline">{post.title}</a></h2>
-              <div class="text-sm text-slate-500 mb-4">{post.publishedAt ? new Date(post.publishedAt).toLocaleDateString() : 'Unpublished'}</div>
-              <p class="text-slate-700">{(post.content && post.content[0] && post.content[0].children && post.content[0].children[0] && post.content[0].children[0].text) || (post.excerpt) || ''}</p>
-            </article>
-          ))}
+    ) : (
+      <div class="text-center py-12 bg-white rounded-lg shadow-sm border border-slate-200">
+        <h2 class="text-2xl font-semibold mb-4 text-slate-800">Content Coming Soon</h2>
+        <p class="text-slate-600 mb-8 max-w-lg mx-auto text-lg">
+          Blog migration is in progress. New articles will appear here as they are reviewed and published.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/services/" class="inline-block bg-[var(--color-primary)] text-white font-medium py-3 px-6 rounded-md hover:bg-opacity-90 transition-colors">
+            Explore Services
+          </a>
+          <a href="/kajabi-services/" class="inline-block bg-white text-[var(--color-primary)] font-medium py-3 px-6 rounded-md border border-[var(--color-primary)] hover:bg-slate-50 transition-colors">
+            Explore Kajabi Services
+          </a>
+          <a href="/book-free-audit/" class="inline-block bg-[var(--color-accent)] text-white font-medium py-3 px-6 rounded-md hover:bg-opacity-90 transition-colors">
+            Book Free Audit
+          </a>
         </div>
-      ) : (
-        <div class="max-w-3xl mx-auto bg-slate-50 p-10 rounded-lg border border-slate-200">
-          <h2 class="text-2xl font-bold mb-4 text-slate-900">Content Migration in Progress</h2>
-          <p class="text-lg text-slate-600 leading-relaxed mb-6">
-            No published posts found. Create and publish `post` documents in Sanity Studio to show them here.
-          </p>
-          <a href="/services/" class="text-blue-600 font-medium hover:underline">Explore our services in the meantime &rarr;</a>
-        </div>
-      )}
-    </div>
-  </section>
-
+      </div>
+    )}
+  </div>
 </Layout>
