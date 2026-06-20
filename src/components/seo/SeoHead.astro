@@ -1,0 +1,30 @@
+---
+import { getCanonicalUrl } from '../../lib/seo/canonical';
+
+export interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+}
+
+const { title, description, noindex = false, ogTitle, ogDescription, ogImage } = Astro.props;
+const currentPath = Astro.url.pathname;
+const canonicalUrl = getCanonicalUrl(currentPath);
+---
+
+<head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <link rel="canonical" href={canonicalUrl} />
+
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  {!noindex && <meta name="robots" content="index, follow" />}
+
+  <meta property="og:title" content={ogTitle || title} />
+  <meta property="og:description" content={ogDescription || description} />
+  {ogImage && <meta property="og:image" content={ogImage} />}
+</head>

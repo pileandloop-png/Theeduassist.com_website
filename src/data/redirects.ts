@@ -1,44 +1,188 @@
-export type RedirectStatus = 301 | 302;
-export type RedirectPriority = "critical" | "high" | "medium" | "low";
-export type RedirectMigrationStatus = "ready" | "pendingTarget" | "needsReview" | "doNotRedirect";
+export type RedirectStatus = "ready" | "pending" | "doNotRedirect" | "needsReview";
 
-export interface Redirect {
+export type RedirectRule = {
   from: string;
   to: string;
   status: RedirectStatus;
-  priority: RedirectPriority;
-  migrationStatus: RedirectMigrationStatus;
+  statusCode: 301 | 302;
   reason: string;
+  sourceGroup:
+    | "oldPage"
+    | "oldService"
+    | "oldKajabi"
+    | "oldBlog"
+    | "oldCategory"
+    | "oldTag"
+    | "oldPlugin"
+    | "oldTemplate"
+    | "oldJob"
+    | "oldArchive"
+    | "other";
+  targetExists: boolean;
   notes?: string;
-}
+};
 
-export const redirects: Redirect[] = [
-  // Main pages
-  { from: "/about-us/", to: "/about/", status: 301, priority: "critical", migrationStatus: "ready", reason: "Main about page migrated to cleaner Astro route" },
-  { from: "/contact-us/", to: "/contact/", status: 301, priority: "critical", migrationStatus: "ready", reason: "Main contact page migrated" },
-  { from: "/services/", to: "/services/", status: 301, priority: "critical", migrationStatus: "doNotRedirect", reason: "URL unchanged" },
-  { from: "/kajabi-services/", to: "/kajabi-services/", status: 301, priority: "critical", migrationStatus: "doNotRedirect", reason: "URL unchanged" },
-  { from: "/case-studies-1/", to: "/case-studies/", status: 301, priority: "critical", migrationStatus: "ready", reason: "Main case studies page migrated" },
-  { from: "/career/", to: "/careers/", status: 301, priority: "critical", migrationStatus: "ready", reason: "Careers page migrated" },
+export const redirects: RedirectRule[] = [
+  {
+    from: "/contact-us/",
+    to: "/contact/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Old WordPress contact page moved to Astro contact page.",
+    sourceGroup: "oldPage",
+    targetExists: true
+  },
+  {
+    from: "/about-us/",
+    to: "/about/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Old WordPress about page moved to Astro about page.",
+    sourceGroup: "oldPage",
+    targetExists: true
+  },
+  {
+    from: "/case-studies-1/",
+    to: "/case-studies/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Old WordPress case studies page moved to Astro case studies page.",
+    sourceGroup: "oldPage",
+    targetExists: true
+  },
+  {
+    from: "/case-studies-2/",
+    to: "/case-studies/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Old WordPress case studies page moved to Astro case studies page.",
+    sourceGroup: "oldPage",
+    targetExists: true
+  },
+  {
+    from: "/case-studies-3/",
+    to: "/case-studies/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Old WordPress case studies page moved to Astro case studies page.",
+    sourceGroup: "oldPage",
+    targetExists: true
+  },
+  {
+    from: "/custom-elearning-content-development/",
+    to: "/services/custom-elearning-development/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Service page migrated",
+    sourceGroup: "oldService",
+    targetExists: true
+  },
+  {
+    from: "/lms-integration-migration-services/",
+    to: "/services/lms-implementation-migration/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Service page migrated",
+    sourceGroup: "oldService",
+    targetExists: true
+  },
+  {
+    from: "/ai-powered-elearning/",
+    to: "/services/ai-powered-elearning/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Service page migrated",
+    sourceGroup: "oldService",
+    targetExists: true
+  },
+  {
+    from: "/terms-conditions/",
+    to: "/terms-and-conditions/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Terms page migrated",
+    sourceGroup: "oldPage",
+    targetExists: true
+  },
+  {
+    from: "/privacy-policy-2/",
+    to: "/privacy-policy/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Privacy page migrated",
+    sourceGroup: "oldPage",
+    targetExists: true
+  },
+  {
+    from: "/career/",
+    to: "/careers/",
+    status: "ready",
+    statusCode: 301,
+    reason: "Careers page migrated",
+    sourceGroup: "oldPage",
+    targetExists: true
+  },
+  {
+    from: "/kajabi-funnel-setup-services/",
+    to: "/kajabi-services/",
+    status: "pending",
+    statusCode: 301,
+    reason: "Kajabi subpage mapped",
+    sourceGroup: "oldKajabi",
+    targetExists: true
+  },
+  {
+    from: "/kajabi-course-setup-services/",
+    to: "/kajabi-services/",
+    status: "pending",
+    statusCode: 301,
+    reason: "Kajabi subpage mapped",
+    sourceGroup: "oldKajabi",
+    targetExists: true
+  },
+  {
+    from: "/kajabi-course-upload-services/",
+    to: "/kajabi-services/",
+    status: "pending",
+    statusCode: 301,
+    reason: "Kajabi subpage mapped",
+    sourceGroup: "oldKajabi",
+    targetExists: true
+  },
+  {
+    from: "/kajabi-migration-services/",
+    to: "/kajabi-services/",
+    status: "pending",
+    statusCode: 301,
+    reason: "Kajabi subpage mapped",
+    sourceGroup: "oldKajabi",
+    targetExists: true
+  },
+  {
+    from: "/kajabi-virtual-assistant-services/",
+    to: "/kajabi-services/",
+    status: "pending",
+    statusCode: 301,
+    reason: "Kajabi subpage mapped",
+    sourceGroup: "oldKajabi",
+    targetExists: true
+  },
 
-  // Service pages
-  { from: "/custom-elearning-content-development/", to: "/services/custom-elearning-development/", status: 301, priority: "high", migrationStatus: "ready", reason: "Service page migrated" },
-  { from: "/lms-integration-migration-services/", to: "/services/lms-implementation-migration/", status: 301, priority: "high", migrationStatus: "ready", reason: "Service page migrated" },
-  { from: "/ai-powered-elearning/", to: "/services/ai-powered-elearning/", status: 301, priority: "high", migrationStatus: "ready", reason: "Service page migrated" },
-
-  // Service pages without individual new pages yet
-  { from: "/instructional-ui-ux-design/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/rapid-elearning/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/dashboards-analytics/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/gamified-learning/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/k-12-education-services/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/ld-consulting-advisory/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/elearning-localization-services/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/microlearning-microsimulations/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/mobile-learning-solutions/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/off-the-shelf-elearning/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/scenario-based-learning/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/legacy-content-conversion-flash-to-html5/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/ar-vr-solutions/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
-  { from: "/audio-video-production-for-elearning/", to: "", status: 301, priority: "medium", migrationStatus: "pendingTarget", reason: "Target page not created yet" },
+  // WordPress JUNK
+  { from: "/?wpr_templates=user-single-online-course-v1-post", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Template", sourceGroup: "oldTemplate", targetExists: false },
+  { from: "/?wpr_templates=user-footer-online-course-v1-footer", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Template", sourceGroup: "oldTemplate", targetExists: false },
+  { from: "/?wpr_templates=user-header-online-course-v1-header", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Template", sourceGroup: "oldTemplate", targetExists: false },
+  { from: "/?wpr_templates=user-archive-online-course-v1-blog", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Template", sourceGroup: "oldTemplate", targetExists: false },
+  { from: "/?wpr_templates=user-single-online-course-v1-page", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Template", sourceGroup: "oldTemplate", targetExists: false },
+  { from: "/?wpr_templates=user-single-online-course-v1-404", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Template", sourceGroup: "oldTemplate", targetExists: false },
+  { from: "/?wpr_templates=user-archive-online-course-v1-category-tag", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Template", sourceGroup: "oldTemplate", targetExists: false },
+  { from: "/?wpr_templates=user-archive-online-course-v1-search", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Template", sourceGroup: "oldTemplate", targetExists: false },
+  { from: "/?mailpoet_page=subscriptions", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Plugin", sourceGroup: "oldPlugin", targetExists: false },
+  { from: "/?mailpoet_page=captcha", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Plugin", sourceGroup: "oldPlugin", targetExists: false },
+  { from: "/job-category/marketing/", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Job Taxonomy", sourceGroup: "oldJob", targetExists: false },
+  { from: "/job-category/sales/", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Job Taxonomy", sourceGroup: "oldJob", targetExists: false },
+  { from: "/job-type/part-time/", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Job Taxonomy", sourceGroup: "oldJob", targetExists: false },
+  { from: "/job-type/internship/", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Job Taxonomy", sourceGroup: "oldJob", targetExists: false },
+  { from: "/job-location-sitemap.xml", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Archive Sitemap", sourceGroup: "oldArchive", targetExists: false },
+  { from: "/post-archive-sitemap.xml", to: "", status: "doNotRedirect", statusCode: 301, reason: "WP Archive Sitemap", sourceGroup: "oldArchive", targetExists: false }
 ];
