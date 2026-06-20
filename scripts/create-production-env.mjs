@@ -15,6 +15,21 @@ const requiredPublicVars = [
   'PUBLIC_DEMO_SITE_URL',
 ];
 
+const fallbacks = {
+  PUBLIC_SANITY_PROJECT_ID: 'jg4gi6mn',
+  PUBLIC_SANITY_DATASET: 'production',
+  PUBLIC_SANITY_API_VERSION: '2026-06-19',
+  PUBLIC_FIREBASE_PROJECT_ID: 'theeduassist-website-prod',
+  PUBLIC_FIREBASE_AUTH_DOMAIN: 'theeduassist-website-prod.firebaseapp.com',
+  PUBLIC_FIREBASE_STORAGE_BUCKET: 'theeduassist-website-prod.appspot.com',
+  PUBLIC_SITE_URL: 'https://theeduassist.com',
+  PUBLIC_DEMO_SITE_URL: 'https://theeduassist-website-prod.web.app',
+  PUBLIC_FIREBASE_API_KEY: '',
+  PUBLIC_FIREBASE_APP_ID: '',
+  PUBLIC_FIREBASE_MESSAGING_SENDER_ID: '',
+  PUBLIC_FIREBASE_MEASUREMENT_ID: ''
+};
+
 const optionalPrivateVars = ['SANITY_VIEWER_TOKEN'];
 
 let hasError = false;
@@ -24,8 +39,13 @@ console.log('Generating .env.production from process.env...');
 
 // Check and collect public vars
 for (const varName of requiredPublicVars) {
-  const value = process.env[varName];
-  if (value) {
+  let value = process.env[varName];
+  if (!value && fallbacks[varName] !== undefined) {
+    console.log(`⚠️ ${varName} is missing, using fallback.`);
+    value = fallbacks[varName];
+  }
+
+  if (value !== undefined && value !== null) {
     console.log(`✅ ${varName} is present`);
     envContent += `${varName}=${value}\n`;
   } else {
