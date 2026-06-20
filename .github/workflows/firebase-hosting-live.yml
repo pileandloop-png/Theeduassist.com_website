@@ -7,7 +7,7 @@ permissions:
   contents: read
   checks: write
 jobs:
-  build_and_deploy:
+  qa_build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,8 +35,45 @@ jobs:
       - run: npm run validate:env
       - run: npm run build
       - run: npm run validate:redirects || true
+
+  deploy_live:
+    needs: qa_build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'
+      - run: npm ci
+      - name: Create .env.production
+        run: npm run create:env:production
+        env:
+          PUBLIC_SANITY_PROJECT_ID: ${{ vars.PUBLIC_SANITY_PROJECT_ID }}
+          PUBLIC_SANITY_DATASET: ${{ vars.PUBLIC_SANITY_DATASET }}
+          PUBLIC_SANITY_API_VERSION: ${{ vars.PUBLIC_SANITY_API_VERSION }}
+          PUBLIC_FIREBASE_PROJECT_ID: ${{ vars.PUBLIC_FIREBASE_PROJECT_ID }}
+          PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ vars.PUBLIC_FIREBASE_AUTH_DOMAIN }}
+          PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ vars.PUBLIC_FIREBASE_STORAGE_BUCKET }}
+          PUBLIC_FIREBASE_API_KEY: ${{ vars.PUBLIC_FIREBASE_API_KEY }}
+          PUBLIC_FIREBASE_APP_ID: ${{ vars.PUBLIC_FIREBASE_APP_ID }}
+          PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ vars.PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
+          PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ vars.PUBLIC_FIREBASE_MEASUREMENT_ID }}
+          PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
+          PUBLIC_DEMO_SITE_URL: ${{ vars.PUBLIC_DEMO_SITE_URL }}
+          SANITY_VIEWER_TOKEN: ${{ secrets.SANITY_VIEWER_TOKEN }}
+      - run: npm run build
+      - name: Check Firebase service account secret
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "Missing required GitHub Secret: FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD"
+            echo "Add it in: Repo Settings → Secrets and variables → Actions → Secrets"
+            echo "This must contain the Firebase service account JSON for project theeduassist-website-prod."
+            exit 1
+          fi
       - uses: FirebaseExtended/action-hosting-deploy@v0
-        if: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD != '' }}
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD }}
