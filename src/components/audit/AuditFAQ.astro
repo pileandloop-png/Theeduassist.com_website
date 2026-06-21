@@ -1,0 +1,64 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import FAQAccordion from '../ui/FAQAccordion.astro';
+
+const faqs = [
+  {
+    question: "Is the Kajabi audit really free?",
+    answer: "Yes. The free audit is designed to help you understand what your Kajabi setup may need next."
+  },
+  {
+    question: "Do I need to already have a Kajabi account?",
+    answer: "No. You can book the audit if you already use Kajabi or if you are planning to build on Kajabi."
+  },
+  {
+    question: "Can you review my existing Kajabi website?",
+    answer: "Yes. We can review your website structure, landing pages, offer flow, course setup, funnel, and email automation."
+  },
+  {
+    question: "Can you help if my content is still messy?",
+    answer: "Yes. You can bring raw outlines, PDFs, videos, slide decks, Google Drive folders, or existing WordPress content."
+  },
+  {
+    question: "Will you guarantee course sales after the audit?",
+    answer: "No. TheEduAssist does not guarantee sales or revenue. The audit focuses on clarity, structure, learner experience, and launch readiness."
+  },
+  {
+    question: "What happens after the audit?",
+    answer: "You can decide whether to fix things yourself or work with TheEduAssist on website design, course setup, funnels, automations, migration, templates, or support."
+  },
+  {
+    question: "Can I book if I only need one page fixed?",
+    answer: "Yes. The audit can help identify whether you need one page, one funnel, one course setup, or a larger system cleanup."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<section class="py-16 md:py-24 bg-white" id="faq">
+  <div class="container mx-auto px-4 md:px-6 max-w-3xl">
+    <SectionHeader
+      title="Frequently Asked Questions"
+      subtitle="Everything you need to know about the free Kajabi audit."
+      centered={true}
+    />
+
+    <div class="mt-12 space-y-4">
+      <FAQAccordion items={faqs} />
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</section>

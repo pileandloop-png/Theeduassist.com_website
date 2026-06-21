@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AuditHero from '../../components/audit/AuditHero.astro';
+import AuditBookingPanel from '../../components/audit/AuditBookingPanel.astro';
+import AuditValueSection from '../../components/audit/AuditValueSection.astro';
+import AuditProcessDiagram from '../../components/audit/AuditProcessDiagram.astro';
+import AuditWhoItIsFor from '../../components/audit/AuditWhoItIsFor.astro';
+import AuditPreparationChecklist from '../../components/audit/AuditPreparationChecklist.astro';
+import AuditWhatYouReceive from '../../components/audit/AuditWhatYouReceive.astro';
+import AuditWhyUs from '../../components/audit/AuditWhyUs.astro';
+import AuditFAQ from '../../components/audit/AuditFAQ.astro';
+import AuditFinalCTA from '../../components/audit/AuditFinalCTA.astro';
+import AuditAIPageAssist from '../../components/audit/AuditAIPageAssist.astro';
+
+const seoTitle = "Book Free Kajabi Audit | TheEduAssist";
+const seoDescription = "Book a free Kajabi audit with TheEduAssist to review your Kajabi website, course setup, funnel, email automation, migration needs, and launch readiness.";
+const canonicalUrl = "https://theeduassist.com/book-free-kajabi-audit/";
+const ogTitle = "Book a Free Kajabi Audit with TheEduAssist";
+const ogDescription = "Get a clear review of your Kajabi website, course, funnel, automation, and launch setup before you build or improve your online course system.";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://theeduassist.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Book Free Kajabi Audit",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Free Kajabi Audit",
+  "provider": {
+    "@type": "Organization",
+    "name": "TheEduAssist"
+  },
+  "description": "A 30-minute free audit to review your Kajabi website, course setup, funnel, email automation, migration needs, and launch readiness.",
+  "serviceType": "Consulting",
+  "url": canonicalUrl
+};
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  canonicalPath="/book-free-kajabi-audit/"
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  type="website"
+  jsonLd={[breadcrumbSchema, serviceSchema]}
+>
+  <AuditHero />
+  <AuditBookingPanel />
+  <AuditValueSection />
+  <AuditProcessDiagram />
+  <AuditWhoItIsFor />
+  <AuditPreparationChecklist />
+  <AuditWhatYouReceive />
+  <AuditWhyUs />
+  <AuditFAQ />
+  <AuditFinalCTA />
+
+  <AuditAIPageAssist />
+</Layout>

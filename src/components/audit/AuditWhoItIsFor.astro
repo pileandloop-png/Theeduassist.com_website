@@ -1,0 +1,35 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const audiences = [
+  "Course creators building on Kajabi",
+  "Coaches launching a paid offer",
+  "Consultants turning expertise into a course",
+  "Educators organizing lessons and resources",
+  "Training companies improving online delivery",
+  "Businesses migrating from WordPress or another LMS",
+  "Creators with a messy funnel or weak landing page",
+  "Teams that need help before launch"
+];
+---
+
+<section class="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+  <div class="container mx-auto px-4 md:px-6 max-w-5xl">
+    <SectionHeader
+      title="Who should book this audit?"
+      subtitle="If you relate to any of the following, this free review is built for you."
+      centered={true}
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
+      {audiences.map((item) => (
+        <div class="bg-white border border-slate-200 rounded-xl p-6 flex items-start shadow-sm hover:shadow-md transition-shadow">
+          <svg class="w-6 h-6 text-[#77BA55] mr-4 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="text-slate-800 font-medium text-lg">{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,116 @@
+---
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+---
+
+<section class="relative bg-slate-50 pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden border-b border-slate-200">
+  <div class="container mx-auto px-4 md:px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      {/* Content Column */}
+      <div class="max-w-2xl">
+        <Badge class="mb-6">Free Kajabi Audit</Badge>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
+          Find Out What Your Kajabi Website, Course, or Funnel Needs Next
+        </h1>
+
+        <p class="text-lg md:text-xl text-slate-600 mb-6 leading-relaxed">
+          Book a free Kajabi audit with TheEduAssist and get a clearer view of your website, course setup, funnel, email automation, migration needs, and launch readiness.
+        </p>
+
+        <div class="mb-8 hidden sm:block">
+          <p class="text-sm font-medium text-slate-500 flex flex-wrap gap-2 items-center">
+            <span>Website design</span>
+            <span class="text-slate-300">•</span>
+            <span>Course setup</span>
+            <span class="text-slate-300">•</span>
+            <span>Funnels</span>
+            <span class="text-slate-300">•</span>
+            <span>Email automation</span>
+            <span class="text-slate-300">•</span>
+            <span>Migration</span>
+            <span class="text-slate-300">•</span>
+            <span>Launch review</span>
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+          <Button href="https://calendly.com/eduassist-talk/30min" variant="primary" target="_blank" rel="noopener noreferrer">
+            Book Your Free Audit
+          </Button>
+          <Button href="/kajabi-services/" variant="outline">
+            Explore Kajabi Services &rarr;
+          </Button>
+        </div>
+
+        <p class="text-xs text-slate-400 mt-4 max-w-lg">
+          Kajabi is a third-party platform. Platform support does not imply official partnership unless stated.
+        </p>
+      </div>
+
+      {/* Visual Column */}
+      <div class="relative lg:h-[600px] flex items-center justify-center">
+        {/* Abstract Background Element */}
+        <div class="absolute inset-0 bg-gradient-to-tr from-[#F3FAF0] to-[#EFF6FF] rounded-full blur-3xl opacity-50 -z-10 transform scale-110"></div>
+
+        {/* Custom Dashboard Visual */}
+        <div class="relative w-full max-w-md mx-auto grid grid-cols-2 gap-4">
+
+          {/* Connector Lines (decorative) */}
+          <div class="absolute inset-0 -z-0" aria-hidden="true">
+            <svg class="w-full h-full text-[#77BA55] opacity-20" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-dasharray="4,4" d="M 25% 10% L 25% 90% M 75% 10% L 75% 90% M 10% 25% L 90% 25% M 10% 75% L 90% 75%" />
+            </svg>
+          </div>
+
+          {[
+            { title: 'Website Review', delay: '0ms' },
+            { title: 'Course Flow', delay: '100ms' },
+            { title: 'Funnel Path', delay: '200ms' },
+            { title: 'Email Automation', delay: '300ms' },
+            { title: 'Student Access', delay: '400ms' },
+            { title: 'Launch Checklist', delay: '500ms' }
+          ].map((card, idx) => (
+            <div
+              class="relative z-10 bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-start gap-3"
+              style={`animation: fade-in-up 0.5s ease-out forwards; animation-delay: ${card.delay}; opacity: 0;`}
+            >
+              <div class="w-8 h-8 rounded-full bg-[#EFF6FF] flex items-center justify-center text-[#27496D]">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span class="text-sm font-semibold text-[#1F2937]">{card.title}</span>
+              <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full bg-[#77BA55] w-2/3 rounded-full"></div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .relative.z-10.bg-white {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</section>

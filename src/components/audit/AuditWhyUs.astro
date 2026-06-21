@@ -1,0 +1,46 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const cards = [
+  {
+    title: "E-learning structure first",
+    description: "We review the course experience, not only the page design."
+  },
+  {
+    title: "Kajabi system thinking",
+    description: "We look at how your website, funnel, course, email, and student access connect."
+  },
+  {
+    title: "Practical recommendations",
+    description: "You get clear next steps instead of generic advice."
+  },
+  {
+    title: "No fake guarantees",
+    description: "We do not promise sales, revenue, rankings, or overnight success."
+  }
+];
+---
+
+<section class="py-16 md:py-24 bg-slate-50">
+  <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+    <SectionHeader
+      title="Why book with TheEduAssist?"
+      subtitle="Honest, practical feedback from e-learning specialists."
+      centered={true}
+    />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
+      {cards.map((card) => (
+        <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+           <div class="w-10 h-10 rounded-lg bg-[#F3FAF0] flex items-center justify-center text-[#77BA55] mb-4">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+           </div>
+           <h3 class="text-xl font-bold text-slate-900 mb-2">{card.title}</h3>
+           <p class="text-slate-600">{card.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

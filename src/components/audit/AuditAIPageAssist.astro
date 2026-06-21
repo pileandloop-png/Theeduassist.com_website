@@ -1,0 +1,245 @@
+---
+const customPrompt = `Please read and explain this service page in simple language:
+
+Page title: Book Free Kajabi Audit
+Page URL: https://theeduassist.com/book-free-kajabi-audit/
+Page type: Free Kajabi audit booking page
+
+Give me:
+
+1. A short summary
+2. Who this audit is for
+3. What TheEduAssist reviews during the audit
+4. What I should prepare before booking
+5. What questions I should ask on the call
+6. What my next step should be
+
+Keep it clear, practical, and beginner-friendly.`;
+---
+
+<div class="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-40 transform translate-y-full transition-transform duration-300" id="ai-assist-bar-custom">
+  <div class="container mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-between max-w-4xl">
+    <div class="flex items-center mb-2 sm:mb-0">
+      <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mr-3 text-[var(--color-primary)]">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </div>
+      <span class="text-sm font-medium text-slate-700">Understand this page with AI</span>
+    </div>
+
+    <button
+      type="button"
+      id="open-custom-ai-modal-btn"
+      class="text-sm bg-slate-900 text-white px-5 py-2 rounded-md hover:bg-slate-800 transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 focus:outline-none flex items-center"
+      aria-haspopup="dialog"
+      aria-expanded="false"
+      aria-controls="custom-ai-summary-modal"
+    >
+      Open AI Assistant
+    </button>
+  </div>
+</div>
+
+<div
+  id="custom-ai-summary-modal"
+  class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="custom-modal-headline"
+>
+  {/* Backdrop */}
+  <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm custom-modal-backdrop" aria-hidden="true"></div>
+
+  {/* Modal Panel */}
+  <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
+    <div class="relative bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full border border-slate-200" id="custom-ai-modal-panel" tabindex="-1">
+
+      <div class="absolute top-0 right-0 pt-4 pr-4">
+        <button type="button" class="bg-white rounded-md text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)] custom-modal-close-btn" aria-label="Close modal">
+          <span class="sr-only">Close</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div class="sm:flex sm:items-start">
+          <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-50 sm:mx-0 sm:h-10 sm:w-10">
+            <svg class="h-6 w-6 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+            <h3 class="text-lg leading-6 font-medium text-slate-900" id="custom-modal-headline">
+              AI Page Assistant
+            </h3>
+            <div class="mt-2">
+              <p class="text-sm text-slate-500 mb-4">
+                Copy this prompt and paste it into your favorite AI tool to get a simple breakdown of this free audit service.
+              </p>
+
+              <div class="bg-slate-50 rounded-lg border border-slate-200 p-4 relative group">
+                <pre class="text-xs text-slate-700 whitespace-pre-wrap font-mono overflow-auto max-h-48 text-left">{customPrompt}</pre>
+
+                <button
+                  type="button"
+                  id="custom-copy-prompt-btn"
+                  class="absolute top-2 right-2 p-1.5 bg-white border border-slate-200 rounded text-slate-500 hover:text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-colors"
+                  aria-label="Copy prompt"
+                  title="Copy to clipboard"
+                  data-prompt={customPrompt}
+                >
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                </button>
+              </div>
+              <div id="custom-copy-success-msg" class="text-xs text-[#77BA55] mt-2 font-medium opacity-0 transition-opacity">Prompt copied! Paste it into the AI chat if it does not appear automatically.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-slate-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse border-t border-slate-100">
+        <a
+          href="https://chatgpt.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ai-tool-link w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-slate-900 text-base font-medium text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 sm:ml-3 sm:w-auto sm:text-sm transition-colors"
+        >
+          Open ChatGPT
+        </a>
+        <a
+          href="https://claude.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ai-tool-link mt-3 w-full inline-flex justify-center rounded-md border border-slate-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)] sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition-colors"
+        >
+          Open Claude
+        </a>
+        <button
+          type="button"
+          class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-transparent text-base font-medium text-slate-500 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 sm:mt-0 sm:w-auto sm:text-sm custom-modal-close-btn"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupCustomAIAssist() {
+    const bar = document.getElementById('ai-assist-bar-custom');
+    const modal = document.getElementById('custom-ai-summary-modal');
+    const openBtn = document.getElementById('open-custom-ai-modal-btn');
+    const closeBtns = document.querySelectorAll('.custom-modal-close-btn');
+    const backdrops = document.querySelectorAll('.custom-modal-backdrop');
+    const panel = document.getElementById('custom-ai-modal-panel');
+    const copyBtn = document.getElementById('custom-copy-prompt-btn');
+    const successMsg = document.getElementById('custom-copy-success-msg');
+    const aiLinks = document.querySelectorAll('.ai-tool-link');
+
+    // Bar visibility
+    const handleScroll = () => {
+      if (!bar) return;
+      if (window.scrollY > 300) {
+        bar.classList.remove('translate-y-full');
+      } else {
+        bar.classList.add('translate-y-full');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    // Modal open/close logic
+    const openModal = () => {
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      // trigger reflow
+      void modal.offsetWidth;
+      modal.classList.remove('opacity-0');
+      modal.classList.add('opacity-100');
+
+      if (openBtn) {
+        openBtn.setAttribute('aria-expanded', 'true');
+      }
+
+      if (panel) {
+        panel.focus();
+      }
+
+      // Track event if analytics exists
+      if (typeof window !== 'undefined' && (window as any).dataLayer) {
+         (window as any).dataLayer.push({ event: 'audit_ai_tool_click' });
+      }
+    };
+
+    const closeModal = () => {
+      if (!modal) return;
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        if (openBtn) {
+          openBtn.focus();
+          openBtn.setAttribute('aria-expanded', 'false');
+        }
+      }, 300);
+    };
+
+    if (openBtn) openBtn.addEventListener('click', openModal);
+
+    closeBtns.forEach(btn => btn.addEventListener('click', closeModal));
+    backdrops.forEach(bg => bg.addEventListener('click', closeModal));
+
+    // Handle escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // Handle copy
+    const copyToClipboard = async () => {
+      if (!copyBtn || !successMsg) return;
+
+      const prompt = copyBtn.getAttribute('data-prompt');
+      if (!prompt) return;
+
+      try {
+        await navigator.clipboard.writeText(prompt);
+
+        successMsg.classList.remove('opacity-0');
+        successMsg.classList.add('opacity-100');
+
+        // Track event
+        if (typeof window !== 'undefined' && (window as any).dataLayer) {
+           (window as any).dataLayer.push({ event: 'audit_ai_prompt_copy' });
+        }
+
+        setTimeout(() => {
+          successMsg.classList.remove('opacity-100');
+          successMsg.classList.add('opacity-0');
+        }, 4000);
+      } catch (err) {
+        console.error('Failed to copy text: ', err);
+      }
+    };
+
+    if (copyBtn) copyBtn.addEventListener('click', copyToClipboard);
+
+    // Auto-copy when clicking AI links
+    aiLinks.forEach(link => {
+       link.addEventListener('click', () => {
+         copyToClipboard();
+       });
+    });
+  }
+
+  setupCustomAIAssist();
+  document.addEventListener('astro:page-load', setupCustomAIAssist);
+</script>

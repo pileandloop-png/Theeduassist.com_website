@@ -1,0 +1,94 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const steps = [
+  {
+    number: "01",
+    title: "Book Call",
+    description: "Choose a time on the calendar.",
+    icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+  },
+  {
+    number: "02",
+    title: "Share Current Setup",
+    description: "Provide links to your site or ideas.",
+    icon: "M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+  },
+  {
+    number: "03",
+    title: "Review Pages and Course Flow",
+    description: "We analyze your structure live.",
+    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+  },
+  {
+    number: "04",
+    title: "Identify Gaps",
+    description: "We highlight areas causing friction.",
+    icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+  },
+  {
+    number: "05",
+    title: "Recommend Next Steps",
+    description: "Clear, practical action items.",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+  },
+  {
+    number: "06",
+    title: "Choose Build Support if Needed",
+    description: "Fix it yourself or work with us.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z"
+  }
+];
+---
+
+<section class="py-16 md:py-24 bg-white overflow-hidden">
+  <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+    <SectionHeader
+      title="How the free audit works"
+      subtitle="A simple, clear process from booking to practical next steps."
+      centered={true}
+    />
+
+    <div class="mt-16 relative">
+
+      {/* Desktop Horizontal Line */}
+      <div class="hidden lg:block absolute top-[60px] left-0 w-full h-1 bg-slate-100 -z-10" aria-hidden="true">
+        <div class="h-full bg-[#77BA55] opacity-30" style="width: 100%;"></div>
+      </div>
+
+      {/* Mobile Vertical Line */}
+      <div class="block lg:hidden absolute top-0 left-[31px] w-1 h-full bg-slate-100 -z-10" aria-hidden="true">
+        <div class="w-full bg-[#77BA55] opacity-30 h-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-6 gap-8 lg:gap-4 relative z-10">
+        {steps.map((step, index) => (
+          <div class="flex flex-row lg:flex-col items-start lg:items-center relative group">
+
+            {/* Step Number/Icon Circle */}
+            <div class="shrink-0 w-16 h-16 rounded-full bg-white border-2 border-[#77BA55] flex items-center justify-center shadow-sm relative z-10 lg:mb-6 transition-transform duration-300 group-hover:scale-110">
+              <span class="text-[#27496D] font-bold text-lg hidden lg:block">{step.number}</span>
+              <svg class="w-7 h-7 text-[#27496D] block lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={step.icon} />
+              </svg>
+            </div>
+
+            {/* Connector Line (Mobile) */}
+            {index < steps.length - 1 && (
+               <div class="block lg:hidden absolute top-16 left-8 w-px h-full bg-[#77BA55] opacity-30 -z-10" aria-hidden="true"></div>
+            )}
+
+            {/* Content Card */}
+            <div class="ml-6 lg:ml-0 bg-white border border-slate-200 rounded-xl p-5 shadow-sm w-full lg:text-center group-hover:border-[#77BA55] group-hover:shadow-md transition-all duration-300">
+               <h3 class="text-[#27496D] font-bold text-lg mb-2">{step.title}</h3>
+               <p class="text-sm text-slate-600">{step.description}</p>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+  </div>
+</section>

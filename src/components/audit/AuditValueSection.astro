@@ -1,0 +1,63 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import Card from '../ui/Card.astro';
+
+const valueCards = [
+  {
+    title: "Website structure",
+    description: "We look at your homepage, navigation, offer flow, CTAs, page clarity, and mobile experience.",
+    icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+  },
+  {
+    title: "Course setup",
+    description: "We review your modules, lessons, downloads, thumbnails, descriptions, and student navigation.",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+  },
+  {
+    title: "Funnel path",
+    description: "We check whether your lead capture, landing page, checkout, and next steps feel connected.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z"
+  },
+  {
+    title: "Email automation",
+    description: "We review welcome emails, nurture sequences, launch emails, reminders, and student communication.",
+    icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+  },
+  {
+    title: "Migration needs",
+    description: "We check what needs to move from WordPress, Google Drive, PDFs, videos, or another platform.",
+    icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+  },
+  {
+    title: "Launch readiness",
+    description: "We look for missing links, unclear steps, weak CTAs, access issues, and pre-launch cleanup needs.",
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+  }
+];
+---
+
+<section class="py-16 md:py-24 bg-slate-50">
+  <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+    <SectionHeader
+      title="What we review in your free Kajabi audit"
+      subtitle="A comprehensive look at your e-learning setup to identify gaps and opportunities."
+      centered={true}
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      {valueCards.map((card) => (
+        <Card class="h-full hover:-translate-y-1 transition-transform duration-300">
+          <div class="w-12 h-12 rounded-lg bg-[#EFF6FF] flex items-center justify-center text-[#27496D] mb-6">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
+          <p class="text-slate-600 leading-relaxed">
+            {card.description}
+          </p>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section class="py-20 md:py-32 bg-[#27496D] text-white text-center relative overflow-hidden">
+  <div class="absolute inset-0 bg-[url('/noise.png')] opacity-5 mix-blend-overlay"></div>
+  <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#77BA55] opacity-10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+
+  <div class="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Ready to review your Kajabi setup?</h2>
+    <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+      Book your free 30-minute audit and find out exactly what your course, funnel, or website needs next.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <Button href="https://calendly.com/eduassist-talk/30min" variant="primary" class="text-lg px-8 py-4" target="_blank" rel="noopener noreferrer">
+        Book Your Free Audit
+      </Button>
+    </div>
+
+    <p class="text-xs text-blue-200/60 mt-8">
+      Kajabi is a third-party platform. Platform support does not imply official partnership unless stated.
+    </p>
+  </div>
+</section>

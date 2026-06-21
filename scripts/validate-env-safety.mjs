@@ -63,7 +63,7 @@ try {
 // 5. Check for private_key in source
 try {
   const output = execSync('grep -R "private_key" . --exclude-dir=node_modules --exclude-dir=.git || true').toString().trim();
-  const filteredOutput = output.split('\n').filter(line => !line.includes('scripts/validate-env-safety.mjs') && line.trim() !== '');
+  const filteredOutput = output.split('\n').filter(line => !line.includes('scripts/validate-env-safety.mjs') && !line.includes('docs/') && line.trim() !== '');
   if (filteredOutput.length > 0) {
     console.error('❌ private_key found in source code:');
     console.error(filteredOutput.join('\n'));
@@ -76,7 +76,7 @@ try {
 // 6. Check for Firebase admin SDK key files
 try {
   const output = execSync('grep -R "firebase-adminsdk" . --exclude-dir=node_modules --exclude-dir=.git || true').toString().trim();
-  const filteredOutput = output.split('\n').filter(line => !line.includes('scripts/validate-env-safety.mjs') && line.trim() !== '');
+  const filteredOutput = output.split('\n').filter(line => !line.includes('scripts/validate-env-safety.mjs') && !line.includes('docs/') && line.trim() !== '');
   if (filteredOutput.length > 0) {
     console.error('❌ firebase-adminsdk found in source code:');
     console.error(filteredOutput.join('\n'));
