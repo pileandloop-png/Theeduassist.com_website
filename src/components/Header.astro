@@ -28,11 +28,11 @@ const desktopNav = [
         </a>
         <nav class="hidden lg:flex space-x-5 items-center">
             {desktopNav.map((item) => (
-                <a href={item.href} class="text-brand-textMain hover:text-brand-primary hover:bg-brand-softBg hover:underline underline-offset-4 decoration-brand-accent/30 font-medium focus-ring rounded-md px-2 py-1 transition-all">{item.label}</a>
+                <a href={item.href} class="text-brand-textMain hover:text-brand-primary hover:bg-brand-softBg hover:underline underline-offset-4 decoration-brand-accent/30 font-medium focus-ring rounded-md px-3 py-2 transition-all">{item.label}</a>
             ))}
-            <div class="flex items-center space-x-3 ml-2 border-l border-brand-border pl-5">
+            <div class="flex items-center space-x-4 ml-2 border-l border-brand-border pl-6">
                 <a href="/services/" class="text-brand-primary font-medium hover:text-brand-accent focus-ring rounded-sm px-2 py-1 transition-colors">View Services</a>
-                <a href="/book-free-audit/" class="bg-brand-primary text-white px-5 py-2 rounded-md font-medium hover-lift click-press focus-ring transition-colors hover:bg-brand-navy shadow-sm">Book Free Audit</a>
+                <a href="/book-free-audit/" class="bg-brand-accent text-white px-5 py-2 rounded-md font-medium hover-lift click-press focus-ring transition-colors hover:bg-brand-primary shadow-sm">Book Free Audit</a>
             </div>
         </nav>
         <div class="lg:hidden flex items-center">
