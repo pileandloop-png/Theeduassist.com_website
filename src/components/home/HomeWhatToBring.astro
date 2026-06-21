@@ -1,0 +1,44 @@
+---
+const items = [
+  "Raw course outline",
+  "Google Drive folder",
+  "Existing Kajabi account",
+  "WordPress pages",
+  "PDFs and slide decks",
+  "Lesson scripts",
+  "Recorded videos",
+  "Brand assets and logo",
+  "Current offer description",
+  "Email copy",
+  "Lead magnet idea",
+  "Old course platform content"
+];
+---
+<section class="py-20 md:py-28 bg-brand-primary text-white relative overflow-hidden">
+  <!-- Subtle pattern -->
+  <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Bring your raw ideas, content, or existing setup</h2>
+        <p class="text-lg text-slate-300 leading-relaxed max-w-xl">
+          You do not need everything perfectly organized before starting. TheEduAssist can help turn raw content and scattered assets into a clearer Kajabi learning system.
+        </p>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
+          {items.map((item) => (
+            <li class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded-full bg-brand-accent/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-3.5 h-3.5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <span class="text-white text-sm md:text-base font-medium">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

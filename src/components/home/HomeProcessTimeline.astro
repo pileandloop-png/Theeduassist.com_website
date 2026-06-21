@@ -1,0 +1,71 @@
+---
+const steps = [
+  {
+    title: "Audit",
+    copy: "Review your current Kajabi setup, content, pages, funnel, and launch goals."
+  },
+  {
+    title: "Plan",
+    copy: "Map the page structure, course flow, offer journey, and automation needs."
+  },
+  {
+    title: "Design",
+    copy: "Create clean layouts that match your brand and guide visitors clearly."
+  },
+  {
+    title: "Build",
+    copy: "Set up Kajabi pages, course products, offers, emails, and support assets."
+  },
+  {
+    title: "Automate",
+    copy: "Connect forms, sequences, checkout steps, access rules, and follow-up flows."
+  },
+  {
+    title: "Test and Launch",
+    copy: "Check the full journey before launch so visitors and students experience a smoother path."
+  }
+];
+---
+<section class="py-20 md:py-28 bg-brand-softBg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-primary">A clear process from audit to launch</h2>
+    </div>
+
+    <!-- Desktop Grid Timeline -->
+    <div class="hidden md:grid grid-cols-3 gap-8">
+      {steps.map((step, index) => (
+        <div class="relative bg-white border border-brand-border rounded-xl p-8 hover-lift shadow-sm hover:border-brand-accent/30 transition-all duration-300">
+          <div class="text-5xl font-extrabold text-brand-softBg mb-4 absolute right-6 top-6 opacity-80" style="color: var(--color-brand-border); opacity: 0.3;">
+            0{index + 1}
+          </div>
+          <div class="flex items-center gap-4 mb-4 relative z-10">
+            <div class="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm">
+              {index + 1}
+            </div>
+            <h3 class="text-xl font-bold text-brand-primary">{step.title}</h3>
+          </div>
+          <p class="text-brand-textMuted leading-relaxed relative z-10">{step.copy}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Mobile Stacked List -->
+    <div class="md:hidden space-y-4">
+      {steps.map((step, index) => (
+        <div class="bg-white border border-brand-border rounded-xl p-6 shadow-sm relative overflow-hidden">
+          <div class="absolute -right-4 -top-4 text-6xl font-black text-brand-border opacity-20">
+            {index + 1}
+          </div>
+          <div class="flex items-center gap-3 mb-2 relative z-10">
+            <div class="w-6 h-6 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-xs">
+              {index + 1}
+            </div>
+            <h3 class="text-lg font-bold text-brand-primary">{step.title}</h3>
+          </div>
+          <p class="text-sm text-brand-textMuted pl-9 relative z-10">{step.copy}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

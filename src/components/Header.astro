@@ -1,39 +1,120 @@
 ---
 import { getSiteSettings } from '../sanity/queries';
 import MobileMenu from './layout/MobileMenu.astro';
+import { navigation } from '../data/navigation';
 
 const siteSettings = await getSiteSettings();
 const site = siteSettings || { name: 'TheEduAssist', email: 'Info@theeduassist.com', social: {} };
 
-const desktopNav = [
-    { label: 'Home', href: '/' },
-    { label: 'Services', href: '/services/' },
-    { label: 'LMS Solutions', href: '/services/lms-implementation-migration/' },
-    { label: 'Kajabi Services', href: '/kajabi-services/' },
-    { label: 'Blog', href: '/blog/' },
-    { label: 'Case Studies', href: '/case-studies/' },
-    { label: 'About Us', href: '/about/' },
-    { label: 'Contact Us', href: '/contact/' },
-];
-
+const desktopNav = navigation.header;
 ---
-<header class="bg-white border-b border-brand-border relative z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <a href="/" class="flex items-center space-x-2 focus-ring rounded-sm" aria-label="TheEduAssist Home">
-            <img src="/brand/theeduassist-logo-wordmark.svg" alt="TheEduAssist e-learning design agency logo" class="h-10 w-auto hidden sm:block" />
+<header class="bg-white/80 backdrop-blur-md border-b border-brand-border sticky top-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center relative">
+        <a href="/" class="flex items-center space-x-2 focus-ring rounded-sm group" aria-label="TheEduAssist Home">
+            <img src="/brand/theeduassist-logo-wordmark.svg" alt="TheEduAssist E-Learning Design Agency Logo" class="h-10 w-auto hidden sm:block transition-opacity group-hover:opacity-90" />
             <div class="flex items-center sm:hidden">
-                <img src="/brand/theeduassist-logo-mark.svg" alt="TheEduAssist e-learning design agency logo" class="h-10 w-auto mr-2" />
-                <span class="font-bold text-brand-primary text-lg">TheEduAssist</span>
+                <img src="/brand/theeduassist-logo-mark.svg" alt="TheEduAssist E-Learning Design Agency Logo" class="h-10 w-auto mr-2" />
+                <span class="font-bold text-brand-primary text-lg tracking-tight">TheEduAssist</span>
             </div>
         </a>
-        <nav class="hidden lg:flex space-x-6 items-center">
+        <nav class="hidden lg:flex space-x-8 items-center" aria-label="Desktop navigation">
             {desktopNav.map((item) => (
-                <a href={item.href} class="text-brand-textMuted hover:text-brand-primary font-medium focus-ring rounded-sm px-1 py-0.5 transition-colors">{item.label}</a>
+                item.dropdown ? (
+                    <div class="relative group dropdown-container">
+                        <button class="flex items-center text-brand-textMain hover:text-brand-accent font-medium focus-ring rounded-sm py-2 transition-colors dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                            {item.label}
+                            <svg class="w-4 h-4 ml-1 text-brand-textMuted group-hover:text-brand-accent transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="absolute left-1/2 -translate-x-1/2 mt-2 w-[480px] bg-white rounded-xl shadow-lg border border-brand-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 p-4 grid grid-cols-2 gap-2 dropdown-menu">
+                            {item.dropdown.map(subItem => (
+                                <a href={subItem.href} class="flex items-start p-3 rounded-lg hover:bg-brand-softBg focus-ring transition-colors group/link">
+                                    <div class="mt-1 mr-3 flex-shrink-0">
+                                        <div class="w-2 h-2 rounded-full bg-brand-accent/40 group-hover/link:bg-brand-accent transition-colors"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-brand-primary group-hover/link:text-brand-accent transition-colors">{subItem.label}</div>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                ) : (
+                    <a href={item.href} class="text-brand-textMain hover:text-brand-accent font-medium relative focus-ring rounded-sm py-2 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">{item.label}</a>
+                )
             ))}
-            <a href="/book-free-audit/" class="bg-brand-primary text-white px-5 py-2 rounded-md font-medium hover-lift click-press focus-ring transition-colors">Book Free Audit</a>
+            <a href="/book-free-kajabi-audit/" class="bg-brand-accent text-white px-6 py-2.5 rounded-lg font-medium shadow-sm hover:shadow-md hover-lift click-press focus-ring transition-all">Book Free Kajabi Audit</a>
         </nav>
         <div class="lg:hidden flex items-center">
             <MobileMenu />
         </div>
     </div>
 </header>
+<script>
+    // Add simple keyboard accessibility for dropdowns
+    document.addEventListener('DOMContentLoaded', () => {
+        const dropdownContainers = document.querySelectorAll('.dropdown-container');
+
+        dropdownContainers.forEach(container => {
+            const btn = container.querySelector('.dropdown-btn');
+            const menu = container.querySelector('.dropdown-menu');
+            const links = menu.querySelectorAll('a');
+
+            if(btn && menu && links.length > 0) {
+                let isOpen = false;
+
+                const toggleMenu = (open) => {
+                    isOpen = open;
+                    btn.setAttribute('aria-expanded', isOpen.toString());
+                    if(isOpen) {
+                        menu.classList.remove('invisible', 'opacity-0', 'translate-y-2');
+                        menu.classList.add('visible', 'opacity-100', 'translate-y-0');
+                    } else {
+                        menu.classList.add('invisible', 'opacity-0', 'translate-y-2');
+                        menu.classList.remove('visible', 'opacity-100', 'translate-y-0');
+                    }
+                };
+
+                btn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleMenu(!isOpen);
+                    } else if (e.key === 'Escape' && isOpen) {
+                        toggleMenu(false);
+                        btn.focus();
+                    } else if (e.key === 'ArrowDown' && isOpen) {
+                        e.preventDefault();
+                        links[0].focus();
+                    }
+                });
+
+                container.addEventListener('focusin', () => {
+                   // Optional: keep open if focus is inside
+                   toggleMenu(true);
+                });
+
+                container.addEventListener('focusout', (e) => {
+                   if (!container.contains(e.relatedTarget)) {
+                       toggleMenu(false);
+                   }
+                });
+
+                // Add keyboard nav for links
+                links.forEach((link, index) => {
+                    link.addEventListener('keydown', (e) => {
+                        if (e.key === 'ArrowDown') {
+                            e.preventDefault();
+                            if (index < links.length - 1) links[index + 1].focus();
+                        } else if (e.key === 'ArrowUp') {
+                            e.preventDefault();
+                            if (index > 0) links[index - 1].focus();
+                            else btn.focus();
+                        } else if (e.key === 'Escape') {
+                            toggleMenu(false);
+                            btn.focus();
+                        }
+                    });
+                });
+            }
+        });
+    });
+</script>

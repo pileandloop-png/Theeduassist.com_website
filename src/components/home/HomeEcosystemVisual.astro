@@ -1,0 +1,73 @@
+---
+const nodes = [
+  "Knowledge Extraction",
+  "Curriculum Design",
+  "Storyboarding",
+  "Content Production",
+  "Kajabi Build",
+  "Automation Setup",
+  "Student Experience",
+  "Launch Review"
+];
+---
+<section class="py-20 md:py-28 bg-white relative overflow-hidden">
+  <!-- Decorative background -->
+  <div class="absolute right-0 top-0 w-1/2 h-full bg-brand-softGreen/30 rounded-l-full blur-3xl opacity-50 -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-primary mb-4">From expertise to a complete Kajabi launch system</h2>
+      <p class="text-lg text-brand-textMuted">A strong online course business needs more than a good-looking page. It needs structure, content flow, course experience, automation, and launch readiness.</p>
+    </div>
+
+    <!-- Screen Reader Text -->
+    <p class="sr-only">An infographic flow showing the steps: Knowledge Extraction, Curriculum Design, Storyboarding, Content Production, Kajabi Build, Automation Setup, Student Experience, and Launch Review.</p>
+
+    <!-- Visual -->
+    <div class="relative py-8">
+
+      <!-- Desktop Hub & Spoke / ZigZag Flow -->
+      <div class="hidden md:block relative">
+         <!-- Connector Line Background -->
+         <div class="absolute top-1/2 left-0 right-0 h-1 bg-brand-border -translate-y-1/2 z-0 rounded-full"></div>
+         <div class="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-brand-accent/20 via-brand-accent to-brand-accent/20 -translate-y-1/2 z-0 rounded-full"></div>
+
+         <div class="flex justify-between items-center relative z-10">
+           {nodes.map((node, index) => (
+             <div class="relative flex flex-col items-center group w-full" style={`animation: fadeUp 0.6s ease-out forwards; animation-delay: ${index * 0.1}s; opacity: 0;`}>
+
+                {/* Node Top/Bottom alternating text */}
+                <div class={`absolute w-32 text-center text-sm font-bold text-brand-primary transition-colors group-hover:text-brand-accent ${index % 2 === 0 ? '-top-12' : '-bottom-12'}`}>
+                  {node}
+                </div>
+
+                {/* Node Circle */}
+                <div class="w-6 h-6 rounded-full bg-white border-4 border-brand-primary group-hover:border-brand-accent shadow-md transition-colors z-10 relative">
+                    <div class="absolute inset-0 bg-brand-accent rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                </div>
+
+             </div>
+           ))}
+         </div>
+      </div>
+
+      <!-- Mobile Vertical Timeline -->
+      <div class="md:hidden relative px-4">
+        <div class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-brand-accent/20 via-brand-accent to-brand-accent/20 rounded-full"></div>
+        <div class="space-y-8 relative z-10">
+          {nodes.map((node, index) => (
+            <div class="flex items-center group">
+              <div class="w-8 h-8 rounded-full bg-white border-4 border-brand-primary group-hover:border-brand-accent shadow-md transition-colors flex-shrink-0 relative z-10 flex items-center justify-center">
+                 <div class="absolute inset-0.5 bg-brand-accent rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              </div>
+              <div class="ml-6 bg-white border border-brand-border rounded-lg p-4 shadow-sm w-full font-bold text-brand-primary group-hover:border-brand-accent/50 group-hover:text-brand-accent transition-colors">
+                {index + 1}. {node}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

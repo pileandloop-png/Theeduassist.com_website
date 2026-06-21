@@ -1,0 +1,50 @@
+---
+const resources = [
+  {
+    title: "Kajabi Resources",
+    link: "/blog/",
+    copy: "Guides for Kajabi websites, courses, funnels, email automations, and launch planning.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>`
+  },
+  {
+    title: "Course Creation",
+    link: "/blog/",
+    copy: "Ideas for turning outlines, PDFs, slides, videos, and scripts into structured learning.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>`
+  },
+  {
+    title: "LMS and Migration",
+    link: "/blog/",
+    copy: "Planning support for moving old learning content into cleaner online systems.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>`
+  }
+];
+---
+<section class="py-20 md:py-28 bg-brand-softBg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-brand-primary mb-4">Explore practical e-learning and Kajabi resources</h2>
+        <p class="text-lg text-brand-textMuted">Read guides on Kajabi setup, course design, funnels, LMS migration, AI learning, and online course strategy.</p>
+      </div>
+      <div>
+        <a href="/blog/" class="inline-flex items-center text-brand-accent font-bold hover:text-brand-primary transition-colors group">
+          View Resources
+          <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {resources.map((resource) => (
+        <a href={resource.link} class="group bg-white border border-brand-border rounded-xl p-8 hover-lift hover:border-brand-accent/30 transition-all duration-300">
+          <div class="w-12 h-12 rounded-lg bg-brand-softGreen text-brand-accent flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={resource.icon}></svg>
+          </div>
+          <h3 class="text-xl font-bold text-brand-primary mb-3 group-hover:text-brand-accent transition-colors">{resource.title}</h3>
+          <p class="text-brand-textMuted leading-relaxed">{resource.copy}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

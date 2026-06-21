@@ -1,0 +1,32 @@
+---
+const outcomes = [
+  "Clearer website structure",
+  "More organized course experience",
+  "Connected funnel and email flow",
+  "Better launch readiness"
+];
+---
+<section class="py-20 bg-white border-b border-brand-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-softGreen text-brand-accent mb-6">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+      </div>
+
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-primary mb-6">Professional support without fake promises</h2>
+
+      <p class="text-lg text-brand-textMuted leading-relaxed mb-12">
+        We do not promise overnight sales, guaranteed rankings, or guaranteed revenue. We focus on making your Kajabi website, course, funnel, and automation system clearer, more organized, and easier for your audience to understand.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        {outcomes.map((outcome) => (
+          <div class="bg-brand-softBg border border-brand-border rounded-full px-6 py-3 flex items-center gap-3">
+             <div class="w-2 h-2 rounded-full bg-brand-accent"></div>
+             <span class="font-medium text-brand-primary">{outcome}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

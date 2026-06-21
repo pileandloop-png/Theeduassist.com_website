@@ -1,33 +1,24 @@
 ---
-const mobileLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'Services', href: '/services/' },
-    { label: 'LMS Solutions', href: '/services/lms-implementation-migration/' },
-    { label: 'Kajabi Services', href: '/kajabi-services/' },
-    { label: 'Blog', href: '/blog/' },
-    { label: 'Case Studies', href: '/case-studies/' },
-    { label: 'About Us', href: '/about/' },
-    { label: 'Contact Us', href: '/contact/' },
-    { label: 'Book Free Audit', href: '/book-free-audit/' },
-    { label: 'Schedule a 30-Minute Discussion', href: 'https://calendly.com/eduassist-talk/30min?month', external: true },
-];
+import { navigation } from '../../data/navigation';
+
+const mobileLinks = navigation.header;
 ---
 
-<mobile-menu class="relative block">
+<mobile-menu class="relative block lg:hidden">
   <button
     id="mobile-menu-btn"
     type="button"
-    class="inline-flex items-center justify-center p-2 rounded-md text-brand-primary hover:text-brand-navy hover:bg-brand-softBg focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-accent transition-colors focus-ring"
+    class="inline-flex items-center justify-center p-2 rounded-md text-brand-textMain hover:text-brand-accent focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-accent transition-colors"
     aria-controls="mobile-menu-panel"
     aria-expanded="false"
   >
     <span class="sr-only">Open main menu</span>
     <span class="mr-2 font-medium">Menu</span>
-    <!-- Icon when menu is closed. -->
+    <!-- Icon when menu is closed -->
     <svg id="icon-closed" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
-    <!-- Icon when menu is open. -->
+    <!-- Icon when menu is open -->
     <svg id="icon-open" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
     </svg>
@@ -36,18 +27,38 @@ const mobileLinks = [
   <!-- Mobile menu panel -->
   <div
     id="mobile-menu-panel"
-    class="hidden absolute top-full right-0 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden z-50 origin-top-right transition-opacity duration-200"
+    class="hidden fixed inset-x-0 top-[73px] bottom-0 bg-white shadow-xl overflow-y-auto z-40 origin-top transition-all duration-300"
   >
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+    <div class="px-4 py-6 space-y-2">
       {mobileLinks.map((link) => (
-        <a
-          href={link.href}
-          class="block px-3 py-2 rounded-md text-base font-medium text-brand-textMain hover:text-brand-primary hover:bg-brand-softBg focus-ring mobile-link"
-          {...(link.external ? { target: '_blank', rel: 'noopener noreferrer', 'aria-label': link.label } : {})}
-        >
-          {link.label}
-        </a>
+        link.dropdown ? (
+          <div class="mobile-accordion">
+            <button class="w-full flex justify-between items-center px-4 py-3 rounded-lg text-lg font-medium text-brand-textMain hover:bg-brand-softBg focus-ring transition-colors accordion-btn" aria-expanded="false">
+              <span>{link.label}</span>
+              <svg class="w-5 h-5 text-brand-textMuted transform transition-transform duration-200 accordion-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="hidden accordion-content pl-6 pr-4 py-2 space-y-2 border-l-2 border-brand-softBg ml-2 mt-1">
+                {link.dropdown.map(subItem => (
+                    <a href={subItem.href} class="block px-3 py-2 text-base font-medium text-brand-textMuted hover:text-brand-accent transition-colors mobile-link">
+                        {subItem.label}
+                    </a>
+                ))}
+            </div>
+          </div>
+        ) : (
+          <a
+            href={link.href}
+            class="block px-4 py-3 rounded-lg text-lg font-medium text-brand-textMain hover:text-brand-accent hover:bg-brand-softBg focus-ring transition-colors mobile-link"
+          >
+            {link.label}
+          </a>
+        )
       ))}
+      <div class="pt-6 mt-6 border-t border-brand-border">
+          <a href="/book-free-kajabi-audit/" class="block w-full text-center bg-brand-accent text-white px-6 py-3 rounded-lg font-bold shadow-sm hover:shadow-md click-press focus-ring transition-all mobile-link">
+            Book Free Kajabi Audit
+          </a>
+      </div>
     </div>
   </div>
 </mobile-menu>
@@ -61,6 +72,7 @@ const mobileLinks = [
       this.iconClosed = this.querySelector('#icon-closed');
       this.iconOpen = this.querySelector('#icon-open');
       this.links = this.querySelectorAll('.mobile-link');
+      this.accordions = this.querySelectorAll('.mobile-accordion');
       this.isOpen = false;
 
       this.toggleMenu = this.toggleMenu.bind(this);
@@ -70,23 +82,46 @@ const mobileLinks = [
       this.btn?.addEventListener('click', this.toggleMenu);
       window.addEventListener('keydown', this.handleEscape);
       this.links.forEach(link => link.addEventListener('click', this.closeMenu));
+
+      // Accordion logic
+      this.accordions.forEach(acc => {
+          const btn = acc.querySelector('.accordion-btn');
+          const content = acc.querySelector('.accordion-content');
+          const icon = acc.querySelector('.accordion-icon');
+
+          btn?.addEventListener('click', () => {
+              const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+              btn.setAttribute('aria-expanded', (!isExpanded).toString());
+
+              if (isExpanded) {
+                  content?.classList.add('hidden');
+                  icon?.classList.remove('rotate-180');
+              } else {
+                  content?.classList.remove('hidden');
+                  icon?.classList.add('rotate-180');
+              }
+          });
+      });
     }
 
     toggleMenu() {
       this.isOpen = !this.isOpen;
       this.btn?.setAttribute('aria-expanded', this.isOpen.toString());
+
       if (this.isOpen) {
         this.panel?.classList.remove('hidden');
         this.iconClosed?.classList.add('hidden');
         this.iconClosed?.classList.remove('block');
         this.iconOpen?.classList.remove('hidden');
         this.iconOpen?.classList.add('block');
+        document.body.style.overflow = 'hidden'; // Prevent body scroll
       } else {
         this.panel?.classList.add('hidden');
         this.iconClosed?.classList.remove('hidden');
         this.iconClosed?.classList.add('block');
         this.iconOpen?.classList.add('hidden');
         this.iconOpen?.classList.remove('block');
+        document.body.style.overflow = ''; // Restore body scroll
       }
     }
 

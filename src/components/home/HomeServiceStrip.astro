@@ -1,0 +1,25 @@
+---
+const services = [
+  "Kajabi Websites",
+  "Landing Pages",
+  "Course Setup",
+  "Funnels",
+  "Email Automation",
+  "Migration",
+  "Templates",
+  "Launch Support"
+];
+---
+<div class="bg-white border-y border-brand-border py-6 overflow-hidden relative z-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="sr-only">Our core Kajabi services list</p>
+    <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-sm font-semibold text-brand-textMain">
+      {services.map((service) => (
+        <div class="flex items-center gap-2 group">
+          <svg class="w-4 h-4 text-brand-accent/70 group-hover:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          <span class="group-hover:text-brand-primary transition-colors">{service}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
