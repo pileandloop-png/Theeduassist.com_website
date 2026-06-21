@@ -1,40 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --brand-green: #77BA55;
-  --brand-blue: #27496D;
-  --brand-white: #FFFFFF;
-  --brand-soft: #F7FAF6;
-  --text-main: #1E293B;
-  --border-soft: #E5E7EB;
-
-  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-  --radius-card: 1rem;
+  --color-brand-blue: #27496D;
+  --color-brand-green: #77BA55;
+  --color-brand-white: #FFFFFF;
+  --color-brand-soft: #F8FAFC;
+  --color-brand-soft-green: #F3FAF0;
+  --color-brand-soft-blue: #EFF6FF;
+  --color-text-main: #1F2937;
+  --color-text-muted: #64748B;
+  --color-border: #E5E7EB;
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 14px 35px rgba(39, 73, 109, 0.10);
+  --radius-card: 1.25rem;
 }
 
 @theme {
-  --color-brand-primary: var(--brand-blue);
-  --color-brand-accent: var(--brand-green);
+  --color-brand-primary: #27496D;
+  --color-brand-accent: #77BA55;
   --color-brand-navy: #0B1F3A;
-  --color-brand-softBg: var(--brand-soft);
-  --color-brand-textMain: var(--text-main);
+  --color-brand-softBg: #F8FAFC;
+  --color-brand-softGreen: #F3FAF0;
+  --color-brand-softBlue: #EFF6FF;
+  --color-brand-textMain: #1F2937;
   --color-brand-textMuted: #64748B;
-  --color-brand-border: var(--border-soft);
+  --color-brand-border: #E5E7EB;
 }
 
 @layer utilities {
+  .brand-gradient {
+    background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green));
+  }
   .brand-card {
-    background-color: var(--brand-white);
+    background-color: var(--color-brand-white);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-soft);
-    border: 1px solid var(--border-soft);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--color-border);
   }
   .brand-card-dark {
-    background-color: var(--brand-blue);
+    background-color: var(--color-brand-blue);
     border-radius: var(--radius-card);
-    color: var(--brand-white);
+    box-shadow: var(--shadow-card);
+    color: var(--color-brand-white);
+  }
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .hover-lift:hover {
     transform: translateY(-4px);
@@ -47,11 +57,14 @@
     transform: scale(0.98);
   }
   .focus-ring {
-    outline: 2px solid var(--brand-green);
+    outline: 2px solid var(--color-brand-green);
     outline-offset: 2px;
   }
   .animate-fade-up {
     animation: fadeUp 0.6s ease-out forwards;
+  }
+  .animate-soft-scale {
+    animation: softScale 0.6s ease-out forwards;
   }
 }
 
@@ -60,6 +73,28 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes softScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Brand Colors */
+:root {
+  --color-primary: #27496D; /* Dark Blue */
+  --color-accent: #77BA55; /* Light Green */
+  --color-background: #F7FAF6; /* Soft Background */
+}
+
+/* Reduced Motion Fallback */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
