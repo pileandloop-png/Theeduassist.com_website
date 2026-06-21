@@ -1,106 +1,59 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HomeHero from "../components/home/HomeHero.astro";
-import HomeServiceStrip from "../components/home/HomeServiceStrip.astro";
-import HomeProblemSection from "../components/home/HomeProblemSection.astro";
-import HomeKajabiServicesPreview from "../components/home/HomeKajabiServicesPreview.astro";
-import HomeEcosystemVisual from "../components/home/HomeEcosystemVisual.astro";
-import HomeProcessTimeline from "../components/home/HomeProcessTimeline.astro";
-import HomeWhoWeHelp from "../components/home/HomeWhoWeHelp.astro";
-import HomeWhatToBring from "../components/home/HomeWhatToBring.astro";
-import HomeWhyUs from "../components/home/HomeWhyUs.astro";
-import HomeProofWithoutFakeClaims from "../components/home/HomeProofWithoutFakeClaims.astro";
-import HomeBlogPreview from "../components/home/HomeBlogPreview.astro";
-import HomeFAQ from "../components/home/HomeFAQ.astro";
-import HomeFinalCTA from "../components/home/HomeFinalCTA.astro";
-
-const faqs = [
-  {
-    question: "Do you only work with Kajabi?",
-    answer: "Kajabi is one of our main service areas, but TheEduAssist also supports broader e-learning design, LMS setup, course content, and digital training workflows."
-  },
-  {
-    question: "Can you build a full Kajabi website?",
-    answer: "Yes. TheEduAssist can help plan and build the main website structure, landing pages, offer pages, and student journey inside Kajabi."
-  },
-  {
-    question: "Can you upload and organize my course content?",
-    answer: "Yes. We can help structure modules, lessons, downloads, descriptions, thumbnails, and learner navigation."
-  },
-  {
-    question: "Can you help with Kajabi email automation?",
-    answer: "Yes. We can help plan welcome emails, nurture sequences, launch emails, reminders, and student communication flows."
-  },
-  {
-    question: "Can you migrate from WordPress or another platform?",
-    answer: "Yes. Course material can be moved from WordPress, Google Drive, PDFs, video folders, or another course platform into a cleaner Kajabi structure."
-  },
-  {
-    question: "Do you guarantee course sales?",
-    answer: "No. TheEduAssist does not guarantee sales or revenue. The focus is on clearer structure, design, launch readiness, and learner experience."
-  },
-  {
-    question: "Can I start with only one service?",
-    answer: "Yes. You can begin with one page, one funnel, one course setup, one migration project, or one audit before expanding the project."
-  }
-];
-
-const seoFaqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
-    "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.answer
-    }
-  }))
-};
+import HomeHero from "../components/sections/HomeHero.astro";
+import ToolsPlatformSection from "../components/sections/ToolsPlatformSection.astro";
+import ChooseYourPath from "../components/sections/ChooseYourPath.astro";
+import HomeServicesGrid from "../components/sections/HomeServicesGrid.astro";
+import PlatformSystemInfographic from "../components/sections/PlatformSystemInfographic.astro";
+import KajabiSupportedPlatform from "../components/sections/KajabiSupportedPlatform.astro";
+import LearningWorkflow from "../components/sections/LearningWorkflow.astro";
+import HomeProofCards from "../components/sections/HomeProofCards.astro";
+import HomeBlogPreview from "../components/sections/HomeBlogPreview.astro";
+import HomeFinalCTA from "../components/sections/HomeFinalCTA.astro";
+import { organizationSchema, websiteSchema, professionalServiceSchema } from '../lib/schema';
 
 const jsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "TheEduAssist",
-    "url": "https://theeduassist.com/",
-    "logo": "https://theeduassist.com/brand/theeduassist-logo-mark.svg",
-    "sameAs": [
-      "https://www.linkedin.com/company/theeduassist",
-      "https://www.instagram.com/theeduassist",
-      "https://www.facebook.com/people/Theeduassist/61576126813447/"
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://theeduassist.com/",
-    "name": "TheEduAssist"
-  },
-  seoFaqSchema
+  organizationSchema(),
+  websiteSchema(),
+  professionalServiceSchema()
 ];
 ---
 <Layout
-  title="TheEduAssist | Kajabi Website Design & E-Learning Design Agency"
-  description="TheEduAssist helps course creators, coaches, consultants, and education businesses build professional Kajabi websites, courses, funnels, email automations, and launch-ready e-learning systems."
-  canonicalPath="/"
-  ogTitle="TheEduAssist | Kajabi Website & Course Launch Agency"
-  ogDescription="Build a professional Kajabi website, course, funnel, and launch system with TheEduAssist."
+  title="Custom eLearning, Kajabi, and LMS Solutions"
+  description="TheEduAssist helps coaches, businesses, training teams, and educational organizations turn content into engaging online learning experiences."
   jsonLd={jsonLd}
 >
 
-  <HomeHero />
-  <HomeServiceStrip />
-  <HomeProblemSection />
-  <HomeKajabiServicesPreview />
-  <HomeEcosystemVisual />
-  <HomeProcessTimeline />
-  <HomeWhoWeHelp />
-  <HomeWhatToBring />
-  <HomeWhyUs />
-  <HomeProofWithoutFakeClaims />
+  <HomeHero
+    title="Design, Build, and Launch Better Online Learning Systems"
+    subtitle="TheEduAssist helps coaches, course creators, educators, and training teams turn content into structured learning experiences across LMS platforms, Kajabi, course websites, AI-supported workflows, and digital training systems."
+    heroBadge="Multi-Platform E-Learning Design Agency"
+    trustText="Course strategy, content flow, LMS setup, Kajabi builds, platform migration, automation, testing, and launch support."
+    primaryCtaLabel="Book Free Audit"
+    primaryCtaLink="/book-free-audit/"
+    secondaryCtaLabel="Explore Services"
+    secondaryCtaLink="/services/"
+    tertiaryCtaLabel="Explore Kajabi Services"
+    tertiaryCtaLink="/kajabi-services/"
+    showDashboardVisual={true}
+  />
+
+  <ToolsPlatformSection />
+
+  <ChooseYourPath />
+
+  <HomeServicesGrid />
+
+  <PlatformSystemInfographic />
+
+  <LearningWorkflow />
+
+  <KajabiSupportedPlatform />
+
+  <HomeProofCards />
+
   <HomeBlogPreview />
-  <HomeFAQ faqs={faqs} />
+
   <HomeFinalCTA />
 
 </Layout>
