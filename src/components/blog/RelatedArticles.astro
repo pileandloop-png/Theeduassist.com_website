@@ -1,0 +1,51 @@
+---
+import BlogCard from './BlogCard.astro';
+import type { BlogPost } from '../../data/blogPosts';
+
+interface Props {
+  currentSlug: string;
+  category: string;
+  tags: string[];
+  allPosts: BlogPost[];
+}
+
+const { currentSlug, category, tags, allPosts } = Astro.props;
+
+// Logic to find related:
+// 1. Same category
+// 2. Overlapping tags
+// Exclude current
+const related = allPosts
+  .filter(p => p.slug !== currentSlug && p.status === 'published')
+  .map(p => {
+    let score = 0;
+    if (p.category === category) score += 2;
+    const matchingTags = p.tags.filter(t => tags.includes(t));
+    score += matchingTags.length;
+    return { post: p, score };
+  })
+  .filter(item => item.score > 0)
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3)
+  .map(item => item.post);
+---
+{related.length > 0 && (
+  <section class="mt-16 pt-12 border-t border-slate-200">
+    <h2 class="text-2xl font-bold text-slate-800 mb-8">Related Resources</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {related.map(post => (
+        <BlogCard
+          title={post.title}
+          slug={post.slug}
+          excerpt={post.excerpt}
+          category={post.category}
+          readTimeMinutes={post.readingTime}
+          publishedAt={post.publishedAt}
+          image={post.heroImage}
+          imageAlt={post.heroImageAlt}
+          tags={post.tags}
+        />
+      ))}
+    </div>
+  </section>
+)}

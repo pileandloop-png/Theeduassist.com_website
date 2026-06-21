@@ -1,89 +1,122 @@
 export type WordPressBlogInventoryItem = {
   oldUrl: string;
-  slug: string;
-  title: string;
-  sourceGroup: "blog" | "uncategorized" | "online-learning";
-  topicCluster:
-    | "kajabi"
-    | "lms"
-    | "ai-elearning"
-    | "custom-elearning"
-    | "corporate-training"
-    | "platform-comparison"
-    | "instructional-design"
-    | "microlearning"
-    | "other";
+  oldSlug: string;
+  oldPath: string;
+  sourceType: string;
+  topicCluster: string;
+  cleanCategory: string;
+  cleanTags: string[];
   migrationPriority: "high" | "medium" | "low" | "needsReview";
-  recommendedAction:
-    | "migrateToSanity"
-    | "merge"
-    | "redirectToService"
-    | "doNotMigrate"
-    | "needsReview";
-  newPath?: string;
-  redirectStatus: "pending" | "ready" | "notNeeded" | "doNotRedirect";
+  recommendedAction: "migrate" | "mergeIntoGuide" | "redirectToService" | "doNotMigrate" | "needsReview";
+  suggestedNewPath?: string;
+  contentStatus: "notStarted" | "outlineReady" | "rewritten" | "reviewed" | "published";
+  redirectStatus: "pending" | "ready" | "doNotRedirect" | "needsReview";
+  mediaReviewed: boolean;
+  internalLinksReviewed: boolean;
   notes?: string;
 };
 
 export const wordpressBlogInventory: WordPressBlogInventoryItem[] = [
   {
-    oldUrl: "/kajabi-course-launch-guide",
-    slug: "kajabi-course-launch-guide",
-    title: "The Ultimate Kajabi Course Launch Guide",
-    sourceGroup: "blog",
-    topicCluster: "kajabi",
+    oldUrl: "https://old.theeduassist.com/kajabi-course-launch-guide",
+    oldSlug: "kajabi-course-launch-guide",
+    oldPath: "/kajabi-course-launch-guide",
+    sourceType: "blog",
+    topicCluster: "Kajabi",
+    cleanCategory: "Kajabi",
+    cleanTags: ["kajabi", "course-launch"],
     migrationPriority: "high",
-    recommendedAction: "migrateToSanity",
+    recommendedAction: "migrate",
+    suggestedNewPath: "/blog/kajabi-course-launch-guide",
+    contentStatus: "notStarted",
     redirectStatus: "pending",
+    mediaReviewed: false,
+    internalLinksReviewed: false,
+    notes: "High priority post."
   },
   {
-    oldUrl: "/lms-migration-best-practices",
-    slug: "lms-migration-best-practices",
-    title: "LMS Migration Best Practices",
-    sourceGroup: "blog",
-    topicCluster: "lms",
+    oldUrl: "https://old.theeduassist.com/lms-migration-best-practices",
+    oldSlug: "lms-migration-best-practices",
+    oldPath: "/lms-migration-best-practices",
+    sourceType: "blog",
+    topicCluster: "LMS Migration",
+    cleanCategory: "LMS Migration",
+    cleanTags: ["lms-migration"],
     migrationPriority: "high",
-    recommendedAction: "migrateToSanity",
+    recommendedAction: "migrate",
+    suggestedNewPath: "/blog/lms-migration-best-practices",
+    contentStatus: "notStarted",
     redirectStatus: "pending",
+    mediaReviewed: false,
+    internalLinksReviewed: false,
+    notes: "Review content thoroughly."
   },
   {
-    oldUrl: "/ai-in-elearning",
-    slug: "ai-in-elearning",
-    title: "How AI is Transforming eLearning",
-    sourceGroup: "blog",
-    topicCluster: "ai-elearning",
+    oldUrl: "https://old.theeduassist.com/ai-in-elearning",
+    oldSlug: "ai-in-elearning",
+    oldPath: "/ai-in-elearning",
+    sourceType: "blog",
+    topicCluster: "AI in Learning",
+    cleanCategory: "AI in Learning",
+    cleanTags: ["ai-learning"],
     migrationPriority: "high",
-    recommendedAction: "migrateToSanity",
+    recommendedAction: "migrate",
+    suggestedNewPath: "/blog/ai-in-elearning",
+    contentStatus: "notStarted",
     redirectStatus: "pending",
+    mediaReviewed: false,
+    internalLinksReviewed: false,
+    notes: "Needs formatting update."
   },
   {
-    oldUrl: "/custom-elearning-development",
-    slug: "custom-elearning-development",
-    title: "The Benefits of Custom eLearning Development",
-    sourceGroup: "blog",
-    topicCluster: "custom-elearning",
+    oldUrl: "https://old.theeduassist.com/custom-elearning-development",
+    oldSlug: "custom-elearning-development",
+    oldPath: "/custom-elearning-development",
+    sourceType: "blog",
+    topicCluster: "E-Learning Design",
+    cleanCategory: "E-Learning Design",
+    cleanTags: ["custom-elearning"],
     migrationPriority: "high",
-    recommendedAction: "migrateToSanity",
+    recommendedAction: "migrate",
+    suggestedNewPath: "/blog/custom-elearning-development",
+    contentStatus: "notStarted",
     redirectStatus: "pending",
+    mediaReviewed: false,
+    internalLinksReviewed: false,
+    notes: "Consider merging."
   },
   {
-    oldUrl: "/instructional-design-principles",
-    slug: "instructional-design-principles",
-    title: "Key Instructional Design Principles",
-    sourceGroup: "blog",
-    topicCluster: "instructional-design",
+    oldUrl: "https://old.theeduassist.com/instructional-design-principles",
+    oldSlug: "instructional-design-principles",
+    oldPath: "/instructional-design-principles",
+    sourceType: "blog",
+    topicCluster: "Instructional Design",
+    cleanCategory: "Instructional Design",
+    cleanTags: ["instructional-design"],
     migrationPriority: "high",
-    recommendedAction: "migrateToSanity",
+    recommendedAction: "migrate",
+    suggestedNewPath: "/blog/instructional-design-principles",
+    contentStatus: "notStarted",
     redirectStatus: "pending",
+    mediaReviewed: false,
+    internalLinksReviewed: false,
+    notes: "Good reference post."
   },
   {
-    oldUrl: "/what-is-microlearning",
-    slug: "what-is-microlearning",
-    title: "What is Microlearning?",
-    sourceGroup: "blog",
-    topicCluster: "microlearning",
+    oldUrl: "https://old.theeduassist.com/what-is-microlearning",
+    oldSlug: "what-is-microlearning",
+    oldPath: "/what-is-microlearning",
+    sourceType: "blog",
+    topicCluster: "E-Learning Design",
+    cleanCategory: "E-Learning Design",
+    cleanTags: ["microlearning"],
     migrationPriority: "high",
-    recommendedAction: "migrateToSanity",
+    recommendedAction: "migrate",
+    suggestedNewPath: "/blog/what-is-microlearning",
+    contentStatus: "notStarted",
     redirectStatus: "pending",
+    mediaReviewed: false,
+    internalLinksReviewed: false,
+    notes: "Check for old URLs."
   }
 ];

@@ -1,0 +1,200 @@
+---
+---
+<div
+  id="ai-summary-modal"
+  class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-headline"
+>
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm modal-backdrop" aria-hidden="true"></div>
+
+  <!-- Modal Panel -->
+  <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:p-0">
+    <div class="relative bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full border border-slate-200" id="ai-modal-panel" tabindex="-1">
+
+      <div class="absolute top-0 right-0 pt-4 pr-4">
+        <button type="button" class="bg-white rounded-md text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)] modal-close-btn" aria-label="Close modal">
+          <span class="sr-only">Close</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div class="sm:flex sm:items-start">
+          <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-50 sm:mx-0 sm:h-10 sm:w-10">
+            <svg class="h-6 w-6 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+            <h3 class="text-lg leading-6 font-semibold text-slate-900" id="modal-headline">
+              Use AI to Understand This Article
+            </h3>
+            <div class="mt-2">
+              <p class="text-sm text-slate-500">
+                Copy this prompt and paste it into your preferred AI tool to summarize, simplify, or turn this page into action steps.
+              </p>
+            </div>
+
+            <div class="mt-4 bg-slate-50 border border-slate-200 rounded-md p-4 relative group">
+              <pre class="text-xs text-slate-700 whitespace-pre-wrap font-sans overflow-y-auto max-h-40" id="ai-prompt-text">
+Please read this webpage and explain it in simple language:
+
+Page title: <span id="prompt-page-title" class="text-[var(--color-primary)] font-semibold"></span>
+Page URL: <span id="prompt-page-url" class="text-[var(--color-primary)] font-semibold"></span>
+
+Give me:
+1. A short summary
+2. The main lesson
+3. The key steps or checklist
+4. Important terms explained simply
+5. What I should do next
+
+Keep it clear, practical, and beginner-friendly.
+              </pre>
+              <button
+                type="button"
+                id="copy-prompt-btn"
+                class="absolute top-2 right-2 bg-white border border-slate-200 rounded text-xs font-medium px-2 py-1 text-slate-600 hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)]"
+              >
+                Copy Prompt
+              </button>
+              <span id="copy-success-msg" class="absolute top-2 right-24 text-xs text-green-600 font-medium opacity-0 transition-opacity">Copied!</span>
+            </div>
+
+            <div class="mt-5 border-t border-slate-100 pt-4">
+              <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Open an AI Tool</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="ai-tool-link inline-flex items-center px-3 py-1.5 border border-slate-200 shadow-sm text-xs font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500" data-tool="ChatGPT">
+                  ChatGPT
+                </a>
+                <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer" class="ai-tool-link inline-flex items-center px-3 py-1.5 border border-slate-200 shadow-sm text-xs font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500" data-tool="Claude">
+                  Claude
+                </a>
+                <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="ai-tool-link inline-flex items-center px-3 py-1.5 border border-slate-200 shadow-sm text-xs font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500" data-tool="Gemini">
+                  Gemini
+                </a>
+                <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer" class="ai-tool-link inline-flex items-center px-3 py-1.5 border border-slate-200 shadow-sm text-xs font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500" data-tool="Perplexity">
+                  Perplexity
+                </a>
+                <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="ai-tool-link inline-flex items-center px-3 py-1.5 border border-slate-200 shadow-sm text-xs font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500" data-tool="Copilot">
+                  Copilot
+                </a>
+                <a href="https://x.com/i/grok" target="_blank" rel="noopener noreferrer" class="ai-tool-link inline-flex items-center px-3 py-1.5 border border-slate-200 shadow-sm text-xs font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500" data-tool="Grok">
+                  Grok
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupAIModal() {
+    const modal = document.getElementById('ai-summary-modal');
+    const openBtn = document.getElementById('open-ai-modal-btn');
+    const closeBtns = document.querySelectorAll('.modal-close-btn, .modal-backdrop');
+    const copyBtn = document.getElementById('copy-prompt-btn');
+    const panel = document.getElementById('ai-modal-panel');
+    const aiLinks = document.querySelectorAll('.ai-tool-link');
+
+    if (!modal || !openBtn) return;
+
+    const openModal = () => {
+      // Set dynamic prompt values
+      const titleEl = document.getElementById('prompt-page-title');
+      const urlEl = document.getElementById('prompt-page-url');
+      if (titleEl) titleEl.textContent = document.title;
+      if (urlEl) urlEl.textContent = window.location.href;
+
+      modal.classList.remove('hidden');
+      // trigger reflow
+      void modal.offsetWidth;
+      modal.classList.remove('opacity-0');
+      modal.classList.add('opacity-100');
+      openBtn.setAttribute('aria-expanded', 'true');
+      panel?.focus();
+
+      if (window.dataLayer && typeof window.trackEvent === 'function') {
+          window.trackEvent('blog_ai_bar_open', { page_path: window.location.pathname });
+      }
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+      openBtn.setAttribute('aria-expanded', 'false');
+      openBtn.focus();
+    };
+
+    openBtn.addEventListener('click', openModal);
+
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', closeModal);
+    });
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        const textToCopy = `Please read this webpage and explain it in simple language:
+
+Page title: ${document.title}
+Page URL: ${window.location.href}
+
+Give me:
+1. A short summary
+2. The main lesson
+3. The key steps or checklist
+4. Important terms explained simply
+5. What I should do next
+
+Keep it clear, practical, and beginner-friendly.`;
+
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          const msg = document.getElementById('copy-success-msg');
+          if (msg) {
+            msg.classList.remove('opacity-0');
+            setTimeout(() => msg.classList.add('opacity-0'), 2000);
+          }
+
+          if (window.dataLayer && typeof window.trackEvent === 'function') {
+             window.trackEvent('blog_ai_prompt_copy', { page_path: window.location.pathname });
+          }
+        } catch (err) {
+          console.error('Failed to copy', err);
+        }
+      });
+    }
+
+    aiLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.dataLayer && typeof window.trackEvent === 'function') {
+                 window.trackEvent('blog_ai_tool_click', {
+                     tool_name: link.getAttribute('data-tool')
+                 });
+            }
+        });
+    });
+  }
+
+  setupAIModal();
+  document.addEventListener('astro:page-load', setupAIModal);
+</script>

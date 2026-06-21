@@ -1,0 +1,69 @@
+---
+---
+<div id="reading-progress-container" class="fixed top-0 left-0 w-full h-1 z-50 bg-transparent pointer-events-none transition-opacity duration-300 opacity-0" aria-hidden="true">
+  <div id="reading-progress-bar" class="h-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] w-0"></div>
+</div>
+
+<script>
+  function setupReadingProgress() {
+    const progressBar = document.getElementById('reading-progress-bar');
+    const progressContainer = document.getElementById('reading-progress-container');
+
+    if (!progressBar || !progressContainer) return;
+
+    // Respect prefers-reduced-motion
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) {
+        progressContainer.style.display = 'none';
+        return;
+    }
+
+    const updateProgress = () => {
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      if (docHeight > 0) {
+        const progress = Math.min((scrollY / docHeight) * 100, 100);
+        progressBar.style.width = `${progress}%`;
+
+        // Only show progress bar when user has scrolled down a bit
+        if (scrollY > 100) {
+            progressContainer.classList.remove('opacity-0');
+            progressContainer.classList.add('opacity-100');
+        } else {
+            progressContainer.classList.add('opacity-0');
+            progressContainer.classList.remove('opacity-100');
+        }
+
+        // Fire GTM events based on progress milestones
+        if (window.dataLayer && typeof window.trackEvent === 'function') {
+           const milestones = [25, 50, 75, 100];
+           if (!window.readingMilestones) {
+               window.readingMilestones = new Set();
+           }
+
+           milestones.forEach(milestone => {
+               if (progress >= milestone && !window.readingMilestones.has(milestone)) {
+                   window.readingMilestones.add(milestone);
+                   window.trackEvent(`blog_read_progress_${milestone}`, {
+                       page_path: window.location.pathname,
+                       page_title: document.title
+                   });
+               }
+           });
+        }
+
+      }
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    // Initial call in case page loads partway down
+    updateProgress();
+  }
+
+  // Run on initial load
+  setupReadingProgress();
+
+  // Run on Astro page transitions if applicable
+  document.addEventListener('astro:page-load', setupReadingProgress);
+</script>

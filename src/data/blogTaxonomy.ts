@@ -9,6 +9,24 @@ export const blogCategories = [
     notes: ""
   },
   {
+    title: "Course Creation",
+    slug: "course-creation",
+    description: "Resources for setting up and creating online courses.",
+    showPublicPage: false,
+    noindex: true,
+    oldCategoryUrls: [],
+    notes: ""
+  },
+  {
+    title: "E-Learning Design",
+    slug: "e-learning-design",
+    description: "Insights into creating engaging and effective eLearning experiences.",
+    showPublicPage: false,
+    noindex: true,
+    oldCategoryUrls: [],
+    notes: ""
+  },
+  {
     title: "LMS Migration",
     slug: "lms-migration",
     description: "Guides and tips for migrating to a new Learning Management System.",
@@ -18,17 +36,8 @@ export const blogCategories = [
     notes: ""
   },
   {
-    title: "Custom eLearning",
-    slug: "custom-elearning",
-    description: "Insights into creating custom eLearning experiences.",
-    showPublicPage: false,
-    noindex: true,
-    oldCategoryUrls: [],
-    notes: ""
-  },
-  {
-    title: "AI in eLearning",
-    slug: "ai-in-elearning",
+    title: "AI in Learning",
+    slug: "ai-in-learning",
     description: "Exploring the role of AI in online education and course creation.",
     showPublicPage: false,
     noindex: true,
@@ -45,9 +54,9 @@ export const blogCategories = [
     notes: ""
   },
   {
-    title: "Course Launch",
-    slug: "course-launch",
-    description: "Tips for successfully launching and marketing your online course.",
+    title: "Content Conversion",
+    slug: "content-conversion",
+    description: "Updating and digitizing legacy training materials.",
     showPublicPage: false,
     noindex: true,
     oldCategoryUrls: [],
@@ -63,48 +72,74 @@ export const blogCategories = [
     notes: ""
   },
   {
-    title: "Learning Technology",
-    slug: "learning-technology",
-    description: "Trends and tools in educational technology.",
+    title: "Funnel and Email Automation",
+    slug: "funnel-and-email-automation",
+    description: "Plan lead capture, nurture sequences, launch emails, and automation.",
     showPublicPage: false,
     noindex: true,
     oldCategoryUrls: [],
     notes: ""
   },
   {
-    title: "Legacy Content Conversion",
-    slug: "legacy-content-conversion",
-    description: "Updating and digitizing legacy training materials.",
-    showPublicPage: false,
-    noindex: true,
-    oldCategoryUrls: [],
-    notes: ""
-  },
-  {
-    title: "Platform Guides",
-    slug: "platform-guides",
+    title: "Platform Comparisons",
+    slug: "platform-comparisons",
     description: "Comparisons and guides for various eLearning platforms.",
-    showPublicPage: false,
-    noindex: true,
-    oldCategoryUrls: [],
-    notes: ""
-  },
-  {
-    title: "Microlearning",
-    slug: "microlearning",
-    description: "Bite-sized learning strategies and implementations.",
-    showPublicPage: false,
-    noindex: true,
-    oldCategoryUrls: [],
-    notes: ""
-  },
-  {
-    title: "Gamified Learning",
-    slug: "gamified-learning",
-    description: "Using gamification to enhance engagement and retention.",
     showPublicPage: false,
     noindex: true,
     oldCategoryUrls: [],
     notes: ""
   }
 ];
+
+export const cleanTags = [
+  "kajabi",
+  "kajabi-automation",
+  "kajabi-email-marketing",
+  "kajabi-funnels",
+  "kajabi-course-setup",
+  "lms-migration",
+  "lms-implementation",
+  "moodle",
+  "lifterlms",
+  "teachable",
+  "thinkific",
+  "podia",
+  "skool",
+  "learnworlds",
+  "scorm",
+  "xapi",
+  "instructional-design",
+  "custom-elearning",
+  "ai-learning",
+  "ai-course-creation",
+  "microlearning",
+  "gamification",
+  "corporate-training",
+  "employee-training",
+  "course-launch",
+  "online-course-creation",
+  "digital-products",
+  "learning-analytics",
+  "legacy-content-conversion",
+  "ar-vr-learning",
+  "course-marketing"
+];
+
+export const tagAliases: Record<string, string> = {
+  "scrom": "scorm",
+  "online-couurse": "online-course-creation",
+  "instructionaldesign": "instructional-design",
+  "coursecreation": "course-launch",
+  "markekitng": "course-marketing",
+  "gamifications": "gamification",
+  "austarlia": "australia",
+  "australua": "australia",
+  "autsralia": "australia",
+  "ausrtalia": "australia",
+  "autralia": "australia",
+  "the-eduassist": "theeduassist",
+  "elearningdevelopment": "custom-elearning",
+  "elearning-development": "custom-elearning",
+  "onlinecourses": "online-course-creation",
+  "coursecreators": "course-launch"
+};

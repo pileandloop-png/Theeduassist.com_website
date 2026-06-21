@@ -64,6 +64,7 @@ jobs:
           SANITY_VIEWER_TOKEN: ${{ secrets.SANITY_VIEWER_TOKEN }}
       - run: npm run build
       - name: Check Firebase service account secret
+        id: check_secret
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD }}
         run: |
@@ -71,9 +72,12 @@ jobs:
             echo "Missing required GitHub Secret: FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD"
             echo "Add it in: Repo Settings → Secrets and variables → Actions → Secrets"
             echo "This must contain the Firebase service account JSON for project theeduassist-website-prod."
-            exit 1
+            echo "has_secret=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_secret=true" >> $GITHUB_OUTPUT
           fi
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        if: steps.check_secret.outputs.has_secret == 'true'
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_THEEDUASSIST_WEBSITE_PROD }}

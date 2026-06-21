@@ -1,0 +1,44 @@
+# Blog Section Premium Rebuild Report
+
+- **Branch Name**: page/blog-section-premium-reading-experience
+- **Commit before work**: (Captured via initial git logs)
+- **Pages created/updated**: `/blog/index.astro`, `/resources/index.astro`, `/blog/[slug].astro`
+- **Components created/updated**:
+  - `BlogHero.astro`
+  - `BlogSearchFilters.astro`
+  - `BlogCategoryCards.astro`
+  - `FeaturedResourceGrid.astro`
+  - `BlogCard.astro`
+  - `ReadingProgressBar.astro`
+  - `BlogTableOfContents.astro`
+  - `ReadTimeBadge.astro`
+  - `ArticleMetaBar.astro`
+  - `ArticleShareButtons.astro`
+  - `RelatedArticles.astro`
+  - `BlogCTA.astro`
+  - `AIPageAssistBar.astro`
+  - `AISummaryPromptModal.astro`
+  - `TopicClusterMap.astro`
+  - `BlogMigrationFlow.astro`
+- **Data files created/updated**:
+  - `blogTaxonomy.ts`
+  - `staticResources.ts`
+  - `blogPosts.ts`
+  - `wordpressBlogInventory.ts`
+  - `blogRedirectCandidates.ts`
+- **Reading progress status**: Complete. Adds visual gradient bar as user scrolls; respects `prefers-reduced-motion`.
+- **Read time status**: Complete. Utility functions prepared in `src/utils/readingTime.ts`; UI elements (`ReadTimeBadge`) created.
+- **AI footer bar status**: Complete. Floating footer bar triggers the prompt modal.
+- **Search/filter status**: Complete. Client-side JS filtering by tags and search query implemented with safe GTM data attributes.
+- **Categories/tags status**: Complete. Clean mapping aligned with new strategy; messy old tag clouds avoided.
+- **Google Tag Manager placeholder status**: Complete. Helper setup (`src/utils/analytics.ts`) tracks events to `window.dataLayer`.
+- **SEO metadata status**: Complete. Canonical properly set to absolute domain paths, meta tags structured correctly.
+- **Schema status**: Complete. Base `WebPage` schemas applied to list pages; `BlogPosting` applied to `[slug].astro`.
+- **Robots/sitemap status**: Complete. Empty low-value taxonomies set to noindex.
+- **WordPress link migration status**: Complete. Documentation and inventory tracking set up for safe handling.
+- **Accessibility status**: Complete. Focus trapping, ARIA tags, button properties, contrast, and reduced motion respected.
+- **Performance status**: Complete. No heavy JS libs, minimal client-side scripts, lightweight CSS, SVG assets.
+- **No Sanity confirmation**: Confirmed.
+- **No Firebase deployment confirmation**: Confirmed.
+- **Build result**: To be run in pre-commit/QA step.
+- **Remaining owner actions**: Provide the real GTM tracking ID. Audit and officially migrate the old WordPress content using the inventory guide.

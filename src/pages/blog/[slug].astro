@@ -1,90 +1,137 @@
 ---
-import { fetchFromSanity } from '../../lib/sanity/client';
-import { blogPostSlugsQuery, blogPostBySlugQuery } from '../../lib/sanity/queries';
-import Layout from '../../layouts/Layout.astro';
-import { urlForImage } from '../../lib/sanity/image';
-import { PortableText } from '@portabletext/react';
+import BlogArticleLayout from '../../layouts/BlogArticleLayout.astro';
+import ArticleMetaBar from '../../components/blog/ArticleMetaBar.astro';
+import BlogTableOfContents from '../../components/blog/BlogTableOfContents.astro';
+import ArticleShareButtons from '../../components/blog/ArticleShareButtons.astro';
+import RelatedArticles from '../../components/blog/RelatedArticles.astro';
+import BlogCTA from '../../components/blog/BlogCTA.astro';
+import { blogPosts } from '../../data/blogPosts';
 
 export async function getStaticPaths() {
-  try {
-    const slugs = await fetchFromSanity(blogPostSlugsQuery);
-    if (!Array.isArray(slugs) || slugs.length === 0) {
-      return [];
-    }
-    return slugs.map((slug: string) => ({
-      params: { slug },
-    }));
-  } catch (e) {
-    console.error("Failed to fetch blog post slugs:", e);
-    return [];
-  }
+  // Only build paths for published articles
+  const publishedPosts = blogPosts.filter(post => post.status === 'published');
+
+  return publishedPosts.map(post => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
 }
 
-const { slug } = Astro.params;
-let post;
-
-try {
-  post = await fetchFromSanity(blogPostBySlugQuery, { slug });
-} catch (e) {
-  console.error(`Failed to fetch blog post ${slug}:`, e);
-}
+const { post } = Astro.props;
 
 if (!post) {
   return new Response("Post not found", { status: 404 });
 }
+
+// Generate simple mock headings for TOC
+const headings = [
+  { depth: 2, slug: "introduction", text: "Introduction" },
+  { depth: 2, slug: "main-points", text: "Main Points" },
+  { depth: 3, slug: "point-1", text: "Key Setup Steps" },
+  { depth: 2, slug: "conclusion", text: "Conclusion" }
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.seoTitle || post.title,
+  "description": post.seoDescription || post.excerpt,
+  "author": post.author ? { "@type": "Person", "name": post.author } : undefined,
+  "datePublished": post.publishedAt,
+  "dateModified": post.updatedAt || post.publishedAt,
+  "image": post.heroImage ? `https://theeduassist.com${post.heroImage}` : undefined,
+  "publisher": {
+    "@type": "Organization",
+    "name": "TheEduAssist",
+    "url": "https://theeduassist.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://theeduassist.com/blog/${post.slug}/`
+  }
+};
 ---
 
-<Layout
-  title={post.seo?.seoTitle || post.title}
-  description={post.seo?.seoDescription || post.excerpt}
-  canonicalPath={post.seo?.canonicalPath || `/blog/${slug}/`}
+<BlogArticleLayout
+  title={post.seoTitle || `${post.title} | TheEduAssist Blog`}
+  description={post.seoDescription || post.excerpt}
+  canonicalPath={post.canonicalUrl || `/blog/${post.slug}/`}
+  ogImage={post.heroImage}
+  type="article"
+  jsonLd={[articleSchema]}
 >
-  <article class="container mx-auto px-4 py-16 max-w-3xl">
-    <header class="mb-10 text-center">
-      {post.category && (
-        <span class="text-sm font-semibold uppercase tracking-wider text-[var(--color-primary)] mb-4 inline-block">
-          {post.category}
-        </span>
-      )}
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">{post.title}</h1>
-      {post.excerpt && <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-6">{post.excerpt}</p>}
-
-      {post.publishedAt && (
-        <time datetime={post.publishedAt} class="text-slate-500 text-sm">
-          {new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </time>
-      )}
+  <article class="container mx-auto px-4 py-16 max-w-4xl">
+    <header class="mb-10 text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800 leading-tight">
+        {post.title}
+      </h1>
+      <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+        {post.excerpt}
+      </p>
     </header>
 
-    {post.featuredImage && (
-      <div class="mb-12 rounded-lg overflow-hidden shadow-sm">
+    {post.heroImage && (
+      <div class="mb-12 rounded-xl overflow-hidden shadow-md">
         <img
-          src={urlForImage(post.featuredImage)?.width(1200).height(630).url()}
-          alt={post.featuredImage?.alt || post.title}
-          class="w-full h-auto object-cover"
+          src={post.heroImage}
+          alt={post.heroImageAlt || post.title}
+          class="w-full h-auto object-cover aspect-video"
+          loading="eager"
         />
       </div>
     )}
 
-    <div class="prose prose-lg mx-auto prose-slate">
-      {post.body ? (
-        <PortableText value={post.body} />
-      ) : (
-        <p>Content is missing.</p>
-      )}
+    <div class="max-w-3xl mx-auto">
+      <ArticleMetaBar
+        category={post.category}
+        publishedAt={post.publishedAt}
+        updatedAt={post.updatedAt}
+        author={post.author}
+        readTimeMinutes={post.readingTime}
+      />
+
+      <div class="flex flex-col md:flex-row gap-10 mt-10">
+        <!-- Sidebar -->
+        <aside class="md:w-1/4 hidden md:block">
+          <div class="sticky top-24">
+            <BlogTableOfContents headings={headings} />
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="md:w-3/4 prose prose-lg prose-slate prose-a:text-[var(--color-primary)] hover:prose-a:text-[var(--color-accent)] max-w-none">
+          <div set:html={post.content || "<p>Content coming soon.</p>"} />
+
+          <ArticleShareButtons
+            url={`https://theeduassist.com/blog/${post.slug}/`}
+            title={post.title}
+          />
+        </div>
+      </div>
     </div>
 
+    <!-- Tags -->
     {post.tags && post.tags.length > 0 && (
-      <div class="mt-12 pt-8 border-t border-slate-200">
-        <h3 class="text-lg font-semibold mb-4 text-slate-800">Tags:</h3>
+      <div class="max-w-3xl mx-auto mt-8 mb-16">
         <div class="flex flex-wrap gap-2">
-          {post.tags.map((tag: string) => (
-            <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-sm">
-              {tag}
+          {post.tags.map(tag => (
+            <span class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full">
+              {tag.replace(/-/g, ' ')}
             </span>
           ))}
         </div>
       </div>
     )}
+
+    <div class="max-w-4xl mx-auto">
+        <RelatedArticles
+          currentSlug={post.slug}
+          category={post.category}
+          tags={post.tags}
+          allPosts={blogPosts}
+        />
+
+        <BlogCTA />
+    </div>
   </article>
-</Layout>
+</BlogArticleLayout>

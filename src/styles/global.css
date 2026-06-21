@@ -86,3 +86,20 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Brand Colors */
+:root {
+  --color-primary: #27496D; /* Dark Blue */
+  --color-accent: #77BA55; /* Light Green */
+  --color-background: #F7FAF6; /* Soft Background */
+}
+
+/* Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,47 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings?: Heading[];
+}
+
+const { headings = [] } = Astro.props;
+---
+{headings.length > 0 && (
+  <nav class="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-10 hidden md:block" aria-label="Table of contents">
+    <h3 class="font-semibold text-slate-800 mb-4 uppercase tracking-wider text-sm">Table of Contents</h3>
+    <ul class="space-y-2 text-sm">
+      {headings.map(heading => (
+        <li class={`pl-${(heading.depth - 2) * 4}`}>
+          <a href={`#${heading.slug}`} class="text-slate-600 hover:text-[var(--color-primary)] transition-colors inline-block w-full" data-toc-link>
+            {heading.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<script>
+  function setupToc() {
+    const tocLinks = document.querySelectorAll('[data-toc-link]');
+    if (!tocLinks.length) return;
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.dataLayer && typeof window.trackEvent === 'function') {
+           window.trackEvent('article_toc_click', {
+             target_id: link.getAttribute('href')
+           });
+        }
+      });
+    });
+  }
+
+  setupToc();
+  document.addEventListener('astro:page-load', setupToc);
+</script>

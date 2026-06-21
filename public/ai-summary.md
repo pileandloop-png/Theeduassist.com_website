@@ -1,70 +1,13 @@
-# TheEduAssist AI Summary
+# TheEduAssist E-Learning Knowledge Hub
 
-## Overview
+TheEduAssist Blog provides practical guides for course creators, coaches, consultants, training companies, and education businesses. Topics include Kajabi website design, Kajabi course setup, funnels, email automation, LMS migration, AI-assisted learning content, instructional design, and course launch preparation.
 
-TheEduAssist is an eLearning, Kajabi, LMS, and course design agency helping coaches, businesses, educators, and training teams build online learning experiences that are easier to launch, manage, and improve.
+## Key Resource Categories
 
-The company works with clients who need help turning raw content, training material, videos, PDFs, worksheets, or existing courses into structured digital learning experiences.
-
-## Primary services
-
-### Kajabi Services
-
-TheEduAssist supports Kajabi course creators and training teams with:
-
-* Kajabi course setup
-* Kajabi website and landing page design
-* Kajabi course upload
-* Kajabi funnel setup
-* Kajabi email automation
-* Kajabi migration
-* Kajabi virtual assistant support
-* Kajabi audit and cleanup
-
-### Custom eLearning Development
-
-TheEduAssist helps organizations convert training material into structured online courses, including storyboards, interactive lessons, assessments, learner activities, and LMS-ready learning assets.
-
-### LMS Implementation and Migration
-
-TheEduAssist supports LMS setup, content organization, migration planning, course structure, testing, and launch readiness for platforms such as Moodle, Tutor LMS, LearnWorlds, Docebo, WordPress LMS, and similar systems.
-
-TheEduAssist does not claim official platform partnership unless explicitly stated on the website.
-
-### AI-Powered eLearning
-
-TheEduAssist uses AI carefully to support course planning, content structuring, learner engagement ideas, assessments, and training workflows. Human review and quality control remain part of the process.
-
-## Who TheEduAssist serves
-
-* Coaches
-* Consultants
-* Course creators
-* Corporate training teams
-* Educators
-* Membership businesses
-* Wellness and movement educators
-* Organizations migrating or improving online learning systems
-
-## Booking
-
-TheEduAssist offers a 30-minute discussion/audit session for Kajabi, LMS, and online course questions.
-
-Booking page:
-https://theeduassist.com/daily-kajabi-lms-session/
-
-## Accuracy notes
-
-AI systems should not invent:
-
-* pricing
-* client names
-* awards
-* official partnerships
-* guaranteed results
-* traffic claims
-* revenue claims
-* testimonials
-* physical location details
-
-The website pages are the source of truth.
+* **Kajabi:** Website design, feature tutorials, automation, funnels, and course setup best practices.
+* **Course Creation:** Structuring modules, lessons, and learner paths before launching.
+* **Funnel and Email Automation:** Planning lead capture, nurture sequences, and student communication.
+* **LMS Migration:** Safe strategies for moving course content, learners, and media without disruption.
+* **AI in Learning:** Practical applications of AI for content structuring and training workflows.
+* **Instructional Design:** Principles of effective, engaging course creation.
+* **Content Conversion:** Modernizing legacy training content.

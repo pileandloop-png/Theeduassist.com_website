@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogHero from '../../components/blog/BlogHero.astro';
+import FeaturedResourceGrid from '../../components/blog/FeaturedResourceGrid.astro';
+import BlogCategoryCards from '../../components/blog/BlogCategoryCards.astro';
+import BlogCTA from '../../components/blog/BlogCTA.astro';
+import AIPageAssistBar from '../../components/blog/AIPageAssistBar.astro';
+
+// SEO details
+const title = "E-Learning Resources | Kajabi, LMS & Course Creation Guides | TheEduAssist";
+const description = "Browse TheEduAssist resources for Kajabi, LMS migration, course creation, instructional design, AI learning, corporate training, and content conversion.";
+const canonicalPath = "/resources/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": `https://theeduassist.com${canonicalPath}`,
+  "publisher": {
+    "@type": "Organization",
+    "name": "TheEduAssist",
+    "url": "https://theeduassist.com"
+  }
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  jsonLd={[schema]}
+>
+  <BlogHero />
+
+  <main class="container mx-auto px-4 py-12 max-w-6xl">
+    <FeaturedResourceGrid />
+
+    <div class="my-16">
+        <BlogCategoryCards />
+    </div>
+
+    <div class="mt-20">
+        <BlogCTA />
+    </div>
+  </main>
+
+  <AIPageAssistBar />
+</Layout>

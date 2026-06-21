@@ -1,0 +1,55 @@
+---
+import ReadTimeBadge from './ReadTimeBadge.astro';
+
+interface Props {
+  category?: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  author?: string;
+  readTimeMinutes?: number;
+}
+
+const { category, publishedAt, updatedAt, author, readTimeMinutes } = Astro.props;
+
+const formatDate = (dateString?: string) => {
+  if (!dateString) return null;
+  return new Date(dateString).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+};
+
+const pubDate = formatDate(publishedAt);
+const updDate = formatDate(updatedAt);
+---
+<div class="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-6 pb-6 border-b border-slate-100">
+  {category && (
+    <span class="font-medium text-[var(--color-primary)] bg-blue-50 px-2 py-1 rounded">
+      {category}
+    </span>
+  )}
+
+  {author && (
+    <span class="flex items-center">
+      <span class="sr-only">Author:</span>
+      <span class="font-medium text-slate-700">{author}</span>
+    </span>
+  )}
+
+  {pubDate && (
+    <span class="flex items-center">
+      <span class="sr-only">Published on:</span>
+      <time datetime={publishedAt}>{pubDate}</time>
+    </span>
+  )}
+
+  {updDate && updDate !== pubDate && (
+    <span class="flex items-center text-slate-400 italic">
+      <span class="sr-only">Updated on:</span>
+      (Updated: <time datetime={updatedAt}>{updDate}</time>)
+    </span>
+  )}
+
+  {readTimeMinutes && readTimeMinutes > 0 && (
+    <div class="ml-auto">
+        <ReadTimeBadge minutes={readTimeMinutes} />
+    </div>
+  )}
+</div>

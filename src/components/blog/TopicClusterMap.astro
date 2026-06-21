@@ -1,0 +1,23 @@
+---
+import { wordpressBlogInventory } from '../../data/wordpressBlogInventory';
+
+// Simple visualization of topic clusters from the inventory
+const clusters = [...new Set(wordpressBlogInventory.map(item => item.topicCluster))].filter(Boolean);
+---
+<div class="mt-20 border-t border-slate-200 pt-16 hidden md:block">
+    <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold text-slate-800">Our E-Learning Knowledge Clusters</h2>
+        <p class="text-slate-500 mt-2">Connecting the dots between platform, content, and strategy.</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+        {clusters.map(cluster => (
+            <div class="px-5 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm flex items-center group cursor-default hover:border-[var(--color-primary)] transition-colors">
+                <svg class="w-4 h-4 mr-2 text-[var(--color-primary)] opacity-70 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+                {cluster}
+            </div>
+        ))}
+    </div>
+</div>

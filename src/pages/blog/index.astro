@@ -1,68 +1,67 @@
 ---
-import { fetchFromSanity } from '../../lib/sanity/client';
-import { latestBlogPostsQuery } from '../../lib/sanity/queries';
 import Layout from '../../layouts/Layout.astro';
-import { urlForImage } from '../../lib/sanity/image';
+import BlogHero from '../../components/blog/BlogHero.astro';
+import BlogSearchFilters from '../../components/blog/BlogSearchFilters.astro';
+import BlogCategoryCards from '../../components/blog/BlogCategoryCards.astro';
+import FeaturedResourceGrid from '../../components/blog/FeaturedResourceGrid.astro';
+import BlogMigrationFlow from '../../components/blog/BlogMigrationFlow.astro';
+import TopicClusterMap from '../../components/blog/TopicClusterMap.astro';
+import BlogCTA from '../../components/blog/BlogCTA.astro';
+import AIPageAssistBar from '../../components/blog/AIPageAssistBar.astro';
 
-let posts = [];
-try {
-  const result = await fetchFromSanity(latestBlogPostsQuery);
-  if (Array.isArray(result)) {
-    posts = result;
+// SEO details
+const title = "TheEduAssist Blog | Kajabi, Course Creation & E-Learning Design Resources";
+const description = "Explore practical resources from TheEduAssist on Kajabi websites, course setup, funnels, email automation, LMS migration, AI learning, instructional design, and e-learning strategy.";
+const canonicalPath = "/blog/";
+const ogTitle = "TheEduAssist Blog";
+const ogDescription = "Guides and resources for building better Kajabi websites, courses, funnels, and e-learning systems.";
+
+// Basic WebPage schema for the hub
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": `https://theeduassist.com${canonicalPath}`,
+  "publisher": {
+    "@type": "Organization",
+    "name": "TheEduAssist",
+    "url": "https://theeduassist.com"
   }
-} catch (e) {
-  console.error("Failed to fetch blog posts for index:", e);
-}
+};
 ---
 
-<Layout title="Blog" description="Latest articles, insights, and guides from TheEduAssist." canonicalPath="/blog/">
-  <div class="container mx-auto px-4 py-16 max-w-4xl">
-    <h1 class="text-4xl font-bold mb-8 text-slate-800 text-center">Our Blog</h1>
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  jsonLd={[schema]}
+>
+  <BlogHero />
 
-    {posts.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {posts.map((post: any) => (
-          <article class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
-            {post.featuredImage && (
-              <img
-                src={urlForImage(post.featuredImage)?.width(600).height(400).url()}
-                alt={post.featuredImage?.alt || post.title}
-                class="w-full h-48 object-cover"
-                loading="lazy"
-              />
-            )}
-            <div class="p-6">
-              <h2 class="text-2xl font-bold mb-3 text-slate-800">
-                <a href={`/blog/${post.slug.current}`} class="hover:text-[var(--color-primary)] transition-colors">
-                  {post.title}
-                </a>
-              </h2>
-              {post.excerpt && <p class="text-slate-600 mb-4 line-clamp-3">{post.excerpt}</p>}
-              <a href={`/blog/${post.slug.current}`} class="text-[var(--color-primary)] font-medium hover:underline">
-                Read Article &rarr;
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
-    ) : (
-      <div class="text-center py-12 bg-white rounded-lg shadow-sm border border-slate-200">
-        <h2 class="text-2xl font-semibold mb-4 text-slate-800">Content Coming Soon</h2>
-        <p class="text-slate-600 mb-8 max-w-lg mx-auto text-lg">
-          Blog migration is in progress. New articles will appear here as they are reviewed and published.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="/services/" class="inline-block bg-[var(--color-primary)] text-white font-medium py-3 px-6 rounded-md hover:bg-opacity-90 transition-colors">
-            Explore Services
-          </a>
-          <a href="/kajabi-services/" class="inline-block bg-white text-[var(--color-primary)] font-medium py-3 px-6 rounded-md border border-[var(--color-primary)] hover:bg-slate-50 transition-colors">
-            Explore Kajabi Services
-          </a>
-          <a href="/book-free-audit/" class="inline-block bg-[var(--color-accent)] text-white font-medium py-3 px-6 rounded-md hover:bg-opacity-90 transition-colors">
-            Book Free Audit
-          </a>
-        </div>
-      </div>
-    )}
-  </div>
+  <main class="container mx-auto px-4 py-12 max-w-6xl">
+    <div class="mb-12">
+        <BlogSearchFilters />
+    </div>
+
+    <BlogCategoryCards />
+
+    <FeaturedResourceGrid />
+
+    <!-- "Latest Articles" section will go here when real reviewed posts exist -->
+
+    <div class="my-16">
+        <BlogMigrationFlow />
+    </div>
+
+    <TopicClusterMap />
+
+    <div class="mt-20">
+        <BlogCTA />
+    </div>
+  </main>
+
+  <AIPageAssistBar />
 </Layout>
