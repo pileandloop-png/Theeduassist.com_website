@@ -1,0 +1,46 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+import FAQAccordion from '../ui/FAQAccordion.astro';
+
+const faqs = [
+  {
+    question: "Is TheEduAssist only a Kajabi agency?",
+    answer: "No. Kajabi is one of our strongest specialties, but TheEduAssist also supports course creation, LMS migration, content conversion, AI-powered e-learning support, funnels, automation, and ongoing support."
+  },
+  {
+    question: "Who does TheEduAssist work with?",
+    answer: "We work with creators, coaches, consultants, educators, training companies, online academies, and businesses that want to teach, sell, or deliver training online."
+  },
+  {
+    question: "What does TheEduAssist actually build?",
+    answer: "We help build online courses, Kajabi systems, LMS experiences, course content, learning assets, funnels, automations, templates, onboarding flows, and launch-ready learning systems."
+  },
+  {
+    question: "Can you help if I only have an idea?",
+    answer: "Yes. We can help turn a raw course idea into a course map, learner journey, modules, lessons, outcomes, and launch plan."
+  },
+  {
+    question: "Can you help if I already have content?",
+    answer: "Yes. We can work with PDFs, slides, videos, notes, manuals, SOPs, Google Drive folders, WordPress content, or old LMS content."
+  },
+  {
+    question: "Do you use AI?",
+    answer: "Yes. We use AI-assisted workflows where useful, but final structure, content quality, and learner experience remain human-reviewed."
+  },
+  {
+    question: "What is the best first step?",
+    answer: "Book a free audit so we can review your idea, content, course, platform, or launch workflow and recommend the right next step."
+  }
+];
+---
+
+<section class="py-20 lg:py-24 bg-white border-b border-brand-border/40">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader
+      title="About TheEduAssist FAQ"
+    />
+    <div class="mt-8">
+        <FAQAccordion items={faqs} />
+    </div>
+  </div>
+</section>

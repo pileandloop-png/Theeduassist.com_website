@@ -3,23 +3,19 @@
 > astro dev
 
 [vite] connected.
-17:28:38 [types] Generated 1ms
+17:49:12 [types] Generated 1ms
 [vite] connected.
-17:28:38 [vite] Re-optimizing dependencies because vite config has changed
- astro  v6.4.7 ready in 2015 ms
+17:49:12 [vite] Re-optimizing dependencies because vite config has changed
+ astro  v6.4.7 ready in 2241 ms
 ┃ Local    http://localhost:4321/
 ┃ Network  use --host to expose
-17:28:38 watching for file changes...
+17:49:12 watching for file changes...
 Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
-17:29:10 [200] /case-studies/ 113ms
+17:50:31 [200] /about/ 119ms
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
-[vite] program reload
-[vite] An error happened during full reload
-Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?
-Error: Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?
-    at loadAndTransform (file:///app/node_modules/vite/dist/node/chunks/config.js:22739:33)
-Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
-[vite] program reload
-Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
+17:50:59 [200] /about/ 14ms
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
