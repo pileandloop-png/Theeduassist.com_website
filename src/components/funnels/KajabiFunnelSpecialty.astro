@@ -1,0 +1,155 @@
+---
+---
+<section class="py-20 bg-white border-t border-slate-100">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+
+      {/* Content Side */}
+      <div class="w-full lg:w-1/2">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-100 text-sm font-semibold text-[#27496D] mb-6">
+          <svg class="w-4 h-4 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Platform Specialty
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold text-[#27496D] mb-6 leading-tight">
+          Kajabi Funnels, Offers, Emails, and Automations
+        </h2>
+
+        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+          Kajabi is one of TheEduAssist’s strongest specialties. We can help structure Kajabi funnels that connect landing pages, forms, email campaigns, offers, checkout, automations, product access, and student onboarding into a seamless flow.
+        </p>
+
+        <div class="grid grid-cols-2 gap-x-6 gap-y-4 mb-10">
+          {[
+            'Landing pages',
+            'Funnel pages',
+            'Forms',
+            'Email campaigns',
+            'Offers',
+            'Checkout',
+            'Automations',
+            'Tags',
+            'Coupons',
+            'Product access',
+            'Student onboarding',
+            'Analytics review'
+          ].map(item => (
+            <div class="flex items-center gap-2">
+               <svg class="w-4 h-4 text-[#77BA55] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-slate-700 text-sm">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <a href="/kajabi-services/" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-[#27496D] bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-sm">
+          View Kajabi Services
+        </a>
+      </div>
+
+      {/* Visual Side */}
+      <div class="w-full lg:w-1/2">
+        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 relative">
+          <!-- Abstract Kajabi Flow Representation -->
+          <div class="space-y-4 relative z-10">
+            {/* Form to Tag */}
+            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-50 text-blue-500 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-slate-800">Opt-in Form Submitted</div>
+                  <div class="text-xs text-slate-500">Trigger</div>
+                </div>
+              </div>
+              <svg class="w-5 h-5 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+               <div class="flex items-center gap-3">
+                <div class="text-right">
+                  <div class="text-sm font-semibold text-slate-800">Add Tag</div>
+                  <div class="text-xs text-[#77BA55]">Action</div>
+                </div>
+                <div class="w-10 h-10 bg-green-50 text-[#77BA55] rounded-lg flex items-center justify-center">
+                   <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Offer to Access */}
+            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-indigo-50 text-indigo-500 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-slate-800">Offer Purchased</div>
+                  <div class="text-xs text-slate-500">Trigger</div>
+                </div>
+              </div>
+              <svg class="w-5 h-5 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+               <div class="flex items-center gap-3">
+                <div class="text-right">
+                  <div class="text-sm font-semibold text-slate-800">Grant Access</div>
+                  <div class="text-xs text-[#77BA55]">Action</div>
+                </div>
+                <div class="w-10 h-10 bg-blue-50 text-blue-500 rounded-lg flex items-center justify-center">
+                   <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Purchase to Email */}
+            <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-indigo-50 text-indigo-500 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-slate-800">Offer Purchased</div>
+                  <div class="text-xs text-slate-500">Condition</div>
+                </div>
+              </div>
+              <svg class="w-5 h-5 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+               <div class="flex items-center gap-3">
+                <div class="text-right">
+                  <div class="text-sm font-semibold text-slate-800">Send Sequence</div>
+                  <div class="text-xs text-[#77BA55]">Action</div>
+                </div>
+                <div class="w-10 h-10 bg-purple-50 text-purple-500 rounded-lg flex items-center justify-center">
+                   <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mt-8 text-center text-xs text-slate-500 px-4">
+            * Kajabi is a third-party platform. Platform support does not imply official partnership unless stated.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

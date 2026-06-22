@@ -1,0 +1,48 @@
+---
+---
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#27496D] mb-6">A Course Without a Funnel Can Be Hard to Sell and Deliver</h2>
+      <p class="text-lg text-slate-600">
+        Many creators and training businesses build the course first, then realize the sales and delivery journey is disconnected. The landing page does not explain the offer clearly, emails are missing, checkout is not connected, students do not know what happens after purchase, and the launch flow feels manual.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      {[
+        { title: 'Lost Leads', text: 'Leads are captured but not followed up.' },
+        { title: 'Disconnected Sales', text: 'Sales pages do not connect to the course offer.' },
+        { title: 'Missing Emails', text: 'Emails are missing or too generic.' },
+        { title: 'Unclear Checkout', text: 'Checkout and access flow are unclear.' },
+        { title: 'Poor Onboarding', text: 'Students are not onboarded properly.' },
+        { title: 'Manual Launches', text: 'Launch tasks are handled manually.' },
+        { title: 'Broken Automations', text: 'Automations are confusing or broken.' },
+        { title: 'Mismatched Experience', text: 'The funnel does not match the learning experience.' }
+      ].map(problem => (
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-slate-200 transition-colors">
+          <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm mb-4 border border-slate-100">
+            <svg class="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-[#27496D] mb-2">{problem.title}</h3>
+          <p class="text-sm text-slate-600">{problem.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-gradient-to-br from-[#27496D] to-[#1e3a5f] rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
+      <!-- Decorative Elements -->
+      <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-64 h-64 bg-white opacity-5 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-64 h-64 bg-[#77BA55] opacity-20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <h3 class="text-2xl md:text-3xl font-semibold text-white mb-4">The Solution</h3>
+        <p class="text-lg text-blue-100 leading-relaxed">
+          TheEduAssist connects the marketing journey and the learning journey so visitors can move from interest to enrollment to student experience with less confusion.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+---
+---
+<section class="py-20 bg-slate-50 border-t border-slate-100">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#27496D] mb-4">What We Can Build or Improve</h2>
+      <p class="text-lg text-slate-600">A comprehensive suite of funnels, pages, and automations.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      {[
+        'Lead magnet funnel',
+        'Opt-in landing page',
+        'Webinar registration funnel',
+        'Waitlist funnel',
+        'Course sales funnel',
+        'Offer and checkout flow',
+        'Email nurture sequence',
+        'Launch email sequence',
+        'Student onboarding emails',
+        'Post-purchase automation',
+        'Course access workflow',
+        'Tagging and segmentation plan',
+        'Abandoned checkout follow-up*',
+        'Upsell or bundle flow*',
+        'Funnel QA and testing checklist',
+        'Automation cleanup'
+      ].map(service => (
+        <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm flex items-start gap-4 hover:border-slate-300 transition-colors group">
+          <div class="mt-1 w-6 h-6 rounded-full bg-slate-50 flex items-center justify-center shrink-0 text-[#27496D] group-hover:bg-[#F3FAF0] group-hover:text-[#77BA55] transition-colors border border-slate-100">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <span class="text-slate-700 font-medium text-sm leading-snug">{service}</span>
+        </div>
+      ))}
+    </div>
+    <div class="mt-6 text-center">
+       <p class="text-xs text-slate-400">* Where supported by your specific platform's capabilities.</p>
+    </div>
+  </div>
+</section>

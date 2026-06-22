@@ -1,0 +1,17 @@
+
+> dimensional-doppler@0.0.1 dev
+> astro dev
+
+[vite] connected.
+14:14:12 [types] Generated 1ms
+[vite] connected.
+14:14:12 [vite] Re-optimizing dependencies because vite config has changed
+ astro  v6.4.7 ready in 2543 ms
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+14:14:13 watching for file changes...
+Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
+14:15:23 [200] /services/funnels-automation/ 102ms
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
