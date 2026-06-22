@@ -1,0 +1,40 @@
+---
+// src/components/support/SupportProblemSection.astro
+---
+
+<section class="py-20 lg:py-24 bg-white border-b border-brand-border/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+        A Course System Needs Care After Launch
+      </h2>
+      <p class="text-lg text-brand-textMuted">
+        Many course owners launch once and then slowly lose control of their system. Links break, content becomes outdated, emails no longer match the offer, automations stop making sense, student instructions become unclear, and launch pages need updates.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      {[
+        "Course content becomes outdated",
+        "Broken links affect student experience",
+        "Automations become messy",
+        "Funnel pages need edits",
+        "Email sequences need updates",
+        "Students ask the same support questions",
+        "LMS or Kajabi pages need cleanup",
+        "Future launches take too long to prepare"
+      ].map((problem) => (
+        <div class="p-6 bg-brand-softBg rounded-2xl border border-brand-border/50 text-center flex flex-col items-center">
+            <svg class="w-8 h-8 text-brand-navy/60 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <h3 class="text-base font-semibold text-brand-navy">{problem}</h3>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center max-w-4xl mx-auto p-8 bg-brand-navy rounded-3xl shadow-lg">
+      <p class="text-xl md:text-2xl font-medium text-white">
+        TheEduAssist helps maintain, update, test, and improve your course system so it stays easier to manage and easier for learners to follow.
+      </p>
+    </div>
+  </div>
+</section>

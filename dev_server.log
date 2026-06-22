@@ -3,15 +3,27 @@
 > astro dev
 
 [vite] connected.
-14:14:12 [types] Generated 1ms
+17:03:50 [types] Generated 1ms
 [vite] connected.
-14:14:12 [vite] Re-optimizing dependencies because vite config has changed
- astro  v6.4.7 ready in 2543 ms
+17:03:50 [vite] Re-optimizing dependencies because vite config has changed
+ astro  v6.4.7 ready in 2187 ms
 ┃ Local    http://localhost:4321/
 ┃ Network  use --host to expose
-14:14:13 watching for file changes...
+17:03:50 watching for file changes...
 Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
-14:15:23 [200] /services/funnels-automation/ 102ms
+17:05:33 [200] /services/ongoing-support-maintenance/ 151ms
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+17:05:33 [404] /ui/grid-pattern.svg 160ms
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+17:05:39 [200] /services/ongoing-support-maintenance/ 7ms
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+17:05:40 [404] /ui/grid-pattern.svg 5ms
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.

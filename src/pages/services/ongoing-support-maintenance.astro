@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SupportHero from "../../components/support/SupportHero.astro";
+import SupportProblemSection from "../../components/support/SupportProblemSection.astro";
+import SupportAudienceSection from "../../components/support/SupportAudienceSection.astro";
+import SupportCapabilities from "../../components/support/SupportCapabilities.astro";
+import SupportLifecycle from "../../components/support/SupportLifecycle.astro";
+import KajabiSupportSection from "../../components/support/KajabiSupportSection.astro";
+import LMSSupportSection from "../../components/support/LMSSupportSection.astro";
+import FunnelAutomationMaintenance from "../../components/support/FunnelAutomationMaintenance.astro";
+import QualityAssuranceSection from "../../components/support/QualityAssuranceSection.astro";
+import LaunchSupportSection from "../../components/support/LaunchSupportSection.astro";
+import SupportPackages from "../../components/support/SupportPackages.astro";
+import SupportComparison from "../../components/support/SupportComparison.astro";
+import SupportFAQ from "../../components/support/SupportFAQ.astro";
+import SupportFinalCTA from "../../components/support/SupportFinalCTA.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Ongoing Course Support & Maintenance Services",
+  "provider": {
+    "@type": "Organization",
+    "name": "TheEduAssist"
+  },
+  "description": "TheEduAssist provides ongoing support and maintenance for online courses, Kajabi systems, LMS platforms, funnels, automations, course content, student onboarding, QA checks, and launch improvements.",
+  "serviceType": "E-Learning Maintenance"
+};
+---
+
+<Layout
+  title="Ongoing Course Support & Maintenance Services | TheEduAssist"
+  description="TheEduAssist provides ongoing support and maintenance for online courses, Kajabi systems, LMS platforms, funnels, automations, course content, student onboarding, QA checks, and launch improvements."
+>
+  <SupportHero />
+  <SupportProblemSection />
+  <SupportAudienceSection />
+  <SupportCapabilities />
+  <SupportLifecycle />
+  <KajabiSupportSection />
+  <LMSSupportSection />
+  <FunnelAutomationMaintenance />
+  <QualityAssuranceSection />
+  <LaunchSupportSection />
+  <SupportPackages />
+  <SupportComparison />
+  <SupportFAQ />
+  <SupportFinalCTA />
+
+  <!-- Inject specific Service Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</Layout>

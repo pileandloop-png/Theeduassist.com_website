@@ -1,0 +1,78 @@
+---
+// src/components/support/SupportFAQ.astro
+const faqs = [
+  {
+    q: "Do online courses need maintenance after launch?",
+    a: "Yes. Course content, pages, links, emails, automations, resources, and student onboarding may need updates as your offer, platform, audience, or launch plan changes."
+  },
+  {
+    q: "Can you maintain my Kajabi course?",
+    a: "Yes. We can help update Kajabi pages, products, offers, emails, automations, student onboarding, funnel pages, and launch assets."
+  },
+  {
+    q: "Can you support LMS platforms too?",
+    a: "Yes. We can help review, organize, update, and improve LMS content, modules, lessons, resources, quizzes, and learner pathways where supported by the platform."
+  },
+  {
+    q: "Can you fix broken links and course issues?",
+    a: "Yes. We can check broken links, missing resources, formatting issues, mobile layout problems, confusing instructions, and student flow problems."
+  },
+  {
+    q: "Do you support course launches?",
+    a: "Yes. We can help update launch pages, emails, checkout paths, onboarding, resources, QA checklists, and post-launch cleanup."
+  },
+  {
+    q: "Can I hire you monthly?",
+    a: "Yes. Ongoing support can be structured as a monthly retainer depending on your courses, platform, update needs, and launch schedule."
+  },
+  {
+    q: "Do you provide emergency support?",
+    a: "Priority support can be discussed during the audit depending on your plan and availability."
+  },
+  {
+    q: "What should I prepare before booking a support audit?",
+    a: "Bring your course link, Kajabi/LMS access status, current issues, launch timeline, content updates needed, automations, emails, and priority concerns."
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+---
+
+<section class="py-20 lg:py-24 bg-brand-softBg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy">Ongoing Support FAQ</h2>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group bg-white rounded-2xl border border-brand-border/60 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-brand-navy font-semibold">
+            <h3 class="text-lg">{faq.q}</h3>
+            <span class="shrink-0 rounded-full bg-brand-softBg p-1.5 text-brand-navy group-open:bg-brand-navy group-open:text-white transition-colors">
+              <svg class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-brand-textMuted leading-relaxed">
+            <p>{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

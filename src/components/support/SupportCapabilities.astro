@@ -1,0 +1,43 @@
+---
+// src/components/support/SupportCapabilities.astro
+---
+
+<section class="py-20 lg:py-24 bg-white border-y border-brand-border/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+        What We Can Maintain and Improve
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {[
+        "Kajabi pages",
+        "Kajabi course products",
+        "LMS course content",
+        "Landing pages",
+        "Sales pages",
+        "Funnel pages",
+        "Email sequences",
+        "Automations",
+        "Checkout and offer flow",
+        "Student onboarding emails",
+        "Lesson descriptions",
+        "Downloadable resources",
+        "Worksheets and quizzes",
+        "Student FAQ content",
+        "Resource libraries",
+        "Course completion paths",
+        "Launch checklists",
+        "Broken links and QA issues",
+        "Mobile layout issues",
+        "Content formatting"
+      ].map((item) => (
+        <div class="flex items-start p-4 bg-brand-softBg rounded-xl border border-brand-border/40">
+          <svg class="w-5 h-5 text-brand-accent mt-0.5 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          <span class="text-sm font-medium text-brand-navy">{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

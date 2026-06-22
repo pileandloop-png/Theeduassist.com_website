@@ -1,0 +1,56 @@
+---
+// src/components/support/SupportLifecycle.astro
+---
+
+<section class="py-20 lg:py-24 bg-brand-softBg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+        Our Monthly Support Workflow
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[
+        {
+          num: "1",
+          title: "Review",
+          desc: "We check the current course pages, content, automations, funnels, emails, and student flow."
+        },
+        {
+          num: "2",
+          title: "Prioritize",
+          desc: "We identify the highest-impact fixes, updates, and improvements."
+        },
+        {
+          num: "3",
+          title: "Update",
+          desc: "We update content, pages, resources, emails, automations, or course structure based on the support plan."
+        },
+        {
+          num: "4",
+          title: "Test",
+          desc: "We check links, buttons, forms, emails, access paths, mobile layout, downloads, and student journey."
+        },
+        {
+          num: "5",
+          title: "Improve",
+          desc: "We recommend improvements for learner experience, launch readiness, and ongoing course performance."
+        },
+        {
+          num: "6",
+          title: "Report",
+          desc: "We summarize what changed, what was fixed, and what should be improved next."
+        }
+      ].map((step) => (
+        <div class="relative bg-white p-8 rounded-3xl border border-brand-border/50 shadow-sm">
+          <div class="absolute -top-5 -left-5 w-12 h-12 bg-brand-navy text-white flex items-center justify-center rounded-full font-bold text-xl shadow-md border-4 border-brand-softBg">
+            {step.num}
+          </div>
+          <h3 class="text-xl font-bold text-brand-navy mb-3 mt-2">{step.title}</h3>
+          <p class="text-brand-textMuted leading-relaxed">{step.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

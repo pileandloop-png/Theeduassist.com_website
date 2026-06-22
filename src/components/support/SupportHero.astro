@@ -1,0 +1,100 @@
+---
+// src/components/support/SupportHero.astro
+---
+
+<section class="relative bg-brand-softBg overflow-hidden py-20 lg:py-32">
+  <div class="absolute inset-0 bg-[url('/ui/grid-pattern.svg')] opacity-10 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <!-- H1 Heading -->
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy leading-tight mb-6">
+      Keep Your Online Course System <br class="hidden md:block"/>
+      Updated, Tested, and Easier to Improve
+    </h1>
+
+    <!-- Subheadline -->
+    <p class="mt-4 text-lg md:text-xl text-brand-textMuted max-w-3xl mx-auto mb-10">
+      TheEduAssist helps creators, coaches, educators, academies, training companies, and businesses maintain course pages, Kajabi systems, LMS content, funnels, automations, student onboarding, launch assets, and learner experience after the first build.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+      <a href="https://calendly.com/eduassist-talk/30min" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-white bg-brand-accent hover:bg-green-600 rounded-full shadow-md transition-all hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent">
+        Book Free Support Audit
+      </a>
+      <a href="#packages" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-brand-navy bg-white border border-brand-border hover:bg-gray-50 rounded-full shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-navy">
+        See Monthly Support Options
+      </a>
+    </div>
+
+    <!-- Trust Chips -->
+    <div class="flex flex-wrap items-center justify-center gap-3 mb-16">
+      {[
+        "Course Updates",
+        "Kajabi Maintenance",
+        "LMS Support",
+        "Automation Checks",
+        "Funnel Updates",
+        "Student Onboarding",
+        "QA Reviews",
+        "Launch Support"
+      ].map((chip) => (
+        <div class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-white border border-brand-border/50 text-sm font-medium text-brand-textMuted shadow-sm">
+          <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+          <span>{chip}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Hero Visual: Course Support Loop Infographic -->
+    <div class="relative max-w-4xl mx-auto mt-16">
+        <h2 class="sr-only">Course Support Loop</h2>
+
+        <div class="bg-white p-8 md:p-12 rounded-3xl border border-brand-border/50 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+            <!-- Connecting Soft Background -->
+            <div class="absolute inset-0 z-0 opacity-30">
+               <svg class="w-full h-full text-brand-navy/10" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="1">
+                 <circle cx="50" cy="50" r="40" class="animate-[dash_10s_linear_infinite]" stroke-dasharray="4 4" />
+               </svg>
+            </div>
+
+            <!-- Loop Items -->
+            <div class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-6 w-full text-center">
+                <div class="flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full bg-brand-softBg flex items-center justify-center border border-brand-border mb-3 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                    </div>
+                    <span class="text-sm font-semibold text-brand-navy">1. Review</span>
+                </div>
+
+                 <div class="flex flex-col items-center group mt-4 md:mt-0">
+                    <div class="w-16 h-16 rounded-full bg-brand-softBg flex items-center justify-center border border-brand-border mb-3 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    </div>
+                    <span class="text-sm font-semibold text-brand-navy">2. Fix & Update</span>
+                </div>
+
+                <div class="flex flex-col items-center group mt-4 md:mt-0">
+                    <div class="w-16 h-16 rounded-full bg-brand-softBg flex items-center justify-center border border-brand-border mb-3 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <span class="text-sm font-semibold text-brand-navy">3. Test & QA</span>
+                </div>
+
+                 <div class="flex flex-col items-center group">
+                    <div class="w-16 h-16 rounded-full bg-brand-softGreen/30 flex items-center justify-center border border-brand-accent/30 mb-3 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <span class="text-sm font-semibold text-brand-navy">4. Improve & Launch</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<style>
+    @keyframes dash {
+        to { stroke-dashoffset: -20; }
+    }
+</style>

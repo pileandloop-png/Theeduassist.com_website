@@ -1,0 +1,130 @@
+---
+// src/components/support/SupportPackages.astro
+---
+
+<section id="packages" class="py-20 lg:py-24 bg-brand-softBg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+        Ongoing Support & Maintenance Packages
+      </h2>
+      <p class="text-lg text-brand-textMuted">
+        We offer flexible options depending on your courses, platform complexity, update frequency, and support response needs.
+      </p>
+    </div>
+
+    <!-- Pricing Grid: Top 3 Packages -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      {/* Package 1 */}
+      <div class="bg-white rounded-3xl p-8 border border-brand-border/60 shadow-sm flex flex-col h-full hover:shadow-md transition-shadow">
+        <h3 class="text-2xl font-bold text-brand-navy mb-2">Course System Checkup</h3>
+        <p class="text-brand-textMuted text-sm mb-6 h-16">Best for: Course owners who need a one-time review of their course, pages, emails, automations, and student flow.</p>
+        <div class="mb-6 pb-6 border-b border-brand-border/50">
+           <span class="text-3xl font-bold text-brand-navy">Starting from $350</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          {["Course/page review", "Broken link check", "Student journey review", "Email/automation notes", "Priority fix list", "Improvement recommendations"].map((feature) => (
+             <li class="flex items-start">
+               <svg class="w-5 h-5 text-brand-accent mt-0.5 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+               <span class="text-sm text-brand-textMuted">{feature}</span>
+             </li>
+          ))}
+        </ul>
+        <a href="https://calendly.com/eduassist-talk/30min" target="_blank" rel="noopener noreferrer" class="block w-full py-3 px-4 bg-brand-softBg text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-navy hover:text-white transition-colors">
+          Book Free Support Audit
+        </a>
+      </div>
+
+      {/* Package 2 */}
+      <div class="bg-white rounded-3xl p-8 border-2 border-brand-navy shadow-lg flex flex-col h-full relative transform md:-translate-y-4">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-navy text-white px-4 py-1 rounded-full text-sm font-bold tracking-wide">MOST POPULAR</div>
+        <h3 class="text-2xl font-bold text-brand-navy mb-2">Monthly Course Maintenance</h3>
+        <p class="text-brand-textMuted text-sm mb-6 h-16">Best for: Creators, coaches, and educators who need regular updates to content, pages, resources, and student support materials.</p>
+        <div class="mb-6 pb-6 border-b border-brand-border/50">
+           <span class="text-3xl font-bold text-brand-navy">Starting from $600</span><span class="text-brand-textMuted">/month</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          {["Monthly content updates", "Page edits", "Resource updates", "Student FAQ updates", "Basic QA checks", "Monthly summary"].map((feature) => (
+             <li class="flex items-start">
+               <svg class="w-5 h-5 text-brand-accent mt-0.5 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+               <span class="text-sm text-brand-textMuted">{feature}</span>
+             </li>
+          ))}
+        </ul>
+        <a href="https://calendly.com/eduassist-talk/30min" target="_blank" rel="noopener noreferrer" class="block w-full py-3 px-4 bg-brand-accent text-white text-center font-semibold rounded-xl hover:bg-green-600 shadow-md transition-colors">
+          Book Free Support Audit
+        </a>
+      </div>
+
+       {/* Package 3 */}
+      <div class="bg-white rounded-3xl p-8 border border-brand-border/60 shadow-sm flex flex-col h-full hover:shadow-md transition-shadow">
+        <h3 class="text-2xl font-bold text-brand-navy mb-2">Kajabi/LMS Support Retainer</h3>
+        <p class="text-brand-textMuted text-sm mb-6 h-16">Best for: Course businesses, academies, and training teams that need ongoing support across Kajabi, LMS content, pages, funnels, and automations.</p>
+        <div class="mb-6 pb-6 border-b border-brand-border/50">
+           <span class="text-3xl font-bold text-brand-navy">Starting from $1,200</span><span class="text-brand-textMuted">/month</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          {["Course content updates", "Page and funnel edits", "Email updates", "Automation review", "Student onboarding improvements", "QA checks", "Monthly support summary"].map((feature) => (
+             <li class="flex items-start">
+               <svg class="w-5 h-5 text-brand-accent mt-0.5 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+               <span class="text-sm text-brand-textMuted">{feature}</span>
+             </li>
+          ))}
+        </ul>
+        <a href="https://calendly.com/eduassist-talk/30min" target="_blank" rel="noopener noreferrer" class="block w-full py-3 px-4 bg-brand-softBg text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-navy hover:text-white transition-colors">
+          Book Free Support Audit
+        </a>
+      </div>
+    </div>
+
+    <!-- Pricing Grid: Bottom 2 Packages -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Package 4 */}
+      <div class="bg-white rounded-3xl p-8 border border-brand-border/60 shadow-sm flex flex-col h-full hover:shadow-md transition-shadow">
+        <h3 class="text-2xl font-bold text-brand-navy mb-2">Launch Support Retainer</h3>
+        <p class="text-brand-textMuted text-sm mb-6 h-12 md:h-auto">Best for: Creators, academies, or training companies preparing for course launches, cohort openings, webinars, memberships, or program updates.</p>
+        <div class="mb-6 pb-6 border-b border-brand-border/50">
+           <span class="text-3xl font-bold text-brand-navy">Starting from $2,000</span><span class="text-brand-textMuted">/month</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          {["Launch page updates", "Email sequence updates", "Offer flow review", "Checkout/access checks", "Student onboarding refresh", "Launch QA checklist", "Post-launch cleanup"].map((feature) => (
+             <li class="flex items-start">
+               <svg class="w-5 h-5 text-brand-accent mt-0.5 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+               <span class="text-sm text-brand-textMuted">{feature}</span>
+             </li>
+          ))}
+        </ul>
+        <a href="https://calendly.com/eduassist-talk/30min" target="_blank" rel="noopener noreferrer" class="block w-full py-3 px-4 bg-brand-softBg text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-navy hover:text-white transition-colors">
+          Book Free Support Audit
+        </a>
+      </div>
+
+       {/* Package 5 */}
+      <div class="bg-white rounded-3xl p-8 border border-brand-border/60 shadow-sm flex flex-col h-full hover:shadow-md transition-shadow bg-gradient-to-br from-white to-brand-softBg">
+        <h3 class="text-2xl font-bold text-brand-navy mb-2">Custom Support Desk</h3>
+        <p class="text-brand-textMuted text-sm mb-6 h-12 md:h-auto">Best for: Organizations, academies, and training companies with multiple courses, platforms, teams, or recurring support needs.</p>
+        <div class="mb-6 pb-6 border-b border-brand-border/50">
+           <span class="text-3xl font-bold text-brand-navy">Custom quote</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-1">
+          {["Custom monthly support scope", "Multiple course support", "LMS/Kajabi maintenance", "Content updates", "QA and improvement cycles", "Launch support", "Priority support planning"].map((feature) => (
+             <li class="flex items-start">
+               <svg class="w-5 h-5 text-brand-accent mt-0.5 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+               <span class="text-sm text-brand-textMuted">{feature}</span>
+             </li>
+          ))}
+        </ul>
+        <a href="https://calendly.com/eduassist-talk/30min" target="_blank" rel="noopener noreferrer" class="block w-full py-3 px-4 bg-brand-navy text-white text-center font-semibold rounded-xl hover:bg-opacity-90 shadow-md transition-colors">
+          Book Free Support Audit
+        </a>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="mt-12 text-center max-w-4xl mx-auto p-6 bg-white rounded-2xl border border-brand-border/50">
+       <p class="text-sm text-brand-textMuted leading-relaxed">
+         Final quote depends on number of courses, platform complexity, update frequency, automations, funnels, review rounds, and support response needs. Every project starts with a free audit so we can recommend the right support plan before you pay.
+       </p>
+    </div>
+  </div>
+</section>

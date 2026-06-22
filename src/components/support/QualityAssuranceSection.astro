@@ -1,0 +1,42 @@
+---
+// src/components/support/QualityAssuranceSection.astro
+---
+
+<section class="py-20 lg:py-24 bg-brand-softBg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <!-- Content -->
+      <div class="lg:w-1/2">
+        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+          Quality Checks Before Students Find the Problems
+        </h2>
+        <p class="text-lg text-brand-textMuted mb-8">
+          Ongoing QA helps reduce issues that affect trust and learner experience. TheEduAssist checks the small details that can make a course feel broken or confusing.
+        </p>
+      </div>
+
+      <!-- Capabilities Grid -->
+      <div class="lg:w-1/2 w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          "Broken links",
+          "Missing downloads",
+          "Button issues",
+          "Mobile layout problems",
+          "Typos and formatting errors",
+          "Confusing lesson instructions",
+          "Email sequence gaps",
+          "Form and CTA issues",
+          "Access flow problems",
+          "Outdated dates or offer details",
+          "Course navigation issues",
+          "Student onboarding gaps"
+        ].map((item) => (
+          <div class="flex items-center p-4 bg-white rounded-xl border border-brand-border/60 shadow-sm">
+             <svg class="w-5 h-5 text-brand-accent mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+             <span class="text-sm font-medium text-brand-navy">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+---
+// src/components/support/LaunchSupportSection.astro
+---
+
+<section class="py-20 lg:py-24 bg-white border-y border-brand-border/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+        Support for New Launches, Cohorts, and Course Updates
+      </h2>
+      <p class="text-lg text-brand-textMuted">
+        If you launch courses more than once, each launch needs fresh pages, updated emails, offer checks, onboarding, and QA. TheEduAssist can support repeat launches so you are not rebuilding everything from scratch each time.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        "Launch checklist",
+        "Landing page updates",
+        "Offer page updates",
+        "Email sequence updates",
+        "Enrollment flow checks",
+        "Student onboarding refresh",
+        "Resource updates",
+        "QA before launch",
+        "Post-launch cleanup"
+      ].map((item) => (
+        <div class="flex items-center p-6 bg-brand-softBg rounded-2xl border border-brand-border/40 text-center justify-center">
+            <span class="text-base font-semibold text-brand-navy">{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

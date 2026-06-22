@@ -1,0 +1,47 @@
+---
+// src/components/support/SupportAudienceSection.astro
+---
+
+<section class="py-20 lg:py-24 bg-brand-softBg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+        Who Needs Ongoing Course Support?
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[
+        {
+          title: "1. Course Creators",
+          desc: "Need help updating lessons, resources, emails, and launch pages after the first course is live.",
+        },
+        {
+          title: "2. Coaches and Consultants",
+          desc: "Need regular updates for cohorts, programs, workshops, memberships, or digital offers.",
+        },
+        {
+          title: "3. Educators",
+          desc: "Need learning resources, quizzes, worksheets, and course pages updated over time.",
+        },
+        {
+          title: "4. Training Companies",
+          desc: "Need ongoing support for client programs, internal training, course libraries, and LMS updates.",
+        },
+        {
+          title: "5. Online Academies",
+          desc: "Need consistent support across multiple courses, student pathways, and course launches.",
+        },
+        {
+          title: "6. Businesses & Internal Teams",
+          desc: "Need training content, onboarding resources, SOPs, and employee learning systems maintained.",
+        }
+      ].map((card) => (
+        <div class="bg-white p-8 rounded-3xl border border-brand-border/60 shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="text-xl font-bold text-brand-navy mb-3">{card.title}</h3>
+          <p class="text-brand-textMuted leading-relaxed">{card.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

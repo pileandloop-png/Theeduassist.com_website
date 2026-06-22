@@ -1,0 +1,57 @@
+---
+// src/components/support/SupportComparison.astro
+---
+
+<section class="py-20 lg:py-24 bg-white border-b border-brand-border/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+        Why Work With TheEduAssist for Ongoing Support?
+      </h2>
+      <p class="text-lg text-brand-textMuted">
+         We combine course design, platform knowledge, funnel support, QA, and learner-experience improvement.
+      </p>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse min-w-[800px]">
+        <thead>
+          <tr>
+            <th class="p-4 border-b-2 border-brand-border/60 text-brand-navy font-semibold bg-brand-softBg w-1/4 rounded-tl-xl">Feature / Focus</th>
+            <th class="p-4 border-b-2 border-brand-border/60 text-brand-textMuted font-medium w-1/4 bg-gray-50 text-center">No Maintenance</th>
+            <th class="p-4 border-b-2 border-brand-border/60 text-brand-textMuted font-medium w-1/4 bg-gray-50 text-center">Basic Virtual Assistant</th>
+            <th class="p-4 border-b-2 border-brand-navy text-white font-bold w-1/4 bg-brand-navy text-center rounded-tr-xl">TheEduAssist Support</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm">
+          {[
+            { label: "Course content updates", no: "Stays outdated", va: "Basic uploads", edu: "Strategic updates & formatting" },
+            { label: "Learning design review", no: "None", va: "None", edu: "Yes, focused on learner experience" },
+            { label: "Kajabi/LMS understanding", no: "N/A", va: "Varies, often generic", edu: "Deep platform expertise" },
+            { label: "Funnel and email updates", no: "Becomes misaligned", va: "Copy-paste edits", edu: "Aligned with offer changes" },
+            { label: "Automation checks", no: "Breaks silently", va: "Basic triggers", edu: "Tested and verified" },
+            { label: "Student onboarding", no: "Stale experience", va: "Standard replies", edu: "Continuously improved" },
+            { label: "QA testing", no: "None", va: "Light checking", edu: "Thorough multi-point checks" },
+            { label: "Launch readiness", no: "Start from scratch", va: "Task-based help", edu: "Proactive launch prep" },
+            { label: "Improvement recommendations", no: "None", va: "Rare", edu: "Monthly strategic insights" },
+            { label: "Monthly support rhythm", no: "Chaotic", va: "Reactive tasks", edu: "Structured & predictable" }
+          ].map((row, index) => (
+            <tr class={index % 2 === 0 ? "bg-white" : "bg-brand-softBg/50"}>
+              <td class="p-4 border-b border-brand-border/40 font-medium text-brand-navy">{row.label}</td>
+              <td class="p-4 border-b border-brand-border/40 text-brand-textMuted text-center">{row.no}</td>
+              <td class="p-4 border-b border-brand-border/40 text-brand-textMuted text-center">{row.va}</td>
+              <td class="p-4 border-b border-brand-border/40 text-brand-navy font-semibold text-center bg-brand-softGreen/10">
+                <div class="flex items-center justify-center space-x-2">
+                    {row.edu.startsWith("Yes") || row.edu.includes("Deep") || row.edu.includes("Aligned") || row.edu.includes("Thorough") || row.edu.includes("Proactive") || row.edu.includes("Structured") || row.edu.includes("Strategic") || row.edu.includes("Tested") || row.edu.includes("Continuously") ? (
+                        <svg class="w-4 h-4 text-brand-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
+                    ) : null}
+                    <span>{row.edu}</span>
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
