@@ -1,6 +1,6 @@
 ---
-import { getSiteSettings } from '../sanity/queries';
-import MobileMenu from './layout/MobileMenu.astro';
+import { getSiteSettings } from '../../sanity/queries';
+import MobileMenu from './MobileMenu.astro';
 
 const siteSettings = await getSiteSettings();
 const site = siteSettings || { name: 'TheEduAssist', email: 'Info@theeduassist.com', social: {} };

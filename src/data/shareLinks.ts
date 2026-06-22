@@ -19,10 +19,5 @@ export const shareLinks: ShareLink[] = [
         id: "x",
         name: "X (Twitter)",
         getShareUrl: (url, title) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title || '')}`
-    },
-    {
-        id: "whatsapp",
-        name: "WhatsApp",
-        getShareUrl: (url) => `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`
     }
 ];

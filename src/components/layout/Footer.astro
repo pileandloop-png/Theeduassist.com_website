@@ -1,7 +1,7 @@
 ---
-import { getSiteSettings } from '../sanity/queries';
-import { aiAssistants } from '../data/aiAssistants';
-import { shareLinks } from '../data/shareLinks';
+import { getSiteSettings } from '../../sanity/queries';
+import { aiAssistants } from '../../data/aiAssistants';
+import { shareLinks } from '../../data/shareLinks';
 
 const siteSettings = await getSiteSettings();
 const site = siteSettings || { name: 'TheEduAssist', email: 'Info@theeduassist.com', social: {} };
@@ -135,12 +135,17 @@ const navigation = {
 
         <!-- Bottom Copyright and Social Links -->
         <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-            <div class="flex items-center space-x-3">
-                <img src="/brand/theeduassist-logo-mark.svg" alt="TheEduAssist Logo Mark" class="w-6 h-6 brightness-0 invert opacity-50" />
-                <span>&copy; 2026, TheEduAssist. All rights reserved.</span>
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+                <div class="flex items-center space-x-3">
+                    <img src="/brand/theeduassist-logo-mark.svg" alt="TheEduAssist Logo Mark" class="w-6 h-6 brightness-0 invert opacity-50" />
+                    <span>&copy; 2026, TheEduAssist. All rights reserved.</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <a href="mailto:Info@theeduassist.com" class="hover:text-brand-accent transition-colors focus-ring inline-block">Info@theeduassist.com</a>
+                </div>
             </div>
 
-            <div class="flex space-x-6">
+            <div class="flex space-x-6 mt-4 md:mt-0">
                 <a href="https://www.linkedin.com/company/theeduassist" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors focus-ring rounded-sm" aria-label="LinkedIn">
                     LinkedIn
                 </a>
@@ -158,8 +163,8 @@ const navigation = {
 <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"></div>
 
 <script>
-    import { generatePrompt } from './ai/AIAssistClient';
-    import { shareLinks } from '../data/shareLinks';
+    import { generatePrompt } from '../ai/AIAssistClient';
+    import { shareLinks } from '../../data/shareLinks';
 
     function showToast(message: string) {
         const container = document.getElementById('toast-container');
