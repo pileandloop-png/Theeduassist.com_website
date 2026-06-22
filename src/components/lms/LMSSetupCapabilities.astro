@@ -1,0 +1,43 @@
+---
+// src/components/lms/LMSSetupCapabilities.astro
+import Card from "../ui/Card.astro";
+
+const capabilities = [
+  "Course categories",
+  "Modules and lessons",
+  "Resource libraries",
+  "Video lessons",
+  "Downloadable materials",
+  "Quizzes and assessments",
+  "Certificates if platform supports them",
+  "Student onboarding",
+  "User roles and access paths",
+  "Progress tracking structure",
+  "Internal training pathways",
+  "Content update workflow",
+  "Email or notification flow where supported",
+  "Reporting-ready course structure"
+];
+---
+
+<section class="py-24 bg-[#F8FAFC]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4 text-[#27496D]">What We Can Help Set Up Inside Your LMS</h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">We configure the technical elements so you can focus on teaching.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {capabilities.map((cap) => (
+        <Card class="flex items-start p-5 hover:border-[#77BA55]/50 transition-colors bg-white">
+           <div class="flex-shrink-0 mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#77BA55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+           </div>
+           <p class="ml-3 text-slate-700 font-medium text-sm leading-snug">{cap}</p>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

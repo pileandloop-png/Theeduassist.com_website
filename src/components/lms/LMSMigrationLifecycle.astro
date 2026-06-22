@@ -1,0 +1,64 @@
+---
+// src/components/lms/LMSMigrationLifecycle.astro
+
+const steps = [
+  {
+    title: "Audit",
+    description: "We review your current platform, content, files, course structure, learner journey, and migration goals."
+  },
+  {
+    title: "Map",
+    description: "We map old content into a cleaner structure with modules, lessons, resources, assessments, and access paths."
+  },
+  {
+    title: "Clean",
+    description: "We remove duplication, rename files, organize assets, improve lesson flow, and prepare content for upload or rebuild."
+  },
+  {
+    title: "Rebuild",
+    description: "We recreate or set up the course structure inside the new LMS or learning platform."
+  },
+  {
+    title: "Configure",
+    description: "We support settings for access, users, categories, lessons, resources, quizzes, certificates, emails, and onboarding where available."
+  },
+  {
+    title: "Test",
+    description: "We check links, videos, downloads, access paths, mobile experience, student flow, and completion logic."
+  },
+  {
+    title: "Launch",
+    description: "We prepare the system for students, employees, clients, or academy users."
+  },
+  {
+    title: "Improve",
+    description: "We refine structure, reporting, student experience, and support workflows after launch."
+  }
+];
+---
+
+<section class="py-24 bg-[#27496D] text-white" id="migration-process">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4">From Content Audit to Launch-Ready LMS</h2>
+      <p class="text-lg text-blue-100 max-w-2xl mx-auto">Our structured process ensures nothing gets lost and the final learning experience is improved.</p>
+    </div>
+
+    <div class="relative">
+      {/* Connecting Line */}
+      <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-blue-800 -translate-y-1/2"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {steps.map((step, index) => (
+          <div class="relative z-10 bg-[#1e3a5f] p-6 rounded-xl border border-blue-800 hover:border-[#77BA55] transition-colors group">
+            <div class="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-[#77BA55] text-white font-bold flex items-center justify-center text-sm shadow-lg border-2 border-[#27496D]">
+              {index + 1}
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 mt-2">{step.title}</h3>
+            <p class="text-sm text-blue-100 leading-relaxed group-hover:text-white transition-colors">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

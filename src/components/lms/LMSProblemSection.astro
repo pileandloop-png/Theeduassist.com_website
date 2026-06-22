@@ -1,0 +1,49 @@
+---
+// src/components/lms/LMSProblemSection.astro
+import Card from "../ui/Card.astro";
+
+const problems = [
+  "Content is scattered across folders and platforms",
+  "Course structure is unclear or outdated",
+  "Learners do not know where to start",
+  "Old LMS content does not match the new platform",
+  "Downloads, videos, and assessments are disorganized",
+  "Automations, access, and onboarding are missing",
+];
+---
+
+<section class="py-24 bg-white" id="problem">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-6 text-[#27496D]">Migration Is Not Just Uploading Files</h2>
+      <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+        Many course owners and training teams think LMS migration is only about moving videos, PDFs, and documents. In reality, a good migration also needs content cleanup, course structure, learner flow, access settings, page setup, testing, and launch readiness.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {problems.map((problem) => (
+        <Card class="bg-slate-50 hover:bg-white border-slate-200 transition-colors">
+          <div class="flex items-start">
+            <div class="flex-shrink-0 mt-1">
+              <div class="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center border border-red-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+            </div>
+            <div class="ml-4">
+              <p class="text-slate-700 font-medium leading-snug">{problem}</p>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
+
+    <div class="bg-[#EFF6FF] border border-blue-100 rounded-2xl p-8 sm:p-10 text-center max-w-4xl mx-auto shadow-sm">
+      <p class="text-xl sm:text-2xl font-semibold text-[#27496D] leading-tight">
+        TheEduAssist helps turn migration into a structured learning-system rebuild, so your content is easier to teach, deliver, manage, and improve.
+      </p>
+    </div>
+  </div>
+</section>

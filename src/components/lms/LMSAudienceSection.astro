@@ -1,0 +1,83 @@
+---
+// src/components/lms/LMSAudienceSection.astro
+import Card from "../ui/Card.astro";
+
+const audiences = [
+  {
+    title: "Training Companies",
+    situation: "Scattered programs and materials",
+    need: "Move files into a delivery system",
+    outcome: "Cleaner online delivery system",
+    description: "Need to move programs, files, and learning materials into a cleaner online delivery system."
+  },
+  {
+    title: "Online Academies",
+    situation: "Disjointed student experience",
+    need: "Structured modules and lessons",
+    outcome: "Better learner experience",
+    description: "Need structured modules, lessons, student access, and a better learner experience."
+  },
+  {
+    title: "Businesses & Internal Teams",
+    situation: "Unorganized SOPs and training",
+    need: "Organize employee resources",
+    outcome: "Accessible internal training",
+    description: "Need to organize onboarding, employee training, compliance content, or department learning resources."
+  },
+  {
+    title: "Coaches & Consultants",
+    situation: "Content in documents and videos",
+    need: "Move into a professional platform",
+    outcome: "Professional learning platform",
+    description: "Need to move from documents, videos, or old course pages into a professional learning platform."
+  },
+  {
+    title: "Educators",
+    situation: "Raw teaching material",
+    need: "Convert material into structured online modules",
+    outcome: "Structured resources and assessments",
+    description: "Need to convert teaching material into structured online modules, resources, and assessments."
+  },
+  {
+    title: "Course Creators",
+    situation: "Scattered files and messy systems",
+    need: "Clean up files and rebuild",
+    outcome: "Student-friendly course experience",
+    description: "Need to clean up scattered files and rebuild them into a student-friendly course experience."
+  }
+];
+---
+
+<section class="py-24 bg-[#F8FAFC]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4 text-[#27496D]">Who Needs LMS Implementation or Migration?</h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">We help a variety of teams structure their content for better learning outcomes.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {audiences.map((audience) => (
+        <Card class="h-full flex flex-col hover:shadow-md transition-shadow bg-white">
+          <h3 class="text-xl font-bold text-[#27496D] mb-4 pb-4 border-b border-slate-100">{audience.title}</h3>
+
+          <p class="text-slate-600 mb-6 flex-grow">{audience.description}</p>
+
+          <div class="space-y-3 mt-auto bg-slate-50 p-4 rounded-lg border border-slate-100 text-sm">
+            <div>
+              <span class="block text-xs font-semibold text-slate-400 uppercase mb-1">Current Situation</span>
+              <span class="text-slate-700">{audience.situation}</span>
+            </div>
+            <div>
+              <span class="block text-xs font-semibold text-slate-400 uppercase mb-1">LMS Need</span>
+              <span class="text-slate-700">{audience.need}</span>
+            </div>
+            <div>
+              <span class="block text-xs font-semibold text-[#77BA55] uppercase mb-1">Desired Outcome</span>
+              <span class="font-medium text-[#27496D]">{audience.outcome}</span>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

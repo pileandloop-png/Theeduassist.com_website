@@ -1,0 +1,40 @@
+---
+// src/components/lms/LMSLearnerExperience.astro
+import Card from "../ui/Card.astro";
+
+const experiences = [
+  "Clear starting point",
+  "Logical module order",
+  "Easy lesson navigation",
+  "Organized downloads",
+  "Progress clarity",
+  "Simple assessment flow",
+  "Mobile-friendly experience",
+  "Completion guidance",
+  "Support and FAQ areas"
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4 text-[#27496D]">A Better LMS Should Be Easier for Learners to Follow</h2>
+      <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+        A successful migration should improve the learner experience. Students or employees should know where to start, what to complete, where to find resources, how to track progress, and what to do next.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6">
+      {experiences.map((exp) => (
+        <Card class="text-center p-6 bg-slate-50 hover:bg-white hover:shadow-md transition-all border-slate-200">
+           <div class="mx-auto w-12 h-12 bg-[#F3FAF0] text-[#77BA55] rounded-full flex items-center justify-center mb-4 border border-[#77BA55]/20">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+             </svg>
+           </div>
+           <p class="text-slate-800 font-semibold">{exp}</p>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
