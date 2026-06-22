@@ -1,0 +1,71 @@
+---
+
+
+
+const anatomySteps = [
+  {
+    number: '01',
+    title: 'Client Context',
+    description: 'Who the client is and what they needed.'
+  },
+  {
+    number: '02',
+    title: 'Starting Problem',
+    description: 'What was messy, missing, unclear, or not working.'
+  },
+  {
+    number: '03',
+    title: 'TheEduAssist Strategy',
+    description: 'How we planned the course, content, platform, funnel, or support system.'
+  },
+  {
+    number: '04',
+    title: 'Build Work',
+    description: 'What was created, migrated, designed, converted, or improved.'
+  },
+  {
+    number: '05',
+    title: 'Deliverables',
+    description: 'What the client received.'
+  },
+  {
+    number: '06',
+    title: 'Outcome',
+    description: 'What became clearer, more structured, launch-ready, easier to follow, or easier to maintain.'
+  },
+  {
+    number: '07',
+    title: 'Next Step',
+    description: 'What support, launch, or improvement came next.'
+  }
+];
+---
+
+<!-- <SectionWrapper --> <section className="bg-white py-24">
+  <!-- <ContentContainer> --> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-slate-900 mb-4">How We Document Every Project</h2>
+      <p class="text-lg text-slate-600">
+        When we create custom learning solutions, we document the process to ensure clarity, predictability, and repeatable success.
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="space-y-6">
+        {anatomySteps.map((step) => (
+          <div class="flex bg-slate-50 rounded-xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex-shrink-0 mr-6">
+              <span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#EFF6FF] text-[#27496D] font-bold text-lg border border-blue-100">
+                {step.number}
+              </span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
+              <p class="text-slate-600">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div> <!-- </ContentContainer> -->
+</section> <!-- </SectionWrapper> -->

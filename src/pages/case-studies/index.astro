@@ -1,36 +1,40 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import HomeHero from "../../components/sections/HomeHero.astro";
-import CaseStudyPreviewGrid from "../../components/sections/CaseStudyPreviewGrid.astro";
-import FinalCTA from "../../components/sections/FinalCTA.astro";
+import CaseStudiesHero from "../../components/case-studies/CaseStudiesHero.astro";
+import TrustPositioningSection from "../../components/case-studies/TrustPositioningSection.astro";
+import CaseStudyCategories from "../../components/case-studies/CaseStudyCategories.astro";
+import FeaturedCaseStudy from "../../components/case-studies/FeaturedCaseStudy.astro";
+import PortfolioGrid from "../../components/case-studies/PortfolioGrid.astro";
+import CaseStudyAnatomy from "../../components/case-studies/CaseStudyAnatomy.astro";
+import BeforeAfterFramework from "../../components/case-studies/BeforeAfterFramework.astro";
+import ServicesBehindWork from "../../components/case-studies/ServicesBehindWork.astro";
+import CaseStudiesFAQ from "../../components/case-studies/CaseStudiesFAQ.astro";
+import RealCaseStudyReadiness from "../../components/case-studies/RealCaseStudyReadiness.astro";
+import CaseStudiesFinalCTA from "../../components/case-studies/CaseStudiesFinalCTA.astro";
 ---
-<Layout title="Case Studies" description="Explore how TheEduAssist has helped clients structure, migrate, and build professional learning solutions.">
+<Layout
+  title="Case Studies & Portfolio | TheEduAssist E-Learning Design Agency"
+  description="Explore TheEduAssist case studies, sample builds, and portfolio concepts for online courses, Kajabi websites, LMS migrations, content conversion, AI-powered e-learning support, funnels, automation, and launch-ready learning systems."
+>
+  <CaseStudiesHero />
+  <TrustPositioningSection />
+  <CaseStudyCategories />
 
-  <HomeHero
-    title="Client Case Studies"
-    subtitle="Real projects. Real outcomes. We focus on practical delivery and clear results without relying on fake metrics or exaggerated claims."
-    primaryCtaLabel="Book Free Audit"
-    primaryCtaLink="/book-free-audit/"
-  />
+  <div id="course-creation"></div>
+  <div id="kajabi-builds"></div>
+  <div id="lms-migration"></div>
+  <div id="content-conversion"></div>
+  <div id="ai-elearning"></div>
+  <div id="funnels"></div>
+  <div id="support"></div>
+  <div id="all"></div>
 
-  <section class="py-12 bg-amber-50 border-y border-amber-200">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <p class="text-amber-800 font-medium flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-        </svg>
-        Detailed case study content, including specific implementations and methodologies, will be refined during our upcoming platform migration.
-      </p>
-    </div>
-  </section>
-
-  <div class="pt-12">
-    <CaseStudyPreviewGrid />
-  </div>
-
-  <FinalCTA
-    title="Want to discuss a similar project?"
-    subtitle="Let's look at your requirements and see how we can help."
-  />
-
+  <FeaturedCaseStudy />
+  <PortfolioGrid />
+  <CaseStudyAnatomy />
+  <BeforeAfterFramework />
+  <ServicesBehindWork />
+  <RealCaseStudyReadiness />
+  <CaseStudiesFAQ />
+  <CaseStudiesFinalCTA />
 </Layout>

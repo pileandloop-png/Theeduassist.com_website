@@ -1,0 +1,82 @@
+---
+
+
+---
+
+<!-- <SectionWrapper --> <section className="bg-slate-50 pt-24 pb-16 overflow-hidden">
+  <!-- <ContentContainer> --> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
+          E-Learning Case Studies, Sample Builds, and Portfolio Concepts
+        </h1>
+        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+          See how TheEduAssist structures online course systems, Kajabi builds, LMS migrations, content conversion workflows, AI-assisted learning assets, funnels, automation, and student experiences for creators, educators, academies, training companies, and businesses.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-8">
+          <a href="/book-free-audit/" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#77BA55] hover:bg-[#65A344] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#77BA55] shadow-sm transition-colors duration-200">
+            Book Free Audit
+          </a>
+          <a href="/services/" class="inline-flex items-center justify-center px-6 py-3 border border-slate-300 text-base font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 shadow-sm transition-colors duration-200">
+            Explore Services
+          </a>
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+          {['Course Systems', 'Kajabi Builds', 'LMS Migration', 'Content Conversion', 'AI E-Learning Support', 'Funnels & Automation', 'Ongoing Support'].map(chip => (
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#EFF6FF] text-[#27496D] border border-blue-100">
+              {chip}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div class="relative lg:h-[600px] flex items-center justify-center">
+        <!-- Proof Map Infographic -->
+        <div class="relative w-full max-w-lg aspect-square bg-white rounded-2xl shadow-xl border border-slate-100 p-8 flex items-center justify-center">
+
+          <!-- Central Node -->
+          <div class="relative z-10 bg-[#27496D] text-white rounded-xl p-4 shadow-lg text-center w-32 h-32 flex items-center justify-center border-4 border-white flex-col gap-1">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-[#77BA55]">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+             </svg>
+            <span class="text-xs font-bold leading-tight">TheEduAssist Project System</span>
+          </div>
+
+          <!-- Connecting Lines & Nodes -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 0;">
+            <!-- Soft connector lines -->
+            <g stroke="#E5E7EB" stroke-width="2" fill="none" stroke-dasharray="4 4" class="opacity-70">
+              <path d="M 50% 50% L 50% 15%" /> <!-- Top -->
+              <path d="M 50% 50% L 85% 30%" /> <!-- Top Right -->
+              <path d="M 50% 50% L 85% 70%" /> <!-- Bottom Right -->
+              <path d="M 50% 50% L 50% 85%" /> <!-- Bottom -->
+              <path d="M 50% 50% L 15% 70%" /> <!-- Bottom Left -->
+              <path d="M 50% 50% L 15% 30%" /> <!-- Top Left -->
+            </g>
+          </svg>
+
+          <!-- Floating Nodes -->
+          {[
+            { label: 'Challenge', pos: 'top-[8%] left-[40%]', icon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' },
+            { label: 'Strategy', pos: 'top-[20%] right-[10%]', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+            { label: 'Structure', pos: 'top-[60%] right-[5%]', icon: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z' },
+            { label: 'Build', pos: 'bottom-[8%] right-[40%]', icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4' },
+            { label: 'Launch', pos: 'bottom-[20%] left-[10%]', icon: 'M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.45m.002 2.45a15.087 15.087 0 012.448-2.45' },
+            { label: 'Support', pos: 'top-[60%] left-[5%]', icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z' },
+            { label: 'Outcome', pos: 'top-[35%] left-[50%] -translate-x-1/2 -translate-y-[150px]', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', extraClass: 'bg-[#F3FAF0] border-[#77BA55]' }, // Place directly above center slightly higher
+          ].map((node) => (
+            <div class={`absolute ${node.pos} bg-white rounded-lg shadow-sm border border-slate-200 px-3 py-2 flex items-center gap-2 text-sm font-medium text-[#27496D] z-20 ${node.extraClass || ''}`}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={`w-4 h-4 ${node.extraClass ? 'text-[#77BA55]' : 'text-slate-400'}`}>
+                <path stroke-linecap="round" stroke-linejoin="round" d={node.icon} />
+              </svg>
+              {node.label}
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </div>
+  </div> <!-- </ContentContainer> -->
+</section> <!-- </SectionWrapper> -->

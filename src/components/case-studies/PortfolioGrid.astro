@@ -1,0 +1,173 @@
+---
+
+
+import Card from '../ui/Card.astro';
+
+const portfolioItems = [
+  {
+    label: 'Service Scenario',
+    title: 'Kajabi Course Launch System',
+    clientType: 'Coach / Creator',
+    challenge: 'Needs Kajabi website, course product, offer, checkout, email sequence, and onboarding.',
+    deliverables: [
+      'Kajabi website structure',
+      'Course product setup',
+      'Landing page',
+      'Offer and checkout flow',
+      'Email sequence',
+      'Automations',
+      'Student onboarding'
+    ],
+    relatedServices: 'Kajabi Services, Funnels & Automation, Course Creation',
+    ctaText: 'View Kajabi Services',
+    ctaLink: '/kajabi-services/'
+  },
+  {
+    label: 'Sample Project',
+    title: 'LMS Migration Cleanup',
+    clientType: 'Training company / online academy',
+    challenge: 'Learning content is scattered across old LMS, Drive folders, PDFs, videos, and documents.',
+    deliverables: [
+      'Content audit',
+      'Migration map',
+      'Module and lesson structure',
+      'Resource library',
+      'LMS-ready content organization',
+      'QA checklist'
+    ],
+    relatedServices: 'LMS Migration, Content Conversion, Ongoing Support',
+    ctaText: 'View LMS Migration',
+    ctaLink: '/services/lms-implementation-migration/'
+  },
+  {
+    label: 'Example Build',
+    title: 'AI Content Conversion Sprint',
+    clientType: 'Educator / consultant',
+    challenge: 'Has PDFs, slide decks, webinars, and notes but needs them turned into online learning assets.',
+    deliverables: [
+      'AI-assisted topic extraction',
+      'Human-reviewed lesson structure',
+      'Summaries',
+      'Scripts',
+      'Worksheets',
+      'Quizzes',
+      'Platform-ready content structure'
+    ],
+    relatedServices: 'AI-Powered E-Learning, Content Conversion, Course Creation',
+    ctaText: 'View AI E-Learning Support',
+    ctaLink: '/services/ai-powered-elearning/'
+  },
+  {
+    label: 'Service Scenario',
+    title: 'Course Funnel and Student Onboarding',
+    clientType: 'Course creator / academy',
+    challenge: 'Course exists but sales page, checkout, email follow-up, and student onboarding are disconnected.',
+    deliverables: [
+      'Funnel map',
+      'Landing page structure',
+      'Email sequence',
+      'Checkout/access flow',
+      'Student onboarding emails',
+      'Automation map',
+      'Launch QA checklist'
+    ],
+    relatedServices: 'Funnels & Automation, Kajabi Services, Ongoing Support',
+    ctaText: 'View Funnels & Automation',
+    ctaLink: '/services/funnels-automation/'
+  },
+  {
+    label: 'Sample Project',
+    title: 'Internal Training Portal Structure',
+    clientType: 'Business / internal training team',
+    challenge: 'SOPs, onboarding documents, and training videos are scattered and not learner-friendly.',
+    deliverables: [
+      'Training pathway map',
+      'Course categories',
+      'Modules and lessons',
+      'SOP-to-learning conversion',
+      'Quizzes/checklists',
+      'Learner support content',
+      'LMS-ready structure'
+    ],
+    relatedServices: 'LMS Migration, Content Conversion, Course Creation',
+    ctaText: 'Book Free Audit',
+    ctaLink: '/book-free-audit/'
+  },
+  {
+    label: 'Example Build',
+    title: 'Course Maintenance and Launch Support',
+    clientType: 'Existing course business',
+    challenge: 'Existing course pages, emails, automations, and resources need ongoing updates before the next launch.',
+    deliverables: [
+      'Course system checkup',
+      'Broken link review',
+      'Page updates',
+      'Email updates',
+      'Automation review',
+      'Launch checklist',
+      'Student onboarding improvements'
+    ],
+    relatedServices: 'Ongoing Support, Funnels & Automation, Kajabi Services',
+    ctaText: 'View Ongoing Support',
+    ctaLink: '/services/ongoing-support-maintenance/'
+  }
+];
+---
+
+<!-- <SectionWrapper --> <section className="bg-slate-50 py-24 border-b border-slate-200">
+  <!-- <ContentContainer> --> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-slate-900">Portfolio Concepts and Service Scenarios</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {portfolioItems.map(item => (
+        <Card className="flex flex-col h-full bg-white border-slate-200 hover:shadow-md transition-shadow">
+          <div class="mb-4">
+            <span class="inline-block px-2 py-1 rounded text-xs font-bold tracking-wide bg-[#F3FAF0] text-[#77BA55] border border-[#77BA55]/20 uppercase">
+              {item.label}
+            </span>
+          </div>
+
+          <h3 class="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+
+          <div class="mb-4">
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Client Type</p>
+            <p class="text-sm text-slate-700 font-medium">{item.clientType}</p>
+          </div>
+
+          <div class="mb-4">
+            <h4 class="text-sm font-semibold text-slate-900 mb-1">The Challenge</h4>
+            <p class="text-sm text-slate-600">{item.challenge}</p>
+          </div>
+
+          <div class="mb-6 flex-grow">
+            <h4 class="text-sm font-semibold text-slate-900 mb-2">Deliverables</h4>
+            <ul class="space-y-1">
+              {item.deliverables.map(deliverable => (
+                <li class="flex items-start">
+                  <svg class="w-4 h-4 text-[#27496D] mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-sm text-slate-600">{deliverable}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 mt-auto">
+            <div class="mb-4">
+              <p class="text-xs text-slate-500"><span class="font-semibold text-slate-700">Related:</span> {item.relatedServices}</p>
+            </div>
+            <a href={item.ctaLink} class="text-sm font-medium text-[#27496D] hover:text-[#1A334D] flex items-center transition-colors">
+              {item.ctaText}
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </div> <!-- </ContentContainer> -->
+</section> <!-- </SectionWrapper> -->
