@@ -1,0 +1,46 @@
+---
+// src/components/ai-elearning/AIAudienceSection.astro
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const audiences = [
+  {
+    title: "Creators and Coaches",
+    description: "Need to turn expertise into a structured course faster."
+  },
+  {
+    title: "Consultants",
+    description: "Need to convert frameworks, workshops, and client knowledge into learning assets."
+  },
+  {
+    title: "Educators",
+    description: "Need help organizing teaching material into online lessons, resources, and assessments."
+  },
+  {
+    title: "Training Companies",
+    description: "Need to modernize manuals, videos, and decks into scalable digital training."
+  },
+  {
+    title: "Online Academies",
+    description: "Need ongoing course planning, content updates, and learner support content."
+  },
+  {
+    title: "Businesses & Internal Teams",
+    description: "Need SOPs, onboarding materials, and internal training documents converted into LMS-ready content."
+  }
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader title="Who Buys AI-Powered E-Learning Support?" />
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      {audiences.map((item) => (
+        <div class="bg-brand-softBg p-8 rounded-xl border border-brand-border/40 hover:border-brand-accent/50 hover:shadow-md transition-all group">
+            <h3 class="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-accent transition-colors">{item.title}</h3>
+            <p class="text-brand-textMuted">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

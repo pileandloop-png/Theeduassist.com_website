@@ -1,0 +1,43 @@
+---
+// src/components/ai-elearning/ResponsibleAISection.astro
+import SectionHeader from '../ui/SectionHeader.astro';
+---
+
+<section class="py-20 bg-brand-navy text-white relative overflow-hidden">
+  <div class="absolute inset-0 z-0 opacity-10">
+    <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,100 C30,50 70,50 100,0 L100,100 Z" fill="currentColor"></path>
+    </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <div>
+            <h2 class="text-3xl font-bold mb-6 text-white leading-tight">
+                AI Helps Speed Up Production, But Humans Keep the Learning Clear
+            </h2>
+            <p class="text-lg text-slate-300 leading-relaxed mb-8">
+                TheEduAssist uses AI to support planning, drafting, summarizing, and repurposing content. Human review remains central because learning content must be accurate, clear, practical, aligned with learner outcomes, and suitable for the platform.
+            </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+            {[
+                "Human-reviewed outputs",
+                "No blind copy-paste",
+                "Learner-first structure",
+                "Privacy-conscious workflow",
+                "Platform-ready formatting",
+                "Quality-control checklist"
+            ].map(item => (
+                <div class="bg-white/10 border border-white/20 p-4 rounded-xl flex items-start backdrop-blur-sm">
+                    <svg class="w-6 h-6 text-brand-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span class="text-white font-medium">{item}</span>
+                </div>
+            ))}
+        </div>
+
+    </div>
+  </div>
+</section>

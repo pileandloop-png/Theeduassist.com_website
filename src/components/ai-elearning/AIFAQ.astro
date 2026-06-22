@@ -1,0 +1,54 @@
+---
+// src/components/ai-elearning/AIFAQ.astro
+import SectionHeader from '../ui/SectionHeader.astro';
+import FAQAccordion from '../ui/FAQAccordion.astro';
+
+const faqs = [
+  {
+    question: "Can I just use ChatGPT myself?",
+    answer: "Yes, and many clients do. But AI tools usually produce drafts and ideas. TheEduAssist helps turn those ideas into structured, reviewed, platform-ready learning assets and course systems."
+  },
+  {
+    question: "Does AI build the full course automatically?",
+    answer: "No. We use AI-assisted workflows to speed up planning, drafting, summarizing, and content conversion, but the final course structure and learning experience are human-reviewed."
+  },
+  {
+    question: "What kind of content can I bring?",
+    answer: "You can bring PDFs, slides, videos, notes, scripts, manuals, SOPs, outlines, Google Drive folders, old course content, webinar recordings, and rough course ideas."
+  },
+  {
+    question: "What do I get from the AI Course Clarity Sprint?",
+    answer: "You get course direction, target learner profile, course promise, module map, lesson outline, learner journey, and launch checklist."
+  },
+  {
+    question: "What do I get from the AI Content Conversion Kit?",
+    answer: "You get content audit, lesson mapping, summaries, script/talking-point drafts, worksheet ideas, quiz/check-in questions, resource list, and platform-ready structure."
+  },
+  {
+    question: "Can you prepare content for Kajabi or an LMS?",
+    answer: "Yes. We can prepare content structure, lesson assets, resource lists, and launch materials for Kajabi, LMS platforms, or other course systems."
+  },
+  {
+    question: "Is the pricing fixed?",
+    answer: "The prices shown are starting prices. Final pricing depends on content volume, format, course length, review rounds, platform needs, assets, and launch requirements."
+  },
+  {
+    question: "Do you store or train AI on my content?",
+    answer: "We do not use client content to train our own AI models. We can discuss privacy needs during the audit and choose a workflow that fits your content sensitivity."
+  },
+  {
+    question: "What is the best first step?",
+    answer: "Book a free AI course audit so we can review your content, goals, platform, and recommend the right package."
+  }
+];
+---
+
+<section class="py-24 bg-brand-softBg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader title="AI-Powered E-Learning FAQ" />
+
+    <div class="mt-12">
+        <FAQAccordion items={faqs} />
+    </div>
+  </div>
+</section>
