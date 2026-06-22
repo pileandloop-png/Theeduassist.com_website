@@ -1,0 +1,41 @@
+---
+// src/components/course-creation/CourseWhatWeCreate.astro
+const items = [
+  "Course strategy and concept",
+  "Course promise and positioning",
+  "Learner profile",
+  "Learning outcomes",
+  "Module map",
+  "Lesson outline",
+  "Curriculum map",
+  "Video lesson scripts",
+  "Slide outline",
+  "Worksheets",
+  "Quizzes and knowledge checks",
+  "Reflection prompts",
+  "Practical assignments",
+  "Downloadable resources",
+  "Student onboarding content",
+  "Completion path",
+  "Course review checklist",
+  "Kajabi/LMS-ready upload structure"
+];
+---
+<section class="py-20 bg-brand-softBg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
+        What We Can Create for Your Course
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {items.map((item) => (
+        <div class="bg-white p-4 rounded-xl border border-brand-border shadow-sm flex items-start space-x-3 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+          <svg class="w-5 h-5 text-brand-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+          <span class="text-sm font-medium text-brand-textMain leading-tight">{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

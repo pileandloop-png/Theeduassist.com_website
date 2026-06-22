@@ -1,0 +1,97 @@
+---
+// src/components/course-creation/CourseComparison.astro
+const rows = [
+  {
+    feature: "Audience clarity",
+    diy: "Maybe",
+    writer: "Basic",
+    agency: "Comprehensive"
+  },
+  {
+    feature: "Learning outcomes",
+    diy: "Often missed",
+    writer: "Basic statements",
+    agency: "Action-based goals"
+  },
+  {
+    feature: "Curriculum structure",
+    diy: "List of topics",
+    writer: "Table of contents",
+    agency: "Mapped learning journey"
+  },
+  {
+    feature: "Learner journey",
+    diy: "Unclear",
+    writer: "Linear reading",
+    agency: "Step-by-step guidance"
+  },
+  {
+    feature: "Lesson planning",
+    diy: "Bullet points",
+    writer: "Content blocks",
+    agency: "Objective, activity, next steps"
+  },
+  {
+    feature: "Worksheets/quizzes",
+    diy: "Basic or none",
+    writer: "Simple text",
+    agency: "Aligned to outcomes"
+  },
+  {
+    feature: "Platform-ready structure",
+    diy: "No",
+    writer: "No",
+    agency: "Yes (Kajabi/LMS)"
+  },
+  {
+    feature: "Launch readiness",
+    diy: "No",
+    writer: "No",
+    agency: "Yes"
+  },
+  {
+    feature: "Ongoing improvement",
+    diy: "Hard to track",
+    writer: "No",
+    agency: "Feedback loops"
+  }
+];
+---
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+        Why Work With TheEduAssist Instead of Just Making a Course Outline Yourself?
+      </h2>
+      <p class="text-lg text-brand-textMuted leading-relaxed">
+        We combine content strategy, curriculum design, learner experience, and platform readiness to build a complete learning system.
+      </p>
+    </div>
+
+    <div class="max-w-5xl mx-auto overflow-x-auto rounded-2xl border border-brand-border shadow-sm">
+      <table class="w-full text-left border-collapse min-w-[800px]">
+        <thead>
+          <tr class="bg-brand-softBg">
+            <th class="py-5 px-6 font-bold text-brand-navy border-b border-brand-border/60 w-1/4">Feature</th>
+            <th class="py-5 px-6 font-semibold text-brand-textMuted border-b border-brand-border/60 w-1/4">DIY Outline</th>
+            <th class="py-5 px-6 font-semibold text-brand-textMuted border-b border-brand-border/60 w-1/4">Generic Content Writer</th>
+            <th class="py-5 px-6 font-bold text-brand-primary border-b border-brand-border/60 w-1/4 bg-brand-softBlue/30">TheEduAssist Course Design</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr class="hover:bg-brand-softBg/50 transition-colors border-b border-brand-border/40 last:border-0">
+              <td class="py-4 px-6 font-medium text-brand-navy text-sm">{row.feature}</td>
+              <td class="py-4 px-6 text-brand-textMuted text-sm">{row.diy}</td>
+              <td class="py-4 px-6 text-brand-textMuted text-sm">{row.writer}</td>
+              <td class="py-4 px-6 font-semibold text-brand-primary text-sm bg-brand-softBlue/10 flex items-center">
+                 <svg class="w-4 h-4 text-brand-accent mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                 {row.agency}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

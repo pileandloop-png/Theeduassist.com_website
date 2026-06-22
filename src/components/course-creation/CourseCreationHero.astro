@@ -1,0 +1,111 @@
+---
+// src/components/course-creation/CourseCreationHero.astro
+---
+<section class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-white">
+  <!-- Subtle background pattern -->
+  <div class="absolute inset-0 z-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-20 bg-brand-softGreen blur-3xl rounded-full pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
+      Turn Your Knowledge Into a Structured Online Course
+    </h1>
+
+    <p class="text-lg md:text-xl text-brand-textMuted mb-10 max-w-4xl mx-auto leading-relaxed">
+      TheEduAssist helps creators, coaches, consultants, educators, training companies, online academies, and businesses transform raw expertise, PDFs, slides, videos, workshops, notes, and outlines into clear course structures, curriculum maps, lessons, learner resources, assessments, and platform-ready learning systems.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+      <a href="/book-free-audit/" class="w-full sm:w-auto bg-brand-accent text-white px-8 py-3.5 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all hover:bg-brand-primary shadow-md hover:shadow-lg text-center">
+        Book Free Course Audit
+      </a>
+      <a href="#course-process" class="w-full sm:w-auto bg-white text-brand-navy border border-brand-border px-8 py-3.5 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all hover:bg-brand-softBg shadow-sm text-center">
+        See Course Design Process
+      </a>
+    </div>
+
+    <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4 max-w-4xl mx-auto mb-20">
+      {["Course Strategy", "Curriculum Design", "Module Mapping", "Lesson Planning", "Worksheets & Quizzes", "Learner Journey", "Platform-Ready Assets"].map((chip) => (
+        <div class="flex items-center space-x-2 bg-white border border-brand-border/60 px-4 py-2 rounded-full text-sm font-semibold text-brand-textMain shadow-sm">
+          <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+          <span>{chip}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Infographic Visual: Course Design Blueprint -->
+    <div class="relative max-w-6xl mx-auto mt-16">
+        <h3 class="sr-only">Course Design Blueprint</h3>
+
+        <div class="bg-white p-6 md:p-10 rounded-3xl border border-brand-border/50 shadow-xl relative overflow-hidden">
+            <!-- Connecting lines background -->
+            <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+                 <svg class="w-full h-full text-brand-accent/30" preserveAspectRatio="none" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.2">
+                    <!-- Left to Center lines -->
+                    <line x1="15" y1="20" x2="50" y2="50" class="animate-[dash_4s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="15" y1="40" x2="50" y2="50" class="animate-[dash_4s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="15" y1="60" x2="50" y2="50" class="animate-[dash_4s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="15" y1="80" x2="50" y2="50" class="animate-[dash_4s_linear_infinite]" stroke-dasharray="2 2" />
+
+                    <!-- Center to Right lines -->
+                    <line x1="50" y1="50" x2="85" y2="20" class="animate-[dash_4s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="50" y1="50" x2="85" y2="40" class="animate-[dash_4s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="50" y1="50" x2="85" y2="60" class="animate-[dash_4s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="50" y1="50" x2="85" y2="80" class="animate-[dash_4s_linear_infinite]" stroke-dasharray="2 2" />
+                </svg>
+            </div>
+
+            <div class="relative z-10 flex flex-col md:flex-row items-stretch justify-between gap-8 md:gap-4">
+
+                <!-- Left Column: Raw Expertise -->
+                <div class="flex-1 bg-brand-softBg/50 p-6 rounded-2xl border border-brand-border/40 backdrop-blur-sm relative">
+                    <h4 class="text-xl font-bold text-brand-navy mb-6 pb-2 border-b border-brand-border/60">Raw Expertise</h4>
+                    <div class="grid grid-cols-2 gap-3">
+                        {["Ideas", "PDFs", "Slides", "Videos", "Workshops", "Notes", "Manuals", "Frameworks"].map((item) => (
+                            <div class="bg-white px-3 py-2 rounded-lg border border-brand-border/40 text-sm font-medium text-brand-textMuted shadow-sm flex items-center justify-center text-center">
+                                {item}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <!-- Center Column: The System -->
+                <div class="flex-1 flex flex-col items-center justify-center py-8 md:py-0 relative z-20">
+                     <div class="bg-brand-navy p-6 rounded-2xl shadow-lg border border-brand-navy/20 flex flex-col items-center justify-center w-56 h-56 relative animate-[float_5s_ease-in-out_infinite] mx-auto z-10">
+                        <div class="absolute inset-0 rounded-2xl bg-brand-accent/5 animate-pulse-slow"></div>
+                        <svg class="w-16 h-16 mb-4 text-brand-accent relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="font-bold text-white text-center leading-tight relative z-10">TheEduAssist<br/><span class="text-brand-accent/90 text-sm font-medium">Course Design System</span></span>
+                    </div>
+
+                    <!-- Decorative arrows for mobile -->
+                    <div class="md:hidden flex flex-col items-center gap-2 mt-4 absolute -bottom-6">
+                        <svg class="w-6 h-6 text-brand-accent/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+                    <div class="md:hidden flex flex-col items-center gap-2 mb-4 absolute -top-6">
+                        <svg class="w-6 h-6 text-brand-accent/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+                </div>
+
+                <!-- Right Column: Structured Course -->
+                <div class="flex-1 bg-brand-softGreen/30 p-6 rounded-2xl border border-brand-accent/20 backdrop-blur-sm relative">
+                    <h4 class="text-xl font-bold text-brand-navy mb-6 pb-2 border-b border-brand-accent/20">Structured Course</h4>
+                    <div class="grid grid-cols-2 gap-3 relative z-10">
+                        {["Course Map", "Modules", "Lessons", "Outcomes", "Worksheets", "Quizzes", "Resources", "Completion Path"].map((item) => (
+                            <div class="bg-white px-3 py-2 rounded-lg border border-brand-accent/30 text-sm font-bold text-brand-navy shadow-sm flex items-center justify-center text-center">
+                                {item}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<style>
+    @keyframes dash {
+        to { stroke-dashoffset: -20; }
+    }
+</style>

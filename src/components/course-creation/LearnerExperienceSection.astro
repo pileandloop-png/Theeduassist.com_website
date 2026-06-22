@@ -1,0 +1,35 @@
+---
+// src/components/course-creation/LearnerExperienceSection.astro
+const cards = [
+  "Clear starting point",
+  "Logical module order",
+  "Simple lesson flow",
+  "Practice tasks",
+  "Downloadable resources",
+  "Progress guidance",
+  "Knowledge checks",
+  "Completion support",
+  "Student FAQ",
+  "Onboarding guidance"
+];
+---
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
+        Design the Course So Students Know What to Do Next
+      </h2>
+      <p class="text-lg text-brand-textMuted leading-relaxed">
+        A course is only useful if learners can follow it. We design the student journey so learners know where to start, what to complete, what to download, how to practice, and what comes next.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {cards.map((card) => (
+        <div class="bg-brand-softBg p-4 rounded-xl border border-brand-border text-center flex flex-col items-center justify-center min-h-[100px] hover:shadow-md transition-shadow duration-300">
+          <span class="font-medium text-brand-navy text-sm leading-snug">{card}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

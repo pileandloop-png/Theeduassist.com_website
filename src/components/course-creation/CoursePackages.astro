@@ -1,0 +1,116 @@
+---
+// src/components/course-creation/CoursePackages.astro
+const packages = [
+  {
+    title: "Course Clarity Blueprint",
+    price: "Starting from $500",
+    bestFor: "Creators and coaches with an idea but no clear structure.",
+    includes: [
+      "Audience and course goal review",
+      "Course promise",
+      "Module map",
+      "Lesson outline",
+      "Learner journey",
+      "Launch readiness notes"
+    ]
+  },
+  {
+    title: "Curriculum Design Build",
+    price: "Starting from $1,200",
+    bestFor: "Educators, consultants, and training teams that need a full course structure before building in Kajabi or an LMS.",
+    includes: [
+      "Curriculum map",
+      "Learning outcomes",
+      "Module and lesson structure",
+      "Activity planning",
+      "Assessment ideas",
+      "Resource list",
+      "Completion pathway"
+    ],
+    highlight: true
+  },
+  {
+    title: "Course Content Production",
+    price: "Starting from $2,500",
+    bestFor: "Clients who need lesson scripts, worksheets, quizzes, summaries, resources, and platform-ready learning assets.",
+    includes: [
+      "Course blueprint",
+      "Lesson scripts/talking points",
+      "Worksheets",
+      "Quizzes",
+      "Downloadable resources",
+      "Student onboarding content",
+      "Kajabi/LMS-ready structure"
+    ]
+  },
+  {
+    title: "Course + Platform Launch Build",
+    price: "Custom quote, usually from $4,000",
+    bestFor: "Clients who want course creation plus Kajabi/LMS build, funnel assets, onboarding, and launch support.",
+    includes: [
+      "Course design",
+      "Learning assets",
+      "Kajabi/LMS structure",
+      "Landing page copy support",
+      "Email/onboarding support",
+      "Launch checklist",
+      "QA support"
+    ]
+  }
+];
+---
+<section class="py-24 bg-brand-softBg relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+        Ways We Can Help Create Your Course
+      </h2>
+      <p class="text-lg text-brand-textMuted leading-relaxed">
+        We offer flexible engagement types depending on where you are in your course creation journey.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      {packages.map((pkg) => (
+        <div class={`bg-white rounded-2xl flex flex-col h-full border transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${pkg.highlight ? 'border-brand-primary shadow-lg ring-1 ring-brand-primary/20 relative' : 'border-brand-border shadow-sm'}`}>
+
+          {pkg.highlight && (
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <span class="bg-brand-primary text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full">Most Popular</span>
+            </div>
+          )}
+
+          <div class="p-8 border-b border-brand-border/60">
+            <h3 class="text-xl font-bold text-brand-navy mb-2">{pkg.title}</h3>
+            <div class="text-brand-textMain font-medium mb-4">{pkg.price}</div>
+            <p class="text-sm text-brand-textMuted min-h-[60px]">{pkg.bestFor}</p>
+          </div>
+
+          <div class="p-8 flex-grow">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-textMuted mb-4 block">Includes</span>
+            <ul class="space-y-3 mb-8">
+              {pkg.includes.map((item) => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-brand-accent mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span class="text-sm text-brand-textMain leading-snug">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="p-8 pt-0 mt-auto">
+            <a href="/book-free-audit/" class={`block w-full text-center py-3 px-4 rounded-md font-bold transition-all ${pkg.highlight ? 'bg-brand-primary text-white hover:bg-brand-navy shadow-md' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-brand-accent hover:text-white hover:border-brand-accent'}`}>
+              Book Free Course Audit
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center mt-12 bg-white p-6 rounded-xl border border-brand-border/60 text-sm text-brand-textMuted shadow-sm">
+      <p>
+        <span class="font-semibold text-brand-navy">Pricing disclaimer:</span> Final quote depends on content volume, course length, review rounds, learning assets, platform setup, design needs, and launch requirements. Every project starts with a free audit so we can recommend the right scope before you pay.
+      </p>
+    </div>
+  </div>
+</section>
