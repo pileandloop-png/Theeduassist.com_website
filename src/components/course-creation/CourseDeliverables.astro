@@ -1,0 +1,47 @@
+---
+// src/components/course-creation/CourseDeliverables.astro
+const deliverables = [
+  "Course blueprint",
+  "Curriculum map",
+  "Module and lesson structure",
+  "Learning outcomes",
+  "Lesson scripts or talking points",
+  "Slide outline",
+  "Worksheets",
+  "Quizzes",
+  "Assignments",
+  "Resource list",
+  "Student onboarding copy",
+  "Course completion checklist",
+  "Kajabi/LMS-ready structure",
+  "Launch readiness notes"
+];
+---
+<section class="py-20 bg-brand-navy text-white relative overflow-hidden">
+  <div class="absolute inset-0 z-0 opacity-10">
+      <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0,100 C30,50 70,50 100,0 L100,100 Z" fill="currentColor"></path>
+      </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Deliverables You Can Walk Away With
+      </h2>
+    </div>
+
+    <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {deliverables.map((item) => (
+          <div class="flex items-start space-x-3">
+            <div class="bg-brand-accent/20 rounded-full p-1 shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <span class="text-sm font-medium text-slate-200">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

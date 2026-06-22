@@ -1,0 +1,59 @@
+---
+// src/components/course-creation/CourseProblemSection.astro
+const problems = [
+  {
+    title: "I have expertise but no course structure",
+    icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+  },
+  {
+    title: "My lessons feel random or too broad",
+    icon: "M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+  },
+  {
+    title: "My content is too long, scattered, or repetitive",
+    icon: "M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
+  },
+  {
+    title: "Learners may not know where to start",
+    icon: "M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+  },
+  {
+    title: "I do not know what should become a worksheet, quiz, or lesson",
+    icon: "M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+  },
+  {
+    title: "I want to launch, but the course is not ready",
+    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+  }
+];
+---
+<section class="py-20 md:py-28 bg-brand-softBg relative" id="course-problem">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+        Knowledge Is Not the Same as a Course
+      </h2>
+      <p class="text-lg text-brand-textMuted leading-relaxed">
+        Many experts have valuable knowledge, but their content is scattered across documents, videos, slides, notes, workshops, and ideas. A real course needs structure, sequence, outcomes, activities, resources, and a learner journey that students can follow.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {problems.map((problem) => (
+        <div class="bg-white p-6 rounded-2xl border border-brand-border shadow-sm hover:shadow-md transition-shadow duration-300 flex items-start space-x-4">
+          <div class="bg-brand-softGreen text-brand-accent p-3 rounded-xl shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={problem.icon}></path></svg>
+          </div>
+          <p class="font-medium text-brand-navy leading-snug pt-1">{problem.title}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="max-w-4xl mx-auto bg-white p-8 md:p-10 rounded-3xl border border-brand-border/60 shadow-lg text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-2 h-full bg-brand-accent"></div>
+        <p class="text-xl md:text-2xl font-medium text-brand-navy leading-relaxed">
+            TheEduAssist turns raw expertise into a clear learning system, so your students know what to learn, what to do next, and how to complete the course.
+        </p>
+    </div>
+  </div>
+</section>

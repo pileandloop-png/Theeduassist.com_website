@@ -1,0 +1,87 @@
+---
+// src/components/course-creation/CourseLifecycle.astro
+const steps = [
+  {
+    num: "1",
+    title: "Discover",
+    desc: "We understand your audience, offer, learning goals, content, platform needs, and business model."
+  },
+  {
+    num: "2",
+    title: "Define Outcomes",
+    desc: "We clarify what learners should know, do, practice, or achieve by the end of the course."
+  },
+  {
+    num: "3",
+    title: "Map Curriculum",
+    desc: "We organize the course into modules, lessons, milestones, resources, assessments, and completion points."
+  },
+  {
+    num: "4",
+    title: "Design Lessons",
+    desc: "We shape each lesson with a clear objective, teaching flow, activity, support resource, and next step."
+  },
+  {
+    num: "5",
+    title: "Build Learning Assets",
+    desc: "We prepare worksheets, quizzes, reflection prompts, scripts, downloads, summaries, and learner support content."
+  },
+  {
+    num: "6",
+    title: "Prepare for Platform",
+    desc: "We structure the course so it can be built inside Kajabi, LMS platforms, course websites, or internal learning systems."
+  },
+  {
+    num: "7",
+    title: "Review and Improve",
+    desc: "We check clarity, sequence, learner experience, content gaps, and readiness before launch."
+  }
+];
+---
+<section class="py-24 bg-brand-navy text-white relative overflow-hidden" id="course-process">
+  <!-- Decorative Background -->
+  <div class="absolute inset-0 z-0 opacity-10">
+      <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#grid-pattern)"></path>
+          <defs>
+              <pattern id="grid-pattern" width="10" height="10" patternUnits="userSpaceOnUse">
+                  <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+              </pattern>
+          </defs>
+      </svg>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        From Raw Expertise to a Complete Course Blueprint
+      </h2>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto">
+      <!-- Vertical Line for desktop -->
+      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-brand-accent/30 rounded-full"></div>
+
+      <div class="space-y-12">
+        {steps.map((step, index) => (
+          <div class={`flex flex-col md:flex-row items-center justify-between w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+
+            <div class="hidden md:block w-5/12"></div>
+
+            <div class="z-20 flex items-center justify-center w-12 h-12 rounded-full bg-brand-accent border-4 border-brand-navy shadow-[0_0_15px_rgba(119,186,85,0.4)] text-white font-bold text-xl mb-4 md:mb-0 shrink-0 relative">
+                {step.num}
+            </div>
+
+            <div class={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
+              <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/15 transition-colors duration-300">
+                <h3 class="text-xl font-bold mb-2 text-white">{step.title}</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">{step.desc}</p>
+              </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

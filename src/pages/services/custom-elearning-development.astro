@@ -1,71 +1,49 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import HomeHero from "../../components/sections/HomeHero.astro";
-import ProcessTimeline from "../../components/sections/ProcessTimeline.astro";
-import FinalCTA from "../../components/sections/FinalCTA.astro";
-import { process } from '../../data/process';
+import CourseCreationHero from "../../components/course-creation/CourseCreationHero.astro";
+import CourseProblemSection from "../../components/course-creation/CourseProblemSection.astro";
+import CourseAudienceSection from "../../components/course-creation/CourseAudienceSection.astro";
+import CourseLifecycle from "../../components/course-creation/CourseLifecycle.astro";
+import CourseWhatWeCreate from "../../components/course-creation/CourseWhatWeCreate.astro";
+import CurriculumDesignSection from "../../components/course-creation/CurriculumDesignSection.astro";
+import ContentConversionSection from "../../components/course-creation/ContentConversionSection.astro";
+import LearnerExperienceSection from "../../components/course-creation/LearnerExperienceSection.astro";
+import CourseDeliverables from "../../components/course-creation/CourseDeliverables.astro";
+import CoursePackages from "../../components/course-creation/CoursePackages.astro";
+import CourseComparison from "../../components/course-creation/CourseComparison.astro";
+import CourseFAQ from "../../components/course-creation/CourseFAQ.astro";
+import CourseFinalCTA from "../../components/course-creation/CourseFinalCTA.astro";
+
+import { professionalServiceSchema, breadcrumbSchema } from '../../lib/schema';
+
+const jsonLd = [
+  professionalServiceSchema(),
+  breadcrumbSchema([
+    { name: "Home", urlPath: "/" },
+    { name: "Services", urlPath: "/services/" },
+    { name: "Course Creation & Curriculum Design", urlPath: "/services/custom-elearning-development/" }
+  ])
+];
 ---
-<Layout title="Custom eLearning Development" description="Custom eLearning Development helps organizations turn raw training material into structured, interactive, learner-friendly digital courses.">
+<Layout
+  title="Course Creation & Curriculum Design Services | TheEduAssist"
+  description="TheEduAssist helps creators, coaches, educators, consultants, academies, training companies, and businesses turn raw ideas, PDFs, slides, videos, workshops, and expertise into structured online courses, curriculum maps, lesson plans, worksheets, quizzes, and platform-ready learning systems."
+  canonicalPath="/services/custom-elearning-development/"
+  jsonLd={jsonLd}
+>
 
-  <HomeHero
-    title="Custom eLearning Development"
-    subtitle="Turn raw training material into structured, interactive, learner-friendly digital courses."
-    primaryCtaLabel="Book Free Audit"
-    primaryCtaLink="/book-free-audit/"
-  />
-
-  <section class="py-24 bg-white">
-    <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16">
-      <div>
-        <h2 class="text-3xl font-bold mb-6 text-slate-900">What We Build</h2>
-        <p class="text-lg text-slate-600 mb-10 leading-relaxed">We create engaging digital learning experiences tailored specifically to your audience's needs and your organization's goals.</p>
-
-        <h2 class="text-2xl font-bold mb-6 text-slate-900">Who It Is For</h2>
-        <ul class="space-y-3 text-slate-600">
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Corporate Training Teams</li>
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Educational Institutions</li>
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Professional Associations</li>
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Course Creators</li>
-        </ul>
-      </div>
-
-      <div class="bg-slate-50 p-8 rounded-lg border border-slate-200">
-        <h2 class="text-2xl font-bold mb-6 text-slate-900 border-b border-slate-200 pb-4">Deliverables</h2>
-        <ul class="space-y-4 text-slate-700">
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Learning outlines & storyboards
-          </li>
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Interactive lessons
-          </li>
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Assessments & quizzes
-          </li>
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Learner activities
-          </li>
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            LMS-ready content
-          </li>
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Facilitator & learner support material
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <ProcessTimeline steps={process} />
-
-  <FinalCTA
-    title="Ready to build your custom course?"
-    subtitle="Let's discuss how we can turn your training material into an interactive experience."
-  />
+  <CourseCreationHero />
+  <CourseProblemSection />
+  <CourseAudienceSection />
+  <CourseLifecycle />
+  <CourseWhatWeCreate />
+  <CurriculumDesignSection />
+  <ContentConversionSection />
+  <LearnerExperienceSection />
+  <CourseDeliverables />
+  <CoursePackages />
+  <CourseComparison />
+  <CourseFAQ />
+  <CourseFinalCTA />
 
 </Layout>

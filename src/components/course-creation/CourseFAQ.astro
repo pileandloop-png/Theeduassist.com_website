@@ -1,0 +1,66 @@
+---
+// src/components/course-creation/CourseFAQ.astro
+const faqs = [
+  {
+    q: "Can you build a course from only an idea?",
+    a: "Yes. We can help turn a raw idea into a course promise, audience profile, module map, lesson outline, learner journey, and launch plan."
+  },
+  {
+    q: "Can you organize my existing content into a course?",
+    a: "Yes. We can work with PDFs, slides, videos, notes, workshops, manuals, SOPs, and Google Drive folders to create a structured course."
+  },
+  {
+    q: "Do you write the whole course content?",
+    a: "We can help with lesson scripts, talking points, summaries, worksheets, quizzes, resources, and onboarding content. The scope depends on your content and package."
+  },
+  {
+    q: "Do you help with curriculum design?",
+    a: "Yes. We help define learning outcomes, module structure, lesson sequence, activities, assessments, and completion pathways."
+  },
+  {
+    q: "Can you prepare the course for Kajabi or an LMS?",
+    a: "Yes. We can prepare a platform-ready structure for Kajabi, LMS platforms, course websites, or internal learning systems."
+  },
+  {
+    q: "Do you create quizzes and worksheets?",
+    a: "Yes. We can create knowledge checks, quizzes, reflection prompts, worksheets, practice tasks, and assignments aligned with the course goals."
+  },
+  {
+    q: "How long does course creation take?",
+    a: "Timing depends on course length, content volume, review rounds, learning assets, and platform needs. A small blueprint may take days, while a full course build can take several weeks."
+  },
+  {
+    q: "What should I prepare before booking a course audit?",
+    a: "Bring your course idea, target audience, existing content, videos, PDFs, slides, notes, course goals, platform preference, and launch timeline if available."
+  }
+];
+---
+<section class="py-24 bg-brand-softBg relative overflow-hidden">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy">Course Creation FAQ</h2>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group bg-white border border-brand-border rounded-xl shadow-sm overflow-hidden transition-all duration-300 open:shadow-md open:border-brand-accent/50" name="course-faq">
+          <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-brand-navy hover:text-brand-primary transition-colors focus-ring">
+            <span class="text-lg pr-4">{faq.q}</span>
+            <span class="transition-transform duration-300 group-open:rotate-180 bg-brand-softBg text-brand-textMuted p-2 rounded-full group-hover:text-brand-accent">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 pt-2 text-brand-textMuted text-base leading-relaxed border-t border-brand-border/30 bg-brand-softBg/30">
+            <p>{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
