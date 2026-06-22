@@ -1,0 +1,55 @@
+---
+// src/components/lms/LMSFAQ.astro
+
+const faqs = [
+  {
+    question: "Is LMS migration just uploading files?",
+    answer: "No. A good LMS migration includes content audit, structure mapping, content cleanup, course rebuild, platform setup, testing, and learner experience improvement."
+  },
+  {
+    question: "Can you migrate content from WordPress?",
+    answer: "Yes. We can help organize WordPress-based course content and rebuild it into a cleaner LMS or e-learning platform structure."
+  },
+  {
+    question: "Can you migrate content from Google Drive?",
+    answer: "Yes. We can help organize Google Drive folders, documents, PDFs, videos, and resources into modules, lessons, and learner-friendly assets."
+  },
+  {
+    question: "Can you migrate from an old LMS?",
+    answer: "Yes. We can help review your old LMS content, map the structure, clean materials, and rebuild the course flow in a new platform where possible."
+  },
+  {
+    question: "Can you work with PDFs, slides, and videos?",
+    answer: "Yes. We can convert or organize PDFs, slide decks, videos, scripts, and documents into structured lessons, downloads, quizzes, and learning resources."
+  },
+  {
+    question: "Do you support SCORM or xAPI?",
+    answer: "We can help assess whether your LMS needs native content, SCORM-style packages, xAPI-ready tracking, or another structure. Implementation depends on the platform and content format."
+  },
+  {
+    question: "Can you improve an existing LMS without migration?",
+    answer: "Yes. We can help clean up course structure, improve learner flow, update content, reorganize resources, and make the LMS easier to use."
+  },
+  {
+    question: "What should I prepare before booking an LMS audit?",
+    answer: "Prepare access to your current platform if available, content folders, course outlines, file samples, learner goals, platform preferences, and any launch or migration deadline."
+  }
+];
+---
+
+<section class="py-24 bg-[#F8FAFC]">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-[#27496D]">LMS Migration FAQ</h2>
+    </div>
+
+    <div class="space-y-6">
+      {faqs.map((faq) => (
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+          <h3 class="text-lg font-bold text-[#27496D] mb-2">{faq.question}</h3>
+          <p class="text-slate-600 leading-relaxed">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

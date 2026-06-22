@@ -1,0 +1,86 @@
+---
+// src/components/lms/LMSEngagementTypes.astro
+import Card from "../ui/Card.astro";
+
+const engagements = [
+  {
+    title: "LMS Content Cleanup",
+    bestFor: "Teams with messy files, PDFs, videos, slides, or old course content that needs to be organized before migration.",
+    includes: [
+      "Content audit",
+      "File mapping",
+      "Module and lesson structure",
+      "Resource organization",
+      "Migration plan"
+    ],
+    cta: "Book Free LMS Audit",
+    ctaLink: "/book-free-audit/"
+  },
+  {
+    title: "LMS Migration Build",
+    bestFor: "Businesses or academies moving content into a new LMS or course platform.",
+    includes: [
+      "Content mapping",
+      "Course rebuild",
+      "Platform setup support",
+      "User/access structure",
+      "Testing and launch support"
+    ],
+    cta: "Book Free LMS Audit",
+    ctaLink: "/book-free-audit/"
+  },
+  {
+    title: "LMS Improvement & Maintenance",
+    bestFor: "Existing LMS users who need better course structure, learner experience, content updates, or cleanup.",
+    includes: [
+      "Course flow review",
+      "Page/content improvements",
+      "Resource cleanup",
+      "Learner experience fixes",
+      "Ongoing updates"
+    ],
+    cta: "Book Free LMS Audit",
+    ctaLink: "/book-free-audit/"
+  }
+];
+---
+
+<section class="py-24 bg-white border-y border-slate-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4 text-[#27496D]">Ways We Can Help With LMS Migration</h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">Choose the level of support that fits your current phase.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {engagements.map((eng) => (
+        <Card class="flex flex-col h-full bg-[#F8FAFC] border-slate-200">
+          <h3 class="text-2xl font-bold text-[#27496D] mb-4">{eng.title}</h3>
+
+          <div class="mb-6">
+            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Best for:</h4>
+            <p class="text-sm text-slate-700">{eng.bestFor}</p>
+          </div>
+
+          <div class="flex-grow mb-8">
+             <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Includes:</h4>
+             <ul class="space-y-2">
+               {eng.includes.map(item => (
+                 <li class="flex items-start">
+                   <svg class="h-4 w-4 text-[#77BA55] mt-0.5 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                   </svg>
+                   <span class="text-sm text-slate-700">{item}</span>
+                 </li>
+               ))}
+             </ul>
+          </div>
+
+          <a href={eng.ctaLink} class="mt-auto block w-full text-center px-4 py-3 border border-[#77BA55] text-[#77BA55] font-semibold rounded-lg hover:bg-[#77BA55] hover:text-white transition-colors">
+            {eng.cta}
+          </a>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

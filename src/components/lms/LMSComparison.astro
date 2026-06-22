@@ -1,0 +1,48 @@
+---
+// src/components/lms/LMSComparison.astro
+
+const comparisonRows = [
+  { feature: "Content audit", diy: "Basic", basic: "No", eduassist: "Comprehensive" },
+  { feature: "Course structure", diy: "Manual setup", basic: "As-is upload", eduassist: "Mapped & Optimized" },
+  { feature: "Learner journey", diy: "Self-planned", basic: "No", eduassist: "Designed for flow" },
+  { feature: "File cleanup", diy: "Time-consuming", basic: "No", eduassist: "Included" },
+  { feature: "Lesson mapping", diy: "Manual entry", basic: "Basic mapping", eduassist: "Strategic mapping" },
+  { feature: "Platform setup", diy: "Steep learning curve", basic: "Standard settings", eduassist: "Full configuration" },
+  { feature: "Access and onboarding", diy: "Self-configured", basic: "Default paths", eduassist: "Custom workflows" },
+  { feature: "Testing and QA", diy: "Hit or miss", basic: "Basic check", eduassist: "Rigorous QA" },
+  { feature: "Launch readiness", diy: "Stressful", basic: "Hands-off", eduassist: "Supported launch" },
+  { feature: "Ongoing improvement", diy: "You're on your own", basic: "Extra cost", eduassist: "Available" }
+];
+---
+
+<section class="py-24 bg-[#F8FAFC]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4 text-[#27496D]">Why Work With TheEduAssist for LMS Migration?</h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">See how our approach compares to doing it yourself or hiring a basic upload service.</p>
+    </div>
+
+    <div class="overflow-x-auto bg-white rounded-2xl shadow-sm border border-slate-200">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-slate-50 border-b border-slate-200">
+            <th class="p-5 font-semibold text-slate-700 w-1/4">Capability</th>
+            <th class="p-5 font-semibold text-slate-500 w-1/4 text-center">DIY Migration</th>
+            <th class="p-5 font-semibold text-slate-500 w-1/4 text-center">Basic Upload Support</th>
+            <th class="p-5 font-bold text-[#27496D] w-1/4 text-center bg-[#EFF6FF]">TheEduAssist LMS Migration</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          {comparisonRows.map((row, index) => (
+            <tr class={index % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+              <td class="p-4 text-slate-800 font-medium">{row.feature}</td>
+              <td class="p-4 text-slate-500 text-center text-sm">{row.diy}</td>
+              <td class="p-4 text-slate-500 text-center text-sm">{row.basic}</td>
+              <td class="p-4 text-[#27496D] font-semibold text-center text-sm bg-[#EFF6FF]/30">{row.eduassist}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
