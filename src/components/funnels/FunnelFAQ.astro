@@ -1,0 +1,62 @@
+---
+const faqs = [
+  {
+    q: "What is a course funnel?",
+    a: "A course funnel is the journey that moves someone from interest to enrollment. It may include lead capture, landing pages, emails, sales pages, checkout, course access, and student onboarding."
+  },
+  {
+    q: "Do you build funnels only in Kajabi?",
+    a: "No. Kajabi is one of our strongest specialties, but we can also help plan funnel and automation workflows for LMS platforms, course websites, memberships, and training systems."
+  },
+  {
+    q: "Can you write the emails too?",
+    a: "Yes. We can help create welcome emails, nurture emails, launch emails, checkout follow-up emails, student onboarding emails, and progress reminders."
+  },
+  {
+    q: "Can you connect checkout and course access?",
+    a: "Yes, where supported by the platform. We can help plan or set up purchase flow, course access, onboarding instructions, and related automations."
+  },
+  {
+    q: "Can you fix my existing funnel?",
+    a: "Yes. We can audit your funnel for page clarity, CTA flow, email gaps, checkout friction, broken links, automation issues, and student onboarding problems."
+  },
+  {
+    q: "Do funnels guarantee sales?",
+    a: "No. Funnels can support a clearer journey and reduce friction, but sales depend on audience fit, offer strength, traffic quality, pricing, trust, and many other factors."
+  },
+  {
+    q: "Can you support a course launch?",
+    a: "Yes. We can help with launch flow, landing pages, email sequences, offer pages, checkout, automations, student onboarding, and QA."
+  },
+  {
+    q: "What should I prepare before booking a funnel audit?",
+    a: "Bring your course offer, current pages, email list status, platform, checkout setup, lead magnet, existing automations, and launch goals if available."
+  }
+];
+---
+<section class="py-20 bg-white border-t border-slate-100">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#27496D] mb-4">Funnels & Automation FAQ</h2>
+      <p class="text-lg text-slate-600">Common questions about our funnel and automation services.</p>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer text-[#27496D] font-semibold hover:bg-slate-100 transition-colors">
+            {faq.q}
+            <span class="ml-6 flex-shrink-0">
+              <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

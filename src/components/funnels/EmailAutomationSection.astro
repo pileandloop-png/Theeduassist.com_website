@@ -1,0 +1,62 @@
+---
+---
+<section class="py-20 bg-slate-50 border-t border-slate-100">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#27496D] mb-6">Email Automation That Supports the Full Course Journey</h2>
+      <p class="text-lg text-slate-600">
+        Email automation should not just send random messages. It should guide people through the right next step before and after purchase.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        {
+          title: 'Welcome Sequence',
+          for: 'For new leads after opt-in.',
+          desc: 'Delivers the lead magnet, introduces your brand, and sets expectations for future emails.'
+        },
+        {
+          title: 'Nurture Sequence',
+          for: 'For educating leads and building trust.',
+          desc: 'Provides value, shares quick wins, and gently introduces your paid solutions over time.'
+        },
+        {
+          title: 'Launch Sequence',
+          for: 'For course openings or deadlines.',
+          desc: 'Builds anticipation, explains the offer, addresses objections, and creates urgency during a launch window.'
+        },
+        {
+          title: 'Checkout Follow-Up',
+          for: 'For incomplete purchases.*',
+          desc: 'Reminds visitors who abandoned their cart to complete their enrollment, where supported by the platform.'
+        },
+        {
+          title: 'Student Onboarding',
+          for: 'For login and course start guidance.',
+          desc: 'Sends login credentials, explains how to navigate the platform, and encourages them to start the first module.'
+        },
+        {
+          title: 'Progress & Engagement',
+          for: 'For learning tips and support prompts.',
+          desc: 'Automated check-ins based on time or module completion to keep students motivated and reduce drop-offs.'
+        }
+      ].map(card => (
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow flex flex-col h-full">
+          <div class="w-12 h-12 bg-[#F3FAF0] text-[#77BA55] rounded-xl flex items-center justify-center mb-6 border border-[#77BA55]/20">
+             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#27496D] mb-2">{card.title}</h3>
+          <p class="text-sm font-medium text-slate-500 mb-4 pb-4 border-b border-slate-100">{card.for}</p>
+          <p class="text-slate-600 text-sm flex-grow">{card.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 text-center text-sm text-slate-500">
+      <p>* Features like abandoned cart tracking depend on the specific e-commerce or LMS platform you are using.</p>
+    </div>
+  </div>
+</section>

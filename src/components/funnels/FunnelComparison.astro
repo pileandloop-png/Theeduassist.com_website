@@ -1,0 +1,67 @@
+---
+---
+<section class="py-20 bg-slate-50 border-t border-slate-100">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#27496D] mb-6">Why Work With TheEduAssist Instead of Just Building Pages?</h2>
+      <p class="text-lg text-slate-600">
+        We connect the marketing flow, platform setup, and student experience into one cohesive journey.
+      </p>
+    </div>
+
+    <div class="overflow-x-auto pb-4">
+      <table class="w-full min-w-[800px] bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <thead>
+          <tr class="bg-slate-100 border-b border-slate-200">
+            <th class="py-5 px-6 text-left text-sm font-semibold text-[#27496D] w-1/4">Capability</th>
+            <th class="py-5 px-6 text-center text-sm font-semibold text-slate-500 w-1/4">Landing Page Only</th>
+            <th class="py-5 px-6 text-center text-sm font-semibold text-slate-500 w-1/4">Generic Funnel Builder</th>
+            <th class="py-5 px-6 text-center text-sm font-bold text-white bg-[#27496D] w-1/4 rounded-tr-2xl">TheEduAssist Funnel Build</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          {[
+            { feature: 'Course offer clarity', lp: 'Partial', gen: 'Partial', edu: 'Yes' },
+            { feature: 'Lead capture path', lp: 'Yes', gen: 'Yes', edu: 'Yes' },
+            { feature: 'Email journey', lp: 'No', gen: 'Partial', edu: 'Yes' },
+            { feature: 'Checkout flow', lp: 'No', gen: 'Yes', edu: 'Yes' },
+            { feature: 'Course access', lp: 'No', gen: 'No', edu: 'Yes' },
+            { feature: 'Student onboarding', lp: 'No', gen: 'No', edu: 'Yes' },
+            { feature: 'Automation logic', lp: 'No', gen: 'Partial', edu: 'Yes' },
+            { feature: 'Learner experience focus', lp: 'No', gen: 'No', edu: 'Yes' },
+            { feature: 'Launch QA', lp: 'No', gen: 'Partial', edu: 'Yes' },
+            { feature: 'Ongoing improvement', lp: 'No', gen: 'No', edu: 'Yes' }
+          ].map((row, i) => (
+            <tr class="hover:bg-slate-50 transition-colors">
+              <td class="py-4 px-6 text-sm font-medium text-[#27496D] bg-slate-50/50">{row.feature}</td>
+
+              <td class="py-4 px-6 text-center">
+                {row.lp === 'Yes' ? (
+                  <svg class="w-5 h-5 text-[#77BA55] mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                ) : row.lp === 'Partial' ? (
+                  <span class="text-sm text-slate-400">Partial</span>
+                ) : (
+                  <svg class="w-5 h-5 text-slate-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                )}
+              </td>
+
+              <td class="py-4 px-6 text-center bg-slate-50/30">
+                {row.gen === 'Yes' ? (
+                  <svg class="w-5 h-5 text-[#77BA55] mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                ) : row.gen === 'Partial' ? (
+                  <span class="text-sm text-amber-500">Partial</span>
+                ) : (
+                  <svg class="w-5 h-5 text-slate-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                )}
+              </td>
+
+              <td class="py-4 px-6 text-center bg-[#F3FAF0]/50 border-l border-[#77BA55]/20">
+                <svg class="w-6 h-6 text-[#77BA55] mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

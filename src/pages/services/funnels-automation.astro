@@ -1,0 +1,45 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import FunnelsHero from "../../components/funnels/FunnelsHero.astro";
+import FunnelsProblemSection from "../../components/funnels/FunnelsProblemSection.astro";
+import FunnelsAudienceSection from "../../components/funnels/FunnelsAudienceSection.astro";
+import FunnelJourney from "../../components/funnels/FunnelJourney.astro";
+import FunnelBuildServices from "../../components/funnels/FunnelBuildServices.astro";
+import KajabiFunnelSpecialty from "../../components/funnels/KajabiFunnelSpecialty.astro";
+import EmailAutomationSection from "../../components/funnels/EmailAutomationSection.astro";
+import AutomationLogicSection from "../../components/funnels/AutomationLogicSection.astro";
+import StudentOnboardingSection from "../../components/funnels/StudentOnboardingSection.astro";
+import FunnelAuditSection from "../../components/funnels/FunnelAuditSection.astro";
+import FunnelPackages from "../../components/funnels/FunnelPackages.astro";
+import FunnelComparison from "../../components/funnels/FunnelComparison.astro";
+import FunnelFAQ from "../../components/funnels/FunnelFAQ.astro";
+import FunnelFinalCTA from "../../components/funnels/FunnelFinalCTA.astro";
+
+import { professionalServiceSchema } from '../../lib/schema';
+
+const jsonLd = [
+  professionalServiceSchema()
+];
+---
+
+<Layout
+  title="Funnels & Automation Services | Course Launch Funnels, Emails & Student Onboarding"
+  description="TheEduAssist helps creators, coaches, educators, academies, and training businesses build course funnels, landing pages, email sequences, checkout flows, automations, student onboarding, and launch-ready learning systems."
+  canonicalPath="/services/funnels-automation/"
+  jsonLd={jsonLd}
+>
+  <FunnelsHero />
+  <FunnelsProblemSection />
+  <FunnelsAudienceSection />
+  <FunnelJourney />
+  <FunnelBuildServices />
+  <KajabiFunnelSpecialty />
+  <EmailAutomationSection />
+  <AutomationLogicSection />
+  <StudentOnboardingSection />
+  <FunnelAuditSection />
+  <FunnelPackages />
+  <FunnelComparison />
+  <FunnelFAQ />
+  <FunnelFinalCTA />
+</Layout>

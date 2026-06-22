@@ -1,0 +1,90 @@
+---
+---
+<section id="funnel-workflow" class="py-20 lg:py-32 bg-white">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#27496D] mb-6">From Visitor to Student: The Funnel We Help You Build</h2>
+      <p class="text-lg text-slate-600">
+        A premium, visual breakdown of the full lifecycle from first click to successful student.
+      </p>
+    </div>
+
+    <div class="relative">
+      <!-- Connecting Line -->
+      <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-slate-100 via-[#77BA55]/30 to-slate-100 -translate-x-1/2"></div>
+
+      <div class="space-y-12 lg:space-y-0">
+        {[
+          {
+            step: '01',
+            title: 'Attract',
+            desc: 'We help shape the lead magnet, topic angle, page message, and CTA.',
+            align: 'left'
+          },
+          {
+            step: '02',
+            title: 'Capture',
+            desc: 'We build or plan opt-in pages, forms, tags, and lead capture paths.',
+            align: 'right'
+          },
+          {
+            step: '03',
+            title: 'Nurture',
+            desc: 'We create email sequences that educate, build trust, answer objections, and guide the next step.',
+            align: 'left'
+          },
+          {
+            step: '04',
+            title: 'Convert',
+            desc: 'We connect offer pages, sales pages, checkout, coupons, upsells, or payment pathways where supported.',
+            align: 'right'
+          },
+          {
+            step: '05',
+            title: 'Deliver',
+            desc: 'We connect purchase actions to course access, student instructions, login details, and onboarding.',
+            align: 'left'
+          },
+          {
+            step: '06',
+            title: 'Onboard',
+            desc: 'We create welcome emails, student instructions, course start guidance, and support content.',
+            align: 'right'
+          },
+          {
+            step: '07',
+            title: 'Improve',
+            desc: 'We review funnel friction, page clarity, emails, student flow, and automation issues after launch.',
+            align: 'left'
+          }
+        ].map((item, index) => (
+          <div class={`relative flex flex-col lg:flex-row items-center gap-8 lg:gap-16 ${item.align === 'right' ? 'lg:flex-row-reverse' : ''} ${index !== 0 ? 'lg:-mt-12' : ''}`}>
+
+            {/* Center Node (Desktop) */}
+            <div class="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full border-4 border-slate-50 items-center justify-center z-10 shadow-sm">
+              <span class="text-xs font-bold text-[#27496D]">{item.step}</span>
+            </div>
+
+            {/* Content Card */}
+            <div class={`w-full lg:w-1/2 ${item.align === 'left' ? 'lg:text-right lg:pr-12' : 'lg:text-left lg:pl-12'}`}>
+              <div class={`bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-slate-200 transition-colors ${item.align === 'left' ? 'lg:ml-auto' : ''} max-w-lg relative overflow-hidden group`}>
+
+                {/* Mobile Step Indicator */}
+                <div class="lg:hidden absolute top-0 right-0 w-16 h-16 bg-white rounded-bl-3xl flex items-start justify-end p-4 shadow-sm border-l border-b border-slate-100">
+                  <span class="text-sm font-bold text-[#77BA55]">{item.step}</span>
+                </div>
+
+                <h3 class="text-2xl font-bold text-[#27496D] mb-3 group-hover:text-[#77BA55] transition-colors">{item.title}</h3>
+                <p class="text-slate-600 leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+
+            {/* Spacer for the other side */}
+            <div class="hidden lg:block w-1/2"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
