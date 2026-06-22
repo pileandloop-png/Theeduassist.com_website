@@ -1,0 +1,46 @@
+---
+// src/components/kajabi/KajabiProblemSection.astro
+---
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-slate-900 mb-6">Kajabi Can Do a Lot, But It Needs the Right Structure</h2>
+      <p class="text-lg text-slate-600">
+        Many creators open Kajabi and then get stuck because they do not know how to structure the course, organize the offer, connect pages, set up emails, design student access, or prepare the launch flow.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      {
+        [
+          { title: 'My course content is scattered', icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' },
+          { title: 'My Kajabi pages do not look professional', icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+          { title: 'My funnel and email flow are unclear', icon: 'M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76' },
+          { title: 'My students do not have a smooth learning journey', icon: 'M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222' }
+        ].map((problem) => (
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start space-x-4">
+            <div class="flex-shrink-0 bg-red-50 p-3 rounded-lg">
+              <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={problem.icon} />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-medium text-slate-800">{problem.title}</h3>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="bg-[#EFF6FF] rounded-2xl p-8 md:p-12 text-center border border-blue-100">
+      <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm mb-6">
+        <svg class="w-8 h-8 text-[#77BA55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <p class="text-xl md:text-2xl font-medium text-[#27496D] max-w-4xl mx-auto leading-relaxed">
+        TheEduAssist connects course design, Kajabi setup, content structure, automations, and launch strategy into one clean system.
+      </p>
+    </div>
+  </div>
+</section>

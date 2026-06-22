@@ -1,0 +1,67 @@
+---
+// src/components/kajabi/KajabiAudienceSection.astro
+const audiences = [
+  {
+    situation: 'Coaches launching a signature program',
+    need: 'Need to combine applications, scheduling, coaching offers, and resource delivery.',
+    outcome: 'A clear pipeline from lead to enrolled client.'
+  },
+  {
+    situation: 'Creators selling digital products',
+    need: 'Need simple funnels, fast checkout, and instant automated delivery.',
+    outcome: 'Passive sales with no manual fulfillment.'
+  },
+  {
+    situation: 'Consultants turning expertise into paid learning',
+    need: 'Need to package 1:1 knowledge into scalable modules and resources.',
+    outcome: 'A new revenue stream that does not rely on hourly billing.'
+  },
+  {
+    situation: 'Educators building structured courses',
+    need: 'Need robust lesson structures, quizzes, and clear progression paths.',
+    outcome: 'High completion rates and engaged students.'
+  },
+  {
+    situation: 'Training companies moving online',
+    need: 'Need to migrate in-person materials into an organized digital academy.',
+    outcome: 'A centralized platform for all company training.'
+  },
+  {
+    situation: 'Online academies improving delivery',
+    need: 'Need to clean up a messy Kajabi setup and improve the user experience.',
+    outcome: 'Reduced support tickets and happier members.'
+  },
+  {
+    situation: 'Businesses organizing training content',
+    need: 'Need a secure internal portal for staff onboarding and resources.',
+    outcome: 'A scalable employee training system.'
+  }
+];
+---
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-slate-900">Who Needs Kajabi Support?</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {audiences.map((audience) => (
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+          <h3 class="text-lg font-bold text-[#27496D] mb-4">{audience.situation}</h3>
+
+          <div class="space-y-4">
+            <div>
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">Kajabi Need</span>
+              <p class="text-sm text-slate-700">{audience.need}</p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200">
+              <span class="text-xs font-semibold text-[#77BA55] uppercase tracking-wider block mb-1">Outcome</span>
+              <p class="text-sm text-slate-700 font-medium">{audience.outcome}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

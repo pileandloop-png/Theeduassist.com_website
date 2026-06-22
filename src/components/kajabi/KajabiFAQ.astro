@@ -1,0 +1,48 @@
+---
+// src/components/kajabi/KajabiFAQ.astro
+import FAQAccordion from '../ui/FAQAccordion.astro';
+
+const faqs = [
+  {
+    question: "Do you only build Kajabi websites?",
+    answer: "No. We can build Kajabi websites, course products, landing pages, funnels, offers, email automations, migrations, and student onboarding systems."
+  },
+  {
+    question: "Can you set up my Kajabi course from existing content?",
+    answer: "Yes. We can organize PDFs, videos, slides, notes, scripts, and documents into Kajabi modules, lessons, resources, and downloads."
+  },
+  {
+    question: "Can you migrate my content into Kajabi?",
+    answer: "Yes. We can help move content from WordPress, Google Drive, old LMS platforms, PDFs, or scattered folders into a cleaner Kajabi structure."
+  },
+  {
+    question: "Do you write Kajabi email sequences?",
+    answer: "Yes. We can help plan and create welcome emails, nurture emails, launch emails, onboarding emails, and follow-up sequences."
+  },
+  {
+    question: "Can you build my Kajabi funnel?",
+    answer: "Yes. We can connect opt-in pages, forms, email follow-ups, sales pages, checkout offers, automations, and student onboarding."
+  },
+  {
+    question: "Can you improve my existing Kajabi setup?",
+    answer: "Yes. We can review your current Kajabi pages, products, offers, emails, automations, and student experience, then recommend and implement improvements."
+  },
+  {
+    question: "Is Kajabi right for my business?",
+    answer: "Kajabi can be a strong fit for creators, coaches, consultants, educators, and training businesses that want a connected system for courses, memberships, coaching, landing pages, email marketing, checkout, and automations. The best first step is to book an audit so we can review your content, goals, and platform needs."
+  },
+  {
+    question: "What should I prepare before booking a Kajabi audit?",
+    answer: "Bring your course idea, current content, Kajabi login status, existing pages, offer details, audience information, and any launch goals or deadlines."
+  }
+];
+---
+<section class="py-24 bg-white border-t border-slate-200">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-slate-900">Kajabi Services FAQ</h2>
+    </div>
+
+    <FAQAccordion items={faqs} />
+  </div>
+</section>

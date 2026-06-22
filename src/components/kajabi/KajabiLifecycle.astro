@@ -1,0 +1,36 @@
+---
+// src/components/kajabi/KajabiLifecycle.astro
+---
+<section class="py-24 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-slate-900">From Expertise to a Launch-Ready Kajabi System</h2>
+    </div>
+
+    <div class="relative">
+      <!-- Continuous connecting line for desktop -->
+      <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-[#77BA55] opacity-20 -translate-y-1/2 rounded-full"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 relative z-10">
+        {
+          [
+            { step: '1', title: 'Strategy', desc: 'We define your audience, offer, course goal, platform needs, and launch path.' },
+            { step: '2', title: 'Structure', desc: 'We organize your modules, lessons, resources, outcomes, and student journey.' },
+            { step: '3', title: 'Design', desc: 'We design the Kajabi website, landing pages, offer pages, product pages, and student experience.' },
+            { step: '4', title: 'Build', desc: 'We set up course products, offers, checkout, pages, email sequences, automations, and access flows.' },
+            { step: '5', title: 'Launch', desc: 'We test the system, prepare onboarding, connect CTAs, and make the course ready for students.' },
+            { step: '6', title: 'Improve', desc: 'We update pages, refine content, improve automations, and support future launches.' }
+          ].map((item) => (
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 relative flex flex-col h-full group hover:-translate-y-1 transition-transform duration-300">
+              <div class="w-10 h-10 rounded-full bg-[#27496D] text-white flex items-center justify-center font-bold text-lg mb-4 shadow-md absolute -top-5 left-6 border-4 border-slate-50 group-hover:bg-[#77BA55] transition-colors">
+                {item.step}
+              </div>
+              <h3 class="text-lg font-bold text-[#27496D] mb-3 mt-4">{item.title}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed flex-grow">{item.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

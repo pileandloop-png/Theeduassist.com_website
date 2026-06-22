@@ -1,0 +1,54 @@
+---
+// src/components/kajabi/KajabiMigrationSection.astro
+---
+<section class="py-24 bg-[#EFF6FF] border-y border-blue-100">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-[#27496D] mb-6">Moving to Kajabi? We Help Clean Up the Chaos</h2>
+      <p class="text-lg text-slate-700 max-w-3xl mx-auto">
+        If your content is currently in WordPress, Google Drive, PDFs, slide decks, YouTube/Vimeo folders, old LMS platforms, or scattered documents, TheEduAssist can help organize it into a cleaner Kajabi learning system.
+      </p>
+    </div>
+
+    <!-- Migration Flow -->
+    <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 mb-10 overflow-x-auto">
+      <div class="flex items-center min-w-[800px] justify-between text-center">
+        {
+          ['Audit current content', 'Map modules & lessons', 'Clean files & resources', 'Build Kajabi products', 'Set up pages & offers', 'Test student access', 'Launch'].map((step, index, array) => (
+            <div class="flex items-center relative">
+              <div class="flex flex-col items-center">
+                <div class="w-12 h-12 rounded-full bg-slate-50 border-2 border-[#27496D] flex items-center justify-center text-[#27496D] font-bold mb-3 z-10 relative">
+                  {index + 1}
+                </div>
+                <span class="text-xs font-medium text-slate-700 max-w-[80px] leading-tight">{step}</span>
+              </div>
+              {index < array.length - 1 && (
+                <div class="w-16 h-0.5 bg-slate-200 absolute top-6 left-12 -z-0">
+                  <!-- Arrow head -->
+                  <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 border-t-2 border-r-2 border-slate-300 rotate-45"></div>
+                </div>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="bg-amber-50 border-l-4 border-amber-400 p-6 rounded-r-lg">
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <svg class="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <div class="ml-3">
+          <h3 class="text-sm font-medium text-amber-800">Caution</h3>
+          <div class="mt-2 text-sm text-amber-700">
+            <p>Migration is not only uploading files. The structure, learner journey, access flow, and launch system matter.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

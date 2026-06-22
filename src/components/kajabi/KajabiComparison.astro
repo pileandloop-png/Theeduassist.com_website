@@ -1,0 +1,61 @@
+---
+// src/components/kajabi/KajabiComparison.astro
+---
+<section class="py-24 bg-white border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-slate-900 mb-4">Why Work With TheEduAssist Instead of a Basic Kajabi Setup?</h2>
+      <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+        We combine learning design, platform setup, content structure, and launch workflow.
+      </p>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse min-w-[800px]">
+        <thead>
+          <tr>
+            <th class="p-4 border-b-2 border-slate-200 bg-slate-50 font-bold text-slate-800 w-1/4">Feature</th>
+            <th class="p-4 border-b-2 border-slate-200 bg-slate-50 font-semibold text-slate-600 w-1/4 text-center">DIY Kajabi Setup</th>
+            <th class="p-4 border-b-2 border-slate-200 bg-slate-50 font-semibold text-slate-600 w-1/4 text-center">Basic Kajabi Freelancer</th>
+            <th class="p-4 border-b-2 border-[#27496D] bg-[#EFF6FF] font-bold text-[#27496D] w-1/4 text-center">TheEduAssist Kajabi Build</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          {
+            [
+              'Course strategy',
+              'Curriculum structure',
+              'Website design',
+              'Landing pages',
+              'Product setup',
+              'Offers and checkout',
+              'Email sequences',
+              'Automations',
+              'Student onboarding',
+              'Migration support',
+              'Launch support',
+              'Ongoing improvement'
+            ].map((row) => (
+              <tr class="hover:bg-slate-50">
+                <td class="p-4 font-medium text-slate-800">{row}</td>
+                <td class="p-4 text-center text-slate-400">
+                  <svg class="w-5 h-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </td>
+                <td class="p-4 text-center text-slate-400">
+                  <span class="text-sm">Varies</span>
+                </td>
+                <td class="p-4 text-center bg-[#EFF6FF]/30">
+                  <svg class="w-6 h-6 mx-auto text-[#77BA55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

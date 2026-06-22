@@ -1,0 +1,60 @@
+---
+// src/components/kajabi/KajabiEcosystemMap.astro
+---
+<section class="py-24 bg-slate-50 border-t border-b border-slate-200 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-slate-900 mb-4">The Kajabi Ecosystem We Help You Build</h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">Show that Kajabi is a complete business system when configured properly.</p>
+    </div>
+
+    <!-- Infographic Map -->
+    <div class="relative max-w-5xl mx-auto py-12">
+      <!-- Desktop Connections -->
+      <svg class="absolute inset-0 w-full h-full hidden md:block -z-10" aria-hidden="true" style="pointer-events: none;">
+        <g stroke="#77BA55" stroke-width="2" stroke-dasharray="6 6" fill="none" opacity="0.4">
+          <!-- Connectors to central node -->
+          <path d="M50% 50% L25% 25%" />
+          <path d="M50% 50% L50% 15%" />
+          <path d="M50% 50% L75% 25%" />
+          <path d="M50% 50% L85% 50%" />
+          <path d="M50% 50% L75% 75%" />
+          <path d="M50% 50% L50% 85%" />
+          <path d="M50% 50% L25% 75%" />
+          <path d="M50% 50% L15% 50%" />
+        </g>
+      </svg>
+
+      <!-- Center Node -->
+      <div class="hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-white rounded-full shadow-xl border-2 border-[#27496D] flex-col items-center justify-center z-20">
+        <h3 class="text-xl font-bold text-[#27496D] text-center">Kajabi<br/>System</h3>
+      </div>
+
+      <!-- Grid for Mobile, Absolute for Desktop -->
+      <div class="grid grid-cols-2 gap-4 md:block relative h-auto md:h-[600px] z-10">
+
+        {
+          [
+            { title: 'Website Pages', pos: 'md:top-[5%] md:left-1/2 md:-translate-x-1/2' },
+            { title: 'Landing Pages', pos: 'md:top-[15%] md:right-[15%]' },
+            { title: 'Funnel Pages', pos: 'md:top-[35%] md:right-[5%]' },
+            { title: 'Course Products', pos: 'md:bottom-[35%] md:right-[5%]' },
+            { title: 'Coaching Offers', pos: 'md:bottom-[15%] md:right-[15%]' },
+            { title: 'Memberships', pos: 'md:bottom-[5%] md:left-1/2 md:-translate-x-1/2' },
+            { title: 'Community', pos: 'md:bottom-[15%] md:left-[15%]' },
+            { title: 'Email Marketing', pos: 'md:bottom-[35%] md:left-[5%]' },
+            { title: 'Automations', pos: 'md:top-[35%] md:left-[5%]' },
+            { title: 'Checkout', pos: 'md:top-[15%] md:left-[15%]' },
+            { title: 'Analytics', pos: 'md:top-[25%] md:left-[30%]' },
+            { title: 'Student Onboarding', pos: 'md:bottom-[25%] md:right-[30%]' }
+          ].map((node) => (
+            <div class={`bg-white px-4 py-3 rounded-lg shadow-sm border border-slate-200 text-center text-sm font-medium text-[#27496D] md:absolute md:w-36 ${node.pos} hover:-translate-y-1 transition-transform`}>
+              {node.title}
+            </div>
+          ))
+        }
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,95 @@
+---
+// src/components/kajabi/KajabiEngagementTypes.astro
+---
+<section class="py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-slate-900">Ways We Can Help With Kajabi</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Package 1 -->
+      <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col hover:shadow-md transition-shadow">
+        <div class="mb-6">
+          <h3 class="text-2xl font-bold text-[#27496D] mb-2">Kajabi Setup Sprint</h3>
+          <p class="text-sm font-medium text-slate-500 mb-4">Best for: Creators who already have content and need Kajabi pages, products, offers, and basic automations set up quickly.</p>
+        </div>
+
+        <div class="flex-grow">
+          <p class="text-sm font-semibold text-slate-800 mb-3 uppercase tracking-wider">Includes:</p>
+          <ul class="space-y-3 mb-8">
+            {['Core setup', 'Course product structure', 'Basic pages', 'Offer and checkout', 'Basic onboarding'].map((item) => (
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-[#77BA55] mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-slate-600 text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <a href="/book-free-audit/" class="w-full inline-flex justify-center items-center px-4 py-3 rounded-md bg-[#27496D] text-white font-medium hover:bg-opacity-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#27496D]">
+          Book Free Audit
+        </a>
+      </div>
+
+      <!-- Package 2 -->
+      <div class="bg-white rounded-2xl p-8 border border-[#27496D] shadow-lg flex flex-col relative transform md:-translate-y-4">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#27496D] text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+          Most Comprehensive
+        </div>
+        <div class="mb-6 mt-2">
+          <h3 class="text-2xl font-bold text-[#27496D] mb-2">Kajabi Launch Build</h3>
+          <p class="text-sm font-medium text-slate-500 mb-4">Best for: Coaches, educators, and training businesses launching a full course, coaching program, or membership.</p>
+        </div>
+
+        <div class="flex-grow">
+          <p class="text-sm font-semibold text-slate-800 mb-3 uppercase tracking-wider">Includes:</p>
+          <ul class="space-y-3 mb-8">
+            {['Website/landing pages', 'Product setup', 'Funnel flow', 'Email sequences', 'Automations', 'Student onboarding', 'Launch QA'].map((item) => (
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-[#77BA55] mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-slate-600 text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <a href="/book-free-audit/" class="w-full inline-flex justify-center items-center px-4 py-3 rounded-md bg-[#77BA55] text-white font-medium hover:bg-[#65a346] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#77BA55]">
+          Book Free Audit
+        </a>
+      </div>
+
+      <!-- Package 3 -->
+      <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col hover:shadow-md transition-shadow">
+        <div class="mb-6">
+          <h3 class="text-2xl font-bold text-[#27496D] mb-2">Migration & Improvement</h3>
+          <p class="text-sm font-medium text-slate-500 mb-4">Best for: Businesses moving content from WordPress, old LMS platforms, Google Drive, PDFs, or messy Kajabi setups.</p>
+        </div>
+
+        <div class="flex-grow">
+          <p class="text-sm font-semibold text-slate-800 mb-3 uppercase tracking-wider">Includes:</p>
+          <ul class="space-y-3 mb-8">
+            {['Content audit', 'Migration planning', 'Course restructuring', 'Page cleanup', 'Automation review', 'Student experience improvement'].map((item) => (
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-[#77BA55] mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-slate-600 text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <a href="/book-free-audit/" class="w-full inline-flex justify-center items-center px-4 py-3 rounded-md bg-[#27496D] text-white font-medium hover:bg-opacity-90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#27496D]">
+          Book Free Audit
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

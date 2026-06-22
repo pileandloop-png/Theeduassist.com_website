@@ -1,27 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HomeHero from "../components/sections/HomeHero.astro";
-import AudienceGrid from "../components/sections/AudienceGrid.astro";
-import ProcessTimeline from "../components/sections/ProcessTimeline.astro";
-import FAQAccordion from "../components/ui/FAQAccordion.astro";
-import FinalCTA from "../components/sections/FinalCTA.astro";
-import SectionHeader from "../components/ui/SectionHeader.astro";
-import Card from "../components/ui/Card.astro";
-import { getAllKajabiServices, getFaqsByCategory } from '../sanity/queries';
+import KajabiHero from "../components/kajabi/KajabiHero.astro";
+import KajabiProblemSection from "../components/kajabi/KajabiProblemSection.astro";
+import KajabiLifecycle from "../components/kajabi/KajabiLifecycle.astro";
+import KajabiServicesGrid from "../components/kajabi/KajabiServicesGrid.astro";
+import KajabiEcosystemMap from "../components/kajabi/KajabiEcosystemMap.astro";
+import KajabiAudienceSection from "../components/kajabi/KajabiAudienceSection.astro";
+import KajabiMigrationSection from "../components/kajabi/KajabiMigrationSection.astro";
+import KajabiFunnelsAutomation from "../components/kajabi/KajabiFunnelsAutomation.astro";
+import KajabiStudentExperience from "../components/kajabi/KajabiStudentExperience.astro";
+import KajabiComparison from "../components/kajabi/KajabiComparison.astro";
+import KajabiEngagementTypes from "../components/kajabi/KajabiEngagementTypes.astro";
+import KajabiFAQ from "../components/kajabi/KajabiFAQ.astro";
+import KajabiFinalCTA from "../components/kajabi/KajabiFinalCTA.astro";
 
-const kajabiServices = await getAllKajabiServices();
-const faqs = { kajabi: await getFaqsByCategory('kajabi') };
-// Note: `kajabiProcess` remains static in `src/data/process` if you want to keep the custom step flow.
-import { kajabiProcess } from '../data/process';
 import { serviceSchema, faqPageSchema, breadcrumbSchema } from '../lib/schema';
+
+// Hardcoded faqs array to reuse the existing schema mapping logic without needing complex fetcher
+const faqs = [
+  { question: "Do you only build Kajabi websites?", answer: "No. We can build Kajabi websites, course products, landing pages, funnels, offers, email automations, migrations, and student onboarding systems." },
+  { question: "Can you set up my Kajabi course from existing content?", answer: "Yes. We can organize PDFs, videos, slides, notes, scripts, and documents into Kajabi modules, lessons, resources, and downloads." },
+  { question: "Can you migrate my content into Kajabi?", answer: "Yes. We can help move content from WordPress, Google Drive, old LMS platforms, PDFs, or scattered folders into a cleaner Kajabi structure." },
+  { question: "Do you write Kajabi email sequences?", answer: "Yes. We can help plan and create welcome emails, nurture emails, launch emails, onboarding emails, and follow-up sequences." },
+  { question: "Can you build my Kajabi funnel?", answer: "Yes. We can connect opt-in pages, forms, email follow-ups, sales pages, checkout offers, automations, and student onboarding." },
+  { question: "Can you improve my existing Kajabi setup?", answer: "Yes. We can review your current Kajabi pages, products, offers, emails, automations, and student experience, then recommend and implement improvements." },
+  { question: "Is Kajabi right for my business?", answer: "Kajabi can be a strong fit for creators, coaches, consultants, educators, and training businesses that want a connected system for courses, memberships, coaching, landing pages, email marketing, checkout, and automations. The best first step is to book an audit so we can review your content, goals, and platform needs." },
+  { question: "What should I prepare before booking a Kajabi audit?", answer: "Bring your course idea, current content, Kajabi login status, existing pages, offer details, audience information, and any launch goals or deadlines." }
+];
 
 const jsonLd = [
   serviceSchema(
     "Kajabi Services",
-    "Kajabi course setup, website design, migration, upload, funnels, automations, and support for Kajabi platforms.",
+    "TheEduAssist builds Kajabi websites, landing pages, course products, funnels, offers, email automations, templates, migrations, and launch-ready Kajabi learning systems for creators, coaches, educators, and training businesses.",
     "/kajabi-services/"
   ),
-  faqPageSchema(faqs.kajabi),
+  faqPageSchema(faqs),
   breadcrumbSchema([
     { name: "Home", urlPath: "/" },
     { name: "Kajabi Services", urlPath: "/kajabi-services/" }
@@ -29,104 +42,24 @@ const jsonLd = [
 ];
 ---
 <Layout
-  title="Kajabi Services"
-  description="Kajabi Services for Course Creators, Coaches, and Training Teams. TheEduAssist helps you build a cleaner Kajabi system."
+  title="Kajabi Services | Kajabi Websites, Courses, Funnels & Automations"
+  description="TheEduAssist builds Kajabi websites, landing pages, course products, funnels, offers, email automations, templates, migrations, and launch-ready Kajabi learning systems for creators, coaches, educators, and training businesses."
   canonicalPath="/kajabi-services/"
   jsonLd={jsonLd}
 >
 
-  <HomeHero
-    title="Kajabi Services for Course Creators, Coaches, and Training Teams"
-    subtitle="From course setup and website design to funnels, email automation, content upload, and migration, TheEduAssist helps you build a cleaner Kajabi system that is easier to launch and easier to manage."
-    primaryCtaLabel="Book Free Audit"
-    primaryCtaLink="/book-free-audit/"
-  />
-
-  <section class="py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-6 text-slate-900">What We Help You Build</h2>
-      <p class="text-lg text-slate-600 leading-relaxed">
-        We specialize in taking the technical heavy lifting off your plate so you can focus on your content and your students. Whether you're starting from scratch, migrating from another platform, or cleaning up a messy Kajabi account, we provide structured, professional implementation.
-      </p>
-    </div>
-  </section>
-
-  <AudienceGrid />
-
-  <section class="py-24 bg-slate-50 border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-4">
-      <SectionHeader title="Our Kajabi Services" />
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {kajabiServices.map(s => (
-          <Card className="hover:border-blue-300 transition-colors">
-            <h3 class="text-lg font-bold mb-3 text-blue-700">{s.title}</h3>
-            <p class="text-sm text-slate-600">{s.description}</p>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-white">
-    <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16">
-      <div>
-        <h2 class="text-3xl font-bold mb-6 text-slate-900">Common Problems We Solve</h2>
-        <ul class="space-y-4 text-slate-600">
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Course content is scattered across files and confusing to organize
-          </li>
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Kajabi pages look unfinished or unprofessional
-          </li>
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Lessons are uploaded but the learner journey feels broken
-          </li>
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Funnels, pipelines, and email automations are confusing
-          </li>
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Migration from another platform feels too risky to do alone
-          </li>
-          <li class="flex items-start">
-            <svg class="h-6 w-6 text-red-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            Pre-launch and post-launch technical tasks are unclear
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="text-3xl font-bold mb-6 text-slate-900">What You Can Bring To Us</h2>
-        <p class="text-slate-600 mb-6">You don't need a perfect setup to start working with us. We can take your raw materials and build the system.</p>
-        <ul class="grid grid-cols-2 gap-3 text-sm text-slate-700 font-medium">
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Videos & PDFs</li>
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Slide Decks & Worksheets</li>
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Old Course Links</li>
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Existing Kajabi Account</li>
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Notion/Drive Outlines</li>
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Migration Questions</li>
-          <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Launch Timelines</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <ProcessTimeline title="Our Kajabi Process" steps={kajabiProcess} className="bg-slate-50 border-t border-slate-200" />
-
-  <section class="py-24 bg-white">
-    <div class="max-w-3xl mx-auto px-4">
-      <SectionHeader title="Frequently Asked Questions" />
-      <FAQAccordion items={faqs.kajabi} />
-    </div>
-  </section>
-
-  <FinalCTA
-    title="Let's build your Kajabi platform"
-    subtitle="Book a 30-minute discussion to review your goals, your content, and your timeline."
-    ctaLabel="Book Free Audit"
-  />
+  <KajabiHero />
+  <KajabiProblemSection />
+  <KajabiLifecycle />
+  <KajabiServicesGrid />
+  <KajabiEcosystemMap />
+  <KajabiAudienceSection />
+  <KajabiMigrationSection />
+  <KajabiFunnelsAutomation />
+  <KajabiStudentExperience />
+  <KajabiComparison />
+  <KajabiEngagementTypes />
+  <KajabiFAQ />
+  <KajabiFinalCTA />
 
 </Layout>

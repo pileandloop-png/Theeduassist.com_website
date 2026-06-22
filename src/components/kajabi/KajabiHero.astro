@@ -1,0 +1,95 @@
+---
+// src/components/kajabi/KajabiHero.astro
+---
+<section class="relative pt-32 pb-24 overflow-hidden bg-slate-50 border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Text Content -->
+      <div class="text-left">
+        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-6">
+          Build a Complete Kajabi Learning Business, <span class="text-[#27496D]">Not Just a Course Page</span>
+        </h1>
+        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+          TheEduAssist helps creators, coaches, educators, consultants, and training businesses design, build, migrate, and launch Kajabi websites, course products, funnels, email automations, offers, checkout flows, and student onboarding systems.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+          <a href="/book-free-audit/" class="inline-flex justify-center items-center px-6 py-3 rounded-md bg-[#77BA55] text-white font-medium hover:bg-[#65a346] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#77BA55]">
+            Book Free Kajabi Audit
+          </a>
+          <a href="#kajabi-services" class="inline-flex justify-center items-center px-6 py-3 rounded-md bg-white text-slate-700 font-medium border border-slate-200 hover:bg-slate-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-400">
+            Explore Kajabi Services
+          </a>
+        </div>
+
+        <!-- Trust Chips -->
+        <div class="flex flex-wrap gap-2">
+          {['Kajabi Websites', 'Course Products', 'Landing Pages', 'Offers & Checkout', 'Email Automations', 'Funnels', 'Student Onboarding', 'Migration Support'].map((chip) => (
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#EFF6FF] text-[#27496D] border border-blue-100">
+              {chip}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Hero Visual (Kajabi Business System Infographic) -->
+      <div class="relative w-full h-[500px] flex items-center justify-center">
+        <!-- SVG Connector Lines -->
+        <svg class="absolute inset-0 w-full h-full -z-10" aria-hidden="true" style="pointer-events: none;">
+          <g stroke="#77BA55" stroke-width="2" stroke-dasharray="4 4" fill="none" opacity="0.6">
+            <!-- Central node connects to 4 corners and top/bottom -->
+            <path d="M50% 50% L20% 20%" />
+            <path d="M50% 50% L80% 20%" />
+            <path d="M50% 50% L20% 80%" />
+            <path d="M50% 50% L80% 80%" />
+            <path d="M50% 50% L50% 10%" />
+            <path d="M50% 50% L50% 90%" />
+            <path d="M50% 50% L15% 50%" />
+            <path d="M50% 50% L85% 50%" />
+          </g>
+        </svg>
+
+        <!-- Central Node -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-white rounded-full shadow-lg border border-slate-100 flex flex-col items-center justify-center z-20">
+          <div class="w-12 h-12 bg-[#27496D] rounded-full flex items-center justify-center mb-2">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <span class="text-sm font-bold text-[#27496D] text-center">Kajabi Build<br/>Core</span>
+        </div>
+
+        <!-- Outer Nodes (approximate positioning) -->
+        <!-- Top -->
+        <div class="absolute top-[5%] left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded-lg shadow-md border border-slate-100 text-xs font-medium text-[#27496D]">Website</div>
+
+        <!-- Top Right -->
+        <div class="absolute top-[15%] right-[10%] transform bg-white px-4 py-2 rounded-lg shadow-md border border-slate-100 text-xs font-medium text-[#27496D]">Landing Page</div>
+
+        <!-- Right -->
+        <div class="absolute top-1/2 right-[5%] transform -translate-y-1/2 bg-white px-4 py-2 rounded-lg shadow-md border border-slate-100 text-xs font-medium text-[#27496D]">Offer & Checkout</div>
+
+        <!-- Bottom Right -->
+        <div class="absolute bottom-[15%] right-[10%] transform bg-white px-4 py-2 rounded-lg shadow-md border border-slate-100 text-xs font-medium text-[#27496D]">Automations</div>
+
+        <!-- Bottom -->
+        <div class="absolute bottom-[5%] left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded-lg shadow-md border border-slate-100 text-xs font-medium text-[#27496D]">Community</div>
+
+        <!-- Bottom Left -->
+        <div class="absolute bottom-[15%] left-[10%] transform bg-white px-4 py-2 rounded-lg shadow-md border border-slate-100 text-xs font-medium text-[#27496D]">Analytics</div>
+
+        <!-- Left -->
+        <div class="absolute top-1/2 left-[5%] transform -translate-y-1/2 bg-white px-4 py-2 rounded-lg shadow-md border border-slate-100 text-xs font-medium text-[#27496D]">Email Campaigns</div>
+
+        <!-- Top Left -->
+        <div class="absolute top-[15%] left-[10%] transform bg-white px-4 py-2 rounded-lg shadow-md border border-slate-100 text-xs font-medium text-[#27496D]">Course Product</div>
+
+        <!-- Between Top/Right & Top/Left inner -->
+        <div class="absolute top-[28%] left-[25%] transform bg-white px-3 py-1.5 rounded-lg shadow-sm border border-slate-100 text-[10px] font-medium text-slate-500">Student Exp.</div>
+        <div class="absolute bottom-[28%] right-[25%] transform bg-white px-3 py-1.5 rounded-lg shadow-sm border border-slate-100 text-[10px] font-medium text-slate-500">Launch Support</div>
+
+      </div>
+    </div>
+  </div>
+</section>

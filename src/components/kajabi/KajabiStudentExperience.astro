@@ -1,0 +1,34 @@
+---
+// src/components/kajabi/KajabiStudentExperience.astro
+---
+<section class="py-24 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-slate-900 mb-6">Your Kajabi System Should Be Easy for Students to Follow</h2>
+    <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-16">
+      A good Kajabi setup is not just about the admin dashboard. It should help students know where to start, what lesson comes next, what resources to download, how to track progress, and how to stay engaged.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {
+        [
+          'Clear course structure',
+          'Simple lesson flow',
+          'Downloadable resources',
+          'Student onboarding',
+          'Progress guidance',
+          'Community or support touchpoints',
+          'Completion support'
+        ].map((feature) => (
+          <div class="bg-white px-6 py-8 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center">
+            <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-[#77BA55]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-800 text-center">{feature}</h3>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
