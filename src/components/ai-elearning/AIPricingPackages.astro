@@ -1,0 +1,144 @@
+---
+// src/components/ai-elearning/AIPricingPackages.astro
+import Card from '../ui/Card.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import Button from '../ui/Button.astro';
+
+const packages = [
+  {
+    title: "AI Course Clarity Sprint",
+    price: "Starting from $350",
+    bestFor: "Creators, coaches, consultants, or educators with a course idea but no clear structure.",
+    features: [
+      "Course direction review",
+      "Target learner profile",
+      "Course promise",
+      "Module map",
+      "Lesson outline",
+      "Learner journey",
+      "Launch checklist"
+    ],
+    highlight: false
+  },
+  {
+    title: "AI Content Conversion Kit",
+    price: "Starting from $900",
+    bestFor: "Clients with PDFs, slides, videos, notes, manuals, or training files that need to become online course assets.",
+    features: [
+      "Content audit",
+      "Module and lesson mapping",
+      "Lesson summaries",
+      "Script/talking-point drafts",
+      "Worksheet ideas",
+      "Quiz/check-in questions",
+      "Resource list",
+      "Platform-ready content structure"
+    ],
+    highlightLabel: "Most practical starting point",
+    highlight: true
+  },
+  {
+    title: "AI Course Production Sprint",
+    price: "Starting from $1,800",
+    bestFor: "Clients ready to turn raw content into a complete course production plan and learning asset set.",
+    features: [
+      "Course strategy",
+      "Curriculum structure",
+      "Lesson sequence",
+      "Video script support",
+      "Worksheets and quizzes",
+      "Student support content",
+      "Course completion path",
+      "Kajabi/LMS-ready structure"
+    ],
+    highlight: false
+  },
+  {
+    title: "AI + Kajabi/LMS Launch Build",
+    price: "Custom quote, usually from $3,500",
+    bestFor: "Serious creators, academies, training companies, and organizations that need AI-assisted course production plus platform and launch support.",
+    features: [
+      "AI-assisted content production",
+      "Human learning-design review",
+      "Kajabi/LMS structure",
+      "Landing page copy drafts",
+      "Email/onboarding drafts",
+      "Funnel and launch asset planning",
+      "QA checklist",
+      "Launch support"
+    ],
+    highlightLabel: "Best for full launch",
+    highlight: true
+  },
+  {
+    title: "Monthly AI Course Support",
+    price: "Starting from $600/month",
+    bestFor: "Existing course businesses, academies, and training teams that need ongoing content updates and course support.",
+    features: [
+      "New lesson planning",
+      "Content repurposing",
+      "Summaries",
+      "Worksheets",
+      "Quiz ideas",
+      "Email drafts",
+      "Student support content",
+      "Course update support"
+    ],
+    highlight: false
+  }
+];
+---
+
+<section id="ai-packages" class="py-24 bg-brand-softBg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader
+      title="AI-Powered E-Learning Support Packages"
+      description="Transparent starting prices help you understand the likely investment before booking. Final pricing depends on content volume, course length, review rounds, platform setup, assets, and launch requirements."
+    />
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 items-start">
+      {packages.map((pkg, index) => (
+        <div class={`relative bg-white rounded-2xl p-8 shadow-md border ${pkg.highlight ? 'border-brand-accent shadow-xl transform md:-translate-y-2 ring-1 ring-brand-accent' : 'border-brand-border/60 hover:shadow-lg transition-shadow'}`}>
+
+          {pkg.highlightLabel && (
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-accent text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm whitespace-nowrap">
+              {pkg.highlightLabel}
+            </div>
+          )}
+
+          <div class="mb-6">
+            <h3 class="text-xl font-bold text-brand-navy mb-2">{pkg.title}</h3>
+            <div class="text-2xl font-extrabold text-slate-800">{pkg.price}</div>
+          </div>
+
+          <div class="mb-8">
+            <p class="text-sm font-semibold text-brand-textMain mb-2 uppercase tracking-wider">Best for:</p>
+            <p class="text-sm text-brand-textMuted leading-relaxed">{pkg.bestFor}</p>
+          </div>
+
+          <div class="mb-8">
+            <p class="text-sm font-semibold text-brand-textMain mb-4 uppercase tracking-wider">Includes:</p>
+            <ul class="space-y-3">
+              {pkg.features.map(feature => (
+                <li class="flex items-start text-sm text-slate-700">
+                  <svg class="w-5 h-5 text-brand-accent mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="mt-auto">
+             <a href="/book-free-audit/" class={`block w-full text-center py-3 px-4 rounded-md font-bold transition-colors ${pkg.highlight ? 'bg-brand-accent text-white hover:bg-brand-primary shadow-md' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-white hover:shadow-sm'}`}>
+                Book Free AI Course Audit
+             </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 text-center max-w-3xl mx-auto text-sm text-brand-textMuted bg-white p-6 rounded-lg border border-brand-border/40 shadow-sm">
+        <strong class="text-brand-navy">Pricing disclaimer:</strong> Final quote depends on content volume, content format, course length, platform setup needs, review rounds, design assets, and launch requirements. Every project starts with a free audit so we can recommend the right package before you pay.
+    </div>
+  </div>
+</section>

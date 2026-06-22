@@ -1,0 +1,118 @@
+---
+// src/components/ai-elearning/AIElearningHero.astro
+---
+<section class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-white">
+  <!-- Subtle background pattern -->
+  <div class="absolute inset-0 z-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-20 bg-brand-softGreen blur-3xl rounded-full pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
+      AI-Powered E-Learning Support That Turns Raw Content Into Course-Ready Assets
+    </h1>
+
+    <p class="text-lg md:text-xl text-brand-textMuted mb-10 max-w-3xl mx-auto leading-relaxed">
+      TheEduAssist uses AI-assisted, human-reviewed workflows to help creators, coaches, educators, consultants, academies, and training teams turn ideas, PDFs, slides, videos, notes, manuals, and outlines into structured course plans, lesson scripts, worksheets, quizzes, summaries, student support content, and launch-ready learning assets.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+      <a href="/book-free-audit/" class="w-full sm:w-auto bg-brand-accent text-white px-8 py-3.5 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all hover:bg-brand-primary shadow-md hover:shadow-lg text-center">
+        Book Free AI Course Audit
+      </a>
+      <a href="#ai-packages" class="w-full sm:w-auto bg-white text-brand-navy border border-brand-border px-8 py-3.5 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all hover:bg-brand-softBg shadow-sm text-center">
+        View AI Support Packages
+      </a>
+    </div>
+
+    <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4 max-w-3xl mx-auto mb-20">
+      {[
+        "AI Course Planning",
+        "Content Conversion",
+        "Curriculum Support",
+        "Lesson Scripts",
+        "Worksheets & Quizzes",
+        "Launch Content",
+        "Human Review"
+      ].map((chip) => (
+        <div class="flex items-center space-x-2 bg-white border border-brand-border/60 px-4 py-2 rounded-full text-sm font-semibold text-brand-textMain shadow-sm">
+          <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+          <span>{chip}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Infographic Visual: AI-Assisted Course Production System -->
+    <div class="relative max-w-5xl mx-auto mt-16">
+        <h3 class="sr-only">AI-Assisted Course Production System</h3>
+
+        <div class="bg-white p-8 md:p-12 rounded-3xl border border-brand-border/50 shadow-xl relative group overflow-hidden">
+            <!-- Connecting lines background -->
+            <div class="absolute inset-0 z-0 opacity-40">
+                 <svg class="w-full h-full text-brand-accent/30" preserveAspectRatio="none" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.3">
+                    <line x1="20" y1="50" x2="50" y2="50" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="50" y1="50" x2="80" y2="50" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+
+                    <line x1="20" y1="20" x2="50" y2="50" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="20" y1="80" x2="50" y2="50" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+
+                    <line x1="50" y1="50" x2="80" y2="20" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="50" y1="50" x2="80" y2="80" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+                </svg>
+            </div>
+
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+
+                <!-- Left: Raw Knowledge -->
+                <div class="flex-1 w-full text-left bg-brand-softBg/50 p-6 rounded-xl border border-brand-border/40 backdrop-blur-sm">
+                    <h4 class="font-bold text-brand-navy mb-4 text-center md:text-left">Raw Knowledge</h4>
+                    <ul class="grid grid-cols-2 gap-2 text-sm text-brand-textMuted">
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg><span>Ideas</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg><span>PDFs</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg><span>Slides</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg><span>Videos</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg><span>Notes</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg><span>Manuals</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg><span>Webinars</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg><span>SOPs</span></li>
+                    </ul>
+                </div>
+
+                <!-- Center Core -->
+                <div class="flex-shrink-0 z-20">
+                    <div class="bg-brand-navy p-6 rounded-2xl shadow-xl border border-brand-navy/20 flex flex-col items-center justify-center w-56 h-56 relative animate-[float_4s_ease-in-out_infinite]">
+                        <div class="absolute inset-0 rounded-2xl bg-brand-accent/10 animate-pulse"></div>
+                        <img src="/brand/theeduassist-logo-mark.svg" alt="TheEduAssist Logo Mark" class="w-16 h-16 mb-4 relative z-10 brightness-0 invert" />
+                        <span class="font-bold text-white text-center leading-tight relative z-10">TheEduAssist<br/><span class="text-brand-accent text-sm font-medium">AI + Learning Design<br/>Workflow</span></span>
+                    </div>
+                </div>
+
+                <!-- Right: Course-Ready Assets -->
+                <div class="flex-1 w-full text-left bg-brand-softGreen/30 p-6 rounded-xl border border-brand-accent/20 backdrop-blur-sm">
+                    <h4 class="font-bold text-brand-navy mb-4 text-center md:text-left">Course-Ready Assets</h4>
+                    <ul class="grid grid-cols-2 gap-2 text-sm text-brand-textMuted">
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg><span>Course Map</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg><span>Lesson Scripts</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg><span>Worksheets</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Quizzes</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg><span>Summaries</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg><span>Student FAQ</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg><span>Launch Emails</span></li>
+                        <li class="flex items-center space-x-2"><svg class="w-4 h-4 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg><span>Kajabi/LMS</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<style>
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    @keyframes dash {
+        to { stroke-dashoffset: -10; }
+    }
+</style>

@@ -1,0 +1,58 @@
+---
+// src/components/ai-elearning/AIServiceBuckets.astro
+import Card from '../ui/Card.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const services = [
+  {
+    title: "AI Course Strategy",
+    description: "We turn your idea, niche, audience, and goal into a clear course direction, learning promise, offer map, and learner journey.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z"
+  },
+  {
+    title: "AI Curriculum Planning",
+    description: "We use AI-assisted workflows to draft module structures, lesson flows, learning outcomes, milestones, and course completion pathways, then refine them through learning design.",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+  },
+  {
+    title: "AI Content Conversion",
+    description: "We convert PDFs, slides, videos, notes, manuals, scripts, and training files into lessons, summaries, worksheets, quizzes, and downloadable resources.",
+    icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+  },
+  {
+    title: "AI Lesson Script Support",
+    description: "We help plan lesson talking points, video scripts, slide outlines, voiceover scripts, welcome videos, onboarding videos, and course recap content.",
+    icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+  },
+  {
+    title: "AI Assessment & Workbook Support",
+    description: "We draft and refine quizzes, reflection prompts, scenario questions, assignments, worksheets, practice tasks, and progress check-ins.",
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+  },
+  {
+    title: "AI Launch Content Support",
+    description: "We help create landing page copy drafts, email sequences, social content ideas, lead magnet outlines, student onboarding emails, and launch checklists.",
+    icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+  }
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader title="What TheEduAssist Does With AI" />
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      {services.map((service) => (
+        <Card className="hover:-translate-y-1 transition-transform duration-300 group">
+          <div class="w-14 h-14 bg-brand-softBlue rounded-xl flex items-center justify-center text-brand-navy mb-6 group-hover:bg-brand-navy group-hover:text-white transition-colors duration-300">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-brand-navy mb-4">{service.title}</h3>
+          <p class="text-brand-textMuted leading-relaxed">{service.description}</p>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

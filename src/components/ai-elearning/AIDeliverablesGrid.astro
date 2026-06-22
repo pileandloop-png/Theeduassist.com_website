@@ -1,0 +1,42 @@
+---
+// src/components/ai-elearning/AIDeliverablesGrid.astro
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const deliverables = [
+  "Course map",
+  "Module structure",
+  "Lesson outline",
+  "Learning outcomes",
+  "Lesson scripts",
+  "Slide outline",
+  "Worksheets",
+  "Quizzes",
+  "Reflection prompts",
+  "Assignments",
+  "Student FAQ",
+  "Onboarding emails",
+  "Launch checklist",
+  "Platform-ready upload structure",
+  "Content review checklist",
+  "Prompt library for future course updates"
+];
+---
+
+<section class="py-24 bg-brand-softGreen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader title="What You Can Walk Away With" />
+
+    <div class="mt-12 bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-brand-accent/20 max-w-5xl mx-auto">
+        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-4">
+            {deliverables.map(item => (
+                <li class="flex items-center space-x-3 text-slate-700 font-medium">
+                    <div class="w-8 h-8 rounded-full bg-brand-softBg flex items-center justify-center flex-shrink-0 text-brand-accent border border-brand-border/60">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <span class="text-sm leading-tight">{item}</span>
+                </li>
+            ))}
+        </ul>
+    </div>
+  </div>
+</section>
