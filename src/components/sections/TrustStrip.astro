@@ -1,0 +1,24 @@
+---
+// src/components/sections/TrustStrip.astro
+---
+<section class="bg-brand-softBg py-10 border-y border-brand-border/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-brand-textMuted font-medium text-sm md:text-base uppercase tracking-widest mb-6 max-w-3xl mx-auto">
+            Built for course creators, educators, consultants, academies, and training teams that need structured, professional learning systems.
+        </p>
+        <div class="flex flex-wrap justify-center gap-6 md:gap-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+            {[
+                "Multi-Platform Course Builds",
+                "Kajabi-Focused Expertise",
+                "LMS-Ready Content Structure",
+                "Learner-First Design",
+                "Launch & Automation Support"
+            ].map(badge => (
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-brand-navy" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <span class="font-bold text-brand-navy text-sm">{badge}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

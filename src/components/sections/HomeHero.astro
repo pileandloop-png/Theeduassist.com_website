@@ -1,108 +1,122 @@
 ---
-import Button from '../ui/Button.astro';
+// src/components/sections/HomeHero.astro
+import { getSiteSettings } from '../../sanity/queries';
 
-interface Props {
-  title: string;
-  subtitle: string;
-  heroBadge?: string;
-  primaryCtaLabel: string;
-  primaryCtaLink: string;
-  secondaryCtaLabel?: string;
-  secondaryCtaLink?: string;
-  tertiaryCtaLabel?: string;
-  tertiaryCtaLink?: string;
-  trustText?: string;
-  showDashboardVisual?: boolean;
+export interface Props {
+    title: string;
+    subtitle: string;
+    primaryCtaLabel: string;
+    primaryCtaLink: string;
+    secondaryCtaLabel?: string;
+    secondaryCtaLink?: string;
+    trustChips?: string[];
 }
 
 const {
-  title,
-  subtitle,
-  heroBadge,
-  primaryCtaLabel,
-  primaryCtaLink,
-  secondaryCtaLabel,
-  secondaryCtaLink,
-  tertiaryCtaLabel,
-  tertiaryCtaLink,
-  trustText,
-  showDashboardVisual = false
+    title,
+    subtitle,
+    primaryCtaLabel,
+    primaryCtaLink,
+    secondaryCtaLabel,
+    secondaryCtaLink,
+    trustChips
 } = Astro.props;
+
 ---
-<section class="py-20 bg-brand-softBg text-center px-4 md:py-28 animate-fade-up">
-  <div class="max-w-4xl mx-auto">
-    {heroBadge && (
-      <div class="inline-block px-4 py-1.5 rounded-full bg-brand-softGreen text-brand-accent font-semibold text-sm mb-6 shadow-sm border border-brand-accent/20">
-        {heroBadge}
-      </div>
-    )}
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-6 leading-tight">
+<section class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-white">
+  <!-- Subtle background pattern -->
+  <div class="absolute inset-0 z-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-30"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-20 bg-brand-softGreen blur-3xl rounded-full pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
       {title}
     </h1>
-    <p class="text-lg md:text-xl text-brand-textMuted max-w-3xl mx-auto mb-8 leading-relaxed">
+
+    <p class="text-lg md:text-xl text-brand-textMuted mb-10 max-w-3xl mx-auto leading-relaxed">
       {subtitle}
     </p>
-    {trustText && (
-      <p class="text-sm font-medium text-brand-navy max-w-2xl mx-auto mb-10 pb-4 border-b border-brand-border/50">
-        {trustText}
-      </p>
-    )}
-    <div class={`flex flex-col sm:flex-row justify-center items-center gap-4 ${showDashboardVisual ? 'mb-16' : ''}`}>
-      <Button href={primaryCtaLink} variant="primary" size="lg">{primaryCtaLabel}</Button>
+
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+      <a href={primaryCtaLink} class="w-full sm:w-auto bg-brand-accent text-white px-8 py-3.5 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all hover:bg-brand-primary shadow-md hover:shadow-lg text-center">
+        {primaryCtaLabel}
+      </a>
       {secondaryCtaLabel && secondaryCtaLink && (
-        <Button href={secondaryCtaLink} variant="outline" size="lg">{secondaryCtaLabel}</Button>
-      )}
-      {tertiaryCtaLabel && tertiaryCtaLink && (
-        <Button href={tertiaryCtaLink} variant="outline" size="lg">{tertiaryCtaLabel}</Button>
+        <a href={secondaryCtaLink} class="w-full sm:w-auto bg-white text-brand-navy border border-brand-border px-8 py-3.5 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all hover:bg-brand-softBg shadow-sm text-center">
+          {secondaryCtaLabel}
+        </a>
       )}
     </div>
 
-    {showDashboardVisual && (
-    <!-- Dashboard-Style Visual Panel -->
-    <div class="bg-gradient-to-br from-brand-softBlue to-brand-softBg p-8 rounded-2xl shadow-sm border border-brand-border/50 max-w-4xl mx-auto relative overflow-hidden">
-      <!-- Decorative background glow -->
-      <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-accent/5 rounded-full blur-3xl"></div>
-      <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-brand-softGreen/50 rounded-full blur-3xl"></div>
-
-      <div class="relative z-10 grid grid-cols-2 md:grid-cols-3 gap-4 text-sm font-medium text-brand-navy">
-        <div class="bg-white py-4 px-4 rounded-xl shadow-sm border border-brand-border flex flex-col items-center justify-center gap-3 hover-lift transition-all hover:border-brand-accent/30 group">
-            <div class="bg-brand-softGreen/50 p-2 rounded-lg group-hover:bg-brand-softGreen transition-colors">
-              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-            </div>
-            Course Strategy
-        </div>
-        <div class="bg-white py-4 px-4 rounded-xl shadow-sm border border-brand-border flex flex-col items-center justify-center gap-3 hover-lift transition-all hover:border-brand-accent/30 group">
-            <div class="bg-brand-softGreen/50 p-2 rounded-lg group-hover:bg-brand-softGreen transition-colors">
-              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-            </div>
-            LMS Setup
-        </div>
-        <div class="bg-white py-4 px-4 rounded-xl shadow-sm border border-brand-border flex flex-col items-center justify-center gap-3 hover-lift transition-all hover:border-brand-accent/30 group">
-            <div class="bg-brand-softGreen/50 p-2 rounded-lg group-hover:bg-brand-softGreen transition-colors">
-              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-            </div>
-            Kajabi Build
-        </div>
-        <div class="bg-white py-4 px-4 rounded-xl shadow-sm border border-brand-border flex flex-col items-center justify-center gap-3 hover-lift transition-all hover:border-brand-accent/30 group">
-            <div class="bg-brand-softGreen/50 p-2 rounded-lg group-hover:bg-brand-softGreen transition-colors">
-              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
-            </div>
-            Content Flow
-        </div>
-        <div class="bg-white py-4 px-4 rounded-xl shadow-sm border border-brand-border flex flex-col items-center justify-center gap-3 hover-lift transition-all hover:border-brand-accent/30 group">
-            <div class="bg-brand-softGreen/50 p-2 rounded-lg group-hover:bg-brand-softGreen transition-colors">
-              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-            </div>
-            AI Learning Support
-        </div>
-        <div class="bg-white py-4 px-4 rounded-xl shadow-sm border border-brand-border flex flex-col items-center justify-center gap-3 hover-lift transition-all hover:border-brand-accent/30 group">
-            <div class="bg-brand-softGreen/50 p-2 rounded-lg group-hover:bg-brand-softGreen transition-colors">
-              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
-            </div>
-            Launch Checklist
-        </div>
+    {trustChips && trustChips.length > 0 && (
+      <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4 max-w-3xl mx-auto mb-20">
+        {trustChips.map((chip) => (
+          <div class="flex items-center space-x-2 bg-white border border-brand-border/60 px-4 py-2 rounded-full text-sm font-semibold text-brand-textMain shadow-sm">
+            <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            <span>{chip}</span>
+          </div>
+        ))}
       </div>
-    </div>
     )}
+
+    <!-- Infographic Visual: TheEduAssist Learning System Engine -->
+    <div class="relative max-w-5xl mx-auto mt-16">
+        <h3 class="sr-only">TheEduAssist Learning System Engine</h3>
+
+        <div class="bg-white p-8 md:p-12 rounded-3xl border border-brand-border/50 shadow-xl relative group">
+            <!-- Connecting lines background -->
+            <div class="absolute inset-0 z-0 opacity-40">
+                <svg class="w-full h-full text-brand-accent/30" preserveAspectRatio="none" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.3">
+                    <line x1="50" y1="50" x2="20" y2="25" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="50" y1="50" x2="50" y2="15" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="50" y1="50" x2="80" y2="25" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="50" y1="50" x2="20" y2="75" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="50" y1="50" x2="50" y2="85" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+                    <line x1="50" y1="50" x2="80" y2="75" class="animate-[dash_3s_linear_infinite]" stroke-dasharray="2 2" />
+                </svg>
+            </div>
+
+            <!-- Central Core -->
+            <div class="relative z-10 flex justify-center items-center mb-10">
+                <div class="bg-brand-navy p-6 rounded-2xl shadow-lg border border-brand-navy/20 flex flex-col items-center justify-center w-48 h-48 relative animate-[float_4s_ease-in-out_infinite]">
+                    <div class="absolute inset-0 rounded-2xl bg-brand-accent/10 animate-pulse"></div>
+                    <img src="/brand/theeduassist-logo-mark.svg" alt="TheEduAssist Logo Mark" class="w-16 h-16 mb-3 relative z-10 brightness-0 invert" />
+                    <span class="font-bold text-white text-center leading-tight relative z-10">TheEduAssist<br/><span class="text-brand-accent text-sm">Learning Core</span></span>
+                </div>
+            </div>
+
+            <!-- Surrounding Nodes Grid -->
+            <div class="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                {[
+                  { label: "Knowledge Extraction", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+                  { label: "Curriculum Design", icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
+                  { label: "Kajabi Build", icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" },
+                  { label: "LMS Migration", icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" },
+                  { label: "AI Assistance", icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" },
+                  { label: "Content Production", icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" },
+                  { label: "Funnels", icon: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" },
+                  { label: "Student Experience", icon: "M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+                  { label: "Launch Support", icon: "M13 10V3L4 14h7v7l9-11h-7z" }
+                ].map((node) => (
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-brand-border/60 flex flex-col items-center text-center space-y-3 hover:-translate-y-1 transition-transform duration-300 group/card">
+                        <div class="bg-brand-softBg text-brand-navy p-3 rounded-xl group-hover/card:bg-brand-accent group-hover/card:text-white transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={node.icon}></path></svg>
+                        </div>
+                        <span class="font-bold text-brand-navy text-sm leading-tight">{node.label}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
   </div>
 </section>
+
+<style>
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    @keyframes dash {
+        to { stroke-dashoffset: -10; }
+    }
+</style>

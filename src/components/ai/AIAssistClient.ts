@@ -2,7 +2,7 @@
 export const brandContext = "TheEduAssist is an e-learning design and course-building agency. It helps creators, coaches, consultants, educators, training companies, online academies, and businesses build complete online learning systems. Services include course creation, curriculum design, Kajabi websites and course setup, LMS implementation and migration, instructional design, learner experience, AI-powered e-learning support, content conversion, funnels, automation, templates, launch support, and ongoing support.";
 
 export const instructions: Record<string, string> = {
-    summarize_page: "Summarize this webpage in simple, clear language. Explain what this page is about, who it is for, what problem it solves, what TheEduAssist offers, and what next step I should take.",
+    summarize_page: "Please summarize this page in simple, practical language. Explain what this page is about, who it is for, what problem it solves, what TheEduAssist offers, and what next step I should take.",
     explain_service: "Explain this service in simple words. Tell me what it includes, who needs it, how it helps creators, coaches, educators, academies, training companies, or businesses, what results it supports, and what questions I should ask before booking a call.",
     help_me_choose: "Help me decide if this service is right for me. My goal may be to build, improve, migrate, or sell an online course or learning platform. Explain whether this service fits my needs, what type of business would benefit from it, what I should prepare, and what next step I should take.",
     create_action_plan: "Turn this page into a practical action plan for building or improving an online course or learning system. Include course strategy, content structure, learner experience, Kajabi or LMS setup needs, automation ideas, funnel ideas, and next steps.",
@@ -38,9 +38,7 @@ Page description:
 ${pageDescription}
 
 Task:
-${selectedPromptInstruction}
-
-Please explain this clearly and practically. Also tell me what next step I should take.`;
+${selectedPromptInstruction}`;
 }
 
 export async function copyAndOpenAI(actionId: string, platformUrl: string, platformName: string) {

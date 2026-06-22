@@ -1,0 +1,72 @@
+---
+// src/components/sections/AIElearningSupport.astro
+---
+<section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1">
+                <div class="bg-brand-softBg p-8 rounded-3xl border border-brand-border">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-primary text-brand-accent font-bold flex items-center justify-center shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy">Raw Content</h4>
+                                <p class="text-sm text-brand-textMain">Ideas, old slides, recordings.</p>
+                            </div>
+                        </div>
+                        <div class="w-0.5 h-6 bg-brand-border ml-5"></div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-primary text-brand-accent font-bold flex items-center justify-center shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy">AI Planning</h4>
+                                <p class="text-sm text-brand-textMain">Structuring and synthesis.</p>
+                            </div>
+                        </div>
+                        <div class="w-0.5 h-6 bg-brand-border ml-5"></div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-primary text-brand-accent font-bold flex items-center justify-center shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy">Course Outline</h4>
+                                <p class="text-sm text-brand-textMain">Clear modules and lessons.</p>
+                            </div>
+                        </div>
+                        <div class="w-0.5 h-6 bg-brand-border ml-5"></div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-primary text-brand-accent font-bold flex items-center justify-center shrink-0">4</div>
+                            <div>
+                                <h4 class="font-bold text-brand-navy">Launch Assets</h4>
+                                <p class="text-sm text-brand-textMain">Scripts, quizzes, and summaries.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-1 lg:order-2">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-6">AI-Assisted Course Planning and Learning Content Support</h2>
+                <p class="text-lg text-brand-textMuted mb-8 leading-relaxed">
+                    Use AI-assisted workflows to turn raw ideas, PDFs, notes, videos, and outlines into clearer course structures, lesson plans, summaries, quizzes, scripts, workbooks, and launch-ready learning assets.
+                </p>
+
+                <ul class="space-y-4 mb-8">
+                    {[
+                        "Course outline support",
+                        "Lesson planning",
+                        "Quiz and worksheet support",
+                        "Training summaries",
+                        "Content repurposing",
+                        "Student support content",
+                        "Launch workflow planning"
+                    ].map(feature => (
+                        <li class="flex items-center space-x-3 text-brand-textMain font-medium">
+                            <svg class="w-5 h-5 text-brand-accent shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>{feature}</span>
+                        </li>
+                    ))}
+                </ul>
+
+                <a href="/services/ai-assistance/" class="text-brand-accent font-bold hover:text-brand-primary transition-colors focus-ring underline underline-offset-4">See how we use AI to build courses faster</a>
+            </div>
+        </div>
+    </div>
+</section>

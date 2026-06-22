@@ -1,27 +1,27 @@
 ---
-import Button from '../ui/Button.astro';
-
-interface Props {
-  title?: string;
-  subtitle?: string;
-  ctaLabel?: string;
-  ctaLink?: string;
-}
-
-const {
-  title = "Build your online academy and start your learning journey with confidence.",
-  subtitle = "Let's discuss how we can structure, build, or migrate your learning content.",
-  ctaLabel = "Book Free Audit",
-  ctaLink = "/book-free-audit/"
-} = Astro.props;
+// src/components/sections/FinalCTA.astro
 ---
-<section class="py-24 bg-brand-primary text-white text-center relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
-  <div class="max-w-4xl mx-auto px-4 relative z-10">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">{title}</h2>
-    <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">{subtitle}</p>
-    <Button href={ctaLink} variant="white" size="lg">
-      {ctaLabel}
-    </Button>
-  </div>
+<section class="py-24 bg-brand-primary text-white relative overflow-hidden">
+    <!-- Decorative background -->
+    <div class="absolute inset-0 z-0 opacity-10">
+        <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,100 C30,50 70,50 100,0 L100,100 Z" fill="currentColor"></path>
+        </svg>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">Ready to Turn Your Expertise Into a Professional Online Course System?</h2>
+        <p class="text-xl text-slate-300 mb-10 leading-relaxed">
+            Book a free audit and we’ll review your current content, course idea, Kajabi setup, LMS, or learning workflow and show you what needs to be structured, built, fixed, or improved.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="https://calendly.com/eduassist-talk/30min?month" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-brand-accent text-white px-8 py-4 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all hover:bg-white hover:text-brand-navy shadow-lg text-center">
+                Book Free Audit
+            </a>
+            <a href="/contact/" class="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all hover:bg-white/10 text-center">
+                Contact TheEduAssist
+            </a>
+        </div>
+    </div>
 </section>

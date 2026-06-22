@@ -10,29 +10,28 @@ const desktopNav = [
     { label: 'Services', href: '/services/' },
     { label: 'Kajabi', href: '/kajabi-services/' },
     { label: 'LMS Migration', href: '/services/lms-implementation-migration/' },
-    { label: 'AI Assistance', href: '/services/ai-assistance/' },
+    { label: 'AI Support', href: '/services/ai-assistance/' },
     { label: 'Case Studies', href: '/case-studies/' },
     { label: 'Blog', href: '/blog/' },
     { label: 'Contact', href: '/contact/' },
 ];
 
 ---
-<header class="bg-white border-b border-brand-border relative z-50 sticky top-0">
+<header class="bg-white/90 backdrop-blur-md border-b border-brand-border/50 relative z-50 sticky top-0 shadow-sm transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <a href="/" class="flex items-center space-x-3 focus-ring rounded-sm group" aria-label="TheEduAssist Home">
-            <img src="/brand/theeduassist-logo.svg" alt="TheEduAssist e-learning design agency logo" class="h-10 w-auto" />
+        <a href="/" class="flex items-center space-x-3 focus-ring rounded-sm group shrink-0" aria-label="TheEduAssist Home">
+            <img src="/brand/theeduassist-logo.svg" alt="TheEduAssist e-learning design agency logo" class="h-10 w-auto object-contain" />
             <div class="hidden md:flex flex-col">
-                <span class="font-bold text-brand-primary text-xl leading-tight group-hover:text-brand-accent transition-colors">TheEduAssist</span>
+                <span class="font-bold text-brand-primary text-xl leading-tight group-hover:text-brand-accent transition-colors duration-300">TheEduAssist</span>
                 <span class="text-xs text-brand-textMuted font-medium uppercase tracking-wider">E-Learning Design Agency</span>
             </div>
         </a>
-        <nav class="hidden lg:flex space-x-5 items-center">
+        <nav class="hidden lg:flex space-x-6 items-center">
             {desktopNav.map((item) => (
-                <a href={item.href} class="text-brand-textMain hover:text-brand-primary hover:bg-brand-softBg hover:underline underline-offset-4 decoration-brand-accent/30 font-medium focus-ring rounded-md px-3 py-2 transition-all">{item.label}</a>
+                <a href={item.href} class="text-brand-textMain hover:text-brand-primary hover:underline underline-offset-8 decoration-brand-accent/50 decoration-2 font-medium focus-ring rounded-sm px-1 py-2 transition-all duration-300">{item.label}</a>
             ))}
-            <div class="flex items-center space-x-4 ml-2 border-l border-brand-border pl-6">
-                <a href="/services/" class="text-brand-primary font-medium hover:text-brand-accent focus-ring rounded-sm px-2 py-1 transition-colors">View Services</a>
-                <a href="/book-free-audit/" class="bg-brand-accent text-white px-5 py-2 rounded-md font-medium hover-lift click-press focus-ring transition-colors hover:bg-brand-primary shadow-sm">Book Free Audit</a>
+            <div class="flex items-center ml-4 pl-6 border-l border-brand-border/60">
+                <a href="/book-free-audit/" class="bg-brand-accent text-white px-5 py-2.5 rounded-md font-semibold hover-lift click-press focus-ring transition-all duration-300 hover:bg-brand-primary shadow hover:shadow-md">Book Free Audit</a>
             </div>
         </nav>
         <div class="lg:hidden flex items-center">

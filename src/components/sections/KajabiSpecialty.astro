@@ -1,0 +1,50 @@
+---
+// src/components/sections/KajabiSpecialty.astro
+---
+<section class="py-20 md:py-28 bg-brand-softBg overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-6">Kajabi Is One of Our Strongest Specialties</h2>
+            <p class="text-lg text-brand-textMuted leading-relaxed">
+                We build Kajabi websites, course products, landing pages, offers, funnels, email sequences, templates, migrations, and student onboarding systems for creators and training businesses.
+            </p>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto mt-20 mb-10">
+            <!-- Central Node -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                <div class="bg-brand-navy text-white w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center font-bold text-lg md:text-xl text-center shadow-xl border-4 border-white z-20 relative">
+                    Kajabi<br/>Build
+                </div>
+            </div>
+
+            <!-- Surrounding Nodes Orbit -->
+            <div class="relative w-full aspect-square max-w-[600px] mx-auto border-2 border-brand-border/50 rounded-full animate-[spin_60s_linear_infinite]">
+                {[
+                    { label: "Website", deg: 0 },
+                    { label: "Course Products", deg: 40 },
+                    { label: "Landing Pages", deg: 80 },
+                    { label: "Offers & Checkout", deg: 120 },
+                    { label: "Email Campaigns", deg: 160 },
+                    { label: "Automations", deg: 200 },
+                    { label: "Community", deg: 240 },
+                    { label: "Analytics", deg: 280 },
+                    { label: "Launch Support", deg: 320 }
+                ].map(node => (
+                    <div class="absolute top-1/2 left-1/2 w-4 h-4 -ml-2 -mt-2 bg-brand-accent rounded-full shadow-sm" style={`transform: rotate(${node.deg}deg) translate(300px) rotate(-${node.deg}deg); @media (max-width: 640px) { transform: rotate(${node.deg}deg) translate(150px) rotate(-${node.deg}deg); }`}>
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-8 md:mt-10">
+                            <div class="bg-white px-3 py-1.5 rounded-lg shadow-md border border-brand-border whitespace-nowrap font-semibold text-sm text-brand-navy animate-[spin_60s_linear_infinite_reverse]">
+                                {node.label}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="/kajabi-services/" class="text-brand-accent font-bold hover:text-brand-primary transition-colors focus-ring underline underline-offset-4">Learn more about our Kajabi services</a>
+            <p class="text-xs text-brand-textMuted mt-6 italic">Kajabi is a third-party platform. Platform support does not imply official partnership unless stated.</p>
+        </div>
+    </div>
+</section>

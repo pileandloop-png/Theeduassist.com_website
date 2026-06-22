@@ -1,0 +1,42 @@
+---
+// src/components/sections/MultiPlatformSection.astro
+---
+<section class="py-20 md:py-28 bg-white border-y border-brand-border/40 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            <div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-6">Multi-Platform E-Learning Systems, Not One-Size-Fits-All Templates</h2>
+                <p class="text-lg text-brand-textMuted mb-6 leading-relaxed">
+                    Whether your learning business runs on Kajabi, an LMS, WordPress content, Google Drive files, PDFs, videos, or internal training materials, TheEduAssist helps organize the full system into a cleaner learning experience.
+                </p>
+                <p class="text-brand-textMain font-medium mb-8">
+                    We look at your entire ecosystem—not just the course player—to ensure everything connects seamlessly from marketing to student delivery.
+                </p>
+
+                <a href="/services/" class="inline-block border-2 border-brand-primary text-brand-primary px-8 py-3 rounded-md font-bold hover:bg-brand-primary hover:text-white transition-colors focus-ring">Explore All Platforms</a>
+            </div>
+
+            <div class="relative">
+                <div class="absolute inset-0 bg-brand-softBg rounded-full blur-3xl opacity-50 z-0"></div>
+                <div class="grid grid-cols-2 sm:grid-cols-2 gap-4 relative z-10">
+                    {[
+                        "Kajabi",
+                        "LMS Platforms",
+                        "Course Websites",
+                        "Membership Hubs",
+                        "Content Libraries",
+                        "Internal Portals",
+                        "AI Workflows",
+                        "Email & Funnels"
+                    ].map((platform) => (
+                        <div class="bg-white border border-brand-border shadow-sm p-4 rounded-xl flex items-center justify-center text-center font-bold text-brand-navy hover:border-brand-accent hover:shadow-md transition-all hover:-translate-y-1">
+                            {platform}
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

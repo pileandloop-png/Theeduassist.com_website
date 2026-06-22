@@ -1,0 +1,40 @@
+---
+// src/components/sections/WhyChooseSection.astro
+---
+<section class="py-20 md:py-28 bg-white border-t border-brand-border/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-8">Why Teams Choose TheEduAssist</h2>
+                <div class="bg-brand-softBg p-8 rounded-2xl border border-brand-border">
+                    <p class="text-lg text-brand-textMain font-medium italic mb-6">
+                        "We don't just build the website. We build the learning experience."
+                    </p>
+                    <a href="/about/" class="inline-flex items-center text-brand-accent font-bold hover:text-brand-primary transition-colors focus-ring">
+                        More about our approach
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <ul class="space-y-6">
+                    {[
+                        "We understand both learning design and platform setup.",
+                        "We structure content so learners know exactly what to do next.",
+                        "We build systems that support selling, teaching, onboarding, and delivery.",
+                        "We support Kajabi, LMS platforms, content files, templates, and launch workflows.",
+                        "We help creators, coaches, consultants, educators, and training businesses move from scattered content to structured online learning."
+                    ].map(point => (
+                        <li class="flex items-start space-x-4">
+                            <div class="mt-1 bg-brand-softGreen text-brand-accent rounded-full p-1 shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span class="text-lg text-brand-textMain leading-relaxed">{point}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
