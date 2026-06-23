@@ -6,7 +6,7 @@ export const navigation = {
     { label: 'Blog', href: '/blog/' },
     { label: 'Case Studies', href: '/case-studies/' },
     { label: 'Services', href: '/services/' },
-    { label: 'Contact Us', href: '/contact/' },
+    { label: 'Get 24–48 Hour Review', href: '/book-free-audit/' },
     { label: 'About Us', href: '/about/' },
   ],
   footerCompanyLinks: [

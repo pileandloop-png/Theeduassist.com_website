@@ -5,6 +5,7 @@ const packages = [
     title: "Course Clarity Blueprint",
     price: "Starting from $500",
     bestFor: "Creators and coaches with an idea but no clear structure.",
+    timeline: "1 week",
     includes: [
       "Audience and course goal review",
       "Course promise",
@@ -18,6 +19,7 @@ const packages = [
     title: "Curriculum Design Build",
     price: "Starting from $1,200",
     bestFor: "Educators, consultants, and training teams that need a full course structure before building in Kajabi or an LMS.",
+    timeline: "2-4 weeks",
     includes: [
       "Curriculum map",
       "Learning outcomes",
@@ -33,6 +35,7 @@ const packages = [
     title: "Course Content Production",
     price: "Starting from $2,500",
     bestFor: "Clients who need lesson scripts, worksheets, quizzes, summaries, resources, and platform-ready learning assets.",
+    timeline: "4-6 weeks",
     includes: [
       "Course blueprint",
       "Lesson scripts/talking points",
@@ -45,8 +48,9 @@ const packages = [
   },
   {
     title: "Course + Platform Launch Build",
-    price: "Custom quote, usually from $4,000",
+    price: "Custom quote, usually starting from $4,000",
     bestFor: "Clients who want course creation plus Kajabi/LMS build, funnel assets, onboarding, and launch support.",
+    timeline: "2-3 months",
     includes: [
       "Course design",
       "Learning assets",
@@ -82,8 +86,13 @@ const packages = [
 
           <div class="p-8 border-b border-brand-border/60">
             <h3 class="text-xl font-bold text-brand-navy mb-2">{pkg.title}</h3>
-            <div class="text-brand-textMain font-medium mb-4">{pkg.price}</div>
-            <p class="text-sm text-brand-textMuted min-h-[60px]">{pkg.bestFor}</p>
+            <div class="text-2xl font-extrabold text-brand-primary mb-4">{pkg.price}</div>
+            <p class="text-sm text-brand-textMuted mb-2 min-h-[60px]">
+              <span class="font-semibold text-brand-navy block mb-1">Best for:</span> {pkg.bestFor}
+            </p>
+            <p class="text-sm text-brand-textMuted mb-2">
+              <span class="font-semibold text-brand-navy block mb-1">Timeline:</span> {pkg.timeline}
+            </p>
           </div>
 
           <div class="p-8 flex-grow">
@@ -91,25 +100,39 @@ const packages = [
             <ul class="space-y-3 mb-8">
               {pkg.includes.map((item) => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-brand-accent mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <svg class="w-5 h-5 text-brand-accent mr-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                   <span class="text-sm text-brand-textMain leading-snug">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div class="p-8 pt-0 mt-auto">
-            <a href="/book-free-audit/" class={`block w-full text-center py-3 px-4 rounded-md font-bold transition-all ${pkg.highlight ? 'bg-brand-primary text-white hover:bg-brand-navy shadow-md' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-brand-accent hover:text-white hover:border-brand-accent/30'}`}>
-              Book Free Course Audit
-            </a>
+          <div class="p-8 pt-0 mt-auto space-y-3">
+             <a href="/contact/" class={`block w-full text-center py-3 px-4 rounded-md font-bold transition-all ${pkg.highlight ? 'bg-brand-primary text-white hover:bg-brand-navy shadow-md' : 'bg-brand-navy text-white hover:bg-opacity-90 shadow-sm'}`}>
+                Start This Project
+             </a>
+             <a href="/book-free-audit/" class="block w-full text-center py-3 px-4 rounded-md font-bold text-brand-navy border border-brand-border hover:bg-brand-softBg transition-all">
+                Not sure? Get 24-48 Hour Review
+             </a>
           </div>
         </div>
       ))}
     </div>
 
+    <!-- Case Studies Integration -->
+    <div class="mb-12">
+      <h3 class="text-xl font-bold text-center text-brand-navy mb-6">See Real Results:</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/case-studies/sqa-aligned-vocational-training/" class="inline-flex items-center px-4 py-2 bg-white border border-brand-border/60 rounded-full text-sm font-medium text-brand-textMain hover:border-brand-accent hover:text-brand-accent transition-colors shadow-sm">
+          SQA-Aligned Vocational Training
+          <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </div>
+
     <div class="max-w-4xl mx-auto text-center mt-12 bg-white p-6 rounded-xl border border-brand-border/60 text-sm text-brand-textMuted shadow-sm">
       <p>
-        <span class="font-semibold text-brand-navy">Pricing disclaimer:</span> Final quote depends on content volume, course length, review rounds, learning assets, platform setup, design needs, and launch requirements. Every project starts with a free audit so we can recommend the right scope before you pay.
+        <span class="font-semibold text-brand-navy">Pricing disclaimer:</span> Starting prices are not fixed final quotes. Final scope depends on content volume, platform, course length, page count, review rounds, automations, integrations, and launch support.
       </p>
     </div>
   </div>

@@ -1,8 +1,8 @@
 export const ctaBlocks = {
   primary: {
-    label: 'Book Free Audit',
+    label: 'Get 24–48 Hour Review',
     href: '/book-free-audit/',
-    text: 'Want to discuss a similar project? Book a Free Audit.',
+    text: 'Want to discuss a similar project? Get a 24–48 Hour Review.',
   },
   secondary: {
     label: 'Explore Services',
