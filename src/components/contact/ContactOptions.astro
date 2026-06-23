@@ -21,11 +21,11 @@ const { email } = Astro.props;
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-slate-900 mb-3">Book a Free Audit</h3>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Get a 24-48 Hour Review</h3>
         <p class="text-slate-600 mb-6 flex-grow">
           <strong class="font-medium text-slate-800">Best for:</strong> Course, Kajabi, LMS, content conversion, AI support, funnel, or launch projects.
         </p>
-        <Button href="/book-free-audit/" variant="primary" class="w-full text-center">Book Free Audit</Button>
+        <Button href="/book-free-audit/" variant="primary" class="w-full text-center">Get 24–48 Hour Review</Button>
       </div>
 
       <!-- Card 2 -->
@@ -35,15 +35,21 @@ const { email } = Astro.props;
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-slate-900 mb-3">Email TheEduAssist</h3>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">View Services & Pricing</h3>
         <p class="text-slate-600 mb-6 flex-grow">
-          <strong class="font-medium text-slate-800">Best for:</strong> General questions, partnership inquiries, and project details.
+          <strong class="font-medium text-slate-800">Best for:</strong> Exploring packages, inclusions, and finding a starting point.
         </p>
-        <Button href={`mailto:${email}`} variant="outline" class="w-full text-center">{email}</Button>
+        <Button href="/services/" variant="outline" class="w-full text-center">View Services & Starting Prices</Button>
       </div>
 
       <!-- Card 3 -->
       <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm flex flex-col h-full">
+        <div class="mb-6 pb-6 border-b border-slate-200">
+           <h3 class="text-xl font-bold text-slate-900 mb-3">Email TheEduAssist</h3>
+           <p class="text-sm text-slate-600 mb-4">For general questions and partnership inquiries.</p>
+           <a href={`mailto:${email}`} class="text-blue-600 hover:text-blue-800 font-medium transition-colors">{email}</a>
+        </div>
+
         <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />

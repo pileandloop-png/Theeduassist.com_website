@@ -1,7 +1,7 @@
 ---
 // src/components/content-conversion/ContentPackages.astro
 ---
-<section class="py-20 bg-white">
+<section class="py-20 bg-white relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">Content Conversion Packages</h2>
@@ -10,37 +10,42 @@
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
       {[
         {
           name: "Content Audit & Course Mapping",
           price: "Starting from $400",
           bestFor: "Clients with scattered content who need clarity before converting or building.",
-          features: ["Content review", "File inventory", "Topic grouping", "Module map", "Lesson structure", "Conversion recommendations"]
+          features: ["Content review", "File inventory", "Topic grouping", "Module map", "Lesson structure", "Conversion recommendations"],
+          timeline: "1-2 weeks"
         },
         {
           name: "PDF, Slides & Notes Conversion",
           price: "Starting from $900",
           bestFor: "Clients with documents, PDFs, presentations, and notes that need to become course lessons and resources.",
-          features: ["Lesson summaries", "Module organization", "Worksheet ideas", "Quiz/check-in questions", "Downloadable resource planning", "Platform-ready structure"]
+          features: ["Lesson summaries", "Module organization", "Worksheet ideas", "Quiz/check-in questions", "Downloadable resource planning", "Platform-ready structure"],
+          timeline: "2-4 weeks"
         },
         {
           name: "Video & Webinar Conversion",
           price: "Starting from $1,500",
           bestFor: "Clients with recorded videos, webinars, or training sessions that need to become structured lessons.",
-          features: ["Video topic mapping", "Lesson breakdown", "Key takeaways", "Action steps", "Quiz ideas", "Resource list", "Student support content"]
+          features: ["Video topic mapping", "Lesson breakdown", "Key takeaways", "Action steps", "Quiz ideas", "Resource list", "Student support content"],
+          timeline: "3-6 weeks"
         },
         {
           name: "Full Content Conversion Build",
           price: "Starting from $2,500",
           bestFor: "Creators, academies, training companies, and businesses that need multiple formats converted into a complete course asset set.",
-          features: ["Content audit", "Curriculum map support", "Lesson summaries", "Scripts/talking points", "Worksheets", "Quizzes", "Resource library", "Student FAQ", "Kajabi/LMS-ready structure"]
+          features: ["Content audit", "Curriculum map support", "Lesson summaries", "Scripts/talking points", "Worksheets", "Quizzes", "Resource library", "Student FAQ", "Kajabi/LMS-ready structure"],
+          timeline: "4-8 weeks"
         },
         {
           name: "Content Conversion + Platform Build",
-          price: "Custom quote, usually from $4,000",
+          price: "Custom quote, usually starting from $4,000",
           bestFor: "Clients who want content conversion plus Kajabi/LMS setup, landing pages, onboarding, and launch support.",
-          features: ["Full content conversion", "Platform-ready asset structure", "Kajabi/LMS setup support", "Student onboarding content", "Launch checklist", "QA support"]
+          features: ["Full content conversion", "Platform-ready asset structure", "Kajabi/LMS setup support", "Student onboarding content", "Launch checklist", "QA support"],
+          timeline: "2-3 months"
         }
       ].map((pkg, index) => (
         <div class={`bg-white rounded-2xl p-8 border ${index === 3 ? 'border-brand-accent/30 shadow-lg relative' : 'border-brand-border shadow-sm'} hover:shadow-xl transition-all flex flex-col h-full`}>
@@ -51,8 +56,11 @@
           )}
           <h3 class="text-xl font-bold text-brand-navy mb-2">{pkg.name}</h3>
           <div class="text-2xl font-extrabold text-brand-primary mb-4">{pkg.price}</div>
-          <p class="text-sm text-brand-textMuted mb-6 pb-6 border-b border-brand-border/60 min-h-[80px]">
+          <p class="text-sm text-brand-textMuted mb-2 min-h-[60px]">
             <span class="font-semibold text-brand-navy block mb-1">Best for:</span> {pkg.bestFor}
+          </p>
+          <p class="text-sm text-brand-textMuted mb-6 pb-6 border-b border-brand-border/60">
+            <span class="font-semibold text-brand-navy block mb-1">Timeline:</span> {pkg.timeline}
           </p>
           <ul class="space-y-3 mb-8 flex-grow">
             {pkg.features.map((feature) => (
@@ -62,15 +70,31 @@
               </li>
             ))}
           </ul>
-          <a href="/book-free-audit/" class={`w-full text-center py-3 rounded-md font-bold transition-all ${index === 3 ? 'bg-brand-accent text-white hover:bg-brand-primary' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-brand-accent hover:text-white hover:border-brand-accent/30'}`}>
-            Book Free Content Audit
-          </a>
+          <div class="mt-auto space-y-3">
+             <a href="/contact/" class={`block w-full text-center py-3 rounded-md font-bold transition-all ${index === 3 ? 'bg-brand-accent text-white hover:bg-brand-primary' : 'bg-brand-navy text-white hover:bg-opacity-90'}`}>
+                Request Quote
+             </a>
+             <a href="/book-free-audit/" class="block w-full text-center py-3 rounded-md font-bold text-brand-navy border border-brand-border hover:bg-brand-softBg transition-all">
+                Not sure? Get 24-48 Hour Review
+             </a>
+          </div>
         </div>
       ))}
     </div>
 
-    <div class="max-w-4xl mx-auto mt-12 text-center text-sm text-brand-textMuted italic">
-      Final quote depends on content volume, format, course length, review rounds, platform needs, design assets, and launch requirements. Every project starts with a free audit so we can recommend the right scope before you pay.
+    <!-- Case Studies Integration -->
+    <div class="mb-12">
+      <h3 class="text-xl font-bold text-center text-brand-navy mb-6">See Real Results:</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/case-studies/language-courses-for-book-publisher/" class="inline-flex items-center px-4 py-2 bg-white border border-brand-border/60 rounded-full text-sm font-medium text-brand-textMain hover:border-brand-accent hover:text-brand-accent transition-colors shadow-sm">
+          Language Courses for Book Publisher
+          <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto mt-12 text-center text-sm text-brand-textMuted bg-white p-6 rounded-xl border border-brand-border/60 shadow-sm">
+      <span class="font-semibold text-brand-navy">Pricing disclaimer:</span> Starting prices are not fixed final quotes. Final scope depends on content volume, platform, course length, page count, review rounds, automations, integrations, and launch support.
     </div>
   </div>
 </section>

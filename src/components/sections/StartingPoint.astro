@@ -1,0 +1,174 @@
+---
+// src/components/sections/StartingPoint.astro
+
+const packages = [
+  {
+    title: "Course Clarity Blueprint",
+    situation: "I have a course idea but no structure",
+    price: "From $500",
+    bestFor: "creators, coaches, educators, consultants",
+    includes: [
+      "course promise",
+      "audience clarity",
+      "module map",
+      "lesson outline",
+      "learner journey",
+      "next-step plan"
+    ],
+    cta: "Start Project",
+    link: "/book-free-audit/",
+    highlight: false
+  },
+  {
+    title: "Content Conversion Kit",
+    situation: "I have PDFs, slides, videos, books, manuals, or SOPs",
+    price: "From $900",
+    bestFor: "publishers, educators, training teams, consultants",
+    includes: [
+      "content audit",
+      "lesson mapping",
+      "summaries",
+      "worksheets",
+      "quiz ideas",
+      "resource structure"
+    ],
+    cta: "Request Review",
+    link: "/book-free-audit/",
+    highlight: false
+  },
+  {
+    title: "Kajabi Setup Sprint",
+    situation: "I need Kajabi built properly",
+    price: "From $1,500",
+    bestFor: "creators, coaches, consultants, academies",
+    includes: [
+      "Kajabi structure",
+      "pages",
+      "course product setup",
+      "offers",
+      "checkout",
+      "basic emails",
+      "student onboarding"
+    ],
+    cta: "Request Kajabi Quote",
+    link: "/book-free-audit/",
+    highlight: true
+  },
+  {
+    title: "LMS Migration Map",
+    situation: "I need LMS migration or content cleanup",
+    price: "From $700",
+    bestFor: "training companies, academies, internal training teams",
+    includes: [
+      "content audit",
+      "migration map",
+      "module/lesson structure",
+      "platform-readiness notes",
+      "QA recommendations"
+    ],
+    cta: "Request LMS Review",
+    link: "/book-free-audit/",
+    highlight: false
+  },
+  {
+    title: "Course + Platform Build",
+    situation: "I need a full course plus Kajabi/LMS/funnel launch",
+    price: "From $4,000",
+    bestFor: "serious creators, publishers, academies, organizations",
+    includes: [
+      "course design",
+      "content assets",
+      "platform build",
+      "landing page/funnel support",
+      "onboarding",
+      "launch QA"
+    ],
+    cta: "Request Project Quote",
+    link: "/book-free-audit/",
+    highlight: true
+  },
+  {
+    title: "Ongoing Course Support",
+    situation: "I need monthly updates and support",
+    price: "From $600/month",
+    bestFor: "existing course businesses and training teams",
+    includes: [
+      "content updates",
+      "page edits",
+      "QA checks",
+      "funnel/email updates",
+      "onboarding improvements"
+    ],
+    cta: "Request Support",
+    link: "/book-free-audit/",
+    highlight: false
+  }
+];
+
+const caseStudies = [
+  { title: "SQA-Aligned Vocational Training", link: "/case-studies/sqa-aligned-vocational-training/" },
+  { title: "Business Analytics for Corporate Teams", link: "/case-studies/business-analytics-for-corporate-teams/" },
+  { title: "Language Courses for Book Publisher", link: "/case-studies/language-courses-for-book-publisher/" }
+];
+---
+<section id="starting-point" class="py-24 bg-brand-softBg px-4 relative">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Choose Your Starting Point</h2>
+      <p class="text-lg text-brand-textMuted leading-relaxed">
+        Know what you need? Start with a package. Not sure yet? Send your course, Kajabi, LMS, or content problem and we’ll recommend the best next step within 24–48 hours.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+      {packages.map((pkg) => (
+        <div class={`bg-white rounded-2xl flex flex-col h-full border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${pkg.highlight ? 'border-brand-primary shadow-lg ring-1 ring-brand-primary/20' : 'border-brand-border/60 shadow-sm'}`}>
+          <div class="p-8 border-b border-brand-border/60">
+            <h3 class="text-2xl font-bold text-brand-navy mb-2">{pkg.title}</h3>
+            <p class="text-sm font-semibold text-brand-accent mb-4 min-h-[40px]">{pkg.situation}</p>
+            <div class="text-3xl font-bold text-slate-800 mb-2">{pkg.price}</div>
+            <p class="text-xs text-brand-textMuted uppercase tracking-wider font-semibold">Best for:</p>
+            <p class="text-sm text-brand-textMuted min-h-[40px] mt-1">{pkg.bestFor}</p>
+          </div>
+
+          <div class="p-8 flex-grow">
+            <p class="text-xs font-bold uppercase tracking-wider text-slate-800 mb-4">Includes</p>
+            <ul class="space-y-3 mb-8">
+              {pkg.includes.map((item) => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-brand-accent mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span class="text-sm text-brand-textMain leading-snug">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="p-8 pt-0 mt-auto">
+            <a href={pkg.link} class={`block w-full text-center py-4 px-4 rounded-md font-bold transition-all ${pkg.highlight ? 'bg-brand-primary text-white hover:bg-brand-navy shadow-md' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-brand-accent hover:text-white hover:border-brand-accent/30'}`}>
+              {pkg.cta}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Case Studies Integration -->
+    <div class="mb-12">
+      <h3 class="text-xl font-bold text-center text-brand-navy mb-6">See Real Results:</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        {caseStudies.map(cs => (
+          <a href={cs.link} class="inline-flex items-center px-4 py-2 bg-white border border-brand-border/60 rounded-full text-sm font-medium text-brand-textMain hover:border-brand-accent hover:text-brand-accent transition-colors shadow-sm">
+            {cs.title}
+            <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center bg-white p-6 rounded-xl border border-brand-border/60 text-sm text-brand-textMuted shadow-sm">
+      <p>
+        <span class="font-semibold text-brand-navy">Pricing disclaimer:</span> Starting prices are not fixed final quotes. Final scope depends on content volume, course length, platform, number of pages, review rounds, timeline, automation needs, and launch support.
+      </p>
+    </div>
+  </div>
+</section>
