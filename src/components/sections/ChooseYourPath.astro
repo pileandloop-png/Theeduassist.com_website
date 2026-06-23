@@ -55,7 +55,7 @@ const paths = [
       {paths.map((path, index) => (
         <a
           href={path.link}
-          class={`block bg-white rounded-2xl p-8 shadow-sm border border-brand-border/60 hover:border-brand-accent/40 hover:shadow-md transition-all duration-300 hover-lift group focus-ring ${index === 3 ? 'md:col-span-2 lg:col-span-1' : ''} ${index === 4 ? 'md:col-span-2 lg:col-span-2' : ''}`}
+          class={`block bg-white rounded-2xl p-8 shadow-sm border border-brand-border/60 hover:border-brand-accent/30 hover:shadow-md transition-all duration-300 hover-lift group focus-ring ${index === 3 ? 'md:col-span-2 lg:col-span-1' : ''} ${index === 4 ? 'md:col-span-2 lg:col-span-2' : ''}`}
         >
           <div class="bg-brand-softGreen/50 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-softGreen transition-colors">
             <svg class="w-7 h-7 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={path.icon} />

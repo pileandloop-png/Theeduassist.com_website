@@ -3,39 +3,31 @@
 > astro dev
 
 [vite] connected.
-04:13:59 [types] Generated 1ms
+05:50:30 [types] Generated 1ms
 [vite] connected.
-04:13:59 [vite] Re-optimizing dependencies because vite config has changed
- astro  v6.4.7 ready in 2153 ms
+05:50:30 [vite] Re-optimizing dependencies because vite config has changed
+ astro  v6.4.7 ready in 2011 ms
 ┃ Local    http://localhost:4321/
 ┃ Network  use --host to expose
-04:13:59 watching for file changes...
+05:50:30 watching for file changes...
 Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
-04:14:29 [200] /contact/ 199ms
+05:51:41 [200] / 223ms
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
-04:14:33 [200] /book-free-audit/ 68ms
+05:51:44 [200] / 7ms
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
-04:14:37 [200] /thank-you/ 123ms
+05:51:48 [200] / 12ms
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
-04:14:39 [200] /contact/ 7ms
+05:51:51 [200] /services/ai-powered-elearning/ 86ms
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
-04:14:42 [200] /book-free-audit/ 6ms
-Gracefully skipping Sanity fetch due to missing environment variables.
-Gracefully skipping Sanity fetch due to missing environment variables.
-Gracefully skipping Sanity fetch due to missing environment variables.
-04:14:44 [200] /thank-you/ 5ms
-Gracefully skipping Sanity fetch due to missing environment variables.
-Gracefully skipping Sanity fetch due to missing environment variables.
-Gracefully skipping Sanity fetch due to missing environment variables.
-04:14:47 [200] / 71ms
+05:51:52 [200] / 6ms
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.

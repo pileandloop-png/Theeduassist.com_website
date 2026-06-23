@@ -43,7 +43,7 @@ const alignmentSteps = [
 
               {alignmentSteps.map((step, index) => (
                   <div class="flex items-center space-x-4 relative z-10 group">
-                      <div class={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 border-2 transition-colors duration-300 ${index === 0 || index === alignmentSteps.length - 1 ? 'bg-brand-primary border-brand-primary text-white' : 'bg-white border-brand-accent text-brand-accent group-hover:bg-brand-accent group-hover:text-white'}`}>
+                      <div class={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 border-2 transition-colors duration-300 ${index === 0 || index === alignmentSteps.length - 1 ? 'bg-brand-primary border-brand-primary text-white' : 'bg-white border-brand-accent/30 text-brand-accent group-hover:bg-brand-accent group-hover:text-white'}`}>
                           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={step.icon}></path></svg>
                       </div>
                       <div class="bg-white px-4 py-3 rounded-lg border border-brand-border shadow-sm flex-grow font-medium text-brand-navy flex items-center justify-between">

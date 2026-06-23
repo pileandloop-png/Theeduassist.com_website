@@ -31,14 +31,14 @@ const safeTools = [
   <div class="relative flex overflow-x-hidden group" aria-label="Most Used Tools Slider">
     <div class="py-4 animate-marquee whitespace-nowrap flex items-center group-hover:pause motion-reduce:animate-none motion-reduce:overflow-x-auto motion-reduce:flex-wrap motion-reduce:justify-center">
       {safeTools.map((tool) => (
-        <span class="inline-block mx-4 px-6 py-3 bg-brand-softBg border border-brand-border/60 hover:border-brand-accent/40 hover:text-brand-accent transition-colors rounded-full text-brand-navy font-medium shadow-sm whitespace-nowrap">
+        <span class="inline-block mx-4 px-6 py-3 bg-brand-softBg border border-brand-border/60 hover:border-brand-accent/30 hover:text-brand-accent transition-colors rounded-full text-brand-navy font-medium shadow-sm whitespace-nowrap">
           {tool}
         </span>
       ))}
       <!-- Duplicate for seamless scroll unless reduced motion -->
       <div class="hidden motion-safe:flex">
          {safeTools.map((tool) => (
-            <span class="inline-block mx-4 px-6 py-3 bg-brand-softBg border border-brand-border/60 hover:border-brand-accent/40 hover:text-brand-accent transition-colors rounded-full text-brand-navy font-medium shadow-sm whitespace-nowrap" aria-hidden="true">
+            <span class="inline-block mx-4 px-6 py-3 bg-brand-softBg border border-brand-border/60 hover:border-brand-accent/30 hover:text-brand-accent transition-colors rounded-full text-brand-navy font-medium shadow-sm whitespace-nowrap" aria-hidden="true">
               {tool}
             </span>
           ))}

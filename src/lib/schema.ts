@@ -6,10 +6,16 @@ export function organizationSchema() {
     "@type": "Organization",
     "name": site.name,
     "url": site.url,
-    "logo": `${site.url}/favicon.svg`,
+    "logo": `${site.url}/brand/theeduassist-logo.svg`,
+    "email": "Info@theeduassist.com",
+    "sameAs": [
+      "https://www.facebook.com/people/Theeduassist/61576126813447/",
+      "https://www.instagram.com/theeduassist",
+      "https://www.linkedin.com/company/theeduassist"
+    ],
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": site.email,
+      "email": "Info@theeduassist.com",
       "contactType": "customer service"
     }
   };
@@ -32,7 +38,7 @@ export function professionalServiceSchema() {
     "name": site.name,
     "url": site.url,
     "description": site.description,
-    "email": site.email
+    "email": "Info@theeduassist.com"
   };
 }
 

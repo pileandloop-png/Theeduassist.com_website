@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-
+Disallow: /studio/
 Disallow: /*?wpr_templates=
 Disallow: /*?mailpoet_page=
 Disallow: /wp-admin/

@@ -48,7 +48,7 @@ const steps = [
 
       {steps.map((step, index) => (
         <div class="relative z-10 flex flex-col items-center flex-1 px-2 group">
-          <div class="bg-white border-2 border-brand-softGreen text-brand-accent w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 group-hover:border-brand-accent group-hover:bg-brand-softGreen transition-all duration-300 relative">
+          <div class="bg-white border-2 border-brand-softGreen text-brand-accent w-16 h-16 rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 group-hover:border-brand-accent/30 group-hover:bg-brand-softGreen transition-all duration-300 relative">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={step.icon} />
           </div>
           <div class="bg-white p-4 rounded-xl border border-brand-border/60 shadow-sm text-center w-full h-full">
@@ -71,7 +71,7 @@ const steps = [
 
       {steps.map((step, index) => (
         <div class="relative z-10 flex items-start group">
-          <div class="bg-white border-2 border-brand-softGreen text-brand-accent w-16 h-16 rounded-full flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:border-brand-accent group-hover:bg-brand-softGreen transition-all duration-300 shrink-0 mt-2">
+          <div class="bg-white border-2 border-brand-softGreen text-brand-accent w-16 h-16 rounded-full flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:border-brand-accent/30 group-hover:bg-brand-softGreen transition-all duration-300 shrink-0 mt-2">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={step.icon} />
           </div>
           <div class="bg-white p-5 rounded-xl border border-brand-border/60 shadow-sm ml-6 flex-1 hover-lift hover:border-brand-accent/30 transition-colors">

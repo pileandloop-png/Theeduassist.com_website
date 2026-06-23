@@ -7,13 +7,22 @@ const site = siteSettings || { name: 'TheEduAssist', email: 'Info@theeduassist.c
 
 const desktopNav = [
     { label: 'Home', href: '/' },
-    { label: 'Services', href: '/services/' },
     { label: 'Kajabi', href: '/kajabi-services/' },
-    { label: 'LMS Migration', href: '/services/lms-implementation-migration/' },
-    { label: 'AI Support', href: '/services/ai-assistance/' },
     { label: 'Case Studies', href: '/case-studies/' },
+    { label: 'About', href: '/about/' },
     { label: 'Blog', href: '/blog/' },
     { label: 'Contact', href: '/contact/' },
+];
+
+const servicesDropdown = [
+    { label: 'All Services', href: '/services/' },
+    { label: 'Course Creation & Curriculum Design', href: '/services/custom-elearning-development/' },
+    { label: 'Kajabi Website & Course Setup', href: '/kajabi-services/' },
+    { label: 'LMS Implementation & Migration', href: '/services/lms-implementation-migration/' },
+    { label: 'AI-Powered E-Learning Support', href: '/services/ai-powered-elearning/' },
+    { label: 'Content Conversion', href: '/services/content-conversion/' },
+    { label: 'Funnels & Automation', href: '/services/funnels-automation/' },
+    { label: 'Ongoing Support & Maintenance', href: '/services/ongoing-support-maintenance/' },
 ];
 
 ---
@@ -26,12 +35,30 @@ const desktopNav = [
                 <span class="text-xs text-brand-textMuted font-medium uppercase tracking-wider">E-Learning Design Agency</span>
             </div>
         </a>
-        <nav class="hidden lg:flex space-x-6 items-center">
-            {desktopNav.map((item) => (
+        <nav class="hidden lg:flex space-x-3 xl:space-x-4 items-center relative">
+            <a href="/" class="text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 px-3 py-2 font-medium focus-ring rounded-md transition-all duration-300">Home</a>
+
+            <div class="relative group">
+                <button class="text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 px-3 py-2 font-medium focus-ring rounded-md transition-all duration-300 inline-flex items-center" aria-expanded="false" aria-haspopup="true">
+                    Services
+                    <svg class="ml-1 w-4 h-4 text-brand-textMuted group-hover:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="absolute left-0 mt-2 w-72 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-brand-border/50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
+                    <div class="py-2">
+                        {servicesDropdown.map((item, index) => (
+                            <a href={item.href} class={`block px-4 py-2.5 text-sm font-medium text-brand-textMain hover:bg-brand-softBg hover:text-brand-primary transition-colors focus-ring ${index === 0 ? 'border-b border-brand-border/30 font-bold mb-1' : ''}`}>
+                                {item.label}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {desktopNav.slice(1).map((item) => (
                 <a href={item.href} class="text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 px-3 py-2 font-medium focus-ring rounded-md transition-all duration-300">{item.label}</a>
             ))}
-            <div class="flex items-center ml-4 pl-6 border-l border-brand-border/60">
-                <a href="/book-free-audit/" class="bg-brand-accent text-white px-5 py-2.5 rounded-md font-semibold hover-lift click-press focus-ring transition-all duration-300 hover:bg-brand-primary shadow hover:shadow-md">Book Free Audit</a>
+            <div class="flex items-center ml-2 xl:ml-4 pl-4 xl:pl-6 border-l border-brand-border/60">
+                <a href="/book-free-audit/" class="bg-brand-accent text-white px-5 py-2.5 rounded-md font-semibold hover-lift click-press focus-ring transition-all duration-300 hover:bg-brand-primary shadow hover:shadow-md whitespace-nowrap">Book Free Audit</a>
             </div>
         </nav>
         <div class="lg:hidden flex items-center">

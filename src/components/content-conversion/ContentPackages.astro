@@ -43,7 +43,7 @@
           features: ["Full content conversion", "Platform-ready asset structure", "Kajabi/LMS setup support", "Student onboarding content", "Launch checklist", "QA support"]
         }
       ].map((pkg, index) => (
-        <div class={`bg-white rounded-2xl p-8 border ${index === 3 ? 'border-brand-accent shadow-lg relative' : 'border-brand-border shadow-sm'} hover:shadow-xl transition-all flex flex-col h-full`}>
+        <div class={`bg-white rounded-2xl p-8 border ${index === 3 ? 'border-brand-accent/30 shadow-lg relative' : 'border-brand-border shadow-sm'} hover:shadow-xl transition-all flex flex-col h-full`}>
           {index === 3 && (
             <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-accent text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               Most Comprehensive
@@ -62,7 +62,7 @@
               </li>
             ))}
           </ul>
-          <a href="/book-free-audit/" class={`w-full text-center py-3 rounded-md font-bold transition-all ${index === 3 ? 'bg-brand-accent text-white hover:bg-brand-primary' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-brand-accent hover:text-white hover:border-brand-accent'}`}>
+          <a href="/book-free-audit/" class={`w-full text-center py-3 rounded-md font-bold transition-all ${index === 3 ? 'bg-brand-accent text-white hover:bg-brand-primary' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-brand-accent hover:text-white hover:border-brand-accent/30'}`}>
             Book Free Content Audit
           </a>
         </div>

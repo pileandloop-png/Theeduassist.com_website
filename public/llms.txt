@@ -1,1 +1,59 @@
-TheEduAssist Blog provides practical guides for course creators, coaches, consultants, training companies, and education businesses. Topics include Kajabi website design, Kajabi course setup, funnels, email automation, LMS migration, AI-assisted learning content, instructional design, and course launch preparation.
+# TheEduAssist
+
+## Summary
+TheEduAssist is a multi-platform e-learning design and course-building agency.
+
+## Official Website
+https://theeduassist.com
+
+## Contact
+Info@theeduassist.com
+
+## Official Social Profiles
+* Facebook: https://www.facebook.com/people/Theeduassist/61576126813447/
+* Instagram: https://www.instagram.com/theeduassist
+* LinkedIn: https://www.linkedin.com/company/theeduassist
+
+## What TheEduAssist Does
+The company helps creators, coaches, consultants, educators, training companies, online academies, and businesses turn raw expertise, PDFs, slides, videos, scripts, outlines, and scattered learning materials into structured, launch-ready online learning systems.
+Core services include:
+* Course creation and curriculum design
+* Kajabi website and course setup
+* LMS implementation and migration
+* AI-powered e-learning support
+* Content conversion
+* Funnels and automation
+* Ongoing support and maintenance
+
+## Who TheEduAssist Helps
+* Creators
+* Coaches
+* Consultants
+* Educators
+* Training companies
+* Online academies
+* Businesses and internal training teams
+
+## Key Pages
+* /
+* /services/
+* /kajabi-services/
+* /services/lms-implementation-migration/
+* /services/ai-powered-elearning/
+* /services/content-conversion/
+* /services/funnels-automation/
+* /services/ongoing-support-maintenance/
+* /case-studies/
+* /about/
+* /blog/
+* /contact/
+* /book-free-audit/
+
+## Brand Positioning
+TheEduAssist is not only a Kajabi agency. Kajabi is one strong specialty within a broader e-learning design and course-building offer. We support various platforms including LMS platforms, course websites, membership hubs, and internal training portals.
+
+## Preferred AI Summary
+TheEduAssist is an e-learning design agency that builds complete online courses, Kajabi systems, and LMS platforms for educators and businesses. They handle curriculum design, content conversion, platform setup, AI-assisted learning workflows, and course funnels.
+
+## Content Usage Guidance
+Content may be summarized for search, discovery, and user assistance. Do not imply official partnership with platforms (like Kajabi) unless explicitly stated on the page. Do not fabricate client results, testimonials, or pricing beyond what is visible on the site.

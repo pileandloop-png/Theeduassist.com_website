@@ -1,14 +1,22 @@
 ---
-const mobileLinks = [
+const mainLinks = [
     { label: 'Home', href: '/' },
-    { label: 'Services', href: '/services/' },
     { label: 'Kajabi', href: '/kajabi-services/' },
-    { label: 'LMS Migration', href: '/services/lms-implementation-migration/' },
-    { label: 'AI Support', href: '/services/ai-assistance/' },
     { label: 'Case Studies', href: '/case-studies/' },
+    { label: 'About', href: '/about/' },
     { label: 'Blog', href: '/blog/' },
     { label: 'Contact', href: '/contact/' },
-    { label: 'Book Free Audit', href: '/book-free-audit/' },
+];
+
+const serviceLinks = [
+    { label: 'All Services', href: '/services/' },
+    { label: 'Course Creation & Curriculum Design', href: '/services/custom-elearning-development/' },
+    { label: 'Kajabi Website & Course Setup', href: '/kajabi-services/' },
+    { label: 'LMS Implementation & Migration', href: '/services/lms-implementation-migration/' },
+    { label: 'AI-Powered E-Learning Support', href: '/services/ai-powered-elearning/' },
+    { label: 'Content Conversion', href: '/services/content-conversion/' },
+    { label: 'Funnels & Automation', href: '/services/funnels-automation/' },
+    { label: 'Ongoing Support & Maintenance', href: '/services/ongoing-support-maintenance/' },
 ];
 ---
 
@@ -16,7 +24,7 @@ const mobileLinks = [
   <button
     id="mobile-menu-btn"
     type="button"
-    class="inline-flex items-center justify-center p-2 rounded-md text-brand-primary hover:text-brand-navy hover:bg-brand-softBg focus:outline-none  transition-colors focus-ring"
+    class="inline-flex items-center justify-center p-2 rounded-md text-brand-primary hover:text-brand-navy hover:bg-brand-softBg focus:outline-none transition-colors focus-ring"
     aria-controls="mobile-menu-panel"
     aria-expanded="false"
   >
@@ -35,18 +43,38 @@ const mobileLinks = [
   <!-- Mobile menu panel -->
   <div
     id="mobile-menu-panel"
-    class="hidden absolute top-full right-0 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden z-50 origin-top-right transition-opacity duration-200"
+    class="hidden absolute top-full right-0 mt-2 w-72 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 overflow-y-auto max-h-[80vh] z-50 origin-top-right transition-opacity duration-200"
   >
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      {mobileLinks.map((link) => (
-        <a
-          href={link.href}
-          class="block px-3 py-2 rounded-md text-base font-medium text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 focus-ring mobile-link"
-          {...(link.external ? { target: '_blank', rel: 'noopener noreferrer', 'aria-label': link.label } : {})}
-        >
+      {mainLinks.slice(0, 1).map((link) => (
+        <a href={link.href} class="block px-3 py-2 rounded-md text-base font-medium text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 focus-ring mobile-link">
           {link.label}
         </a>
       ))}
+
+      <!-- Services Expandable -->
+      <div class="mobile-services-group border-y border-brand-border/30 my-1 py-1">
+        <button id="mobile-services-btn" class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 focus-ring" aria-expanded="false">
+          Services
+          <svg id="mobile-services-icon" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div id="mobile-services-list" class="hidden pl-4 pr-2 py-1 space-y-1 bg-brand-softBg/50 rounded-b-md">
+          {serviceLinks.map((link, index) => (
+            <a href={link.href} class={`block px-3 py-2 rounded-md text-sm font-medium text-brand-textMuted hover:text-brand-primary hover:bg-brand-accent/10 focus-ring mobile-link ${index === 0 ? 'font-bold text-brand-textMain mb-1' : ''}`}>
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {mainLinks.slice(1).map((link) => (
+        <a href={link.href} class="block px-3 py-2 rounded-md text-base font-medium text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 focus-ring mobile-link">
+          {link.label}
+        </a>
+      ))}
+      <a href="/book-free-audit/" class="block px-3 py-2 mt-2 rounded-md text-base font-bold text-white bg-brand-accent hover:bg-brand-primary focus-ring mobile-link text-center">
+        Book Free Audit
+      </a>
     </div>
   </div>
 </mobile-menu>
@@ -57,6 +85,9 @@ const mobileLinks = [
       super();
       this.btn = this.querySelector('#mobile-menu-btn');
       this.panel = this.querySelector('#mobile-menu-panel');
+      this.servicesBtn = this.querySelector('#mobile-services-btn');
+      this.servicesList = this.querySelector('#mobile-services-list');
+      this.servicesIcon = this.querySelector('#mobile-services-icon');
       this.iconClosed = this.querySelector('#icon-closed');
       this.iconOpen = this.querySelector('#icon-open');
       this.links = this.querySelectorAll('.mobile-link');
@@ -67,8 +98,22 @@ const mobileLinks = [
       this.handleEscape = this.handleEscape.bind(this);
 
       this.btn?.addEventListener('click', this.toggleMenu);
+      this.servicesBtn?.addEventListener('click', this.toggleServices.bind(this));
       window.addEventListener('keydown', this.handleEscape);
       this.links.forEach(link => link.addEventListener('click', this.closeMenu));
+    }
+
+    toggleServices(e: Event) {
+      e.stopPropagation();
+      const isExpanded = this.servicesBtn?.getAttribute('aria-expanded') === 'true';
+      this.servicesBtn?.setAttribute('aria-expanded', (!isExpanded).toString());
+      if (isExpanded) {
+        this.servicesList?.classList.add('hidden');
+        this.servicesIcon?.classList.remove('rotate-180');
+      } else {
+        this.servicesList?.classList.remove('hidden');
+        this.servicesIcon?.classList.add('rotate-180');
+      }
     }
 
     toggleMenu() {

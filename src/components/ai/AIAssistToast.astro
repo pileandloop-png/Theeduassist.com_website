@@ -12,7 +12,7 @@
         </button>
         <h3 id="modal-title" class="text-xl font-bold text-brand-primary mb-2">Copy your prompt</h3>
         <p class="text-sm text-slate-600 mb-4">We couldn't automatically copy the prompt. Please copy it below and continue to your AI assistant.</p>
-        <textarea id="ai-modal-textarea" class="w-full h-48 p-3 border border-slate-200 rounded-md text-sm text-slate-700 bg-slate-50 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent outline-none resize-none mb-4" readonly></textarea>
+        <textarea id="ai-modal-textarea" class="w-full h-48 p-3 border border-slate-200 rounded-md text-sm text-slate-700 bg-slate-50 focus:border-brand-accent/30 focus:ring-1 focus:ring-brand-accent outline-none resize-none mb-4" readonly></textarea>
         <div class="flex flex-col sm:flex-row gap-3">
             <button id="ai-modal-copy-btn" class="flex-1 bg-brand-primary text-white py-2 rounded-md font-medium hover:bg-brand-navy transition-colors focus-ring">Copy Manually</button>
             <button id="ai-modal-open-btn" class="flex-1 bg-brand-accent text-white py-2 rounded-md font-medium hover:bg-brand-primary transition-colors focus-ring">Open AI Assistant</button>
@@ -31,7 +31,7 @@
         if (!container) return;
 
         const toast = document.createElement('div');
-        toast.className = 'bg-white border-l-4 border-brand-accent shadow-lg rounded-md p-4 max-w-sm w-full transform translate-y-full opacity-0 transition-all duration-300 pointer-events-auto flex items-start gap-3';
+        toast.className = 'bg-white border-l-4 border-brand-accent/30 shadow-lg rounded-md p-4 max-w-sm w-full transform translate-y-full opacity-0 transition-all duration-300 pointer-events-auto flex items-start gap-3';
         toast.innerHTML = `
             <div class="text-brand-accent flex-shrink-0 mt-0.5">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>

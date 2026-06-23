@@ -98,7 +98,7 @@ const packages = [
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 items-start">
       {packages.map((pkg, index) => (
-        <div class={`relative bg-white rounded-2xl p-8 shadow-md border ${pkg.highlight ? 'border-brand-accent shadow-xl transform md:-translate-y-2 ring-1 ring-brand-accent' : 'border-brand-border/60 hover:shadow-lg transition-shadow'}`}>
+        <div class={`relative bg-white rounded-2xl p-8 shadow-md border ${pkg.highlight ? 'border-brand-accent/30 shadow-xl transform md:-translate-y-2 ring-1 ring-brand-accent' : 'border-brand-border/60 hover:shadow-lg transition-shadow'}`}>
 
           {pkg.highlightLabel && (
             <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-accent text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm whitespace-nowrap">
