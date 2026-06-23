@@ -1,0 +1,22 @@
+---
+const { study } = Astro.props;
+---
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white border-t border-slate-100">
+  <div class="mb-8">
+    <h3 class="text-2xl font-bold text-slate-900">Related Services Used in This Project</h3>
+  </div>
+
+  <div class="flex flex-wrap gap-4">
+    {study.relatedServiceLinks.map((service: any) => (
+      <a
+        href={service.url}
+        class="inline-flex items-center px-4 py-2 border border-slate-200 rounded-lg text-sm font-medium text-[#27496D] bg-white hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-sm"
+      >
+        {service.name}
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    ))}
+  </div>
+</section>
