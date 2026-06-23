@@ -1,0 +1,64 @@
+---
+const { study } = Astro.props;
+---
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="grid lg:grid-cols-3 gap-12">
+
+    <!-- Hero Content -->
+    <div class="lg:col-span-2">
+      <span class="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wide bg-[#F3FAF0] text-[#27496D] border border-[#77BA55]/30 uppercase mb-6">
+        Real Project
+      </span>
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-6">
+        {study.title}
+      </h1>
+      <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+        {study.subtitle}
+      </p>
+
+      <div class="flex flex-wrap gap-4 mb-8">
+        <a href="/book-free-audit/" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#27496D] hover:bg-[#1A334D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#27496D] shadow-sm transition-colors duration-200">
+          Get 24–48 Hour Review
+        </a>
+        <a href="/services/" class="inline-flex items-center justify-center px-6 py-3 border border-slate-300 text-base font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 shadow-sm transition-colors duration-200">
+          View Related Services
+        </a>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mt-4">
+        {study.services.map((service: string) => (
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#EFF6FF] text-[#27496D] border border-blue-100">
+            {service}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Project Snapshot -->
+    <div class="lg:col-span-1">
+      <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm sticky top-24">
+        <h3 class="text-lg font-bold text-slate-900 mb-6 border-b border-slate-100 pb-4">Project Snapshot</h3>
+
+        <dl class="space-y-4">
+          <div>
+            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Client Type</dt>
+            <dd class="text-sm font-medium text-slate-900">{study.clientType}</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Industry</dt>
+            <dd class="text-sm font-medium text-slate-900">{study.industry}</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Delivery Model</dt>
+            <dd class="text-sm font-medium text-slate-900">{study.sprintModel.description}</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Main Outcome</dt>
+            <dd class="text-sm font-medium text-[#27496D]">{study.outcomes[0]}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+  </div>
+</section>

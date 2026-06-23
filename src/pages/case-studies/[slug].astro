@@ -1,0 +1,78 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { caseStudies } from "../../data/caseStudies";
+import type { GetStaticPaths } from "astro";
+import CaseStudyHero from "../../components/case-studies/real/CaseStudyHero.astro";
+import CaseStudyChallenges from "../../components/case-studies/real/CaseStudyChallenges.astro";
+import CaseStudyTransformation from "../../components/case-studies/real/CaseStudyTransformation.astro";
+import CaseStudySolutions from "../../components/case-studies/real/CaseStudySolutions.astro";
+import CaseStudyTimeline from "../../components/case-studies/real/CaseStudyTimeline.astro";
+import CaseStudyDeliverables from "../../components/case-studies/real/CaseStudyDeliverables.astro";
+import CaseStudyOutcomes from "../../components/case-studies/real/CaseStudyOutcomes.astro";
+import CaseStudyRelated from "../../components/case-studies/real/CaseStudyRelated.astro";
+import CaseStudyCTA from "../../components/case-studies/real/CaseStudyCTA.astro";
+
+export const getStaticPaths = (() => {
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study },
+  }));
+}) satisfies GetStaticPaths;
+
+const { study } = Astro.props;
+
+// Schema mapping if needed
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": study.title,
+  "description": study.seoDescription,
+  "author": {
+    "@type": "Organization",
+    "name": "TheEduAssist"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "TheEduAssist"
+  }
+};
+---
+
+<Layout title={study.seoTitle} description={study.seoDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+  <div class="bg-slate-50 min-h-screen pb-24">
+    <!-- Breadcrumbs -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <nav class="flex text-sm text-slate-500 font-medium" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+          <li class="inline-flex items-center">
+            <a href="/" class="hover:text-slate-900 transition-colors">Home</a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-slate-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              <a href="/case-studies/" class="hover:text-slate-900 transition-colors">Case Studies</a>
+            </div>
+          </li>
+          <li aria-current="page">
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-slate-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              <span class="text-slate-900">{study.title}</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <CaseStudyHero study={study} />
+    <CaseStudyChallenges study={study} />
+    <CaseStudyTransformation study={study} />
+    <CaseStudySolutions study={study} />
+    <CaseStudyTimeline study={study} />
+    <CaseStudyDeliverables study={study} />
+    <CaseStudyOutcomes study={study} />
+    <CaseStudyRelated study={study} />
+  </div>
+  <CaseStudyCTA study={study} />
+</Layout>

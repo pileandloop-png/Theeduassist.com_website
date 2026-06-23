@@ -1,0 +1,45 @@
+---
+const { study } = Astro.props;
+---
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200 mt-12">
+  <div class="mb-10 text-center">
+    <h2 class="text-3xl font-bold text-slate-900 mb-4">Project Outcomes</h2>
+    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+      The tangible results of implementing a structured, learner-centered online program.
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+    {study.outcomes.map((item: string) => (
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+        <div class="w-12 h-12 rounded-full bg-[#F3FAF0] flex items-center justify-center mx-auto mb-4 text-[#77BA55]">
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+           </svg>
+        </div>
+        <p class="text-slate-800 font-semibold text-sm leading-snug">{item}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 max-w-4xl mx-auto">
+    <h3 class="text-xl font-bold text-slate-900 mb-6 text-center">Why It Worked</h3>
+    <div class="grid md:grid-cols-2 gap-4">
+      {[
+        'Clear learning structure',
+        'Learner-centered design',
+        'LMS-ready delivery format',
+        'Trainer/teacher enablement',
+        'Scalable course architecture',
+        'Rigorous QA before launch'
+      ].map((reason) => (
+        <div class="flex items-center">
+           <svg class="w-5 h-5 text-[#27496D] mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+           </svg>
+           <span class="text-slate-700 font-medium">{reason}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

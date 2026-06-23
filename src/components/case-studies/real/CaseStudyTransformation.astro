@@ -1,0 +1,64 @@
+---
+const { study } = Astro.props;
+---
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white rounded-3xl shadow-sm border border-slate-200 my-12">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-slate-900 mb-4">The Transformation</h2>
+    <p class="text-lg text-slate-600">From scattered content to a scalable learning system.</p>
+  </div>
+
+  <div class="flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-16">
+    <!-- Before -->
+    <div class="flex-1 w-full max-w-sm">
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 text-center relative overflow-hidden group">
+        <div class="absolute inset-0 bg-slate-100/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative z-10">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wide bg-slate-200 text-slate-600 uppercase mb-6">
+            Before
+          </span>
+          <ul class="space-y-4">
+            {study.beforeState.map((state: string) => (
+              <li class="flex items-center justify-center text-slate-600 font-medium">
+                <svg class="w-4 h-4 text-slate-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                {state}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow -->
+    <div class="hidden md:flex flex-col items-center justify-center text-[#77BA55]">
+      <svg class="w-12 h-12 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+      </svg>
+    </div>
+    <div class="md:hidden flex flex-col items-center justify-center text-[#77BA55]">
+      <svg class="w-10 h-10 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 17l-4 4m0 0l-4-4m4-4V3"></path>
+      </svg>
+    </div>
+
+    <!-- After -->
+    <div class="flex-1 w-full max-w-sm">
+      <div class="bg-white rounded-2xl p-8 border-2 border-[#77BA55]/20 text-center relative overflow-hidden shadow-lg group hover:-translate-y-1 transition-transform duration-300">
+        <div class="absolute inset-0 bg-[#F3FAF0]/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative z-10">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wide bg-[#F3FAF0] text-[#77BA55] border border-[#77BA55]/20 uppercase mb-6">
+            TheEduAssist Way
+          </span>
+          <ul class="space-y-4">
+            {study.afterState.map((state: string) => (
+              <li class="flex items-center justify-center text-slate-900 font-semibold">
+                <svg class="w-5 h-5 text-[#77BA55] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                {state}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
