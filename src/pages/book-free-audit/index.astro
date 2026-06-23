@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import AuditHero from "../../components/audit/AuditHero.astro";
 import AuditReviewScope from "../../components/audit/AuditReviewScope.astro";
-import AuditRequestForm from "../../components/forms/AuditRequestForm.astro";
 import CalendlyCTA from "../../components/audit/CalendlyCTA.astro";
 import AuditNextSteps from "../../components/audit/AuditNextSteps.astro";
 import AuditFAQ from "../../components/audit/AuditFAQ.astro";
@@ -39,7 +38,7 @@ const auditFaqs = [
 const jsonLd = [
   webPageSchema(
     "Get a 24–48 Hour Course/LMS Review | TheEduAssist",
-    "Get a 24-48 Hour Review with TheEduAssist to review your course idea, Kajabi setup, LMS, training content, AI-powered e-learning needs, funnels, automation, or launch workflow.",
+    "Submit your course, Kajabi, LMS, content conversion, AI e-learning, funnel, or support request and TheEduAssist will reply within 24–48 hours with the best service path, estimated scope, and next step.",
     "/book-free-audit/"
   ),
   faqPageSchema(auditFaqs),
@@ -61,14 +60,14 @@ const trustChips = [
 ---
 <Layout
   title="Get a 24–48 Hour Course/LMS Review | TheEduAssist"
-  description="Get a 24-48 Hour Review with TheEduAssist to review your course idea, Kajabi setup, LMS, training content, AI-powered e-learning needs, funnels, automation, or launch workflow."
+  description="Submit your course, Kajabi, LMS, content conversion, AI e-learning, funnel, or support request and TheEduAssist will reply within 24–48 hours with the best service path, estimated scope, and next step."
   canonicalPath="/book-free-audit/"
   jsonLd={jsonLd}
 >
 
   <AuditHero
     title="Get a 24–48 Hour Course/LMS Review"
-    subtitle="Send us your course, Kajabi, LMS, or content problem. We’ll review it and reply within 24–48 hours with the best service path, estimated scope, and next step."
+    subtitle="Tell us what you are building, fixing, migrating, converting, or launching. TheEduAssist will review your request and recommend the right service path, estimated scope, and next step within 24–48 hours."
     primaryCtaLabel="Start Request Form"
     primaryCtaLink="#audit-form-section"
     secondaryCtaLabel="Email Instead"
@@ -80,9 +79,38 @@ const trustChips = [
 
   <section id="audit-form-section" class="py-24 bg-slate-50 border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-4">
-      <div class="bg-white p-8 md:p-10 rounded-xl border border-slate-200 shadow-sm">
+      <div class="bg-white p-4 md:p-10 rounded-xl border border-slate-200 shadow-sm overflow-hidden">
         <h2 class="text-3xl font-bold mb-8 text-center text-slate-900">Tell Us About Your Project</h2>
-        <AuditRequestForm />
+
+        <!-- Google Form Setup Note:
+             - Create the form under Info@theeduassist.com
+             - Link responses to Google Sheet
+             - Turn on new response email notifications
+             - Use prefilled links later for service-specific CTAs
+             - Avoid file upload for now
+             - Ask users to share links instead of confidential files
+        -->
+        <div class="w-full relative min-h-[800px] rounded-lg overflow-hidden border border-slate-100">
+          <iframe
+            src="GOOGLE_FORM_EMBED_URL"
+            width="100%"
+            height="100%"
+            class="absolute top-0 left-0 w-full h-full border-0"
+            title="24-48 Hour Review Request Form"
+          >Loading…</iframe>
+        </div>
+
+        <div class="mt-8 text-center border-t border-slate-100 pt-6">
+          <p class="text-slate-600 mb-4">Having trouble viewing the form?</p>
+          <a
+            href="GOOGLE_FORM_PUBLIC_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 px-6 py-3 rounded-md font-semibold transition-colors"
+          >
+            Open the review form in a new tab
+          </a>
+        </div>
       </div>
     </div>
   </section>

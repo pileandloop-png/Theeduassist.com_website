@@ -1,0 +1,1 @@
+export const serviceFormLinks = { defaultReviewFormUrl: 'GOOGLE_FORM_PUBLIC_URL', kajabiReviewFormUrl: 'GOOGLE_FORM_PUBLIC_URL', lmsReviewFormUrl: 'GOOGLE_FORM_PUBLIC_URL', aiReviewFormUrl: 'GOOGLE_FORM_PUBLIC_URL', contentConversionReviewFormUrl: 'GOOGLE_FORM_PUBLIC_URL', funnelsReviewFormUrl: 'GOOGLE_FORM_PUBLIC_URL', supportReviewFormUrl: 'GOOGLE_FORM_PUBLIC_URL' };
