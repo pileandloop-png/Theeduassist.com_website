@@ -1,47 +1,109 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy",
+    "url": "https://theeduassist.com/privacy-policy/",
+    "description": "Read how TheEduAssist collects, uses, stores, and protects information submitted through our website, review forms, email, and project inquiry flows."
+  }
+];
 ---
-<Layout title="Privacy Policy" description="Privacy Policy for TheEduAssist.">
+<Layout
+  title="Privacy Policy | TheEduAssist"
+  description="Read how TheEduAssist collects, uses, stores, and protects information submitted through our website, review forms, email, and project inquiry flows."
+  canonicalPath="/privacy-policy/"
+  type="website"
+  jsonLd={jsonLd}
+>
 
   <section class="py-20 bg-slate-100 px-4 text-center">
-    <h1 class="text-4xl font-bold text-slate-900 mb-4 max-w-4xl mx-auto">Privacy Policy</h1>
-    <p class="text-slate-600">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
-  </section>
-
-  <section class="py-12 bg-amber-50 border-y border-amber-200">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <p class="text-amber-800 font-medium flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-        </svg>
-        This page is a general placeholder and should be reviewed by a legal professional before launch.
-      </p>
-    </div>
+    <h1 class="text-4xl font-bold text-brand-navy mb-4 max-w-4xl mx-auto">Privacy Policy</h1>
+    <p class="text-slate-600">Last updated: 2026</p>
   </section>
 
   <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4 prose prose-slate">
-      <h2>1. Introduction</h2>
-      <p>Welcome to TheEduAssist. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website.</p>
 
-      <h2>2. The data we collect about you</h2>
-      <p>Personal data, or personal information, means any information about an individual from which that person can be identified. We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
+      <h2 class="text-brand-navy">1. Introduction</h2>
+      <p>TheEduAssist is a multi-platform e-learning design and course-building agency. This Privacy Policy explains how we collect and use information when visitors use our website, submit a review request, contact us by email, or interact with our website tools.</p>
+
+      <h2 class="text-brand-navy">2. Information we collect</h2>
+      <p>We may collect the following information:</p>
       <ul>
-        <li><strong>Identity Data</strong> includes first name, last name, username or similar identifier.</li>
-        <li><strong>Contact Data</strong> includes billing address, delivery address, email address and telephone numbers.</li>
-        <li><strong>Technical Data</strong> includes internet protocol (IP) address, browser type and version, time zone setting and location.</li>
+        <li>name</li>
+        <li>email address</li>
+        <li>company/brand name</li>
+        <li>project details submitted through the 24–48 Hour Review form</li>
+        <li>current platform or project type</li>
+        <li>budget range</li>
+        <li>timeline</li>
+        <li>messages sent by email</li>
+        <li>basic website usage data if analytics are used</li>
+        <li>technical information such as browser/device information if collected by analytics or hosting tools</li>
       </ul>
 
-      <h2>3. How we use your personal data</h2>
-      <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+      <h2 class="text-brand-navy">3. How we collect information</h2>
+      <p>We collect information through:</p>
       <ul>
-        <li>Where we need to perform the contract we are about to enter into or have entered into with you.</li>
-        <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
-        <li>Where we need to comply with a legal obligation.</li>
+        <li>Google Form embedded on <a href="/book-free-audit/" class="text-brand-primary hover:underline">/book-free-audit/</a></li>
+        <li>email links using <a href="mailto:Info@theeduassist.com" class="text-brand-primary hover:underline">Info@theeduassist.com</a></li>
+        <li>project request/message widget</li>
+        <li>contact page</li>
+        <li>analytics tools if enabled</li>
+        <li>hosting/security tools</li>
       </ul>
 
-      <h2>4. Contact Us</h2>
-      <p>If you have any questions about this privacy policy or our privacy practices, please contact us at info@theeduassist.com.</p>
+      <h2 class="text-brand-navy">4. How we use information</h2>
+      <p>We use the collected information to:</p>
+      <ul>
+        <li>respond to inquiries</li>
+        <li>review project details</li>
+        <li>recommend the right service path</li>
+        <li>prepare scope, quote, or next step</li>
+        <li>improve website content and services</li>
+        <li>maintain website security</li>
+        <li>manage client communication</li>
+      </ul>
+
+      <h2 class="text-brand-navy">5. Google Form notice</h2>
+      <p>The 24–48 Hour Review form is powered by Google Forms. When you submit the form, your information may be processed by Google according to Google’s own terms and privacy practices.</p>
+      <p><strong>Instruction:</strong> Do not submit passwords, payment details, bank details, government IDs, health records, or highly confidential files through the form.</p>
+
+      <h2 class="text-brand-navy">6. Email communication</h2>
+      <p>If users email TheEduAssist, their email address and message content will be used to respond to their request.</p>
+
+      <h2 class="text-brand-navy">7. Analytics and cookies</h2>
+      <p>TheEduAssist may use analytics or similar tools to understand website traffic and improve user experience. If analytics are enabled, these tools may collect usage information such as pages visited, device/browser details, and approximate location.</p>
+
+      <h2 class="text-brand-navy">8. AI/share tools</h2>
+      <p>The website may include buttons that help visitors copy a page-aware prompt and open third-party AI assistants such as ChatGPT, Claude, Gemini, Perplexity, Copilot, or Grok. TheEduAssist does not control those third-party AI tools. If users paste content into an AI assistant, that interaction is subject to the selected AI provider’s terms and privacy policy.</p>
+      <p>The site may include share buttons for LinkedIn, Facebook, X, and copy link.</p>
+
+      <h2 class="text-brand-navy">9. Data sharing</h2>
+      <p>We do not sell personal information.</p>
+      <p>We may share information only with service providers needed to operate the website and respond to inquiries, such as Google Forms/Sheets, email providers, hosting providers, analytics providers, and project communication tools.</p>
+
+      <h2 class="text-brand-navy">10. Data retention</h2>
+      <p>We keep inquiry information only as long as needed for communication, project evaluation, business records, or legal/security purposes.</p>
+
+      <h2 class="text-brand-navy">11. User rights</h2>
+      <p>Users may request access, correction, or deletion of their submitted information by emailing <a href="mailto:Info@theeduassist.com" class="text-brand-primary hover:underline">Info@theeduassist.com</a>.</p>
+
+      <h2 class="text-brand-navy">12. International users</h2>
+      <p>TheEduAssist may receive inquiries from different countries. By submitting information, users understand that their information may be processed through tools and services that operate internationally.</p>
+
+      <h2 class="text-brand-navy">13. Security</h2>
+      <p>We use reasonable technical and organizational measures to protect submitted information, but no internet transmission or storage system can be guaranteed 100% secure.</p>
+
+      <h2 class="text-brand-navy">14. Children’s privacy</h2>
+      <p>The website is intended for business and professional inquiries, not for children.</p>
+
+      <h2 class="text-brand-navy">15. Contact</h2>
+      <p>Email: <a href="mailto:Info@theeduassist.com" class="text-brand-primary hover:underline">Info@theeduassist.com</a></p>
+
     </div>
   </section>
 
