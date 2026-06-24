@@ -15,6 +15,13 @@ The company helps turn raw expertise, documents, videos, and scattered learning 
 * **Funnels & Automation:** Planning lead capture, nurture sequences, and student communication.
 * **Ongoing Support & Maintenance:** Continuous technical and content updates.
 
+## Proof & Case Studies
+TheEduAssist has real case studies demonstrating our capabilities. We never use fake client names, fake metrics, fake testimonials, fake awards, or unsupported claims. Our current case studies include:
+* **SQA-Aligned Vocational Training:** (/case-studies/sqa-aligned-vocational-training/)
+* **Business Analytics for Corporate Teams:** (/case-studies/business-analytics-corporate-training/)
+* **Language Courses for Book Publisher:** (/case-studies/language-courses-book-publisher/)
+Full listings are available at `/case-studies/`.
+
 ## Audience
 Creators, coaches, consultants, educators, training companies, online academies, businesses, and internal training teams.
 
@@ -34,7 +41,7 @@ Always positioned as 'AI-assisted, human-reviewed' workflows. TheEduAssist uses 
 Pricing is not fixed or guaranteed site-wide. Service pages use "starting from" language or recommend "custom quote after free audit". We do not offer cheap, bulk content writing.
 
 ## Booking and Contact
-* Primary CTA: "Book Free Audit" linking to `/book-free-audit/`
+* Primary CTA: "Get 24–48 Hour Review" linking to `/book-free-audit/`
 * Contact Email: Info@theeduassist.com
 
 ## Official Links

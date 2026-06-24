@@ -1,0 +1,147 @@
+
+> dimensional-doppler@0.0.1 build
+> astro build
+
+06:03:54 [types] Generated 87ms
+06:03:54 [build] output: "static"
+06:03:54 [build] mode: "static"
+06:03:54 [build] directory: /app/dist/
+06:03:54 [build] Collecting build info...
+06:03:54 [build] ✓ Completed in 164ms.
+06:03:54 [build] Building static entrypoints...
+06:03:58 [WARN] [vite]
+/noise.png referenced in /noise.png didn't resolve at build time, it will remain unchanged to be resolved at runtime
+06:03:58 [WARN] [vite]
+/ui/grid-pattern.svg referenced in /ui/grid-pattern.svg didn't resolve at build time, it will remain unchanged to be resolved at runtime
+06:04:00 [vite] ✓ built in 6.46s
+06:04:01 [vite] ✓ built in 153ms
+06:04:01 [build] Rearranging server assets...
+
+ generating static routes
+Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
+06:04:01   ├─ /404.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+130ms)
+06:04:01   ├─ /about/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+28ms)
+06:04:01   ├─ /accessibility-statement/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+26ms)
+06:04:01   ├─ /ai-use-policy/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+16ms)
+06:04:01   ├─ /blog/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+21ms)
+06:04:01   ├─ /book-free-audit/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+20ms)
+06:04:01   ├─ /book-free-kajabi-audit/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+18ms)
+06:04:01   ├─ /careers/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+16ms)
+06:04:01   ├─ /case-studies/sqa-aligned-vocational-training/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+17ms)
+06:04:01   ├─ /case-studies/business-analytics-corporate-training/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+14ms)
+06:04:01   ├─ /case-studies/language-courses-book-publisher/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+15ms)
+06:04:01   ├─ /case-studies/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+19ms)
+06:04:01   ├─ /contact/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+14ms)
+06:04:01   ├─ /cookie-policy/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+13ms)
+06:04:01   ├─ /disclaimer/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+13ms)
+06:04:01   ├─ /editorial-policy/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+14ms)
+06:04:01   ├─ /kajabi-services/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+19ms)
+06:04:01   ├─ /privacy-policy/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+14ms)
+06:04:01   ├─ /resources/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+15ms)
+06:04:01   ├─ /sanity-test/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+178ms)
+06:04:02   ├─ /services/ai-powered-elearning/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+19ms)
+06:04:02   ├─ /services/content-conversion/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+33ms)
+06:04:02   ├─ /services/custom-elearning-development/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+18ms)
+06:04:02   ├─ /services/funnels-automation/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+23ms)
+06:04:02   ├─ /services/lms-implementation-migration/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+23ms)
+06:04:02   ├─ /services/ongoing-support-maintenance/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+23ms)
+06:04:02   ├─ /services/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+28ms)
+06:04:02   ├─ /terms-and-conditions/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+16ms)
+06:04:02   ├─ /thank-you/index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+16ms)
+06:04:02   ├─ /index.htmlGracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+ (+25ms)
+06:04:02 ✓ Completed in 1.21s.
+
+06:04:02 [build] ✓ Completed in 7.96s.
+06:04:02 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+06:04:02 [build] 30 page(s) built in 8.19s
+06:04:02 [build] Complete!

@@ -13,6 +13,7 @@ import KajabiComparison from "../components/kajabi/KajabiComparison.astro";
 import StartingPoint from "../components/sections/StartingPoint.astro";
 import KajabiFAQ from "../components/kajabi/KajabiFAQ.astro";
 import KajabiFinalCTA from "../components/kajabi/KajabiFinalCTA.astro";
+import CaseStudyProof from "../components/case-studies/CaseStudyProof.astro";
 
 import { serviceSchema, faqPageSchema, breadcrumbSchema } from '../lib/schema';
 
@@ -58,6 +59,7 @@ const jsonLd = [
   <KajabiFunnelsAutomation />
   <KajabiStudentExperience />
   <KajabiComparison />
+  <CaseStudyProof slugs={['business-analytics-corporate-training', 'language-courses-book-publisher']} />
   <StartingPoint />
   <KajabiFAQ />
   <KajabiFinalCTA />

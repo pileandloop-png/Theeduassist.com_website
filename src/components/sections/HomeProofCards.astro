@@ -6,21 +6,25 @@ const caseStudies = [
     title: "SQA-Aligned Vocational Training",
     category: "Government & Skills Development",
     summary: "Developed structured vocational eLearning content aligned with skills-based workforce development needs.",
+    link: "/case-studies/sqa-aligned-vocational-training/"
   },
   {
     title: "Business Analytics Training",
     category: "Corporate Learning",
     summary: "Created practical learning content to help teams understand data, reporting, and decision-making workflows.",
+    link: "/case-studies/business-analytics-corporate-training/"
   },
   {
     title: "Language Learning Content",
     category: "Educational Programs",
     summary: "Supported educational content development for language learning audiences and structured course delivery.",
+    link: "/case-studies/language-courses-book-publisher/"
   },
   {
     title: "Platform Cleanup and Course Flow",
     category: "Course Platform Support",
     summary: "Helped organize course structure, access flow, and learner journey planning for online learning delivery.",
+    link: "/case-studies/"
   }
 ];
 ---
@@ -41,7 +45,7 @@ const caseStudies = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
       {caseStudies.map(cs => (
-        <a href="/case-studies/" class="block h-full group focus-ring rounded-2xl">
+        <a href={cs.link} class="block h-full group focus-ring rounded-2xl">
           <Card className="flex flex-col h-full bg-brand-softBg hover:bg-white border border-brand-border/60 group-hover:border-brand-accent/30 group-hover:shadow-md hover-lift transition-all">
             <div class="text-xs font-bold tracking-wider text-brand-primary uppercase mb-3 bg-brand-softBlue inline-block px-3 py-1 rounded-full">{cs.category}</div>
             <h3 class="text-xl font-bold mb-3 text-brand-navy group-hover:text-brand-accent transition-colors">{cs.title}</h3>

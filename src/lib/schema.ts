@@ -94,6 +94,16 @@ export function webPageSchema(name: string, description: string, urlPath: string
   };
 }
 
+export function collectionPageSchema(name: string, description: string, urlPath: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": name,
+    "description": description,
+    "url": buildCanonicalUrl(urlPath)
+  };
+}
+
 export function blogPostingSchema() {
   // Placeholder for later only
   return {

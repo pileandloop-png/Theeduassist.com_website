@@ -11,6 +11,7 @@ import ServicesComparison from "../../components/services/ServicesComparison.ast
 import StartingPoint from "../../components/sections/StartingPoint.astro";
 import ServicesFAQ from "../../components/services/ServicesFAQ.astro";
 import ServicesFinalCTA from "../../components/services/ServicesFinalCTA.astro";
+import CaseStudyProof from "../../components/case-studies/CaseStudyProof.astro";
 
 import { professionalServiceSchema, breadcrumbSchema } from '../../lib/schema';
 
@@ -37,6 +38,7 @@ const jsonLd = [
   <KajabiServiceHighlight />
   <AIWorkflowSection />
   <ServicesComparison />
+  <CaseStudyProof slugs={['sqa-aligned-vocational-training', 'business-analytics-corporate-training', 'language-courses-book-publisher']} />
   <StartingPoint />
   <ServicesFAQ />
   <ServicesFinalCTA />

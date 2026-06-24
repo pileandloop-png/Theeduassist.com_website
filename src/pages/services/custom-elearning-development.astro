@@ -13,6 +13,7 @@ import CoursePackages from "../../components/course-creation/CoursePackages.astr
 import CourseComparison from "../../components/course-creation/CourseComparison.astro";
 import CourseFAQ from "../../components/course-creation/CourseFAQ.astro";
 import CourseFinalCTA from "../../components/course-creation/CourseFinalCTA.astro";
+import CaseStudyProof from "../../components/case-studies/CaseStudyProof.astro";
 
 import { professionalServiceSchema, breadcrumbSchema } from '../../lib/schema';
 
@@ -43,6 +44,7 @@ const jsonLd = [
   <CourseDeliverables />
   <CoursePackages />
   <CourseComparison />
+  <CaseStudyProof slugs={['sqa-aligned-vocational-training', 'language-courses-book-publisher']} />
   <CourseFAQ />
   <CourseFinalCTA />
 

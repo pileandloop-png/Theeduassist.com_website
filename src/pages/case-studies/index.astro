@@ -6,12 +6,17 @@ import BeforeAfterFramework from "../../components/case-studies/BeforeAfterFrame
 import CaseStudyAnatomy from "../../components/case-studies/CaseStudyAnatomy.astro";
 import ServicesBehindWork from "../../components/case-studies/ServicesBehindWork.astro";
 import CaseStudiesFinalCTA from "../../components/case-studies/CaseStudiesFinalCTA.astro";
+import { collectionPageSchema } from "../../lib/schema";
 
 const seoTitle = "Case Studies | Real E-Learning, LMS & Course Development Projects by TheEduAssist";
 const seoDescription = "Explore real TheEduAssist case studies showing how we helped organizations convert classroom training, corporate analytics programs, and language books into structured, interactive, LMS-ready online learning experiences.";
+
+const jsonLd = [
+  collectionPageSchema(seoTitle, seoDescription, "/case-studies/")
+];
 ---
 
-<Layout title={seoTitle} description={seoDescription}>
+<Layout title={seoTitle} description={seoDescription} jsonLd={jsonLd}>
   <!-- Hero Section -->
   <section class="bg-slate-50 pt-24 pb-16 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

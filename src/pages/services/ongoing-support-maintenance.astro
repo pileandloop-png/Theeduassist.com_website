@@ -14,6 +14,7 @@ import SupportPackages from "../../components/support/SupportPackages.astro";
 import SupportComparison from "../../components/support/SupportComparison.astro";
 import SupportFAQ from "../../components/support/SupportFAQ.astro";
 import SupportFinalCTA from "../../components/support/SupportFinalCTA.astro";
+import CaseStudyProof from "../../components/case-studies/CaseStudyProof.astro";
 
 const schema = {
   "@context": "https://schema.org",
@@ -44,6 +45,7 @@ const schema = {
   <LaunchSupportSection />
   <SupportPackages />
   <SupportComparison />
+  <CaseStudyProof slugs={['sqa-aligned-vocational-training', 'business-analytics-corporate-training', 'language-courses-book-publisher']} />
   <SupportFAQ />
   <SupportFinalCTA />
 

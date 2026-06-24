@@ -49,8 +49,20 @@ const { study } = Astro.props;
             <dd class="text-sm font-medium text-slate-900">{study.industry}</dd>
           </div>
           <div>
+            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Project Type</dt>
+            <dd class="text-sm font-medium text-slate-900">E-Learning Development</dd>
+          </div>
+          <div>
             <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Delivery Model</dt>
             <dd class="text-sm font-medium text-slate-900">{study.sprintModel.description}</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Main Challenge</dt>
+            <dd class="text-sm font-medium text-slate-900">{study.challenge[0]}</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Main Service</dt>
+            <dd class="text-sm font-medium text-slate-900">{study.services[0]}</dd>
           </div>
           <div>
             <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Main Outcome</dt>
