@@ -1,51 +1,92 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms & Conditions",
+    "url": "https://theeduassist.com/terms-and-conditions/",
+    "description": "Read the terms for using TheEduAssist’s website, submitting project inquiries, viewing service information, and engaging with our e-learning design services."
+  }
+];
 ---
-<Layout title="Terms and Conditions" description="Terms and Conditions for TheEduAssist.">
+<Layout
+  title="Terms & Conditions | TheEduAssist"
+  description="Read the terms for using TheEduAssist’s website, submitting project inquiries, viewing service information, and engaging with our e-learning design services."
+  canonicalPath="/terms-and-conditions/"
+  type="website"
+  jsonLd={jsonLd}
+>
 
   <section class="py-20 bg-slate-100 px-4 text-center">
-    <h1 class="text-4xl font-bold text-slate-900 mb-4 max-w-4xl mx-auto">Terms and Conditions</h1>
-    <p class="text-slate-600">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
-  </section>
-
-  <section class="py-12 bg-amber-50 border-y border-amber-200">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <p class="text-amber-800 font-medium flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-        </svg>
-        This page is a general placeholder and should be reviewed by a legal professional before launch.
-      </p>
-    </div>
+    <h1 class="text-4xl font-bold text-brand-navy mb-4 max-w-4xl mx-auto">Terms & Conditions</h1>
+    <p class="text-slate-600">Last updated: 2026</p>
   </section>
 
   <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4 prose prose-slate">
-      <h2>1. Introduction</h2>
-      <p>These terms and conditions outline the rules and regulations for the use of TheEduAssist's Website.</p>
-      <p>By accessing this website we assume you accept these terms and conditions. Do not continue to use TheEduAssist if you do not agree to take all of the terms and conditions stated on this page.</p>
 
-      <h2>2. License</h2>
-      <p>Unless otherwise stated, TheEduAssist and/or its licensors own the intellectual property rights for all material on TheEduAssist. All intellectual property rights are reserved. You may access this from TheEduAssist for your own personal use subjected to restrictions set in these terms and conditions.</p>
-      <p>You must not:</p>
+      <h2 class="text-brand-navy">1. Introduction</h2>
+      <p>These Terms govern use of TheEduAssist website and website content.</p>
+
+      <h2 class="text-brand-navy">2. Website information</h2>
+      <p>The website provides information about e-learning design, course creation, Kajabi services, LMS migration, content conversion, AI-powered e-learning support, funnels, automation, support services, blog resources, and case studies.</p>
+
+      <h2 class="text-brand-navy">3. No automatic client relationship</h2>
+      <p>Submitting a form or email does not automatically create a client relationship. A project begins only after scope, timeline, pricing, payment terms, and agreement are confirmed.</p>
+
+      <h2 class="text-brand-navy">4. Starting prices</h2>
+      <p>Starting prices shown on the website are estimates and not fixed final quotes. Final scope depends on content volume, platform, course length, page count, review rounds, automations, integrations, timeline, and launch support.</p>
+
+      <h2 class="text-brand-navy">5. Project inquiries</h2>
+      <p>Submitting a 24–48 Hour Review request does not guarantee acceptance of a project. TheEduAssist may accept, decline, or recommend a different service path.</p>
+
+      <h2 class="text-brand-navy">6. Payment and project terms</h2>
+      <p>Specific payment terms, milestones, revision rounds, deliverables, and timelines will be agreed separately before project work begins.</p>
+
+      <h2 class="text-brand-navy">7. Client responsibilities</h2>
+      <p>Clients are responsible for:</p>
       <ul>
-        <li>Republish material from TheEduAssist</li>
-        <li>Sell, rent or sub-license material from TheEduAssist</li>
-        <li>Reproduce, duplicate or copy material from TheEduAssist</li>
-        <li>Redistribute content from TheEduAssist</li>
+        <li>providing accurate project information</li>
+        <li>having rights to the content they provide</li>
+        <li>reviewing deliverables in a timely manner</li>
+        <li>approving content before launch</li>
+        <li>providing platform access only through secure approved methods</li>
       </ul>
 
-      <h2>3. Disclaimer</h2>
-      <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>
-      <ul>
-        <li>limit or exclude our or your liability for death or personal injury;</li>
-        <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
-        <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
-        <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
-      </ul>
+      <h2 class="text-brand-navy">8. Content ownership</h2>
+      <p>Client-provided materials remain the client’s responsibility and ownership.</p>
+      <p>Final ownership and usage rights of deliverables depend on the agreed project terms.</p>
 
-      <h2>4. Contact Us</h2>
-      <p>If you have any questions about these Terms, please contact us at info@theeduassist.com.</p>
+      <h2 class="text-brand-navy">9. AI-assisted work</h2>
+      <p>TheEduAssist may use AI-assisted workflows to support planning, drafting, organizing, summarizing, or improving learning content, but human review and project judgment remain part of the process.</p>
+
+      <h2 class="text-brand-navy">10. Website AI/share tools</h2>
+      <p>The website may provide AI prompt-copy and share tools for visitor convenience. TheEduAssist is not responsible for outputs generated by third-party AI tools or content users choose to paste into those platforms.</p>
+
+      <h2 class="text-brand-navy">11. Case studies</h2>
+      <p>Case studies show real project types and outcomes based on approved public-facing information. Some client names or internal details may be omitted for confidentiality.</p>
+
+      <h2 class="text-brand-navy">12. No guaranteed results</h2>
+      <p>TheEduAssist does not guarantee specific revenue, enrollment numbers, completion rates, rankings, platform performance, or business results unless stated in a signed agreement.</p>
+
+      <h2 class="text-brand-navy">13. Third-party platforms</h2>
+      <p>Kajabi, LMS platforms, Google Forms, Google Sheets, Sanity, Firebase, analytics tools, AI assistants, social networks, and other third-party services have their own terms and policies.</p>
+
+      <h2 class="text-brand-navy">14. Intellectual property</h2>
+      <p>Website content, design, copy, visuals, and brand materials belong to TheEduAssist unless otherwise stated.</p>
+      <p>Users may not copy or reuse website content without permission.</p>
+
+      <h2 class="text-brand-navy">15. Limitation of liability</h2>
+      <p>TheEduAssist is not liable for indirect, incidental, or consequential losses from using the website or third-party tools.</p>
+
+      <h2 class="text-brand-navy">16. Changes to terms</h2>
+      <p>TheEduAssist may update these Terms.</p>
+
+      <h2 class="text-brand-navy">17. Contact</h2>
+      <p>Email: <a href="mailto:Info@theeduassist.com" class="text-brand-primary hover:underline">Info@theeduassist.com</a></p>
+
     </div>
   </section>
 
