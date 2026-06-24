@@ -22,24 +22,4 @@ const { study } = Astro.props;
     ))}
   </div>
 
-  <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 max-w-4xl mx-auto">
-    <h3 class="text-xl font-bold text-slate-900 mb-6 text-center">Why It Worked</h3>
-    <div class="grid md:grid-cols-2 gap-4">
-      {[
-        'Clear learning structure',
-        'Learner-centered design',
-        'LMS-ready delivery format',
-        'Trainer/teacher enablement',
-        'Scalable course architecture',
-        'Rigorous QA before launch'
-      ].map((reason) => (
-        <div class="flex items-center">
-           <svg class="w-5 h-5 text-[#27496D] mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-           </svg>
-           <span class="text-slate-700 font-medium">{reason}</span>
-        </div>
-      ))}
-    </div>
-  </div>
 </section>

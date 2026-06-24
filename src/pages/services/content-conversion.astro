@@ -14,6 +14,7 @@ import ContentPackages from "../../components/content-conversion/ContentPackages
 import ContentComparison from "../../components/content-conversion/ContentComparison.astro";
 import ContentFAQ from "../../components/content-conversion/ContentFAQ.astro";
 import ContentFinalCTA from "../../components/content-conversion/ContentFinalCTA.astro";
+import CaseStudyProof from "../../components/case-studies/CaseStudyProof.astro";
 
 import { professionalServiceSchema, breadcrumbSchema } from '../../lib/schema';
 
@@ -45,6 +46,7 @@ const jsonLd = [
   <ContentQualitySection />
   <ContentPackages />
   <ContentComparison />
+  <CaseStudyProof slugs={['sqa-aligned-vocational-training', 'language-courses-book-publisher']} />
   <ContentFAQ />
   <ContentFinalCTA />
 

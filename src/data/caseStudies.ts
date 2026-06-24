@@ -1,7 +1,7 @@
 export const caseStudies = [
   {
     slug: 'sqa-aligned-vocational-training',
-    title: 'SQA-Aligned Vocational Training for a Malaysian Government Institute',
+    title: 'SQA-Aligned Vocational Training',
     subtitle: 'Moving classroom-based vocational training online with SQA-aligned, interactive, LMS-ready eLearning courses.',
     caseNumber: '01',
     clientType: 'Malaysian government vocational training institute',
@@ -9,7 +9,7 @@ export const caseStudies = [
     location: 'Malaysia',
     isRealProject: true,
     clientNamePublic: false,
-    summary: 'A Malaysian government institute wanted to modernize classroom-based vocational training and offer SQA-compliant courses online. TheEduAssist helped convert traditional training material into structured, interactive, LMS-ready eLearning courses.',
+    summary: 'Moved classroom-based vocational training into structured, SQA-aligned, LMS-ready eLearning.',
     challenge: [
       'Classroom-based and offline training',
       'Limited experience with SQA-compliant eLearning',
@@ -73,7 +73,7 @@ export const caseStudies = [
   },
   {
     slug: 'business-analytics-corporate-training',
-    title: 'Business Analytics Training for Corporate Teams',
+    title: 'Business Analytics for Corporate Teams',
     subtitle: 'Improving data skills across diverse teams with structured, interactive, LMS-ready business analytics training.',
     caseNumber: '02',
     clientType: 'Corporate organization',
@@ -81,7 +81,7 @@ export const caseStudies = [
     location: 'Global',
     isRealProject: true,
     clientNamePublic: false,
-    summary: 'A corporate organization needed to improve analytics skills across teams with different experience levels. TheEduAssist helped design and deliver structured, interactive, LMS-ready business analytics training.',
+    summary: 'Designed and delivered structured, interactive, LMS-ready business analytics training for corporate teams.',
     challenge: [
       'Needed structured learning instead of traditional workshops',
       'Remote and office-based teams needed engagement',
@@ -142,7 +142,7 @@ export const caseStudies = [
   },
   {
     slug: 'language-courses-book-publisher',
-    title: 'Language Courses for a Book Publisher',
+    title: 'Language Courses for Book Publisher',
     subtitle: 'Transforming traditional printed books into structured, interactive, LMS-ready eLearning courses.',
     caseNumber: '03',
     clientType: 'Book publisher',
@@ -150,7 +150,7 @@ export const caseStudies = [
     location: 'Global',
     isRealProject: true,
     clientNamePublic: false,
-    summary: 'A language education publisher wanted to transform traditional printed books into interactive digital learning. TheEduAssist helped convert language books into structured, LMS-ready eLearning courses.',
+    summary: 'Converted 20 printed language books into structured, interactive, LMS-ready eLearning courses.',
     challenge: [
       'Printed books were not ready for online learning',
       'Limited experience turning books into eLearning',

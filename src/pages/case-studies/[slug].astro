@@ -21,25 +21,33 @@ export const getStaticPaths = (() => {
 
 const { study } = Astro.props;
 
-// Schema mapping if needed
-const schemaData = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": study.title,
-  "description": study.seoDescription,
-  "author": {
-    "@type": "Organization",
-    "name": "TheEduAssist"
+import { breadcrumbSchema } from '../../lib/schema';
+
+// Schema mapping exactly matching visible page content
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": study.title,
+    "description": study.seoDescription,
+    "author": {
+      "@type": "Organization",
+      "name": "TheEduAssist"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TheEduAssist"
+    }
   },
-  "publisher": {
-    "@type": "Organization",
-    "name": "TheEduAssist"
-  }
-};
+  breadcrumbSchema([
+    { name: "Home", urlPath: "/" },
+    { name: "Case Studies", urlPath: "/case-studies/" },
+    { name: study.title, urlPath: `/case-studies/${study.slug}/` }
+  ])
+];
 ---
 
-<Layout title={study.seoTitle} description={study.seoDescription}>
-  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+<Layout title={study.seoTitle} description={study.seoDescription} canonicalPath={`/case-studies/${study.slug}/`} jsonLd={jsonLd}>
 
   <div class="bg-slate-50 min-h-screen pb-24">
     <!-- Breadcrumbs -->
