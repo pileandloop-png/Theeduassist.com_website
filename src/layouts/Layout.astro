@@ -30,6 +30,8 @@ import Footer from '../components/layout/Footer.astro';
 import AIQuickAssistBar from '../components/ai/AIQuickAssistBar.astro';
 import AIFloatingWidget from '../components/ai/AIFloatingWidget.astro';
 import AIAssistToast from '../components/ai/AIAssistToast.astro';
+import TawkChat from '../components/integrations/TawkChat.astro';
+import RightSalesWidget from '../components/sales/RightSalesWidget.astro';
 
 const siteSettings = await getSiteSettings();
 const site = siteSettings || { title: 'TheEduAssist', name: 'TheEduAssist' };
@@ -79,5 +81,7 @@ const finalOgDescription = ogDescription || formattedDescription;
         <Footer />
         <AIFloatingWidget />
         <AIAssistToast />
+        <RightSalesWidget />
+        <TawkChat />
 	</body>
 </html>

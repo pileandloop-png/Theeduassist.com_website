@@ -13,12 +13,31 @@
       <a href="/book-free-audit/" class="blog-cta-btn inline-flex items-center justify-center px-8 py-4 bg-[var(--color-accent)] text-white font-bold rounded-lg hover:bg-opacity-90 transition-transform hover:-translate-y-0.5 focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-[var(--color-accent)] focus:outline-none" data-cta-label="Get 24–48 Hour Review">
         Get 24–48 Hour Review &rarr;
       </a>
-      <a href="/kajabi-services/" class="blog-cta-btn inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-slate-600 text-white font-bold rounded-lg hover:bg-slate-800 hover:border-slate-500 transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-slate-500 focus:outline-none" data-cta-label="View Services">
-        View Kajabi Services
-      </a>
+      <button type="button" class="tawk-blog-btn inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-slate-600 text-white font-bold rounded-lg hover:bg-slate-800 hover:border-slate-500 transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-slate-500 focus:outline-none focus-ring">
+        Ask how this applies to my project
+      </button>
     </div>
   </div>
 </div>
+
+<script>
+  import { openBlogChat } from '../../utils/tawkSales';
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.tawk-blog-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openBlogChat({
+          contentType: 'blog',
+          contentTitle: document.title,
+          pageUrl: window.location.href,
+          pageTitle: document.title,
+          category: 'blog-post'
+        });
+      });
+    });
+  });
+</script>
 
 <script>
   function setupCtaTracking() {

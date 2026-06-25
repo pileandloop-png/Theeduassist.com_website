@@ -1,0 +1,33 @@
+---
+import { tawkConfig } from '../../config/tawk';
+
+const { enabled, embedUrl, hideDefaultLauncher } = tawkConfig;
+---
+{enabled && (
+  <script is:inline set:html={`
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='${embedUrl}';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      if(s0 && s0.parentNode) {
+        s0.parentNode.insertBefore(s1,s0);
+      } else {
+        document.body.appendChild(s1);
+      }
+    })();
+
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_API.onLoad = function () {
+      try {
+        if (${hideDefaultLauncher}) {
+          window.Tawk_API.hideWidget();
+        }
+      } catch (error) {
+        console.warn("Tawk onLoad setup failed", error);
+      }
+    };
+  `} />
+)}

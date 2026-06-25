@@ -14,9 +14,27 @@ const { study } = Astro.props;
       <a href="/book-free-audit/" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-md text-white bg-[#77BA55] hover:bg-[#65A344] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#27496D] focus:ring-[#77BA55] shadow-lg transition-colors duration-200">
         Get 24–48 Hour Review
       </a>
-      <a href="/services/" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/20 text-lg font-bold rounded-md text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#27496D] focus:ring-white transition-colors duration-200">
-        View Services & Starting Prices
-      </a>
+      <button type="button" class="tawk-case-study-btn inline-flex items-center justify-center px-8 py-4 border-2 border-white/20 text-lg font-bold rounded-md text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#27496D] focus:ring-white transition-colors duration-200 focus-ring">
+        Build Something Similar
+      </button>
     </div>
   </div>
 </section>
+
+<script>
+  import { openCaseStudyChat } from '../../../utils/tawkSales';
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.tawk-case-study-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openCaseStudyChat({
+          contentType: 'case_study',
+          contentTitle: document.title,
+          pageUrl: window.location.href,
+          pageTitle: document.title
+        });
+      });
+    });
+  });
+</script>

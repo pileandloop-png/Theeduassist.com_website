@@ -51,4 +51,22 @@ const schema = {
 
   <!-- Inject specific Service Schema -->
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script>
+    import { openServiceChat } from "../../utils/tawkSales";
+    document.addEventListener("DOMContentLoaded", () => {
+      const btns = document.querySelectorAll(".tawk-service-btn");
+      btns.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = e.currentTarget as HTMLButtonElement;
+          openServiceChat({
+            serviceSlug: target.dataset.serviceSlug || "",
+            pageUrl: window.location.href,
+            pageTitle: document.title,
+          });
+        });
+      });
+    });
+  </script>
+
 </Layout>
