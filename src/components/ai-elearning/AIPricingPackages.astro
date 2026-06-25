@@ -141,9 +141,7 @@ const packages = [
              <a href="/book-free-audit/" class={`block w-full text-center py-3 px-4 rounded-md font-bold transition-colors ${pkg.highlight ? 'bg-brand-accent text-white hover:bg-brand-primary shadow-md' : 'bg-brand-navy text-white hover:bg-opacity-90 shadow-sm'}`}>
                 Start This Project
              </a>
-             <a href="/book-free-audit/" class="block w-full text-center py-3 px-4 rounded-md font-bold text-brand-navy border border-brand-border hover:bg-brand-softBg transition-colors">
-                Not sure? Get 24-48 Hour Review
-             </a>
+             <button type="button" data-package-slug="${pkg.slug || ''}" data-package-price="${pkg.price || ''}" class="tawk-package-btn block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-md border border-brand-border hover:bg-brand-softBg transition-colors focus-ring">Ask About This Package</button>
           </div>
         </div>
       ))}
@@ -153,4 +151,23 @@ const packages = [
         <strong class="text-brand-navy">Pricing disclaimer:</strong> Starting prices are not fixed final quotes. Final scope depends on content volume, platform, course length, page count, review rounds, automations, integrations, and launch support.
     </div>
   </div>
+
+<script>
+  import { openPackageChat } from '../../utils/tawkSales';
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.tawk-package-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = e.currentTarget;
+        openPackageChat({
+          packageSlug: target.dataset.packageSlug || '',
+          packagePrice: target.dataset.packagePrice || '',
+          pageUrl: window.location.href,
+          pageTitle: document.title,
+        });
+      });
+    });
+  });
+</script>
 </section>

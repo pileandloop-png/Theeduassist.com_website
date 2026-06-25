@@ -1,41 +1,40 @@
 # Tawk.to Sales Chat Setup
 
-This document describes how to configure the Tawk.to dashboard to match the sales chat implementation on the website.
+**Widget Settings:**
+* Widget Color: `#77BA55`
+* Widget Name: TheEduAssist Sales Chat
+* Welcome Message: "Hi! Need help choosing the right package or have a question about pricing?"
 
-## 1. Widget Settings
-*   **Widget color:** `#77BA55` (Brand accent green)
-*   **Widget name:** `TheEduAssist Sales Chat`
+**Suggested Messages (Pre-filled):**
+* I want to start a package
+* Help me choose the right service
+* I need pricing and payment details
 
-## 2. Welcome Message
-Set the welcome message to explicitly guide users to describe their project needs:
+**Pre-Chat Form Fields:**
+* Name
+* Email
+* What do you need help with?
 
-> 👋 Hi, welcome to TheEduAssist. Tell us which course, Kajabi, LMS, or content project you want to start. Our sales team will guide you to the right package, confirm scope, and share the next payment step.
+**Team Setup:**
+* Install Tawk mobile app for agents
+* Enable browser notifications
+* Enable missed chat email notifications
+* Add team members as agents
+* Set business hours/timezone
 
-## 3. Suggested Messages (Quick Replies)
-Add these suggested messages to help users start the conversation easily:
-*   I want to start a package
-*   Help me choose the right service
-*   I need pricing and payment details
+**Note:** Use Google Form (via `/book-free-audit/`) for full project details collection. Tawk is for quick sales conversions and payment queries.
 
-## 4. Pre-Chat Form
-Enable a short pre-chat form to collect basic lead info:
-*   **Name**
-*   **Email**
-*   **What do you need help with?** (Dropdown or Multi-select)
-    *   Course Creation
-    *   Kajabi Setup
-    *   LMS Migration
-    *   Content Conversion
-    *   AI E-Learning Support
-    *   Funnels & Automation
-    *   Ongoing Support
-    *   Not Sure Yet
+Tawk.to can notify the team through:
+* Tawk dashboard
+* Tawk mobile app
+* browser notifications
+* missed chat email notifications
+* Tawk webhooks later
 
-*Note: Do not add a long project questionnaire here. Use the Google Form for full project details.*
+For Discord/email automation later:
+Use Tawk Webhooks → Firebase Function or Make/Zapier → Discord/email.
 
-## 5. Team Setup and Operations
-*   **Install Mobile App:** Team members should install the Tawk.to mobile app for responsive replies.
-*   **Notifications:** Enable desktop/browser notifications and missed chat email notifications.
-*   **Agents:** Add all relevant team members as agents in the dashboard.
-*   **Hours:** Set the correct business hours/timezone.
-*   **Offline State:** Use the offline form when the team is away so leads are not lost.
+Security rule:
+Never expose Discord webhook URL in frontend.
+Never expose Tawk webhook secret in frontend.
+Validate webhooks server-side if implemented.

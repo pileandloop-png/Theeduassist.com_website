@@ -36,7 +36,7 @@ const capabilities = [
          </div>
          <div class="w-full md:w-auto flex flex-col gap-3 shrink-0">
             <a href="/book-free-audit/?package=lms-migration-map" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-sm font-semibold rounded-lg text-white bg-[#27496D] hover:bg-opacity-90 transition-colors">Start This Project</a>
-            <a href="/book-free-audit/" class="inline-flex justify-center items-center px-6 py-3 border border-slate-300 text-sm font-semibold rounded-lg text-slate-700 bg-white hover:bg-slate-50 transition-colors">Not sure? Get 24-48 Hour Review</a>
+            <button type="button" data-package-slug="lms-migration-map" data-package-price="From $700" class="tawk-package-btn inline-flex justify-center items-center px-6 py-3 border border-slate-300 text-sm font-semibold rounded-lg text-slate-700 bg-white hover:bg-slate-50 transition-colors">Ask About This Package</button>
          </div>
       </div>
     </div>
@@ -69,4 +69,23 @@ const capabilities = [
       <span class="font-semibold text-slate-800">Pricing disclaimer:</span> Starting prices are not fixed final quotes. Final scope depends on content volume, platform, course length, page count, review rounds, automations, integrations, and launch support.
     </div>
   </div>
+
+<script>
+  import { openPackageChat } from '../../utils/tawkSales';
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.tawk-package-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = e.currentTarget;
+        openPackageChat({
+          packageSlug: target.dataset.packageSlug || '',
+          packagePrice: target.dataset.packagePrice || '',
+          pageUrl: window.location.href,
+          pageTitle: document.title,
+        });
+      });
+    });
+  });
+</script>
 </section>

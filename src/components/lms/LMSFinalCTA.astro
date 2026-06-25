@@ -19,7 +19,7 @@
 
     <div class="flex flex-col sm:flex-row justify-center gap-4">
       <a href="/book-free-audit/" target="_blank" rel="noopener noreferrer" aria-label="Get a 24-48 hour review on Calendly" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-semibold rounded-lg text-white bg-[#77BA55] hover:bg-[#65a347] transition-colors shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#77BA55] focus-visible:ring-offset-[#27496D]">
-        Get 24-48 Hour Review
+        Get Your Course Reviewed in 24–48 Hours
       </a>
       <button
         type="button"
@@ -30,4 +30,22 @@
       </button>
     </div>
   </div>
+
+<script>
+  import { openServiceChat } from '../../utils/tawkSales';
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.tawk-service-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = e.currentTarget;
+        openServiceChat({
+          serviceSlug: target.dataset.serviceSlug || '',
+          pageUrl: window.location.href,
+          pageTitle: document.title,
+        });
+      });
+    });
+  });
+</script>
 </section>

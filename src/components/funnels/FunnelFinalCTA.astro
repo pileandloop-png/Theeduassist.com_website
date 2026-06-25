@@ -18,7 +18,7 @@
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="/book-free-audit/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-[#27496D] bg-white rounded-xl hover:bg-slate-50 transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto border border-transparent">
-          Get 24-48 Hour Review
+          Get Your Course Reviewed in 24–48 Hours
         </a>
         <button
           type="button"
@@ -30,4 +30,22 @@
       </div>
     </div>
   </div>
+
+<script>
+  import { openServiceChat } from '../../utils/tawkSales';
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.tawk-service-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = e.currentTarget;
+        openServiceChat({
+          serviceSlug: target.dataset.serviceSlug || '',
+          pageUrl: window.location.href,
+          pageTitle: document.title,
+        });
+      });
+    });
+  });
+</script>
 </section>

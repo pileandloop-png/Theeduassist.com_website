@@ -57,6 +57,11 @@ const attemptTawkAction = (actionFn: () => void, fallbackUrl: string = '/book-fr
 
 export const openTawkSalesChat = (context: TawkSalesContext = {}) => {
   attemptTawkAction(() => {
+    if (typeof window.Tawk_API.addEvent === 'function') {
+      try {
+        window.Tawk_API.addEvent('right_sales_widget_clicked', {}, function(){});
+      } catch(e) {}
+    }
     if (typeof window.Tawk_API.addTags === 'function') {
       try { window.Tawk_API.addTags(['sales-lead', 'payment-guidance'], function(){}); } catch(e) {}
     }
@@ -64,7 +69,9 @@ export const openTawkSalesChat = (context: TawkSalesContext = {}) => {
       try {
         window.Tawk_API.setAttributes({
           source_cta: context.sourceCta || 'right-floating-talk-to-sales',
-          lead_intent: context.intent || 'sales_payment_guidance'
+          lead_intent: context.intent || 'sales_payment_guidance',
+          page_url: window.location.href,
+          page_title: document.title
         }, function(){});
       } catch(e) {}
     }
