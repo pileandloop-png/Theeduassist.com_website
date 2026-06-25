@@ -1,26 +1,26 @@
 ---
 import BlogCard from './BlogCard.astro';
-import type { BlogPost } from '../../data/blogPosts';
+import type { NormalizedBlogPost } from '../../lib/content/getAllBlogPosts';
 
 interface Props {
   currentSlug: string;
   category: string;
-  tags: string[];
-  allPosts: BlogPost[];
+
+  allPosts: NormalizedBlogPost[];
 }
 
-const { currentSlug, category, tags, allPosts } = Astro.props;
+const { currentSlug, category, allPosts = [] } = Astro.props;
 
 // Logic to find related:
 // 1. Same category
 // 2. Overlapping tags
 // Exclude current
 const related = allPosts
-  .filter(p => p.slug !== currentSlug && p.status === 'published')
+  .filter(p => p.slug !== currentSlug )
   .map(p => {
     let score = 0;
     if (p.category === category) score += 2;
-    const matchingTags = p.tags.filter(t => tags.includes(t));
+    const matchingTags = [];
     score += matchingTags.length;
     return { post: p, score };
   })
