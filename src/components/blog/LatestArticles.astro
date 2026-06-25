@@ -1,22 +1,21 @@
 ---
-import BlogCard from './BlogCard.astro';
-import { blogPosts } from '../../data/blogPosts';
-import { fetchFromSanity } from '../../sanity/client';
-import { latestBlogPostsQuery } from '../../sanity/queries';
+import BlogCard from "./BlogCard.astro";
 
-// Fetch from Sanity, fallback to static
+
+import { getAllBlogPosts } from '../../lib/content/getAllBlogPosts';
+
+
 let posts = [];
 try {
-  const sanityPosts = await fetchFromSanity(latestBlogPostsQuery, { status: 'published' });
-  if (sanityPosts && sanityPosts.length > 0) {
-    posts = sanityPosts;
-  } else {
-    posts = blogPosts.filter(p => p.status === 'published');
-  }
+  posts = await getAllBlogPosts();
 } catch (e) {
-  posts = blogPosts.filter(p => p.status === 'published');
+  console.log("Error fetching blog posts for LatestArticles");
 }
+
+const displayPosts = posts.slice(0, 3);
 ---
+
+
 
 <div class="mb-16 mt-16">
   <div class="flex justify-between items-end mb-8 border-b border-slate-200 pb-4">
