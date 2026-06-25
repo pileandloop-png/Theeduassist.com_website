@@ -1,3 +1,5 @@
+> **Deprecated: Firebase Hosting is no longer the primary deployment path. Use Vercel + Cloudflare instead.**
+
 # Final Hosting Decision Guide
 
 This document outlines the hosting strategy for TheEduAssist.

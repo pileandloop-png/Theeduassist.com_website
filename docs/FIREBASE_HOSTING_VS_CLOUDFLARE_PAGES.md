@@ -1,3 +1,5 @@
+> **Deprecated: Firebase Hosting is no longer the primary deployment path. Use Vercel + Cloudflare instead.**
+
 # Firebase Hosting vs Cloudflare Pages
 
 This document outlines the hosting options for the static Astro site and provides recommendations for TheEduAssist.

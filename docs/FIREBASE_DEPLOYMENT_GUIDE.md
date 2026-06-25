@@ -1,3 +1,5 @@
+> **Deprecated: Firebase Hosting is no longer the primary deployment path. Use Vercel + Cloudflare instead.**
+
 ## Clean Cloud Shell deploy
 
 ```bash
