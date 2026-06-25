@@ -1,4 +1,4 @@
-import { site, buildCanonicalUrl } from './seo';
+import { site, buildCanonicalUrl } from '../seo';
 
 export function organizationSchema() {
   return {

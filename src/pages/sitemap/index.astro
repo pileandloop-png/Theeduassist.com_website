@@ -1,0 +1,71 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getAllPublicRoutes } from "../../lib/content/getAllPublicRoutes";
+
+const routes = await getAllPublicRoutes();
+const sitemapRoutes = routes.filter(r => r.includeInHumanSitemap);
+
+const categorizeRoutes = () => {
+    const categories: Record<string, typeof sitemapRoutes> = {
+        'Core Pages': [],
+        'Services': [],
+        'Case Studies': [],
+        'Blog': [],
+        'Legal': []
+    };
+
+    sitemapRoutes.forEach(route => {
+        if (route.pageType === 'home' || route.pageType === 'general' || route.pageType === 'case-study-listing' || route.pageType === 'blog-listing' || route.pageType === 'kajabi') {
+            categories['Core Pages'].push(route);
+        } else if (route.pageType === 'service') {
+            categories['Services'].push(route);
+        } else if (route.pageType === 'case-study-detail') {
+            categories['Case Studies'].push(route);
+        } else if (route.pageType === 'blog-detail') {
+            categories['Blog'].push(route);
+        } else if (route.pageType === 'legal') {
+            categories['Legal'].push(route);
+        }
+    });
+
+    return categories;
+};
+
+const categorizedRoutes = categorizeRoutes();
+---
+
+<Layout
+    title="Sitemap | TheEduAssist"
+    description="Explore all public pages, services, case studies, and resources available on TheEduAssist."
+    type="website"
+>
+    <div class="bg-slate-50 min-h-screen py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold text-brand-navy mb-4">Sitemap</h1>
+            <p class="text-lg text-slate-600 mb-12">A complete overview of our website structure.</p>
+
+            <div class="space-y-12">
+                {Object.entries(categorizedRoutes).map(([category, urls]) => {
+                    if (urls.length === 0) return null;
+                    return (
+                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                            <h2 class="text-2xl font-bold text-brand-navy mb-6 border-b border-slate-100 pb-4">{category}</h2>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {urls.map(url => (
+                                    <li>
+                                        <a href={url.path} class="text-brand-primary hover:text-brand-accent transition-colors font-medium focus-ring rounded-sm">
+                                            {url.title.split(' |')[0]}
+                                        </a>
+                                        {url.description && (
+                                            <p class="text-sm text-slate-500 mt-1 line-clamp-1">{url.description}</p>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    </div>
+</Layout>
