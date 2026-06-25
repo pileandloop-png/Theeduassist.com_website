@@ -3,23 +3,47 @@
 > astro dev
 
 [vite] connected.
-10:35:36 [types] Generated 1ms
+04:48:19 [types] Generated 1ms
 [vite] connected.
-10:35:36 [vite] Re-optimizing dependencies because vite config has changed
- astro  v6.4.7 ready in 2075 ms
+04:48:19 [vite] Re-optimizing dependencies because vite config has changed
+ astro  v6.4.7 ready in 2015 ms
 ┃ Local    http://localhost:4321/
 ┃ Network  use --host to expose
-10:35:36 watching for file changes...
+04:48:19 watching for file changes...
 Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
-10:38:33 [200] /privacy-policy/ 266ms
+04:49:40 [200] / 265ms
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
-10:38:36 [200] /terms-and-conditions/ 67ms
+04:49:43 [200] /services/ai-powered-elearning 85ms
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
-10:38:37 [200] / 91ms
+Gracefully skipping Sanity fetch due to missing environment variables.
+04:49:50 [200] /blog/content-conversion-to-elearning 71ms
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+[vite] program reload
+[vite] An error happened during full reload
+Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?
+Error: Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?
+    at loadAndTransform (file:///app/node_modules/vite/dist/node/chunks/config.js:22739:33)
+Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
+[vite] program reload
+Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
+[vite] program reload
+Sanity environment variables not found. The site is running with fallback "demo" project ID. Make sure to configure .env if you need actual Sanity data.
+04:51:12 [200] / 36ms
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+04:51:14 [200] /services/ai-powered-elearning 30ms
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+Gracefully skipping Sanity fetch due to missing environment variables.
+04:51:18 [200] /blog/content-conversion-to-elearning 34ms
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.
 Gracefully skipping Sanity fetch due to missing environment variables.

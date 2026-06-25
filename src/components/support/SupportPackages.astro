@@ -34,12 +34,12 @@
           ))}
         </ul>
         <div class="mt-auto space-y-3">
-           <a href="/book-free-audit/" class="block w-full py-3 px-4 bg-brand-navy text-white text-center font-semibold rounded-xl border border-brand-border hover:bg-opacity-90 transition-colors">
+           <a href="/book-free-audit/?package=course-content-updates" class="block w-full py-3 px-4 bg-brand-navy text-white text-center font-semibold rounded-xl border border-brand-border hover:bg-opacity-90 transition-colors">
              Start This Project
            </a>
-           <a href="/book-free-audit/" class="block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-softBg transition-colors">
-             Not sure? Get 24-48 Hour Review
-           </a>
+           <button type="button" data-package-slug="course-content-updates" data-package-price="From $300" class="tawk-package-btn block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-softBg transition-colors focus-ring">
+             Ask About This Package
+           </button>
         </div>
       </div>
 
@@ -63,12 +63,12 @@
           ))}
         </ul>
         <div class="mt-auto space-y-3">
-           <a href="/book-free-audit/" class="block w-full py-3 px-4 bg-brand-accent text-white text-center font-semibold rounded-xl hover:bg-green-600 shadow-md transition-colors">
+           <a href="/book-free-audit/?package=ongoing-course-support" class="block w-full py-3 px-4 bg-brand-accent text-white text-center font-semibold rounded-xl hover:bg-green-600 shadow-md transition-colors">
              Start This Project
            </a>
-           <a href="/book-free-audit/" class="block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-softBg transition-colors">
-             Not sure? Get 24-48 Hour Review
-           </a>
+           <button type="button" data-package-slug="ongoing-course-support" data-package-price="From $600/month" class="tawk-package-btn block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-softBg transition-colors focus-ring">
+             Ask About This Package
+           </button>
         </div>
       </div>
 
@@ -91,12 +91,12 @@
           ))}
         </ul>
         <div class="mt-auto space-y-3">
-           <a href="/book-free-audit/" class="block w-full py-3 px-4 bg-brand-navy text-white text-center font-semibold rounded-xl border border-brand-border hover:bg-opacity-90 transition-colors">
+           <a href="/book-free-audit/?package=kajabi-platform-health-check" class="block w-full py-3 px-4 bg-brand-navy text-white text-center font-semibold rounded-xl border border-brand-border hover:bg-opacity-90 transition-colors">
              Start This Project
            </a>
-           <a href="/book-free-audit/" class="block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-softBg transition-colors">
-             Not sure? Get 24-48 Hour Review
-           </a>
+           <button type="button" data-package-slug="kajabi-platform-health-check" data-package-price="From $450" class="tawk-package-btn block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-softBg transition-colors focus-ring">
+             Ask About This Package
+           </button>
         </div>
       </div>
     </div>
@@ -122,12 +122,12 @@
           ))}
         </ul>
         <div class="mt-auto space-y-3">
-           <a href="/book-free-audit/" class="block w-full py-3 px-4 bg-brand-navy text-white text-center font-semibold rounded-xl border border-brand-border hover:bg-opacity-90 transition-colors">
+           <a href="/book-free-audit/?package=student-onboarding-refresh" class="block w-full py-3 px-4 bg-brand-navy text-white text-center font-semibold rounded-xl border border-brand-border hover:bg-opacity-90 transition-colors">
              Start This Project
            </a>
-           <a href="/book-free-audit/" class="block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-softBg transition-colors">
-             Not sure? Get 24-48 Hour Review
-           </a>
+           <button type="button" data-package-slug="student-onboarding-refresh" data-package-price="From $900" class="tawk-package-btn block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-softBg transition-colors focus-ring">
+             Ask About This Package
+           </button>
         </div>
       </div>
 
@@ -150,15 +150,34 @@
           ))}
         </ul>
         <div class="mt-auto space-y-3">
-           <a href="/book-free-audit/" class="block w-full py-3 px-4 bg-brand-navy text-white text-center font-semibold rounded-xl hover:bg-opacity-90 shadow-md transition-colors">
+           <a href="/book-free-audit/?package=custom-support-desk" class="block w-full py-3 px-4 bg-brand-navy text-white text-center font-semibold rounded-xl hover:bg-opacity-90 shadow-md transition-colors">
              Start This Project
            </a>
-           <a href="/book-free-audit/" class="block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-softBg transition-colors">
-             Not sure? Get 24-48 Hour Review
-           </a>
+           <button type="button" data-package-slug="custom-support-desk" data-package-price="Custom Quote" class="tawk-package-btn block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-xl border border-brand-border hover:bg-brand-softBg transition-colors focus-ring">
+             Ask About This Package
+           </button>
         </div>
       </div>
     </div>
+
+    <script>
+      import { openPackageChat } from '../../utils/tawkSales';
+      document.addEventListener('DOMContentLoaded', () => {
+        const btns = document.querySelectorAll('.tawk-package-btn');
+        btns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = e.currentTarget as HTMLButtonElement;
+            openPackageChat({
+              packageSlug: target.dataset.packageSlug || '',
+              packagePrice: target.dataset.packagePrice || '',
+              pageUrl: window.location.href,
+              pageTitle: document.title,
+            });
+          });
+        });
+      });
+    </script>
 
     <!-- Case Studies Integration -->
     <div class="mb-12">
@@ -172,9 +191,12 @@
     </div>
 
     <!-- Disclaimer -->
-    <div class="mt-12 text-center max-w-4xl mx-auto p-6 bg-white rounded-2xl border border-brand-border/50">
+    <div class="mt-12 text-center max-w-4xl mx-auto p-6 bg-white rounded-2xl border border-brand-border/50 space-y-4">
        <p class="text-sm text-brand-textMuted leading-relaxed font-semibold text-brand-navy">
          Pricing disclaimer: <span class="font-normal text-brand-textMuted">Starting prices are not fixed final quotes. Final scope depends on content volume, platform, course length, page count, review rounds, automations, integrations, and launch support.</span>
+       </p>
+       <p class="text-sm text-brand-textMuted leading-relaxed font-normal">
+         Need help before starting? Ask our sales team about scope, timeline, and payment next step. A sales representative will help confirm the right package, scope, timeline, and payment next step before your project starts.
        </p>
     </div>
   </div>
