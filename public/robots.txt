@@ -1,12 +1,10 @@
 User-agent: *
 Allow: /
 Disallow: /studio/
-Disallow: /*?wpr_templates=
-Disallow: /*?mailpoet_page=
-Disallow: /wp-admin/
-Disallow: /wp-login.php
-Disallow: /wp-json/
-Disallow: /wp-content/
-Disallow: /wp-includes/
 
 Sitemap: https://theeduassist.com/sitemap-index.xml
+Sitemap: https://theeduassist.com/sitemap.xml
+
+# AI-readable site context
+# llms.txt: https://theeduassist.com/llms.txt
+# ai-summary.md: https://theeduassist.com/ai-summary.md

@@ -27,8 +27,6 @@ import { buildCanonicalUrl, formatTitle, formatDescription } from '../lib/seo';
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import AIQuickAssistBar from '../components/ai/AIQuickAssistBar.astro';
-import AIFloatingWidget from '../components/ai/AIFloatingWidget.astro';
 import AIAssistToast from '../components/ai/AIAssistToast.astro';
 import TawkChat from '../components/integrations/TawkChat.astro';
 import RightSalesWidget from '../components/sales/RightSalesWidget.astro';
@@ -73,13 +71,11 @@ const finalOgDescription = ogDescription || formattedDescription;
         ))}
 	</head>
 		<body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen flex flex-col">
-        <AIQuickAssistBar />
         <Header />
         <main class="flex-grow">
 		    <slot />
         </main>
         <Footer />
-        <AIFloatingWidget />
         <AIAssistToast />
         <RightSalesWidget />
         <TawkChat />

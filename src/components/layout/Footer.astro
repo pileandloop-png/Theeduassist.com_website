@@ -27,8 +27,6 @@ const navigation = {
     resources: [
         { label: 'Blog', href: '/blog/' },
         { label: 'Case Studies', href: '/case-studies/' },
-        { label: 'Guides', href: '/resources/' },
-        { label: 'FAQs', href: '/contact/' },
         { label: 'AI Summary', href: '/ai-summary.md' },
         { label: 'Contact', href: '/contact/' }
     ],
@@ -136,26 +134,18 @@ const navigation = {
                 </div>
             </div>
 
-            <!-- Share Utility Section -->
-            <div class="w-full max-w-3xl text-center">
-                <h4 class="text-white font-medium text-lg mb-4">Share this:</h4>
-                <div class="flex flex-wrap justify-center gap-3">
-                    {shareLinks.map(link => (
-                        <button
-                            type="button"
-                            class="share-utility-btn flex items-center space-x-2 bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white transition-all focus-ring"
-                            data-share-id={link.id}
-                        >
-                            <span>{link.name}</span>
-                        </button>
-                    ))}
-                    <button type="button" id="copy-link-btn" class="flex items-center space-x-2 bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 px-4 py-2 rounded-full text-sm font-medium text-slate-300 hover:text-white transition-all focus-ring">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                        <span>Copy Link</span>
-                    </button>
-                </div>
-            </div>
+        </div>
 
+        <div class="border-t border-white/10 pt-8 pb-4 flex flex-col items-center">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button type="button" class="tawk-utility-btn shrink-0 bg-brand-primary text-white border border-brand-primary hover:bg-brand-navy hover:border-white/20 px-6 py-2.5 rounded-md font-bold text-sm transition-all focus-ring shadow-sm inline-flex items-center" onclick="if(typeof Tawk_API !== 'undefined') Tawk_API.toggle();">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    Talk to Sales
+                </button>
+                <a href="/book-free-audit/" class="shrink-0 bg-brand-accent text-white border border-brand-accent hover:bg-white hover:text-brand-navy px-6 py-2.5 rounded-md font-bold text-sm transition-all focus-ring shadow-sm">
+                    Get 24–48 Hour Review
+                </a>
+            </div>
         </div>
 
         <!-- Bottom Copyright and Social Links -->
@@ -320,33 +310,5 @@ const navigation = {
             }
         });
 
-        // Share Buttons
-        const shareBtns = document.querySelectorAll('.share-utility-btn');
-        shareBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const target = e.currentTarget as HTMLButtonElement;
-                const id = target.dataset.shareId;
-                const linkDef = shareLinks.find(l => l.id === id);
-                if (linkDef) {
-                    const currentUrl = window.location.href;
-                    const title = document.title;
-                    const shareUrl = linkDef.getShareUrl(currentUrl, title);
-                    window.open(shareUrl, '_blank', 'noopener,noreferrer,width=600,height=400');
-                }
-            });
-        });
-
-        // Copy Link
-        const copyBtn = document.getElementById('copy-link-btn');
-        if (copyBtn) {
-            copyBtn.addEventListener('click', async () => {
-                try {
-                    await navigator.clipboard.writeText(window.location.href);
-                    showToast('Page link copied to clipboard.');
-                } catch (err) {
-                    console.error('Clipboard error:', err);
-                }
-            });
-        }
     });
 </script>

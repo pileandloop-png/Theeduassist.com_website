@@ -59,38 +59,6 @@ const servicesDropdown = [
                 <a href={item.href} class="text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 px-3 py-2 font-medium focus-ring rounded-md transition-all duration-300">{item.label}</a>
             ))}
 
-            <div class="relative group">
-                <button class="text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 px-3 py-2 font-medium focus-ring rounded-md transition-all duration-300 inline-flex items-center" aria-expanded="false" aria-haspopup="true">
-                    Ask AI
-                    <svg class="ml-1 w-4 h-4 text-brand-textMuted group-hover:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div class="absolute right-0 mt-2 w-64 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-brand-border/50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top translate-y-2 group-hover:translate-y-0 z-50 overflow-hidden">
-                    <div class="py-2 header-ai-dropdown">
-                        {aiAssistants.map((item) => (
-                            <button data-ai-url={item.baseUrl} data-ai-name={item.name} class="header-ai-btn w-full text-left block px-4 py-2.5 text-sm font-medium text-brand-textMain hover:bg-brand-softBg hover:text-brand-primary transition-colors focus-ring">
-                                {item.name}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            <script>
-                import { copyAndOpenAI } from '../ai/AIAssistClient';
-
-                document.addEventListener('DOMContentLoaded', () => {
-                    const aiBtns = document.querySelectorAll('.header-ai-btn');
-                    aiBtns.forEach(btn => {
-                        btn.addEventListener('click', async (e) => {
-                            const target = e.currentTarget as HTMLButtonElement;
-                            const url = target.dataset.aiUrl || '';
-                            const name = target.dataset.aiName || '';
-                            await copyAndOpenAI('summarize_page', url, name);
-                        });
-                    });
-                });
-            </script>
-
             <div class="flex items-center ml-2 xl:ml-4 pl-4 xl:pl-6 border-l border-brand-border/60">
                 <a href="/book-free-audit/" class="bg-brand-accent text-white px-5 py-2.5 rounded-md font-semibold hover-lift click-press focus-ring transition-all duration-300 hover:bg-brand-primary shadow hover:shadow-md whitespace-nowrap">Get 24–48 Hour Review</a>
             </div>
