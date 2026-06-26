@@ -20,7 +20,7 @@ This document outlines the deployment workflow for TheEduAssist.com using Vercel
 *   **Live Deploy:** Deploy to production after QA passes.
 
 ### Package Manager Mismatch / Troubleshooting
-*   Vercel might accidentally use `pnpm` if it detects a `pnpm-lock.yaml`. If this happens, ensure `pnpm-lock.yaml` is deleted from the root directory and only `package-lock.json` is committed. We enforce `npm` using `"installCommand": "npm ci"` in `vercel.json`.
+*   Vercel might accidentally use `pnpm` if it detects a `pnpm-lock.yaml` or bases its decision on project creation date. If this happens, ensure `pnpm-lock.yaml` is deleted from the root directory and only `package-lock.json` is committed. We enforce `npm` using `"packageManager": "npm@11.11.0"` in `package.json` and `"installCommand": "npm ci"` in `vercel.json`.
 *   Note: Firebase Hosting is deprecated and not the final deployment path. Only use Vercel.
 
 ## 2. Domain Setup in Vercel
