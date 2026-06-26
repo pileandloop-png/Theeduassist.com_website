@@ -34,8 +34,44 @@ This document outlines the deployment workflow for TheEduAssist.com using Vercel
 *   Follow Vercel's DNS instructions exactly for the required records.
 *   Update DNS in Cloudflare to point to Vercel.
 *   **Important:** Do not change email/MX records. Do not delete unrelated DNS records. Remove old Firebase DNS records only if they conflict and after confirmation.
-*   **Status:** custom domain setup pending
-*   **Post-launch:** Search Console after domain is stable
+### Current status:
+
+*   Vercel deployment: Ready
+*   Custom domain setup: Pending manual dashboard action
+*   theeduassist.com: Pending
+*   www.theeduassist.com: Pending
+*   DNS records: Pending, to be copied from Vercel Settings → Domains
+*   Cloudflare DNS update: Pending
+*   Cloudflare proxy status: Planned DNS-only / gray cloud first
+*   Vercel domain verification: Pending
+*   SSL status: Pending
+*   Production QA on https://theeduassist.com: Pending
+*   Google Search Console submission: Pending domain launch
+*   Bing Webmaster Tools submission: Pending domain launch
+*   Sanity Deploy Hook: Pending after production domain is stable
+
+### Manual dashboard actions still required
+
+**1. In Vercel:**
+*   Open project: theeduassist-com-website
+*   Go to Settings → Domains
+*   Add theeduassist.com
+*   Add www.theeduassist.com
+*   Copy the exact DNS records Vercel asks for
+
+**2. In Cloudflare:**
+*   Open DNS records for theeduassist.com
+*   Add/update only the records Vercel provides
+*   Set Vercel-related records to DNS-only / gray cloud first
+*   Do not touch MX/email records
+*   Do not delete unrelated DNS records
+
+**3. After DNS:**
+*   Wait for Vercel domain verification
+*   Wait for SSL to become active
+*   Test https://theeduassist.com
+*   Test https://www.theeduassist.com
+*   Run live production QA
 
 ## 3. Cloudflare Setup
 
@@ -62,3 +98,12 @@ Verify these critical paths after deployment:
 *   `/robots.txt`
 *   `/llms.txt`
 *   `/ai-summary.md`
+
+## 5. Sanity Deploy Hook Setup
+
+After the production domain is live and stable, set up the deploy hook for content updates:
+
+1.  Create a deploy hook in the Vercel dashboard.
+2.  Paste the generated deploy hook URL into the Sanity webhook settings.
+3.  **Important:** This URL must not be committed to the repository.
+4.  New Sanity content will appear live only after Vercel rebuilds triggered by this webhook.
