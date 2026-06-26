@@ -84,9 +84,10 @@ const trustChips = [
       <div class="bg-white p-4 md:p-10 rounded-xl border border-slate-200 shadow-sm overflow-hidden">
 
         <div id="package-selected-card" class="hidden mb-10 bg-[#F8FAFC] border border-[#27496D]/20 rounded-xl p-6 text-center shadow-sm">
-          <h2 class="text-xl font-bold text-[#27496D] mb-2">You selected: <span id="pkg-name" class="text-[#77BA55]"></span></h2>
-          <div class="text-lg font-semibold text-slate-700 mb-4">Starting price: <span id="pkg-price"></span></div>
-          <p class="text-slate-600 mb-6 max-w-2xl mx-auto font-medium">Next step: <span id="pkg-next"></span></p>
+          <h2 class="text-xl font-bold text-[#27496D] mb-2" id="context-title">You selected: <span id="pkg-name" class="text-[#77BA55]"></span></h2>
+          <div id="pkg-price-container" class="text-lg font-semibold text-slate-700 mb-4">Starting price: <span id="pkg-price"></span></div>
+          <p id="pkg-next-container" class="text-slate-600 mb-6 max-w-2xl mx-auto font-medium">Next step: <span id="pkg-next"></span></p>
+          <p class="text-brand-navy font-semibold text-lg mb-6">Submit your details below and our team will review the scope before confirming the final quote and payment next step.</p>
           <div class="text-xs text-slate-500 max-w-3xl mx-auto border-t border-slate-200 pt-4">
             Starting prices are not fixed final quotes. Final scope depends on content volume, platform, course length, page count, review rounds, automations, integrations, and launch support.
           </div>
@@ -127,20 +128,35 @@ const trustChips = [
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const packageSlug = urlParams.get('package');
+      const serviceSlug = urlParams.get('service');
 
       const selectedCard = document.getElementById('package-selected-card');
       const generalMessage = document.getElementById('package-general-message');
+      const contextTitle = document.getElementById('context-title');
+      const pkgNameSpan = document.getElementById('pkg-name');
+      const pkgPriceContainer = document.getElementById('pkg-price-container');
+      const pkgNextContainer = document.getElementById('pkg-next-container');
 
       if (packageSlug && packages) {
         const pkg = packages.find(p => p.slug === packageSlug);
         if (pkg) {
-          document.getElementById('pkg-name').textContent = pkg.name;
+          contextTitle.firstChild.textContent = "You're starting with: ";
+          pkgNameSpan.textContent = pkg.name;
           document.getElementById('pkg-price').textContent = pkg.startingPrice;
           document.getElementById('pkg-next').textContent = pkg.nextStep;
 
           selectedCard.classList.remove('hidden');
           generalMessage.classList.add('hidden');
         }
+      } else if (serviceSlug) {
+        const readableService = serviceSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        contextTitle.firstChild.textContent = "You're asking about: ";
+        pkgNameSpan.textContent = readableService;
+        pkgPriceContainer.classList.add('hidden');
+        pkgNextContainer.classList.add('hidden');
+
+        selectedCard.classList.remove('hidden');
+        generalMessage.classList.add('hidden');
       }
     });
   </script>

@@ -73,7 +73,7 @@
           <div class="mt-auto flex flex-col space-y-3">
              <button type="button" data-package-slug={pkg.name.toLowerCase().replace(/ /g, '-')} data-package-price={pkg.price} class={`tawk-package-btn block w-full text-center py-3 rounded-md font-bold transition-all ${index === 3 ? 'bg-brand-accent text-white hover:bg-brand-primary' : 'bg-brand-navy text-white hover:bg-opacity-90'} focus-ring`}>Start This Package</button>
              <p class="text-xs text-brand-textMuted text-center leading-tight">Talk to our team first so we can confirm the right package, scope, timeline, and payment next step.</p>
-             <a href={`/book-free-audit/?package=${pkg.name.toLowerCase().replace(/ /g, '-')}`} class="block w-full text-center py-3 px-4 bg-white text-brand-navy font-semibold rounded-md border border-brand-border hover:bg-brand-softBg transition-colors shadow-sm">
+             <a href={`/book-free-audit/?package=${pkg.name.toLowerCase().replace(/ /g, '-')}&source=package-card`} class="block w-full text-center py-3 px-4 bg-white text-brand-navy font-semibold rounded-md border border-brand-border hover:bg-brand-softBg transition-colors shadow-sm">
                 Submit Project Details
              </a>
           </div>

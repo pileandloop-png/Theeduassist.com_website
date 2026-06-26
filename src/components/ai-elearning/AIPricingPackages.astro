@@ -140,7 +140,7 @@ const packages = [
           <div class="mt-auto flex flex-col space-y-3">
              <button type="button" data-package-slug={pkg.slug} data-package-price={pkg.price} class={`tawk-package-btn block w-full py-3 px-4 text-center font-bold rounded-md transition-all ${pkg.highlight ? 'bg-[#77BA55] text-white hover:bg-[#65A344] shadow-lg' : 'bg-[#27496D] text-white hover:bg-opacity-90 shadow-md'} focus-ring`}>Start This Package</button>
              <p class="text-xs text-slate-500 text-center leading-tight">Talk to our team first so we can confirm the right package, scope, timeline, and payment next step.</p>
-             <a href={`/book-free-audit/?package=${pkg.slug}`} class="block w-full text-center py-3 px-4 bg-white text-slate-700 font-semibold rounded-md border border-slate-300 hover:bg-slate-50 transition-colors shadow-sm">
+             <a href={`/book-free-audit/?package=${pkg.slug}&source=package-card`} class="block w-full text-center py-3 px-4 bg-white text-slate-700 font-semibold rounded-md border border-slate-300 hover:bg-slate-50 transition-colors shadow-sm">
                 Submit Project Details
              </a>
           </div>

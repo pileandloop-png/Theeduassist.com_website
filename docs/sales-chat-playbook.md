@@ -27,9 +27,30 @@
 
 5. **Payment next step**
    Say:
-   “After we review your details, we’ll share the confirmed scope, timeline, and payment/invoice next step.”
+   “The listed price is a starting point. After we review the scope, we’ll confirm the deliverables, timeline, and payment/invoice next step.”
 
-6. **Handoff**
+6. **How to read lead context**
+   If `selected_package` is present:
+   * confirm the package
+   * explain starting price
+   * ask about content/platform/timeline
+   * send review form if needed
+
+   If `selected_service` is present:
+   * ask what they need help with
+   * recommend package
+   * send review form if needed
+
+   If source is blog/case-study:
+   * ask what part of the article/example matches their project
+   * do not promise same result
+   * guide to service/package
+
+   If source is floating CTA:
+   * ask what they are trying to build
+   * help choose service
+
+7. **Handoff**
    Once payment is confirmed:
    * collect content/assets
    * confirm platform access method
@@ -37,12 +58,12 @@
    * assign internal team
    * start project plan
 
-7. **Do not promise:**
+8. **Do not promise:**
    * guaranteed revenue
    * instant delivery
    * exact final price before scope
    * same case study results
    * 24/7 live availability unless staffed
 
-8. **If team is offline:**
+9. **If team is offline:**
    “Please leave your email and project details. Our team will follow up as soon as possible.”
