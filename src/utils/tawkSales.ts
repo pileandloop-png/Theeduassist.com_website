@@ -55,7 +55,7 @@ const attemptTawkAction = (actionFn: () => void, fallbackUrl: string = '/book-fr
   }
 };
 
-export const openTawkSalesChat = (context: TawkSalesContext = {}) => {
+export const openGeneralSalesChat = (context: TawkSalesContext = {}) => {
   attemptTawkAction(() => {
     if (typeof window.Tawk_API.addEvent === 'function') {
       try {
@@ -78,7 +78,7 @@ export const openTawkSalesChat = (context: TawkSalesContext = {}) => {
   });
 };
 
-export const openPackageChat = (context: PackageContext) => {
+export const openStartPackageChat = (context: PackageContext) => {
   const fallbackUrl = `/book-free-audit/?package=${context.packageSlug}`;
   attemptTawkAction(() => {
     if (typeof window.Tawk_API.addEvent === 'function') {
@@ -89,23 +89,24 @@ export const openPackageChat = (context: PackageContext) => {
       } catch(e) {}
     }
     if (typeof window.Tawk_API.addTags === 'function') {
-      try { window.Tawk_API.addTags(['sales-lead', 'package-lead', 'payment-guidance', context.packageSlug], function(){}); } catch(e) {}
+      try { window.Tawk_API.addTags(['sales-lead', 'start-package', 'package-lead', 'payment-guidance', context.packageSlug], function(){}); } catch(e) {}
     }
     if (typeof window.Tawk_API.setAttributes === 'function') {
       try {
         window.Tawk_API.setAttributes({
           selected_package: context.packageSlug,
           package_price: context.packagePrice || '',
+          review_url: fallbackUrl,
           page_url: context.pageUrl,
           page_title: context.pageTitle,
-          source_cta: context.sourceCta || 'Ask About This Package'
+          source_cta: context.sourceCta || 'Start This Package'
         }, function(){});
       } catch(e) {}
     }
   }, fallbackUrl);
 };
 
-export const openServiceChat = (context: ServiceContext) => {
+export const openStartServiceChat = (context: ServiceContext) => {
   attemptTawkAction(() => {
     if (typeof window.Tawk_API.addEvent === 'function') {
       try {
@@ -115,15 +116,16 @@ export const openServiceChat = (context: ServiceContext) => {
       } catch(e) {}
     }
     if (typeof window.Tawk_API.addTags === 'function') {
-      try { window.Tawk_API.addTags(['sales-lead', 'service-lead', context.serviceSlug], function(){}); } catch(e) {}
+      try { window.Tawk_API.addTags(['sales-lead', 'service-lead', 'payment-guidance', context.serviceSlug], function(){}); } catch(e) {}
     }
     if (typeof window.Tawk_API.setAttributes === 'function') {
       try {
         window.Tawk_API.setAttributes({
           selected_service: context.serviceSlug,
+          review_url: '/book-free-audit/',
           page_url: context.pageUrl,
           page_title: context.pageTitle,
-          source_cta: context.sourceCta || 'Talk to Sales About This Service',
+          source_cta: context.sourceCta || 'Start This Service',
           lead_intent: 'service_inquiry'
         }, function(){});
       } catch(e) {}

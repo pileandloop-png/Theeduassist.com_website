@@ -26,14 +26,14 @@ import Button from '../ui/Button.astro';
   </div>
 
 <script>
-  import { openServiceChat } from '../../utils/tawkSales';
+  import { openStartServiceChat } from '../../utils/tawkSales';
   document.addEventListener('DOMContentLoaded', () => {
     const btns = document.querySelectorAll('.tawk-service-btn');
     btns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const target = e.currentTarget;
-        openServiceChat({
+        openStartServiceChat({
           serviceSlug: target.dataset.serviceSlug || '',
           pageUrl: window.location.href,
           pageTitle: document.title,

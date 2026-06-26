@@ -137,11 +137,12 @@ const packages = [
             </ul>
           </div>
 
-          <div class="mt-auto space-y-3">
-             <a href="/book-free-audit/" class={`block w-full text-center py-3 px-4 rounded-md font-bold transition-colors ${pkg.highlight ? 'bg-brand-accent text-white hover:bg-brand-primary shadow-md' : 'bg-brand-navy text-white hover:bg-opacity-90 shadow-sm'}`}>
-                Start This Project
+          <div class="mt-auto flex flex-col space-y-3">
+             <button type="button" data-package-slug={pkg.slug} data-package-price={pkg.price} class={`tawk-package-btn block w-full py-3 px-4 text-center font-bold rounded-md transition-all ${pkg.highlight ? 'bg-[#77BA55] text-white hover:bg-[#65A344] shadow-lg' : 'bg-[#27496D] text-white hover:bg-opacity-90 shadow-md'} focus-ring`}>Start This Package</button>
+             <p class="text-xs text-slate-500 text-center leading-tight">Talk to our team first so we can confirm the right package, scope, timeline, and payment next step.</p>
+             <a href={`/book-free-audit/?package=${pkg.slug}`} class="block w-full text-center py-3 px-4 bg-white text-slate-700 font-semibold rounded-md border border-slate-300 hover:bg-slate-50 transition-colors shadow-sm">
+                Submit Project Details
              </a>
-             <button type="button" data-package-slug="${pkg.slug || ''}" data-package-price="${pkg.price || ''}" class="tawk-package-btn block w-full py-3 px-4 bg-white text-brand-navy text-center font-semibold rounded-md border border-brand-border hover:bg-brand-softBg transition-colors focus-ring">Ask About This Package</button>
           </div>
         </div>
       ))}
@@ -153,14 +154,14 @@ const packages = [
   </div>
 
 <script>
-  import { openPackageChat } from '../../utils/tawkSales';
+  import { openStartPackageChat } from '../../utils/tawkSales';
   document.addEventListener('DOMContentLoaded', () => {
     const btns = document.querySelectorAll('.tawk-package-btn');
     btns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const target = e.currentTarget;
-        openPackageChat({
+        openStartPackageChat({
           packageSlug: target.dataset.packageSlug || '',
           packagePrice: target.dataset.packagePrice || '',
           pageUrl: window.location.href,

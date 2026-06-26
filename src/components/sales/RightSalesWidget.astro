@@ -25,14 +25,14 @@
 </div>
 
 <script>
-  import { openTawkSalesChat } from '../../utils/tawkSales';
+  import { openGeneralSalesChat } from '../../utils/tawkSales';
 
   document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('tawk-right-sales-btn');
     if (btn) {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        openTawkSalesChat({
+        openGeneralSalesChat({
           intent: 'sales_payment_guidance',
           sourceCta: 'right-floating-talk-to-sales'
         });

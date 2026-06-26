@@ -35,8 +35,9 @@ const capabilities = [
             <p class="text-sm text-slate-600"><span class="font-semibold text-slate-800">Timeline:</span> 2-6 weeks depending on content.</p>
          </div>
          <div class="w-full md:w-auto flex flex-col gap-3 shrink-0">
-            <a href="/book-free-audit/?package=lms-migration-map" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-sm font-semibold rounded-lg text-white bg-[#27496D] hover:bg-opacity-90 transition-colors">Start This Project</a>
-            <button type="button" data-package-slug="lms-migration-map" data-package-price="From $700" class="tawk-package-btn inline-flex justify-center items-center px-6 py-3 border border-slate-300 text-sm font-semibold rounded-lg text-slate-700 bg-white hover:bg-slate-50 transition-colors">Ask About This Package</button>
+            <button type="button" data-package-slug="lms-migration-map" data-package-price="From $700" class="tawk-package-btn inline-flex justify-center items-center px-6 py-3 border border-transparent text-sm font-semibold rounded-lg text-white bg-[#27496D] hover:bg-opacity-90 transition-colors focus-ring">Start This Package</button>
+            <p class="text-xs text-slate-500 text-center leading-tight max-w-[200px]">Talk to our team first so we can confirm the right package, scope, timeline, and payment next step.</p>
+            <a href="/book-free-audit/?package=lms-migration-map" class="inline-flex justify-center items-center px-6 py-3 border border-slate-300 text-sm font-semibold rounded-lg text-slate-700 bg-white hover:bg-slate-50 transition-colors">Submit Project Details</a>
          </div>
       </div>
     </div>
@@ -71,14 +72,14 @@ const capabilities = [
   </div>
 
 <script>
-  import { openPackageChat } from '../../utils/tawkSales';
+  import { openStartPackageChat } from '../../utils/tawkSales';
   document.addEventListener('DOMContentLoaded', () => {
     const btns = document.querySelectorAll('.tawk-package-btn');
     btns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const target = e.currentTarget;
-        openPackageChat({
+        openStartPackageChat({
           packageSlug: target.dataset.packageSlug || '',
           packagePrice: target.dataset.packagePrice || '',
           pageUrl: window.location.href,
