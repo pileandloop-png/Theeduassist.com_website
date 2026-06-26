@@ -6,7 +6,10 @@ This document outlines the deployment workflow for TheEduAssist.com using Vercel
 
 *   **Import GitHub repo:** theeduassist/Theeduassist.com_website
 *   **Framework:** Astro
+*   **Package manager:** `npm` (ensure `pnpm-lock.yaml` is not committed)
+*   **Install command:** `npm ci`
 *   **Build command:** `npm run build`
+*   **Node version:** 22.x
 *   **Output directory:** `dist`
 *   **Production branch:** `main`
 *   **Add environment variables:**
@@ -15,6 +18,10 @@ This document outlines the deployment workflow for TheEduAssist.com using Vercel
     *   `PUBLIC_SANITY_DATASET=production`
 *   **Initial Deploy:** Deploy a preview first to verify the build.
 *   **Live Deploy:** Deploy to production after QA passes.
+
+### Package Manager Mismatch / Troubleshooting
+*   Vercel might accidentally use `pnpm` if it detects a `pnpm-lock.yaml`. If this happens, ensure `pnpm-lock.yaml` is deleted from the root directory and only `package-lock.json` is committed. We enforce `npm` using `"installCommand": "npm ci"` in `vercel.json`.
+*   Note: Firebase Hosting is deprecated and not the final deployment path. Only use Vercel.
 
 ## 2. Domain Setup in Vercel
 
