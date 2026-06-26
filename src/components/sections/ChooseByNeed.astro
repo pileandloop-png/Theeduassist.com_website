@@ -1,0 +1,142 @@
+---
+import { packages } from '../../data/packages';
+
+const needs = [
+    {
+        need: "I need to plan my course first",
+        packageKey: "course-clarity-blueprint",
+        shortExp: "Map out curriculum, pricing, and platform strategy.",
+        ctaType: "package"
+    },
+    {
+        need: "I have PDFs, slides, videos, or books",
+        packageKey: "content-conversion-kit",
+        shortExp: "Turn existing materials into a structured course.",
+        ctaType: "package"
+    },
+    {
+        need: "I need Kajabi setup",
+        packageKey: "kajabi-setup-sprint",
+        shortExp: "Fast, professional setup for your Kajabi site.",
+        ctaType: "package"
+    },
+    {
+        need: "I need Thinkific, LearnWorlds, Skool...",
+        packageKey: "course-platform-build",
+        shortExp: "Custom course platform build on the tool of your choice.",
+        ctaType: "package"
+    },
+    {
+        need: "I need LMS migration or corporate learning setup",
+        packageKey: "lms-migration-map", // mapped here for display, but CTA opens sales
+        alternateTitle: "LMS Migration / Enterprise",
+        alternatePrice: "From $700 or Custom Quote",
+        shortExp: "Move platforms or build an enterprise training portal.",
+        ctaType: "sales"
+    },
+    {
+        need: "I need Articulate, SCORM, Rise, Storyline...",
+        alternateTitle: "Custom E-Learning Development",
+        alternatePrice: "Scope-based",
+        shortExp: "Interactive, SCORM-ready corporate training modules.",
+        ctaType: "sales"
+    },
+    {
+        need: "I already have a course and need ongoing help",
+        packageKey: "ongoing-course-support",
+        shortExp: "Monthly retainer for tech, design, and updates.",
+        ctaType: "package"
+    },
+    {
+        need: "I am not sure",
+        alternateTitle: "Guided Scope Review",
+        alternatePrice: "Guided after scope review",
+        shortExp: "Talk to our team to find the right path for your project.",
+        ctaType: "sales"
+    }
+];
+
+---
+
+<section class="py-24 bg-brand-softBg relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">Choose by what you need to build</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
+                Find the right starting point based on where you are in your project journey.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {needs.map((item) => {
+                const pkg = item.packageKey ? packages[item.packageKey] : null;
+                const displayTitle = item.alternateTitle || (pkg ? pkg.name : '');
+                const displayPrice = item.alternatePrice || (pkg ? pkg.priceLabel : '');
+
+                return (
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+                        <div class="mb-4">
+                            <span class="inline-block bg-brand-softBg text-brand-navy text-xs font-bold px-3 py-1 rounded-full border border-brand-border/30 mb-3">
+                                {item.need}
+                            </span>
+                            <h3 class="text-lg font-bold text-brand-navy mb-2 leading-tight">{displayTitle}</h3>
+                            <p class="text-brand-primary font-bold text-sm mb-3">{displayPrice}</p>
+                            <p class="text-sm text-slate-600">{item.shortExp}</p>
+                        </div>
+                        <div class="mt-auto pt-6">
+                            {item.ctaType === 'package' && pkg ? (
+                                <button
+                                    type="button"
+                                    class="w-full btn-start-package inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-bold rounded-md text-white bg-brand-primary hover:bg-brand-navy transition-colors shadow-sm focus-ring"
+                                    data-package-slug={pkg.slug}
+                                    data-package-name={pkg.name}
+                                    data-package-price={pkg.priceLabel}
+                                >
+                                    Start This Package
+                                </button>
+                            ) : (
+                                <button
+                                    type="button"
+                                    class="w-full btn-talk-sales inline-flex items-center justify-center px-4 py-2.5 border border-slate-300 text-sm font-bold rounded-md text-brand-navy bg-white hover:bg-slate-50 transition-colors focus-ring"
+                                >
+                                    Talk to Sales
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    </div>
+</section>
+
+<script>
+    import { openStartPackageChat, openGeneralSalesChat } from '../../utils/tawkSales';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const pkgBtns = document.querySelectorAll('.btn-start-package');
+        pkgBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = e.currentTarget as HTMLButtonElement;
+                openStartPackageChat({
+                    packageSlug: target.dataset.packageSlug || '',
+                    packageName: target.dataset.packageName || '',
+                    packagePrice: target.dataset.packagePrice || '',
+                    sourceCta: 'choose-by-need-grid'
+                });
+            });
+        });
+
+        const salesBtns = document.querySelectorAll('.btn-talk-sales');
+        salesBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openGeneralSalesChat({
+                    intent: 'choose_by_need_guidance',
+                    sourceCta: 'choose-by-need-grid'
+                });
+            });
+        });
+    });
+</script>

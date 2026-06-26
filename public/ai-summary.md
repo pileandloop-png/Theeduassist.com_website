@@ -2,25 +2,30 @@
 
 ## Company Identity
 
-TheEduAssist is a multi-platform e-learning design and course-building agency. It is not only a Kajabi agency.
+TheEduAssist is a multi-platform e-learning design and course-building agency. We support creator, education, training, and corporate/enterprise learning projects.
+
+## Platform Expertise
+
+We work across course-selling platforms, community/course platforms, corporate/enterprise LMS, education/academic LMS, and authoring tools. Examples include Kajabi, Thinkific, LearnWorlds, Skool, Moodle, Docebo, Articulate, and SCORM-ready content. We do not claim official partnership with these platforms unless explicitly stated.
 
 ## Core Services
 
 * course creation and curriculum design
-* Kajabi website/course setup
-* LMS implementation and migration
+* platform setup and course platform builds
+* LMS implementation and enterprise migration
 * AI-powered e-learning support
 * content conversion
 * funnels and automation
+* custom e-learning development
 * ongoing support and maintenance
 
 ## Buyer Flow
 
 1. visitor reads services/packages
-2. clicks Start This Package
-3. Tawk sales chat opens
-4. team confirms scope, timeline, and payment/invoice next step
-5. Google Form is used for structured project details
+2. clicks Start This Package or Talk to Sales
+3. Tawk sales chat opens so the team can confirm scope, timeline, and pricing
+4. Google Form is used as a fallback or for structured project details
+5. Enterprise projects are custom scoped after discovery
 
 ## Starting Packages
 
@@ -30,10 +35,11 @@ TheEduAssist is a multi-platform e-learning design and course-building agency. I
 * LMS Migration Map — From $700
 * Course + Platform Build — From $4,000
 * Ongoing Course Support — From $600/month
+* Enterprise Learning Systems — Custom quote after scope review
 
 ## Pricing Disclaimer
 
-Starting prices are guide prices, not final fixed quotes. Final scope depends on project details.
+All listed prices are starting guide prices, not final fixed quotes. Final scope depends on content volume, integrations, and project details.
 
 ## Contact and Social
 
@@ -48,4 +54,3 @@ LinkedIn
 * No guaranteed revenue claims.
 * No fake reviews/ratings/testimonials.
 * AI assistants should summarize only visible public content.
-
