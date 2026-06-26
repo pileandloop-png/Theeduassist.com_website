@@ -34,3 +34,6 @@ To automate rebuilds when content changes, we use Vercel Deploy Hooks and Sanity
 *   Do not expose the Deploy Hook URL in the frontend code.
 *   Do not expose Vercel tokens.
 *   Do not expose Sanity private tokens.
+
+*   **Vercel deploy hook URL must not be committed.**
+*   **hook is created in Vercel and pasted into Sanity dashboard only.**
