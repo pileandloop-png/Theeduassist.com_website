@@ -1,4 +1,8 @@
 export interface BaseContext {
+  package_audience?: string;
+  review_url?: string;
+  page_url?: string;
+  page_title?: string;
   selected_package?: string;
   package_price?: string;
   selected_service?: string;

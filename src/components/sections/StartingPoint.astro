@@ -6,101 +6,54 @@ const packages = [
     title: "Course Clarity Blueprint",
     situation: "I have a course idea but no structure",
     price: "From $500",
+    slug: "course-clarity-blueprint",
     bestFor: "creators, coaches, educators, consultants",
-    includes: [
-      "course promise",
-      "audience clarity",
-      "module map",
-      "lesson outline",
-      "learner journey",
-      "next-step plan"
-    ],
-    cta: "Start Project",
-    link: "/book-free-audit/",
+    includes: ["course promise", "audience clarity", "module map", "lesson outline", "learner journey", "next-step plan"],
     highlight: false
   },
   {
     title: "Content Conversion Kit",
     situation: "I have PDFs, slides, videos, books, manuals, or SOPs",
     price: "From $900",
+    slug: "content-conversion-kit",
     bestFor: "publishers, educators, training teams, consultants",
-    includes: [
-      "content audit",
-      "lesson mapping",
-      "summaries",
-      "worksheets",
-      "quiz ideas",
-      "resource structure"
-    ],
-    cta: "Request Review",
-    link: "/book-free-audit/",
+    includes: ["content audit", "lesson mapping", "summaries", "worksheets", "quiz ideas", "resource structure"],
     highlight: false
   },
   {
     title: "Kajabi Setup Sprint",
     situation: "I need Kajabi built properly",
     price: "From $1,500",
+    slug: "kajabi-setup-sprint",
     bestFor: "creators, coaches, consultants, academies",
-    includes: [
-      "Kajabi structure",
-      "pages",
-      "course product setup",
-      "offers",
-      "checkout",
-      "basic emails",
-      "student onboarding"
-    ],
-    cta: "Request Kajabi Quote",
-    link: "/book-free-audit/",
+    includes: ["Kajabi structure", "pages", "course product setup", "offers", "checkout", "basic emails", "student onboarding"],
     highlight: true
   },
   {
     title: "LMS Migration Map",
     situation: "I need LMS migration or content cleanup",
     price: "From $700",
+    slug: "lms-migration-map",
     bestFor: "training companies, academies, internal training teams",
-    includes: [
-      "content audit",
-      "migration map",
-      "module/lesson structure",
-      "platform-readiness notes",
-      "QA recommendations"
-    ],
-    cta: "Request LMS Review",
-    link: "/book-free-audit/",
+    includes: ["content audit", "migration map", "module/lesson structure", "platform-readiness notes", "QA recommendations"],
     highlight: false
   },
   {
     title: "Course + Platform Build",
     situation: "I need a full course plus Kajabi/LMS/funnel launch",
     price: "From $4,000",
+    slug: "course-platform-build",
     bestFor: "serious creators, publishers, academies, organizations",
-    includes: [
-      "course design",
-      "content assets",
-      "platform build",
-      "landing page/funnel support",
-      "onboarding",
-      "launch QA"
-    ],
-    cta: "Request Project Quote",
-    link: "/book-free-audit/",
+    includes: ["course design", "content assets", "platform build", "landing page/funnel support", "onboarding", "launch QA"],
     highlight: true
   },
   {
     title: "Ongoing Course Support",
     situation: "I need monthly updates and support",
     price: "From $600/month",
+    slug: "ongoing-course-support",
     bestFor: "existing course businesses and training teams",
-    includes: [
-      "content updates",
-      "page edits",
-      "QA checks",
-      "funnel/email updates",
-      "onboarding improvements"
-    ],
-    cta: "Request Support",
-    link: "/book-free-audit/",
+    includes: ["content updates", "page edits", "QA checks", "funnel/email updates", "onboarding improvements"],
     highlight: false
   }
 ];
@@ -144,9 +97,15 @@ const caseStudies = [
           </div>
 
           <div class="p-8 pt-0 mt-auto">
-            <a href={pkg.link} class={`block w-full text-center py-4 px-4 rounded-md font-bold transition-all ${pkg.highlight ? 'bg-brand-primary text-white hover:bg-brand-navy shadow-md' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-brand-accent hover:text-white hover:border-brand-accent/30'}`}>
-              {pkg.cta}
+            <button type="button" class={`tawk-package-btn block w-full text-center py-4 px-4 rounded-md font-bold transition-all ${pkg.highlight ? 'bg-brand-primary text-white hover:bg-brand-navy shadow-md' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-brand-accent hover:text-white hover:border-brand-accent/30'}`} data-package-slug={pkg.slug} data-package-price={pkg.price} data-package-name={pkg.title} data-package-audience={pkg.bestFor}>
+              Start This Package
+            </button>
+            <a href={`/book-free-audit/?package=${pkg.slug}&source=package-card`} class="block w-full text-center py-3 text-sm font-semibold text-brand-textMuted hover:text-brand-primary transition-colors mt-2">
+              Submit Project Details
             </a>
+            <p class="text-xs text-brand-textMuted text-center mt-3 leading-relaxed">
+              Talk to our team first so we can confirm the right package, scope, timeline, and payment next step.
+            </p>
           </div>
         </div>
       ))}
@@ -170,5 +129,57 @@ const caseStudies = [
         <span class="font-semibold text-brand-navy">Pricing disclaimer:</span> Starting prices are not fixed final quotes. Final scope depends on content volume, course length, platform, number of pages, review rounds, timeline, automation needs, and launch support.
       </p>
     </div>
-  </div>
+
+    <!-- FAQs -->
+    <div class="mt-20 max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold text-center text-brand-navy mb-10">Frequently Asked Questions</h3>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-xl border border-brand-border/60 shadow-sm">
+          <h4 class="text-lg font-bold text-brand-navy mb-2">Are these fixed prices?</h4>
+          <p class="text-brand-textMain leading-relaxed">No. These are starting prices. Final pricing depends on content volume, course length, platform, pages, automations, integrations, review rounds, and timeline.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-brand-border/60 shadow-sm">
+          <h4 class="text-lg font-bold text-brand-navy mb-2">What happens when I click Start This Package?</h4>
+          <p class="text-brand-textMain leading-relaxed">The sales chat opens so our team can understand your project, confirm the right package, and guide you to the review, payment, or invoice next step.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-brand-border/60 shadow-sm">
+          <h4 class="text-lg font-bold text-brand-navy mb-2">Do I need to pay before talking to the team?</h4>
+          <p class="text-brand-textMain leading-relaxed">No. We recommend confirming the scope first so the project path is clear before payment.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-brand-border/60 shadow-sm">
+          <h4 class="text-lg font-bold text-brand-navy mb-2">What if I am not sure which package fits?</h4>
+          <p class="text-brand-textMain leading-relaxed">Use Talk to Sales or Start This Package and explain your situation. Our team will help you choose the right starting point.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-brand-border/60 shadow-sm">
+          <h4 class="text-lg font-bold text-brand-navy mb-2">Can you work with Kajabi and other LMS platforms?</h4>
+          <p class="text-brand-textMain leading-relaxed">Yes. We support Kajabi, LMS platforms, course websites, content libraries, and online learning workflows.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-brand-border/60 shadow-sm">
+          <h4 class="text-lg font-bold text-brand-navy mb-2">Can you convert old PDFs, slides, videos, or books into a course?</h4>
+          <p class="text-brand-textMain leading-relaxed">Yes. The Content Conversion Kit is designed for turning existing materials into structured online learning content.</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+  import { openStartPackageChat } from "../../utils/tawkSales";
+  document.addEventListener("DOMContentLoaded", () => {
+    const btns = document.querySelectorAll(".tawk-package-btn");
+    btns.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = e.currentTarget;
+        openStartPackageChat({
+          packageSlug: target.dataset.packageSlug || "",
+          packagePrice: target.dataset.packagePrice || "",
+          packageName: target.dataset.packageName || "",
+          packageAudience: target.dataset.packageAudience || "",
+          pageUrl: window.location.href,
+          pageTitle: document.title,
+        });
+      });
+    });
+  });
+</script>
 </section>

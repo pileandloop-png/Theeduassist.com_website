@@ -7,6 +7,8 @@ export interface TawkSalesContext {
 }
 
 export interface PackageContext {
+  packageAudience?: string;
+  packageName?: string;
   packageSlug: string;
   packagePrice?: string;
   pageUrl?: string; // Kept for backwards compatibility
@@ -84,9 +86,14 @@ export const openGeneralSalesChat = (context: TawkSalesContext = {}) => {
 
 export const openStartPackageChat = (context: PackageContext) => {
   const leadContext = buildLeadContext({
-    selected_package: context.packageSlug,
+    selected_package: context.packageName || context.packageSlug,
+    package_slug: context.packageSlug,
     package_price: context.packagePrice || '',
-    source_cta: context.sourceCta || 'Start This Package'
+    source_cta: context.sourceCta || 'Start This Package',
+    lead_intent: 'package_start',
+    package_audience: context.packageAudience || '',
+    page_url: typeof window !== 'undefined' ? window.location.href : '',
+    page_title: typeof window !== 'undefined' ? document.title : '',
   });
 
   const fallbackUrl = buildReviewFormUrl('/book-free-audit/', leadContext);
@@ -100,7 +107,7 @@ export const openStartPackageChat = (context: PackageContext) => {
       } catch(e) {}
     }
     if (typeof window.Tawk_API.addTags === 'function') {
-      try { window.Tawk_API.addTags(['sales-lead', 'start-package', 'package-lead', 'payment-guidance', 'form-fallback', context.packageSlug], function(){}); } catch(e) {}
+      try { window.Tawk_API.addTags(['sales-lead', 'package-lead', 'payment-guidance', 'start-package', `package-${context.packageSlug}`], function(){}); } catch(e) {}
     }
     if (typeof window.Tawk_API.setAttributes === 'function') {
       try {
