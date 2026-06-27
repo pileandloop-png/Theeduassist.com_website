@@ -1,0 +1,41 @@
+---
+const options = [
+  { label: "My course idea is not structured yet", value: "structure-idea" },
+  { label: "My content needs to become a course", value: "content-to-course" },
+  { label: "My platform feels confusing", value: "platform-confusing" },
+  { label: "My learners are not completing the experience", value: "learner-dropout" },
+  { label: "My LMS needs migration or cleanup", value: "lms-migration" },
+  { label: "My corporate training needs structure", value: "corporate-training" },
+  { label: "I am not sure yet", value: "not-sure" }
+];
+---
+
+<section class="py-16 bg-white border-y border-slate-100" id="improvement-selector">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h3 class="text-2xl md:text-3xl font-bold text-brand-navy mb-8">What would you like to improve first?</h3>
+
+    <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+      {options.map((opt) => (
+        <button
+          type="button"
+          class="bg-slate-50 border border-slate-200 hover:border-brand-primary/40 hover:bg-brand-softBg hover:text-brand-primary text-slate-700 font-medium py-3 px-6 rounded-full transition-all duration-200 focus-ring shadow-sm hover:shadow text-sm md:text-base click-press"
+          onclick={`if(typeof Tawk_API !== 'undefined') {
+            try {
+              Tawk_API.setAttributes({
+                lead_intent: 'self_diagnosis',
+                selected_challenge: '${opt.value}',
+                source_cta: 'improvement-selector',
+                page_url: window.location.href,
+                page_title: document.title
+              }, function(){});
+              Tawk_API.showWidget();
+              Tawk_API.maximize();
+            } catch(e) { window.location.href='/book-free-audit/?source=improvement-selector&challenge=${opt.value}'; }
+          } else { window.location.href='/book-free-audit/?source=improvement-selector&challenge=${opt.value}'; }`}
+        >
+          {opt.label}
+        </button>
+      ))}
+    </div>
+  </div>
+</section>

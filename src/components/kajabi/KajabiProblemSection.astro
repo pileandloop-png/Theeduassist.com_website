@@ -17,15 +17,15 @@
           { title: 'My Kajabi pages do not look professional', icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
           { title: 'My funnel and email flow are unclear', icon: 'M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76' },
           { title: 'My students do not have a smooth learning journey', icon: 'M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222' }
-        ].map((problem) => (
+        ].map((challenge) => (
           <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-start space-x-4">
             <div class="flex-shrink-0 bg-red-50 p-3 rounded-lg">
               <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={problem.icon} />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={challenge.icon} />
               </svg>
             </div>
             <div>
-              <h3 class="text-lg font-medium text-slate-800">{problem.title}</h3>
+              <h3 class="text-lg font-medium text-slate-800">{challenge.title}</h3>
             </div>
           </div>
         ))

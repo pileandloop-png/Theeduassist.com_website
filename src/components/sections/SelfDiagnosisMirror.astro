@@ -1,0 +1,89 @@
+---
+import SectionHeader from '../ui/SectionHeader.astro';
+
+const diagnostics = [
+  {
+    title: "Course Structure",
+    question: "Is your course organized around clear learner outcomes?",
+    cta: "Review My Course Structure",
+    slug: "course-structure-review",
+    fallbackIntent: "course-structure"
+  },
+  {
+    title: "Content Readiness",
+    question: "Are your PDFs, slides, videos, or books ready to become an online learning experience?",
+    cta: "Review My Content",
+    slug: "content-readiness-review",
+    fallbackIntent: "content-readiness"
+  },
+  {
+    title: "Platform Fit",
+    question: "Are you using the right platform for your learners, team, and business model?",
+    cta: "Review My Platform",
+    slug: "platform-fit-review",
+    fallbackIntent: "platform-fit"
+  },
+  {
+    title: "Learner Experience",
+    question: "Can learners easily understand, complete, and apply what you teach?",
+    cta: "Review Learner Experience",
+    slug: "learner-experience-review",
+    fallbackIntent: "learner-experience"
+  },
+  {
+    title: "Sales & Launch Workflow",
+    question: "Is your course journey connected to the right landing pages, forms, checkout, email, or follow-up flow?",
+    cta: "Review My Launch Flow",
+    slug: "launch-workflow-review",
+    fallbackIntent: "launch-workflow"
+  },
+  {
+    title: "Enterprise Learning System",
+    question: "Does your organization need structured training, LMS readiness, reporting, or internal academy support?",
+    cta: "Review Enterprise Learning Needs",
+    slug: "enterprise-needs-review",
+    fallbackIntent: "enterprise-needs"
+  }
+];
+---
+
+<section class="py-24 bg-gradient-to-b from-brand-softBg to-white relative overflow-hidden" id="self-diagnosis">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <SectionHeader
+      title="See what your learning experience needs next"
+      subtitle="Before a client invests in a course build, platform setup, or LMS migration, they need a clear view of what is working, what feels confusing, and what should be improved. TheEduAssist helps you review your course structure, content, platform, learner journey, and launch workflow so you can choose the right next step with confidence."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
+      {diagnostics.map((item) => (
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col group relative overflow-hidden h-full">
+          <!-- Soft decorative background shape -->
+          <div class="absolute -right-10 -top-10 w-32 h-32 bg-brand-accent/5 rounded-full blur-2xl group-hover:bg-brand-accent/10 transition-colors pointer-events-none"></div>
+
+          <h3 class="text-xl font-bold text-brand-navy mb-4 relative z-10">{item.title}</h3>
+          <p class="text-slate-600 mb-8 flex-grow relative z-10">{item.question}</p>
+
+          <div class="mt-auto relative z-10">
+            <button
+              type="button"
+              class="w-full text-center bg-white border border-brand-accent/50 text-brand-primary hover:bg-brand-accent hover:text-white hover:border-brand-accent font-semibold py-3 px-4 rounded-xl transition-all duration-300 focus-ring hover-lift click-press shadow-sm"
+              onclick={`if(typeof Tawk_API !== 'undefined') {
+                try {
+                  Tawk_API.setAttributes({
+                    lead_intent: 'self_diagnosis',
+                    selected_challenge: '${item.title}',
+                    source_cta: 'mirror-card-${item.slug}'
+                  }, function(){});
+                  Tawk_API.showWidget();
+                  Tawk_API.maximize();
+                } catch(e) { window.location.href='/book-free-audit/?source=learning-experience-mirror&intent=${item.fallbackIntent}'; }
+              } else { window.location.href='/book-free-audit/?source=learning-experience-mirror&intent=${item.fallbackIntent}'; }`}
+            >
+              {item.cta}
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

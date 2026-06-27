@@ -32,10 +32,10 @@ TheEduAssist works across many platforms, including:
 
 ## Buyer Flow
 
-1. visitor reads services/packages
-2. clicks Start This Package (opens Tawk sales chat)
-3. team confirms scope, timeline, and payment/invoice next step
-4. Google Form is used for structured project details
+1. TheEduAssist uses a consultative review approach. The website helps clients identify improvement areas before investing.
+2. Visitor reads services/packages and clicks Start This Package (opens Tawk sales chat to help guide platform/package selection).
+3. Google Form collects structured project details.
+4. Team confirms scope, timeline, and payment/invoice next step.
 
 ## Starting Packages
 
@@ -49,10 +49,11 @@ TheEduAssist works across many platforms, including:
 
 ## Pricing Disclaimer
 
-Starting prices are guide prices, not final fixed quotes. Final scope depends on project details. Enterprise projects are custom scoped.
+Pricing is shown as starting packages / starting investments. Final scope and investment are confirmed after review. Enterprise projects are custom scoped.
 
 ## Contact and Social
 
+Contact is under About in navigation but still visible in footer/contact page.
 Email: [Info@theeduassist.com](mailto:Info@theeduassist.com)
 Facebook
 Instagram

@@ -1,11 +1,14 @@
 ---
 const mainLinks = [
     { label: 'Home', href: '/' },
-    { label: 'Kajabi', href: '/kajabi-services/' },
     { label: 'Platforms', href: '/platforms/' },
+    { label: 'Pricing', href: '/services/' },
     { label: 'Case Studies', href: '/case-studies/' },
-    { label: 'About', href: '/about/' },
     { label: 'Blog', href: '/blog/' },
+];
+
+const aboutLinks = [
+    { label: 'About TheEduAssist', href: '/about/' },
     { label: 'Contact', href: '/contact/' },
 ];
 
@@ -73,6 +76,22 @@ const serviceLinks = [
           {link.label}
         </a>
       ))}
+
+      <!-- About Expandable -->
+      <div class="mobile-services-group border-y border-brand-border/30 my-1 py-1">
+        <button id="mobile-about-btn" class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 focus-ring" aria-expanded="false">
+          About
+          <svg id="mobile-about-icon" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div id="mobile-about-list" class="hidden pl-4 pr-2 py-1 space-y-1 bg-brand-softBg/50 rounded-b-md">
+          {aboutLinks.map((link) => (
+            <a href={link.href} class="block px-3 py-2 rounded-md text-sm font-medium text-brand-textMuted hover:text-brand-primary hover:bg-brand-accent/10 focus-ring mobile-link">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
       <a href="/book-free-audit/" class="block px-3 py-2 mt-2 rounded-md text-base font-bold text-white bg-brand-accent hover:bg-brand-primary focus-ring mobile-link text-center">
         Get 24–48 Hour Review
       </a>
@@ -89,6 +108,11 @@ const serviceLinks = [
       this.servicesBtn = this.querySelector('#mobile-services-btn');
       this.servicesList = this.querySelector('#mobile-services-list');
       this.servicesIcon = this.querySelector('#mobile-services-icon');
+
+      this.aboutBtn = this.querySelector('#mobile-about-btn');
+      this.aboutList = this.querySelector('#mobile-about-list');
+      this.aboutIcon = this.querySelector('#mobile-about-icon');
+
       this.iconClosed = this.querySelector('#icon-closed');
       this.iconOpen = this.querySelector('#icon-open');
       this.links = this.querySelectorAll('.mobile-link');
@@ -100,6 +124,7 @@ const serviceLinks = [
 
       this.btn?.addEventListener('click', this.toggleMenu);
       this.servicesBtn?.addEventListener('click', this.toggleServices.bind(this));
+      this.aboutBtn?.addEventListener('click', this.toggleAbout.bind(this));
       window.addEventListener('keydown', this.handleEscape);
       this.links.forEach(link => link.addEventListener('click', this.closeMenu));
     }
@@ -114,6 +139,19 @@ const serviceLinks = [
       } else {
         this.servicesList?.classList.remove('hidden');
         this.servicesIcon?.classList.add('rotate-180');
+      }
+    }
+
+    toggleAbout(e: Event) {
+      e.stopPropagation();
+      const isExpanded = this.aboutBtn?.getAttribute('aria-expanded') === 'true';
+      this.aboutBtn?.setAttribute('aria-expanded', (!isExpanded).toString());
+      if (isExpanded) {
+        this.aboutList?.classList.add('hidden');
+        this.aboutIcon?.classList.remove('rotate-180');
+      } else {
+        this.aboutList?.classList.remove('hidden');
+        this.aboutIcon?.classList.add('rotate-180');
       }
     }
 

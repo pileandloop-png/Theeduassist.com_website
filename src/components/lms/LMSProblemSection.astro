@@ -2,7 +2,7 @@
 // src/components/lms/LMSProblemSection.astro
 import Card from "../ui/Card.astro";
 
-const problems = [
+const challenges = [
   "Content is scattered across folders and platforms",
   "Course structure is unclear or outdated",
   "Learners do not know where to start",
@@ -12,7 +12,7 @@ const problems = [
 ];
 ---
 
-<section class="py-24 bg-white" id="problem">
+<section class="py-24 bg-white" id="challenge">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-3xl font-bold mb-6 text-[#27496D]">Migration Is Not Just Uploading Files</h2>
@@ -22,7 +22,7 @@ const problems = [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-      {problems.map((problem) => (
+      {challenges.map((challenge) => (
         <Card class="bg-slate-50 hover:bg-white border-slate-200 transition-colors">
           <div class="flex items-start">
             <div class="flex-shrink-0 mt-1">
@@ -33,7 +33,7 @@ const problems = [
               </div>
             </div>
             <div class="ml-4">
-              <p class="text-slate-700 font-medium leading-snug">{problem}</p>
+              <p class="text-slate-700 font-medium leading-snug">{challenge}</p>
             </div>
           </div>
         </Card>

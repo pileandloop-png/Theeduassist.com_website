@@ -48,7 +48,7 @@ export function generateFullPrompt(actionId?: string): string {
 
 ${brandContext}
 
-Please help me understand this page. Summarize the key points, explain which service, platform, or package may fit my situation, and list the questions I should ask the sales team before starting. Treat all listed prices as starting prices, not final quotes.
+Please help me understand this page. Summarize the key points, identify course, content, platform, learner experience, and launch workflow improvement areas before investing, and list the questions I should ask the sales team before starting. Treat all listed prices as starting investments, not final quotes.
 
 Current Task:
 ${actionInstruction}
