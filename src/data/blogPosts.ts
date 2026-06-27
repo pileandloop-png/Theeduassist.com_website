@@ -202,7 +202,7 @@ export const blogPosts: BlogPost[] = [
       <p>Jumping straight into building a platform without preparation often leads to delays and frustration. Here is what you should prepare first.</p>
 
       <h2>1. Solidify Your Offer and Audience</h2>
-      <p>Know exactly who your course is for and the specific problem it solves. This dictates your marketing strategy and platform requirements.</p>
+      <p>Know exactly who your course is for and the specific challenge it solves. This dictates your marketing strategy and platform requirements.</p>
 
       <h2>2. Finalize Your Core Curriculum</h2>
       <p>Have a detailed outline of your modules and lessons. You don't need all the videos recorded, but the structure must be clear.</p>
