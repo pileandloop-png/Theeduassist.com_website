@@ -97,9 +97,7 @@ const caseStudies = [
           </div>
 
           <div class="p-8 pt-0 mt-auto">
-            <button type="button" class={`tawk-package-btn block w-full text-center py-4 px-4 rounded-md font-bold transition-all ${pkg.highlight ? 'bg-brand-primary text-white hover:bg-brand-navy shadow-md' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-brand-accent hover:text-white hover:border-brand-accent/30'}`} data-package-slug={pkg.slug} data-package-price={pkg.price} data-package-name={pkg.title} data-package-audience={pkg.bestFor}>
-              Start This Package
-            </button>
+            <a href="/book-free-audit/" class={`tawk-package-btn block w-full text-center py-4 px-4 rounded-md font-bold transition-all ${pkg.highlight ? 'bg-brand-primary text-white hover:bg-brand-navy shadow-md' : 'bg-brand-softBg text-brand-navy border border-brand-border hover:bg-brand-accent hover:text-white hover:border-brand-accent/30'}`} data-package-slug={pkg.slug} data-package-price={pkg.price} data-package-name={pkg.title} data-package-audience={pkg.bestFor}>Start This Package</a>
             <a href={`/book-free-audit/?package=${pkg.slug}&source=package-card`} class="block w-full text-center py-3 text-sm font-semibold text-brand-textMuted hover:text-brand-primary transition-colors mt-2">
               Submit Project Details
             </a>
