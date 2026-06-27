@@ -29,6 +29,7 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import AIAssistToast from '../components/ai/AIAssistToast.astro';
 import TawkChat from '../components/integrations/TawkChat.astro';
+import PersistentAIBottomBar from '../components/ai/PersistentAIBottomBar.astro';
 import RightSalesWidget from '../components/sales/RightSalesWidget.astro';
 
 const siteSettings = await getSiteSettings();
@@ -79,5 +80,6 @@ const finalOgDescription = ogDescription || formattedDescription;
         <AIAssistToast />
         <RightSalesWidget />
         <TawkChat />
+        <PersistentAIBottomBar />
 	</body>
 </html>
