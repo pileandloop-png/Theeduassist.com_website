@@ -31,6 +31,20 @@ export interface ContentContext {
   category?: string;
 }
 
+export interface PlatformContext {
+  selected_platform: string;
+  platform_group?: string;
+  recommended_service?: string;
+  recommended_package?: string;
+  official_url?: string;
+  pageUrl?: string;
+  pageTitle?: string;
+  sourceCta?: string;
+  lead_intent?: string;
+  project_type?: string;
+  package_price?: string;
+}
+
 // Global declaration for Tawk API
 declare global {
   interface Window {
@@ -79,6 +93,51 @@ export const openGeneralSalesChat = (context: TawkSalesContext = {}) => {
     if (typeof window.Tawk_API.setAttributes === 'function') {
       try {
         window.Tawk_API.setAttributes(leadContext, function(){});
+      } catch(e) {}
+    }
+  }, fallbackUrl);
+};
+
+export const openPlatformSalesChat = (context: PlatformContext) => {
+  const leadContext = buildLeadContext({
+    selected_platform: context.selected_platform,
+    platform_group: context.platform_group || '',
+    recommended_service: context.recommended_service || '',
+    recommended_package: context.recommended_package || '',
+    official_url: context.official_url || '',
+    source_cta: context.sourceCta || 'platform-guidance-cta',
+    lead_intent: context.lead_intent || 'platform_guidance',
+    project_type: context.project_type || '',
+    package_price: context.package_price || '',
+    page_url: typeof window !== 'undefined' ? window.location.href : '',
+    page_title: typeof window !== 'undefined' ? document.title : '',
+  });
+
+  const fallbackUrl = buildReviewFormUrl(`/book-free-audit/?platform=${context.selected_platform}&source=platforms-page`, leadContext);
+
+  attemptTawkAction(() => {
+    if (typeof window.Tawk_API.addEvent === 'function') {
+      try {
+        window.Tawk_API.addEvent('platform_sales_chat_started', {
+          'platform': context.selected_platform
+        }, function(){});
+      } catch(e) {}
+    }
+    if (typeof window.Tawk_API.addTags === 'function') {
+      try {
+        const tags = ['sales-lead', 'platform-lead', 'platform-guidance', context.selected_platform.toLowerCase().replace(/[^a-z0-9]+/g, '-')];
+        if (context.platform_group) {
+          tags.push(context.platform_group.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+        }
+        window.Tawk_API.addTags(tags, function(){});
+      } catch(e) {}
+    }
+    if (typeof window.Tawk_API.setAttributes === 'function') {
+      try {
+        window.Tawk_API.setAttributes({
+          ...leadContext,
+          review_url: fallbackUrl
+        }, function(){});
       } catch(e) {}
     }
   }, fallbackUrl);

@@ -14,6 +14,11 @@ TheEduAssist works across many platforms, including:
 * Authoring and interactive tools (Articulate 360, SCORM, Storyline, Rise)
 * WordPress LMS (LearnDash, Tutor LMS)
 
+* The `/platforms/` page guides visitors across course platforms, LMS, enterprise LMS, academic LMS, and authoring tools.
+* Top examples include Kajabi, Thinkific, LearnWorlds, Docebo, Moodle, Canvas, Blackboard, Brightspace, Articulate, SCORM, and others.
+* Visitors can use Talk to Sales for platform guidance.
+* Enterprise learning projects are custom scoped.
+
 ## Core Services
 
 * course creation and curriculum design

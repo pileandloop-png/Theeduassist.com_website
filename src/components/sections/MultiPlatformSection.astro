@@ -1,5 +1,5 @@
 ---
-import { platforms } from '../../data/platforms';
+import { platformGroups } from '../../data/platforms';
 ---
 <section class="py-20 md:py-28 bg-slate-50 border-y border-brand-border/40 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
@@ -10,31 +10,24 @@ import { platforms } from '../../data/platforms';
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {platforms.map((platform, index) => (
+        {platformGroups.map((group, index) => (
             <div class="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
                 <div class="w-12 h-12 bg-brand-softBg rounded-xl flex items-center justify-center mb-6 text-brand-primary">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                 </div>
-                <h3 class="text-xl font-bold text-brand-navy mb-3">{platform.group}</h3>
-                <p class="text-sm text-slate-500 mb-4">{platform.description}</p>
-                <div class="flex flex-wrap gap-2 mt-auto">
-                    {platform.examples.map(example => (
-                        <span class="inline-block bg-slate-50 border border-slate-200 text-slate-600 text-xs px-2.5 py-1 rounded-md font-medium">
-                            {example}
-                        </span>
-                    ))}
-                </div>
+                <h3 class="text-xl font-bold text-brand-navy mb-3">{group.name}</h3>
+                <p class="text-sm text-slate-500 mb-4">{group.description}</p>
             </div>
         ))}
     </div>
 
     <div class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button type="button" class="tawk-platform-btn bg-brand-primary text-white px-8 py-4 rounded-md font-bold hover:bg-brand-navy transition-colors focus-ring shadow-lg" data-lead-intent="platform_guidance" data-source-cta="platform-guidance-homepage" data-selected-platform="not_sure_yet">
-            Not sure which platform fits? Talk to Sales
-        </button>
-        <a href="/services/" class="bg-white border border-slate-300 text-slate-700 px-8 py-4 rounded-md font-bold hover:bg-slate-50 transition-colors focus-ring">
-            View Services
+        <a href="/platforms/" class="bg-brand-primary text-white px-8 py-4 rounded-md font-bold hover:bg-brand-navy transition-colors focus-ring shadow-lg">
+            View Platforms
         </a>
+        <button type="button" class="tawk-platform-btn bg-white border border-slate-300 text-slate-700 px-8 py-4 rounded-md font-bold hover:bg-slate-50 transition-colors focus-ring" data-lead-intent="platform_guidance" data-source-cta="platform-guidance-homepage" data-selected-platform="not_sure_yet">
+            Not sure which fits? Talk to Sales
+        </button>
     </div>
 </section>
 

@@ -41,6 +41,16 @@ export async function getAllPublicRoutes(): Promise<PublicRoute[]> {
   });
 
   routes.push({
+    path: '/platforms/',
+    title: 'Platforms & LMS We Support | TheEduAssist',
+    pageType: 'general',
+    indexable: true,
+    includeInSitemap: true,
+    includeInHumanSitemap: true,
+    priority: '0.9'
+  });
+
+  routes.push({
     path: '/kajabi-services/',
     title: 'Kajabi Services | TheEduAssist',
     pageType: 'kajabi',

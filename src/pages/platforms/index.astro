@@ -1,0 +1,465 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { platformsData, platformGroups, extraToolsData } from "../../data/platforms";
+import { webPageSchema, breadcrumbSchema, faqPageSchema } from "../../lib/seo/schema";
+
+const faqs = [
+  {
+    question: "Do you only work with Kajabi?",
+    answer: "No. Kajabi is one platform we support, but TheEduAssist also helps with course platforms, LMS systems, enterprise learning platforms, content conversion, and SCORM-ready workflows."
+  },
+  {
+    question: "Can you help us choose the right LMS?",
+    answer: "Yes. We can help compare your learning goals, audience, content, budget, reporting needs, and internal team capacity before recommending a platform direction."
+  },
+  {
+    question: "Do you implement enterprise LMS platforms like Docebo or Absorb?",
+    answer: "We can support planning, content structure, learner experience, migration preparation, LMS-ready content, and implementation coordination depending on the project scope. Enterprise work is scoped after discovery."
+  },
+  {
+    question: "Can you create Articulate, Rise, Storyline, or SCORM-ready content?",
+    answer: "Yes. We can help design and prepare interactive or LMS-ready learning content depending on the tool, content type, and delivery requirements."
+  },
+  {
+    question: "What if we already have an LMS?",
+    answer: "We can help review your current setup, improve course structure, convert content, prepare migration plans, or support ongoing content and learner experience improvements."
+  },
+  {
+    question: "Are you official partners of these platforms?",
+    answer: "No official partnership is claimed unless explicitly stated. The platform names are listed to help visitors understand common systems clients ask us to support."
+  },
+  {
+    question: "Do platform prices include TheEduAssist services?",
+    answer: "No. Vendor platform subscriptions are separate from TheEduAssist service fees unless explicitly included in a confirmed scope."
+  }
+];
+
+const jsonLd = [
+  webPageSchema(
+    "Platforms & LMS We Support | TheEduAssist",
+    "Explore course platforms, LMS systems, enterprise learning platforms, and e-learning authoring tools TheEduAssist can help clients plan, structure, migrate, and build around.",
+    "/platforms/"
+  ),
+  breadcrumbSchema([
+    { name: "Home", urlPath: "/" },
+    { name: "Platforms", urlPath: "/platforms/" }
+  ]),
+  faqPageSchema(faqs)
+];
+---
+
+<Layout
+  title="Platforms & LMS We Support | TheEduAssist"
+  description="Explore course platforms, LMS systems, enterprise learning platforms, and e-learning authoring tools TheEduAssist can help clients plan, structure, migrate, and build around."
+  canonicalPath="/platforms/"
+  jsonLd={jsonLd}
+>
+  <!-- Disclaimer -->
+  <div class="bg-brand-softBg border-b border-brand-border py-3 px-4 sm:px-6 lg:px-8 text-center text-sm text-brand-textMuted">
+    TheEduAssist is an independent e-learning design and course-building agency. Platform names are listed to help visitors understand common systems clients ask us to support. We do not claim official partnership, reseller status, or certification with these platforms unless explicitly stated.
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-slate-50 to-white overflow-hidden py-16 md:py-24 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left Side: Copy -->
+        <div class="space-y-8">
+          <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy leading-tight">
+            Choose the right platform for your course, academy, or enterprise learning system
+          </h1>
+          <p class="text-lg md:text-xl text-slate-600 leading-relaxed">
+            TheEduAssist helps creators, educators, training companies, publishers, online academies, and corporate teams plan, design, migrate, and build learning experiences across course platforms, LMS systems, enterprise learning tools, and SCORM-ready content workflows.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <button
+              type="button"
+              class="tawk-platform-btn bg-brand-accent hover:bg-brand-primary text-white font-bold py-3.5 px-8 rounded-md shadow-sm transition-all focus-ring text-center"
+              data-platform="not_sure_yet"
+              data-intent="platform_guidance"
+              data-cta="platforms-hero-talk-to-sales"
+              data-project="platform_selection"
+            >
+              Talk to Sales About My Platform
+            </button>
+            <a
+              href="/book-free-audit/?source=platforms-page"
+              class="bg-white border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold py-3.5 px-8 rounded-md shadow-sm transition-all focus-ring text-center inline-flex items-center justify-center gap-2"
+            >
+              Submit Project Details
+            </a>
+          </div>
+        </div>
+        <!-- Right Side: Diagram -->
+        <div class="relative hidden lg:block h-full min-h-[400px]">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <!-- Central Node -->
+            <div class="relative z-20 bg-brand-navy text-white font-bold py-4 px-8 rounded-xl shadow-lg border border-brand-navy">
+              TheEduAssist
+            </div>
+
+            <!-- Surrounding Nodes -->
+            <div class="absolute top-10 right-10 bg-white border border-slate-200 text-brand-navy font-semibold py-3 px-6 rounded-lg shadow-sm animate-[pulse_4s_ease-in-out_infinite]">Course Platforms</div>
+            <div class="absolute bottom-10 left-10 bg-white border border-slate-200 text-brand-navy font-semibold py-3 px-6 rounded-lg shadow-sm animate-[pulse_4s_ease-in-out_infinite_1s]">Enterprise LMS</div>
+            <div class="absolute top-1/4 -left-4 bg-white border border-slate-200 text-brand-navy font-semibold py-3 px-6 rounded-lg shadow-sm animate-[pulse_4s_ease-in-out_infinite_2s]">Academic LMS</div>
+            <div class="absolute bottom-1/4 -right-4 bg-white border border-slate-200 text-brand-navy font-semibold py-3 px-6 rounded-lg shadow-sm animate-[pulse_4s_ease-in-out_infinite_3s]">Authoring Tools</div>
+            <div class="absolute -top-4 left-1/4 bg-white border border-slate-200 text-brand-navy font-semibold py-3 px-6 rounded-lg shadow-sm animate-[pulse_4s_ease-in-out_infinite_0.5s]">Community Learning</div>
+            <div class="absolute -bottom-4 right-1/4 bg-white border border-slate-200 text-brand-navy font-semibold py-3 px-6 rounded-lg shadow-sm animate-[pulse_4s_ease-in-out_infinite_1.5s]">Content Conversion</div>
+
+            <!-- SVG Lines -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" style="opacity: 0.2;">
+                <!-- We just add a subtle circle around to imply connection without complex line math -->
+                <circle cx="50%" cy="50%" r="40%" stroke="currentColor" stroke-width="1" fill="none" stroke-dasharray="4 4" class="text-brand-navy" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Mobile Diagram Stack -->
+        <div class="lg:hidden mt-8 grid grid-cols-2 gap-4">
+           <div class="bg-white border border-slate-200 text-center py-4 px-2 rounded-lg shadow-sm font-semibold text-brand-navy">Course Platforms</div>
+           <div class="bg-white border border-slate-200 text-center py-4 px-2 rounded-lg shadow-sm font-semibold text-brand-navy">Enterprise LMS</div>
+           <div class="bg-white border border-slate-200 text-center py-4 px-2 rounded-lg shadow-sm font-semibold text-brand-navy">Academic LMS</div>
+           <div class="bg-white border border-slate-200 text-center py-4 px-2 rounded-lg shadow-sm font-semibold text-brand-navy">Authoring Tools</div>
+           <div class="bg-brand-navy text-white text-center py-4 px-2 rounded-lg shadow-sm font-bold col-span-2">TheEduAssist</div>
+           <div class="bg-white border border-slate-200 text-center py-4 px-2 rounded-lg shadow-sm font-semibold text-brand-navy">Community Learning</div>
+           <div class="bg-white border border-slate-200 text-center py-4 px-2 rounded-lg shadow-sm font-semibold text-brand-navy">Content Conversion</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow Diagram Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-brand-navy mb-4">Start with your learning need, not the software</h2>
+        <p class="text-lg text-slate-600">The platform should fit your business model, content, and learners.</p>
+      </div>
+
+      <div class="relative">
+        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 transform -translate-x-1/2"></div>
+
+        <div class="space-y-12">
+
+          <div class="relative flex flex-col md:flex-row items-center justify-center md:justify-between group">
+             <div class="md:w-5/12 md:text-right mb-4 md:mb-0 relative z-10">
+                <h3 class="text-xl font-bold text-brand-navy mb-2">1. What are you building?</h3>
+             </div>
+             <div class="hidden md:flex w-10 h-10 bg-brand-softBg border-2 border-brand-accent rounded-full items-center justify-center relative z-20 text-brand-accent font-bold">1</div>
+             <div class="md:w-5/12 relative z-10">
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm group-hover:border-slate-300 transition-colors">
+                   <p class="text-sm text-slate-600">Course business, corporate training, internal academy, content library, community program, LMS migration, SCORM course</p>
+                </div>
+             </div>
+          </div>
+
+          <div class="relative flex flex-col md:flex-row-reverse items-center justify-center md:justify-between group">
+             <div class="md:w-5/12 md:text-left mb-4 md:mb-0 relative z-10">
+                <h3 class="text-xl font-bold text-brand-navy mb-2">2. What do you already have?</h3>
+             </div>
+             <div class="hidden md:flex w-10 h-10 bg-brand-softBg border-2 border-brand-accent rounded-full items-center justify-center relative z-20 text-brand-accent font-bold">2</div>
+             <div class="md:w-5/12 md:text-right relative z-10">
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm group-hover:border-slate-300 transition-colors">
+                   <p class="text-sm text-slate-600">Idea, outline, PDFs, slides, videos, books, old LMS, existing Kajabi/Thinkific/LearnWorlds, enterprise LMS</p>
+                </div>
+             </div>
+          </div>
+
+          <div class="relative flex flex-col md:flex-row items-center justify-center md:justify-between group">
+             <div class="md:w-5/12 md:text-right mb-4 md:mb-0 relative z-10">
+                <h3 class="text-xl font-bold text-brand-navy mb-2">3. What platform direction fits?</h3>
+             </div>
+             <div class="hidden md:flex w-10 h-10 bg-brand-softBg border-2 border-brand-accent rounded-full items-center justify-center relative z-20 text-brand-accent font-bold">3</div>
+             <div class="md:w-5/12 relative z-10">
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm group-hover:border-slate-300 transition-colors">
+                   <p class="text-sm text-slate-600">Course platform, enterprise LMS, academic LMS, community platform, authoring tool, custom workflow</p>
+                </div>
+             </div>
+          </div>
+
+          <div class="relative flex flex-col md:flex-row-reverse items-center justify-center md:justify-between group">
+             <div class="md:w-5/12 md:text-left mb-4 md:mb-0 relative z-10">
+                <h3 class="text-xl font-bold text-brand-navy mb-2">4. What should happen next?</h3>
+             </div>
+             <div class="hidden md:flex w-10 h-10 bg-brand-softBg border-2 border-brand-accent rounded-full items-center justify-center relative z-20 text-brand-accent font-bold">4</div>
+             <div class="md:w-5/12 md:text-right relative z-10">
+                <div class="bg-brand-navy border border-brand-navy rounded-xl p-6 shadow-md text-white">
+                   <p class="text-sm font-semibold mb-3">Talk to Sales, Submit Project Details, Start Scope Review</p>
+                   <button type="button" class="tawk-platform-btn text-brand-accent hover:text-white font-bold text-sm underline focus-ring rounded-sm" data-platform="not_sure_yet" data-intent="platform_guidance" data-cta="platforms-flow-not-sure">Not sure where you fit? Talk to Sales</button>
+                </div>
+             </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platforms List Section -->
+  <section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-brand-navy mb-6">Top LMS and course platforms clients commonly ask about</h2>
+        <p class="text-lg text-slate-600">
+          These platforms are shown as a practical guide for visitors comparing learning systems. TheEduAssist can help with planning, course structure, content preparation, learner experience, migration support, and platform build workflows depending on the selected system.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {platformsData.map((platform) => (
+          <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+             <div class="mb-4">
+                 <span class="inline-block px-3 py-1 bg-brand-softBg text-brand-primary text-xs font-bold rounded-full mb-3">{platform.group}</span>
+                 <h3 class="text-xl font-bold text-brand-navy">{platform.name}</h3>
+             </div>
+             <div class="flex-grow space-y-4">
+                 <div>
+                     <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Best For</p>
+                     <p class="text-sm text-slate-700">{platform.bestFor}</p>
+                 </div>
+                 {platform.recommendedService && (
+                    <div>
+                        <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">Recommended Pathway</p>
+                        <p class="text-sm text-brand-primary font-medium">{platform.recommendedService}</p>
+                    </div>
+                 )}
+             </div>
+             <div class="mt-8 space-y-3 pt-6 border-t border-slate-100">
+                 <button
+                   type="button"
+                   class="tawk-platform-btn w-full bg-brand-navy hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-md transition-colors focus-ring text-sm"
+                   data-platform={platform.name}
+                   data-group={platform.group}
+                   data-service={platform.recommendedService}
+                   data-url={platform.officialUrl}
+                   data-cta="platform-card"
+                 >
+                   Talk About {platform.name.split(' ')[0]} Project
+                 </button>
+                 <a
+                   href={platform.officialUrl}
+                   target="_blank"
+                   rel="noopener noreferrer nofollow"
+                   class="block w-full text-center text-sm font-semibold text-slate-500 hover:text-brand-primary py-2 transition-colors focus-ring rounded-md"
+                 >
+                   {platform.externalLinkLabel}
+                 </a>
+             </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Extra Tools Section -->
+  <section class="py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-brand-navy mb-6">Authoring, SCORM, and interactive course tools</h2>
+        <p class="text-lg text-slate-600">
+          Some projects are less about choosing a course platform and more about creating structured, interactive, SCORM-ready, or LMS-ready content.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        {extraToolsData.map((tool) => (
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+            <h3 class="text-lg font-bold text-brand-navy mb-3">{tool.name}</h3>
+            <p class="text-sm text-slate-700 flex-grow mb-6">{tool.bestFor}</p>
+            <div class="space-y-3">
+                 <button
+                   type="button"
+                   class="tawk-platform-btn w-full bg-white border border-slate-300 hover:border-brand-primary hover:text-brand-primary text-slate-700 font-bold py-2.5 px-4 rounded-md transition-all focus-ring text-sm"
+                   data-platform={tool.name}
+                   data-intent="platform_or_tool_guidance"
+                   data-service={tool.recommendedService}
+                   data-cta="platform-tool-card"
+                 >
+                   Talk About This Tool
+                 </button>
+                 <a
+                   href={tool.officialUrl}
+                   target="_blank"
+                   rel="noopener noreferrer nofollow"
+                   class="block w-full text-center text-xs font-semibold text-slate-400 hover:text-brand-primary py-1 transition-colors focus-ring rounded-md"
+                 >
+                   Visit Official Site
+                 </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Comparison Section -->
+  <section class="py-20 bg-brand-navy text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold mb-6">Creator platform, LMS, or enterprise learning system?</h2>
+        <p class="text-lg text-slate-300">Understand the different categories of learning software to narrow down your options.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white/10 rounded-xl p-6 border border-white/20 backdrop-blur-sm">
+           <h3 class="text-lg font-bold text-brand-accent mb-2">Creator/course platform</h3>
+           <p class="text-sm text-slate-300 mb-4 font-mono text-xs">Kajabi, Thinkific, LearnWorlds, Teachable</p>
+           <p class="text-sm text-white">Best for selling courses, coaching programs, memberships, and digital products.</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6 border border-white/20 backdrop-blur-sm">
+           <h3 class="text-lg font-bold text-brand-accent mb-2">Corporate LMS</h3>
+           <p class="text-sm text-slate-300 mb-4 font-mono text-xs">Docebo, Absorb, LearnUpon, Litmos, TalentLMS</p>
+           <p class="text-sm text-white">Best for employee training, compliance, customer education, partner training, internal academies.</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6 border border-white/20 backdrop-blur-sm">
+           <h3 class="text-lg font-bold text-brand-accent mb-2">Academic LMS</h3>
+           <p class="text-sm text-slate-300 mb-4 font-mono text-xs">Moodle, Canvas, Blackboard, Brightspace</p>
+           <p class="text-sm text-white">Best for schools, universities, structured teaching, academic course delivery.</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-6 border border-white/20 backdrop-blur-sm">
+           <h3 class="text-lg font-bold text-brand-accent mb-2">Authoring/SCORM tools</h3>
+           <p class="text-sm text-slate-300 mb-4 font-mono text-xs">Articulate Rise, Storyline, iSpring, SCORM</p>
+           <p class="text-sm text-white">Best for interactive modules, LMS-ready training content, assessments, compliance content.</p>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+         <button
+           type="button"
+           class="tawk-platform-btn bg-brand-accent hover:bg-white hover:text-brand-navy text-white font-bold py-3.5 px-8 rounded-md shadow-sm transition-all focus-ring text-center inline-flex items-center gap-2"
+           data-platform="not_sure_yet"
+           data-intent="help_choose_platform_type"
+           data-cta="platform-comparison-help-me-choose"
+         >
+           Help Me Choose
+         </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Project Pathway Section -->
+  <section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+           <h2 class="text-3xl font-bold text-brand-navy mb-6">For business and corporate training teams</h2>
+           <p class="text-lg text-slate-600 mb-6">
+             If your organization needs training for employees, partners, customers, departments, or learners across multiple locations, we can help plan the structure, content flow, LMS readiness, learner experience, and handoff process.
+           </p>
+           <ul class="space-y-2 text-sm text-slate-700 font-medium mb-8">
+             <li class="flex items-start"><svg class="w-5 h-5 text-brand-accent mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Employee onboarding & compliance</li>
+             <li class="flex items-start"><svg class="w-5 h-5 text-brand-accent mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Product & customer education</li>
+             <li class="flex items-start"><svg class="w-5 h-5 text-brand-accent mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Partner training & internal academies</li>
+             <li class="flex items-start"><svg class="w-5 h-5 text-brand-accent mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> LMS migration planning</li>
+             <li class="flex items-start"><svg class="w-5 h-5 text-brand-accent mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> SCORM-ready course development</li>
+           </ul>
+           <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                type="button"
+                class="tawk-platform-btn bg-brand-primary hover:bg-brand-navy text-white font-bold py-3 px-6 rounded-md shadow-sm transition-all focus-ring text-center"
+                data-intent="enterprise_learning_project"
+                data-project="corporate_enterprise"
+                data-package="Enterprise Learning Systems"
+                data-price="Custom quote after scope review"
+                data-cta="platforms-enterprise-section"
+              >
+                Start an Enterprise Learning Project
+              </button>
+              <a
+                href="/book-free-audit/?project=enterprise-learning&source=platforms-enterprise-section"
+                class="bg-white border border-slate-300 hover:border-brand-primary text-slate-700 font-bold py-3 px-6 rounded-md shadow-sm transition-all focus-ring text-center"
+              >
+                Submit Project Details
+              </a>
+           </div>
+        </div>
+        <div>
+           <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative">
+              <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6 text-center">Implementation Flow</h3>
+              <div class="space-y-4 relative">
+                 <div class="absolute left-4 top-4 bottom-4 w-0.5 bg-slate-100"></div>
+
+                 <div class="relative flex items-center gap-4">
+                    <div class="w-8 h-8 rounded-full bg-brand-softBg border-2 border-brand-accent flex items-center justify-center shrink-0 z-10"><span class="w-2 h-2 bg-brand-accent rounded-full"></span></div>
+                    <div class="font-bold text-brand-navy">Business Goal</div>
+                 </div>
+                 <div class="relative flex items-center gap-4">
+                    <div class="w-8 h-8 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center shrink-0 z-10"></div>
+                    <div class="font-bold text-slate-600">Learning Architecture</div>
+                 </div>
+                 <div class="relative flex items-center gap-4">
+                    <div class="w-8 h-8 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center shrink-0 z-10"></div>
+                    <div class="font-bold text-slate-600">Platform/LMS Fit</div>
+                 </div>
+                 <div class="relative flex items-center gap-4">
+                    <div class="w-8 h-8 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center shrink-0 z-10"></div>
+                    <div class="font-bold text-slate-600">Content Build</div>
+                 </div>
+                 <div class="relative flex items-center gap-4">
+                    <div class="w-8 h-8 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center shrink-0 z-10"></div>
+                    <div class="font-bold text-slate-600">Learner Experience</div>
+                 </div>
+                 <div class="relative flex items-center gap-4">
+                    <div class="w-8 h-8 rounded-full bg-brand-navy border-2 border-brand-navy flex items-center justify-center shrink-0 z-10">
+                       <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <div class="font-bold text-brand-navy">Launch & Support</div>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="py-24 bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-brand-navy mb-4">Platform and LMS FAQs</h2>
+        <p class="text-lg text-slate-600">Common questions about platforms, tools, and implementations.</p>
+      </div>
+      <div class="space-y-6">
+        {faqs.map((faq) => (
+          <details class="group bg-slate-50 border border-slate-200 rounded-xl [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-brand-navy focus-ring rounded-xl">
+              <span class="pr-6">{faq.question}</span>
+              <span class="transition group-open:rotate-180 shrink-0 bg-white p-2 rounded-full shadow-sm">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+              </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import { openPlatformSalesChat } from "../../utils/tawkSales";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const btns = document.querySelectorAll(".tawk-platform-btn");
+      btns.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = e.currentTarget as HTMLButtonElement;
+
+          openPlatformSalesChat({
+            selected_platform: target.dataset.platform || "unknown",
+            platform_group: target.dataset.group || "",
+            recommended_service: target.dataset.service || "",
+            recommended_package: target.dataset.package || "",
+            official_url: target.dataset.url || "",
+            sourceCta: target.dataset.cta || "platforms-page-cta",
+            lead_intent: target.dataset.intent || "platform_guidance",
+            project_type: target.dataset.project || "",
+            package_price: target.dataset.price || ""
+          });
+        });
+      });
+    });
+  </script>
+</Layout>
