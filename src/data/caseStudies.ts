@@ -67,7 +67,7 @@ export const caseStudies = [
     afterState: ['Structured', 'LMS-ready', 'Interactive', 'Scalable learning'],
     learningJourney: ['Start', 'Module', 'Lesson', 'Activity', 'Resource', 'Assessment/Practice', 'Completion'],
     ctaTitle: 'Want to Build a Similar Learning System?',
-    ctaText: 'Send us your course, content, LMS, Kajabi, book, or training problem and TheEduAssist will reply within 24–48 hours with the best service path, estimated scope, and next step.',
+    ctaText: 'Send us your course, content, LMS, Kajabi, book, or training challenge and TheEduAssist will reply within 24–48 hours with the best service path, estimated scope, and next step.',
     seoTitle: 'SQA-Aligned Vocational Training Case Study | TheEduAssist',
     seoDescription: 'See how TheEduAssist helped a Malaysian government vocational institute move classroom-based training into SQA-aligned, interactive, LMS-ready eLearning courses.'
   },
@@ -136,7 +136,7 @@ export const caseStudies = [
     afterState: ['Structured', 'LMS-ready', 'Interactive', 'Scalable learning'],
     learningJourney: ['Start', 'Module', 'Lesson', 'Activity', 'Resource', 'Assessment/Practice', 'Completion'],
     ctaTitle: 'Want to Build a Similar Learning System?',
-    ctaText: 'Send us your course, content, LMS, Kajabi, book, or training problem and TheEduAssist will reply within 24–48 hours with the best service path, estimated scope, and next step.',
+    ctaText: 'Send us your course, content, LMS, Kajabi, book, or training challenge and TheEduAssist will reply within 24–48 hours with the best service path, estimated scope, and next step.',
     seoTitle: 'Business Analytics Corporate Training Case Study | TheEduAssist',
     seoDescription: 'See how TheEduAssist helped a corporate organization create interactive, LMS-ready business analytics training and train 500+ employees in data-driven decision-making.'
   },
@@ -211,7 +211,7 @@ export const caseStudies = [
     afterState: ['Structured', 'LMS-ready', 'Interactive', 'Scalable learning'],
     learningJourney: ['Start', 'Module', 'Lesson', 'Activity', 'Resource', 'Assessment/Practice', 'Completion'],
     ctaTitle: 'Want to Build a Similar Learning System?',
-    ctaText: 'Send us your course, content, LMS, Kajabi, book, or training problem and TheEduAssist will reply within 24–48 hours with the best service path, estimated scope, and next step.',
+    ctaText: 'Send us your course, content, LMS, Kajabi, book, or training challenge and TheEduAssist will reply within 24–48 hours with the best service path, estimated scope, and next step.',
     seoTitle: 'Language Course Conversion Case Study | TheEduAssist',
     seoDescription: 'See how TheEduAssist helped a language book publisher convert 20 traditional books into structured, interactive, LMS-ready eLearning courses for global learners.'
   }

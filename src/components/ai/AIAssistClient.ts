@@ -2,7 +2,7 @@ import { buildAiAssistantUrl } from '../../utils/aiUrls';
 import { aiAssistants } from '../../data/aiAssistants';
 
 // AIAssistClient.ts
-export const brandContext = "TheEduAssist is a multi-platform e-learning design and course-building agency for creators, educators, coaches, consultants, training companies, publishers, online academies, businesses, and corporate learning teams.";
+export const brandContext = "TheEduAssist is a multi-platform e-learning design and course-building agency for creators, educators, coaches, consultants, training companies, publishers, academies, businesses, and corporate learning teams.";
 
 export const instructions: Record<string, string> = {
     summarize_page: "Summarize the page in simple terms and highlight the most important next step.",
@@ -44,11 +44,11 @@ export function generateFullPrompt(actionId?: string): string {
     const { pageTitle, pageUrl, pageDescription, h1, pageContext } = getPageData();
     const actionInstruction = actionId && instructions[actionId] ? instructions[actionId] : instructions.summarize_page;
 
-    return `I am reviewing this TheEduAssist page: ${pageTitle} — ${pageUrl}
+    return `I am reviewing this TheEduAssist page: ${pageTitle} — ${pageUrl}.
 
 ${brandContext}
 
-Please help me understand this page. Summarize the key points, identify course, content, platform, learner experience, and launch workflow improvement areas before investing, and list the questions I should ask the sales team before starting. Treat all listed prices as starting investments, not final quotes.
+Please summarize this page, explain which service, platform, or starting package may fit my situation, and list what I should ask the sales team before starting. Treat all listed values as starting investments or budget guides, not final quotes.
 
 Current Task:
 ${actionInstruction}
@@ -108,6 +108,6 @@ function showToast(title: string, message: string) {
 }
 
 function showFallbackModal(prompt: string, platformUrl: string) {
-    const modalEvent = new CustomEvent('show-ai-modal', { detail: { prompt, platformUrl } });
-    window.dispatchEvent(modalEvent);
+    // If popup blocked or clipboard failed, we just show a toast instead of the modal
+    showToast("Action Required", "Popup blocked. Please check your browser settings or paste the prompt manually.");
 }

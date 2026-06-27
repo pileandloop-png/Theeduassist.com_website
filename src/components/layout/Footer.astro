@@ -146,10 +146,46 @@ const navigation = {
     </div>
 </footer>
 
-<div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+<div id="toast-container" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[100] flex flex-col gap-2 pointer-events-none"></div>
 
 <script>
     import { shareLinks } from '../../data/shareLinks';
+
+    // Global AI toast listener
+    let aiToastTimeout: any;
+    window.addEventListener('show-ai-toast', (e: any) => {
+        const { title, message } = e.detail;
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.className = 'bg-white border-l-4 border-brand-accent/30 shadow-lg rounded-md p-4 max-w-sm w-full transform translate-y-full opacity-0 transition-all duration-300 pointer-events-auto flex items-start gap-3';
+        toast.innerHTML = `
+            <div class="text-brand-accent flex-shrink-0 mt-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-slate-800">${title}</h4>
+                <p class="text-xs text-slate-600 mt-1">${message}</p>
+            </div>
+            <button class="ml-auto text-slate-400 hover:text-slate-600 focus:outline-none" onclick="this.parentElement.remove()">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        `;
+
+        container.appendChild(toast);
+
+        // Trigger animation
+        requestAnimationFrame(() => {
+            toast.classList.remove('translate-y-full', 'opacity-0');
+        });
+
+        clearTimeout(aiToastTimeout);
+        aiToastTimeout = setTimeout(() => {
+            toast.classList.add('opacity-0');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    });
 
     function showToast(message: string) {
         const container = document.getElementById('toast-container');
