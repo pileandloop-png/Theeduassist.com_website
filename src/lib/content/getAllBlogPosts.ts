@@ -21,7 +21,7 @@ export type NormalizedBlogPost = {
 
 export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
   const staticPosts: NormalizedBlogPost[] = blogPosts
-    .filter(post => post.status === 'published' && post.migrationStatus !== 'pending')
+    .filter(post => post.status === 'published' && (!post.migrationStatus || post.migrationStatus === 'approved' || post.migrationStatus === 'published'))
     .map(post => ({
       title: post.title,
       slug: post.slug,

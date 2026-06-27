@@ -76,7 +76,7 @@ export async function getPostBySlug(slug: string) {
 }
 
 // Get latest blog posts
-export const latestBlogPostsQuery = `*[_type == "post" && status == "published"] | order(publishedAt desc) {
+export const latestBlogPostsQuery = `*[_type == "blogPost" && defined(publishedAt) && defined(slug.current) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])] | order(publishedAt desc) {
   title,
   slug,
   excerpt,
