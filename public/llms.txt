@@ -6,13 +6,18 @@ https://theeduassist.com
 
 ## Summary
 
-TheEduAssist is a multi-platform e-learning design and course-building agency. It is not only a Kajabi agency.
+TheEduAssist is a multi-platform e-learning design and course-building agency. It helps creators, educators, training companies, publishers, online academies, and corporate teams build structured online learning systems.
+
+## Platforms Supported
+
+We work with many platforms including Kajabi, Thinkific, LearnWorlds, Skool, Moodle, Docebo, Articulate, SCORM-ready content, and WordPress LMS. We do not claim official platform partnerships unless explicitly stated.
 
 ## Core Services
 
 * course creation and curriculum design
 * Kajabi website/course setup
 * LMS implementation and migration
+* Enterprise learning systems
 * AI-powered e-learning support
 * content conversion
 * funnels and automation
@@ -21,10 +26,9 @@ TheEduAssist is a multi-platform e-learning design and course-building agency. I
 ## Buyer Flow
 
 1. visitor reads services/packages
-2. clicks Start This Package
-3. Tawk sales chat opens
-4. team confirms scope, timeline, and payment/invoice next step
-5. Google Form is used for structured project details
+2. clicks Start This Package (opens Tawk sales chat)
+3. team confirms scope, timeline, and payment/invoice next step
+4. Google Form is used for structured project details
 
 ## Starting Packages
 
@@ -34,10 +38,11 @@ TheEduAssist is a multi-platform e-learning design and course-building agency. I
 * LMS Migration Map — From $700
 * Course + Platform Build — From $4,000
 * Ongoing Course Support — From $600/month
+* Enterprise Learning Systems — Custom quote after scope review
 
 ## Pricing Disclaimer
 
-Starting prices are guide prices, not final fixed quotes.
+Starting prices are guide prices, not final fixed quotes. Enterprise projects are custom scoped.
 
 ## Contact
 

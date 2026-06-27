@@ -1,87 +1,59 @@
 ---
-// src/components/sections/MultiPlatformSection.astro
-
-const platforms1 = [
-    "Kajabi", "Moodle-style LMS", "WordPress LMS", "LearnDash",
-    "Thinkific", "Teachable", "TalentLMS", "Canvas", "Custom LMS"
-];
-const platforms2 = [
-    "Course Websites", "Membership Hubs", "Internal Training Portals",
-    "Google Drive Content", "PDF / Slide Libraries", "Video Libraries",
-    "Email & Funnel Systems", "AI-Assisted Workflows"
-];
-
-// Duplicate for marquee effect
-const marqueeRow1 = [...platforms1, ...platforms1, ...platforms1];
-const marqueeRow2 = [...platforms2, ...platforms2, ...platforms2];
-
+import { platforms } from '../../data/platforms';
 ---
-<section class="py-20 md:py-28 bg-white border-y border-brand-border/40 overflow-hidden">
+<section class="py-20 md:py-28 bg-slate-50 border-y border-brand-border/40 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-6">Multi-Platform E-Learning Systems</h2>
-        <p class="text-lg text-brand-textMuted max-w-3xl mx-auto leading-relaxed">
-            TheEduAssist helps organize, build, migrate, and improve learning systems across Kajabi, LMS platforms, course websites, content libraries, membership hubs, and internal training portals.
+        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-6">Platforms and learning systems we can support</h2>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Whether you are building a creator course, a coaching program, a corporate training portal, an internal academy, or SCORM-ready learning content, TheEduAssist helps structure the learning experience and match the build to the right platform.
         </p>
     </div>
 
-    <div class="relative w-full max-w-[100vw] overflow-hidden flex flex-col gap-6 py-4">
-        <!-- Fade Edges -->
-        <div class="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
-        <div class="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
-
-        <!-- Row 1: Left to Right -->
-        <div class="flex w-max animate-marquee whitespace-nowrap">
-            {marqueeRow1.map((platform) => (
-                <div class="mx-3 bg-white border border-brand-border/80 shadow-sm px-6 py-3 rounded-full flex items-center justify-center font-bold text-brand-textMain hover:border-brand-primary/50 hover:shadow-md transition-all">
-                    {platform}
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {platforms.map((platform, index) => (
+            <div class="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                <div class="w-12 h-12 bg-brand-softBg rounded-xl flex items-center justify-center mb-6 text-brand-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                 </div>
-            ))}
-        </div>
-
-        <!-- Row 2: Right to Left -->
-        <div class="flex w-max animate-marquee-reverse whitespace-nowrap">
-            {marqueeRow2.map((platform) => (
-                <div class="mx-3 bg-white border border-brand-border/80 shadow-sm px-6 py-3 rounded-full flex items-center justify-center font-bold text-brand-textMain hover:border-brand-primary/50 hover:shadow-md transition-all">
-                    {platform}
+                <h3 class="text-xl font-bold text-brand-navy mb-3">{platform.group}</h3>
+                <p class="text-sm text-slate-500 mb-4">{platform.description}</p>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                    {platform.examples.map(example => (
+                        <span class="inline-block bg-slate-50 border border-slate-200 text-slate-600 text-xs px-2.5 py-1 rounded-md font-medium">
+                            {example}
+                        </span>
+                    ))}
                 </div>
-            ))}
-        </div>
+            </div>
+        ))}
     </div>
 
-    <div class="text-center mt-12">
-        <a href="/services/" class="inline-block border-2 border-brand-primary text-brand-primary px-8 py-3 rounded-md font-bold hover:bg-brand-primary hover:text-white transition-colors focus-ring">Explore All Platforms</a>
+    <div class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button type="button" class="tawk-platform-btn bg-brand-primary text-white px-8 py-4 rounded-md font-bold hover:bg-brand-navy transition-colors focus-ring shadow-lg" data-lead-intent="platform_guidance" data-source-cta="platform-guidance-homepage" data-selected-platform="not_sure_yet">
+            Not sure which platform fits? Talk to Sales
+        </button>
+        <a href="/services/" class="bg-white border border-slate-300 text-slate-700 px-8 py-4 rounded-md font-bold hover:bg-slate-50 transition-colors focus-ring">
+            View Services
+        </a>
     </div>
 </section>
 
-<style>
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-33.33%); }
-}
-
-@keyframes marquee-reverse {
-    0% { transform: translateX(-33.33%); }
-    100% { transform: translateX(0); }
-}
-
-.animate-marquee {
-    animation: marquee 40s linear infinite;
-}
-
-.animate-marquee-reverse {
-    animation: marquee-reverse 50s linear infinite;
-}
-
-.animate-marquee:hover, .animate-marquee-reverse:hover {
-    animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .animate-marquee, .animate-marquee-reverse {
-        animation-duration: 0.001ms !important;
-        transform: translateX(0) !important;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-</style>
+<script>
+    import { openStartServiceChat } from "../../utils/tawkSales";
+    document.addEventListener("DOMContentLoaded", () => {
+      const btns = document.querySelectorAll(".tawk-platform-btn");
+      btns.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = e.currentTarget as HTMLButtonElement;
+          openStartServiceChat({
+            serviceSlug: target.dataset.selectedPlatform || "not_sure_yet",
+            pageUrl: window.location.href,
+            pageTitle: document.title,
+            sourceCta: target.dataset.sourceCta || "",
+            leadIntent: target.dataset.leadIntent || ""
+          });
+        });
+      });
+    });
+</script>
