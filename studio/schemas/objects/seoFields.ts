@@ -16,6 +16,17 @@ export default defineType({
       type: 'text',
     }),
     defineField({
+      name: 'focusKeyword',
+      title: 'Focus Keyword',
+      type: 'string',
+    }),
+    defineField({
+      name: 'additionalKeywords',
+      title: 'Additional Keywords',
+      type: 'array',
+      of: [{type: 'string'}],
+    }),
+    defineField({
       name: 'canonicalPath',
       title: 'Canonical Path',
       type: 'string',
@@ -34,6 +45,17 @@ export default defineType({
       name: 'ogImage',
       title: 'Open Graph Image',
       type: 'image',
+    }),
+    defineField({
+      name: 'twitterCardType',
+      title: 'Twitter Card Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Summary', value: 'summary'},
+          {title: 'Summary Large Image', value: 'summary_large_image'}
+        ]
+      }
     }),
     defineField({
       name: 'noindex',

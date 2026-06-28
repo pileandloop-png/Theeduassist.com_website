@@ -82,6 +82,7 @@ if (schemaFaqs.length > 0) {
   description={post.seoDescription || post.excerpt}
   canonicalPath={post.canonicalUrl || `/blog/${post.slug.current || post.slug}/`}
   ogImage={post.seo?.ogImage?.asset?.url || post.heroImage || post.featuredImage?.asset?.url}
+  twitterCardType={post.seo?.twitterCardType}
   type="article"
   jsonLd={schemas}
 >
@@ -193,6 +194,26 @@ if (schemaFaqs.length > 0) {
           slugs={post.relatedCaseStudies}
           category={post.category}
         />
+
+        {post.sources && post.sources.length > 0 && (
+          <div class="my-12 pt-8 border-t border-slate-200">
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Sources & References</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-600 text-sm">
+              {post.sources.map((source: any) => (
+                <li>
+                  {source.url ? (
+                    <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] hover:underline">
+                      {source.label || source.url}
+                    </a>
+                  ) : (
+                    <span>{source.label}</span>
+                  )}
+                  {source.notes && <span class="text-slate-500 italic ml-2">- {source.notes}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <BlogFAQs blogFaqs={post.blogFaqs} relatedFaqs={post.relatedFaqs} />
 
