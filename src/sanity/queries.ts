@@ -92,7 +92,33 @@ export const latestBlogPostsQuery = `*[_type == "blogPost" && defined(publishedA
     },
     alt
   },
-  content
+  body,
+  content,
+  blogFaqs,
+  relatedFaqs[]->{
+    question,
+    answer,
+    showOnSite,
+    orderRank
+  },
+  relatedServices[]->{
+    title,
+    slug,
+    description,
+    "image": image.asset->url
+  },
+  relatedPlatforms[]->{
+    name,
+    slug,
+    "logo": logo.asset->url
+  },
+  relatedPosts[]->{
+    title,
+    slug,
+    excerpt,
+    "image": featuredImage.asset->url
+  },
+  seo
 }`;
 
 // Testimonials

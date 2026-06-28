@@ -17,5 +17,22 @@ export default defineType({
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'showOnPage',
+      title: 'Show on Page',
+      type: 'boolean',
+      initialValue: true,
+    }),
+    defineField({
+      name: 'includeInSchema',
+      title: 'Include in Schema',
+      type: 'boolean',
+      initialValue: true,
+    }),
+    defineField({
+      name: 'sortOrder',
+      title: 'Sort Order',
+      type: 'number',
+    }),
   ],
 })

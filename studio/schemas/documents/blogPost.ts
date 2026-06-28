@@ -65,16 +65,36 @@ export default defineType({
       type: 'portableText',
     }),
     defineField({
-      name: 'faqs',
-      title: 'FAQs',
+      name: 'blogFaqs',
+      title: 'Inline FAQs',
+      description: 'FAQs specific to this blog post',
       type: 'array',
       of: [{type: 'faqItem'}],
+    }),
+    defineField({
+      name: 'relatedFaqs',
+      title: 'Related FAQs',
+      description: 'Select reusable global FAQs',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'faq'}]}],
     }),
     defineField({
       name: 'relatedServices',
       title: 'Related Services',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'service'}, {type: 'kajabiService'}]}],
+    }),
+    defineField({
+      name: 'relatedPlatforms',
+      title: 'Related Platforms',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'platform'}]}],
+    }),
+    defineField({
+      name: 'relatedPosts',
+      title: 'Related Posts',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'blogPost'}]}],
     }),
     defineField({
       name: 'cta',
@@ -153,6 +173,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'importBatchId',
+      title: 'Import Batch ID',
+      type: 'string',
+    }),
+    defineField({
       name: 'contentCluster',
       title: 'Content Cluster',
       type: 'string',
@@ -218,6 +243,55 @@ export default defineType({
         ]
       },
       initialValue: 'medium'
+    }),
+    defineField({
+      name: 'articleType',
+      title: 'Article Type',
+      type: 'string',
+      options: {
+        list: [
+          'Guide',
+          'Tutorial',
+          'Comparison',
+          'Event Guide',
+          'Checklist',
+          'Thought Leadership',
+          'Case Study',
+          'News / Update'
+        ]
+      }
+    }),
+    defineField({
+      name: 'sources',
+      title: 'Sources',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {name: 'label', type: 'string', title: 'Label'},
+            {name: 'url', type: 'url', title: 'URL'},
+            {name: 'notes', type: 'text', title: 'Notes'},
+            {name: 'dateChecked', type: 'datetime', title: 'Date Checked'}
+          ]
+        }
+      ]
+    }),
+    defineField({
+      name: 'lastReviewedAt',
+      title: 'Last Reviewed At',
+      type: 'datetime',
+    }),
+    defineField({
+      name: 'reviewedBy',
+      title: 'Reviewed By',
+      type: 'reference',
+      to: [{type: 'author'}],
+    }),
+    defineField({
+      name: 'readingTime',
+      title: 'Reading Time (minutes)',
+      type: 'number',
     }),
   ],
 })
