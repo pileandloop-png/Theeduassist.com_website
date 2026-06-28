@@ -2,6 +2,19 @@ import { blogPosts } from '../../data/blogPosts';
 import { latestBlogPostsQuery } from '../../sanity/queries';
 import { fetchFromSanity } from '../../sanity/client';
 
+export function isPublicBlogPost(post: any): boolean {
+  if (!post) return false;
+  const slug = post.slug?.current || post.slug;
+  const publishedAt = post.publishedAt;
+  const migrationStatus = post.migrationStatus;
+
+  return !!(
+    slug &&
+    publishedAt &&
+    (migrationStatus === undefined || migrationStatus === null || migrationStatus === 'approved' || migrationStatus === 'published')
+  );
+}
+
 export type NormalizedBlogPost = {
   title: string;
   slug: string;
@@ -58,7 +71,7 @@ export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
   try {
     const sanityPosts = await fetchFromSanity(latestBlogPostsQuery);
     if (sanityPosts && Array.isArray(sanityPosts)) {
-       const formattedSanity: NormalizedBlogPost[] = sanityPosts.map((post: any) => ({
+       const formattedSanity: NormalizedBlogPost[] = sanityPosts.filter(isPublicBlogPost).map((post: any) => ({
           title: post.title,
           slug: post.slug.current || post.slug,
           category: post.category || 'General',
@@ -81,7 +94,7 @@ export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
           relatedFaqs: post.relatedFaqs,
           relatedServices: post.relatedServices,
           relatedPlatforms: post.relatedPlatforms,
-          relatedPosts: post.relatedPosts,
+          relatedPosts: Array.isArray(post.relatedPosts) ? post.relatedPosts.filter(isPublicBlogPost) : post.relatedPosts,
        }));
 
        // Deduplicate by slug (prefer sanity over static)
