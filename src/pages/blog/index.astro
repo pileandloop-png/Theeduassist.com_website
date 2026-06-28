@@ -10,6 +10,15 @@ import BlogCTA from '../../components/blog/BlogCTA.astro';
 
 import LatestArticles from '../../components/blog/LatestArticles.astro';
 
+import { getAllBlogPosts } from '../../lib/content/getAllBlogPosts';
+
+let posts = [];
+try {
+  posts = await getAllBlogPosts();
+} catch (e) {
+  console.log("Error fetching blog posts for index");
+}
+
 // SEO details
 const title = "Blog & Resources | E-Learning, Kajabi, LMS & Course Design Insights | TheEduAssist";
 const description = "Read practical guides from TheEduAssist on course creation, Kajabi setup, LMS migration, content conversion, AI-powered e-learning, funnels, and online course support.";
@@ -43,25 +52,33 @@ const schema = {
   <BlogHero />
 
   <main class="container mx-auto px-4 py-12 max-w-6xl">
-    <div class="mb-12">
-        <BlogSearchFilters />
-    </div>
+    {posts.length === 0 ? (
+      <div class="text-center py-20 bg-slate-50 rounded-lg border border-slate-200 border-dashed">
+        <p class="text-xl text-slate-600">New articles coming soon.</p>
+      </div>
+    ) : (
+      <>
+        <div class="mb-12">
+            <BlogSearchFilters />
+        </div>
 
-    <BlogCategoryCards />
+        <BlogCategoryCards />
 
-    <FeaturedResourceGrid />
+        <FeaturedResourceGrid />
 
-    <LatestArticles />
+        <LatestArticles />
 
-    <div class="my-16">
-        <BlogMigrationFlow />
-    </div>
+        <div class="my-16">
+            <BlogMigrationFlow />
+        </div>
 
-    <TopicClusterMap />
+        <TopicClusterMap />
 
-    <div class="mt-20">
-        <BlogCTA />
-    </div>
+        <div class="mt-20">
+            <BlogCTA />
+        </div>
+      </>
+    )}
   </main>
 
 </Layout>

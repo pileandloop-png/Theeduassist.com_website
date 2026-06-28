@@ -13,7 +13,8 @@
     "astro": "astro",
     "create:env:production": "node scripts/create-production-env.mjs",
     "validate:env": "node scripts/validate-env-safety.mjs",
-    "validate:redirects": "node scripts/validate-redirects.mjs"
+    "validate:redirects": "node scripts/validate-redirects.mjs",
+    "check:sanity:blog": "node scripts/check-sanity-blog-public.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",
