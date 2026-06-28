@@ -34,7 +34,7 @@ const schemaFaqs = [
   ...(post.relatedFaqs || [])
     .filter((faq: any) => faq && faq.showOnSite === true && faq.question && faq.answer),
   ...(post.blogFaqs || [])
-    .filter((faq: any) => faq && faq.showOnPage !== false && faq.includeInSchema !== false && faq.question && faq.answer)
+    .filter((faq: any) => faq && faq.showOnPage === true && faq.includeInSchema === true && faq.question && faq.answer)
 ];
 
 // Ensure schema attributes match requirements (no fake author/dates if not real)
