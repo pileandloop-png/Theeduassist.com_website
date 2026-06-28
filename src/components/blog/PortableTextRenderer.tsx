@@ -1,4 +1,5 @@
-import { PortableText, PortableTextComponents } from '@portabletext/react';
+import { PortableText } from '@portabletext/react';
+import type { PortableTextComponents } from '@portabletext/react';
 import { createImageUrlBuilder } from '@sanity/image-url';
 import { client } from '../../sanity/client';
 
@@ -15,6 +16,28 @@ interface Props {
 const components: PortableTextComponents = {
   types: {
     imageWithAlt: ({ value }: any) => {
+      if (!value?.asset) {
+        return null;
+      }
+      try {
+        return (
+          <div className="my-8">
+            <img
+              src={urlFor(value).url()}
+              alt={value.alt || ' '}
+              className="w-full h-auto rounded-lg shadow-sm"
+              loading="lazy"
+            />
+            {value.caption && (
+              <p className="text-sm text-center text-slate-500 mt-2 italic">{value.caption}</p>
+            )}
+          </div>
+        );
+      } catch (e) {
+        return null;
+      }
+    },
+    image: ({ value }: any) => {
       if (!value?.asset) {
         return null;
       }

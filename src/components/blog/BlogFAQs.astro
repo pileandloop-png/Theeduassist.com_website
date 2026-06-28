@@ -17,7 +17,7 @@ interface Props {
 
 const { relatedFaqs = [], blogFaqs = [] } = Astro.props;
 
-const sortedRelatedFaqs = relatedFaqs
+const sortedRelatedFaqs = (relatedFaqs || [])
   .filter(faq => faq && faq.showOnSite === true && faq.question && faq.answer)
   .sort((a, b) => {
     if (a.orderRank != null && b.orderRank != null) {
@@ -30,7 +30,7 @@ const sortedRelatedFaqs = relatedFaqs
     return 0;
   });
 
-const sortedBlogFaqs = blogFaqs
+const sortedBlogFaqs = (blogFaqs || [])
   .filter(faq => faq && faq.showOnPage === true && faq.question && faq.answer)
   .sort((a, b) => {
     if (a.sortOrder != null && b.sortOrder != null) {

@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sanity from '@sanity/astro';
+import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://theeduassist.com',
@@ -8,6 +9,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   integrations: [
+    react(),
     sanity({
       projectId: process.env.PUBLIC_SANITY_PROJECT_ID || 'jg4gi6mn',
       dataset: process.env.PUBLIC_SANITY_DATASET || 'production',

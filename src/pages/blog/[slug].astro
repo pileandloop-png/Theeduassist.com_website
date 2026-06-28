@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 
   return allPosts.map(post => {
     return {
-      params: { slug: post.slug },
+      params: { slug: (post.slug?.current || post.slug)?.replace(/^https?:\/\/[^\/]+\/blog\//, '').replace(/\/$/, '') },
       props: { post, allPosts }
     };
   });

@@ -98,7 +98,7 @@ export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
        }));
 
        // Deduplicate by slug (prefer sanity over static)
-       const combined = [...formattedSanity, ...staticPosts];
+       const combined = [...formattedSanity];
        const unique = combined.filter((v, i, a) => a.findIndex(t => (t.slug === v.slug)) === i);
        return unique;
     }
@@ -106,5 +106,5 @@ export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
     console.log("Sanity posts fetch failed or dataset not found, falling back to static.");
   }
 
-  return staticPosts;
+  return [];
 }
