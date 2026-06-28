@@ -31,7 +31,7 @@ const displayPosts = posts.slice(0, 3);
     </div>
   ) : (
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {posts.slice(0, 6).map(post => (
+      {displayPosts.map(post => (
         <BlogCard
           title={post.title}
           slug={post.slug?.current || post.slug}

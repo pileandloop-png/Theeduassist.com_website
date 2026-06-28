@@ -1,4 +1,3 @@
-import { blogPosts } from '../../data/blogPosts';
 import { latestBlogPostsQuery } from '../../sanity/queries';
 import { fetchFromSanity } from '../../sanity/client';
 
@@ -45,29 +44,6 @@ export type NormalizedBlogPost = {
 };
 
 export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
-  const staticPosts: NormalizedBlogPost[] = blogPosts
-    .filter(post => post.status === 'published' && (!post.migrationStatus || post.migrationStatus === 'approved' || post.migrationStatus === 'published'))
-    .map(post => ({
-      title: post.title,
-      slug: post.slug,
-      category: post.category || 'General',
-      excerpt: post.excerpt,
-      readingTime: post.readingTime,
-      publishedAt: post.publishedAt,
-      updatedAt: post.updatedAt,
-      seoTitle: post.seoTitle,
-      seoDescription: post.seoDescription,
-      relatedCaseStudies: post.relatedCaseStudies,
-      canonicalUrl: post.canonicalUrl,
-      noIndex: false,
-      source: 'static',
-      content: post.content,
-      heroImage: post.heroImage,
-      heroImageAlt: post.heroImageAlt,
-      author: post.author,
-      tags: post.tags,
-    }));
-
   try {
     const sanityPosts = await fetchFromSanity(latestBlogPostsQuery);
     if (sanityPosts && Array.isArray(sanityPosts)) {
@@ -97,13 +73,12 @@ export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
           relatedPosts: Array.isArray(post.relatedPosts) ? post.relatedPosts.filter(isPublicBlogPost) : post.relatedPosts,
        }));
 
-       // Deduplicate by slug (prefer sanity over static)
-       const combined = [...formattedSanity];
-       const unique = combined.filter((v, i, a) => a.findIndex(t => (t.slug === v.slug)) === i);
+       // Deduplicate by slug
+       const unique = formattedSanity.filter((v, i, a) => a.findIndex(t => (t.slug === v.slug)) === i);
        return unique;
     }
   } catch (error) {
-    console.log("Sanity posts fetch failed or dataset not found, falling back to static.");
+    console.log("Sanity posts fetch failed or dataset not found.");
   }
 
   return [];
