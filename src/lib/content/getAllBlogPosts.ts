@@ -6,18 +6,24 @@ export function isPublicBlogPost(post: any): boolean {
   const slug = post.slug?.current || post.slug;
   const publishedAt = post.publishedAt;
   const migrationStatus = post.migrationStatus;
+  const isDraft = post._id?.startsWith('drafts.');
+  const noIndex = post.seo?.noindex;
 
   return !!(
     slug &&
     publishedAt &&
-    (migrationStatus === undefined || migrationStatus === null || migrationStatus === 'approved' || migrationStatus === 'published')
+    !isDraft &&
+    (migrationStatus === undefined || migrationStatus === null || migrationStatus === 'approved' || migrationStatus === 'published') &&
+    noIndex !== true
   );
 }
 
 export type NormalizedBlogPost = {
+  id?: string;
   title: string;
   slug: string;
   category: string;
+  categories?: any[];
   excerpt: string;
   readingTime?: number;
   publishedAt?: string;
@@ -32,7 +38,7 @@ export type NormalizedBlogPost = {
   relatedCaseStudies?: string[];
   canonicalUrl?: string;
   noIndex?: boolean;
-  source: 'sanity' | 'static';
+  source: 'sanity';
   body?: any;
   content?: string;
   heroImage?: string;
@@ -41,16 +47,20 @@ export type NormalizedBlogPost = {
   author?: string;
   tags?: string[];
   seo?: any;
+  migrationStatus?: string;
 };
 
 export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
   try {
     const sanityPosts = await fetchFromSanity(latestBlogPostsQuery);
     if (sanityPosts && Array.isArray(sanityPosts)) {
+       // Filter here as well just to be perfectly safe, though the GROQ query handles most of it.
        const formattedSanity: NormalizedBlogPost[] = sanityPosts.filter(isPublicBlogPost).map((post: any) => ({
+          id: post._id,
           title: post.title,
           slug: post.slug.current || post.slug,
-          category: post.category || 'General',
+          category: post.category || (post.categories?.[0]?.title) || 'General',
+          categories: post.categories,
           excerpt: post.excerpt,
           readingTime: post.readingTime,
           publishedAt: post.publishedAt,
@@ -64,13 +74,16 @@ export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
           body: post.body,
           content: post.content,
           featuredImage: post.featuredImage,
+          heroImage: post.featuredImage?.asset?.url,
+          heroImageAlt: post.featuredImage?.alt || post.title,
           author: post.author,
-          tags: post.tags,
+          tags: post.tags || [],
           blogFaqs: post.blogFaqs,
           relatedFaqs: post.relatedFaqs,
           relatedServices: post.relatedServices,
           relatedPlatforms: post.relatedPlatforms,
           relatedPosts: Array.isArray(post.relatedPosts) ? post.relatedPosts.filter(isPublicBlogPost) : post.relatedPosts,
+          migrationStatus: post.migrationStatus,
        }));
 
        // Deduplicate by slug
@@ -82,4 +95,46 @@ export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
   }
 
   return [];
+}
+
+export async function getUniqueBlogCategoriesAndTags() {
+  const posts = await getAllBlogPosts();
+
+  const categories = new Map<string, { title: string, slug: string, description?: string }>();
+  const tags = new Set<string>();
+
+  posts.forEach(post => {
+    if (post.categories && post.categories.length > 0) {
+      post.categories.forEach(cat => {
+         if (cat.slug?.current || cat.slug) {
+            const catSlug = cat.slug?.current || cat.slug;
+            if (!categories.has(catSlug)) {
+                categories.set(catSlug, {
+                  title: cat.title,
+                  slug: catSlug,
+                  description: cat.description
+                });
+            }
+         }
+      });
+    } else if (post.category) {
+       // Fallback to simple string category if structured category not available
+       const fallbackSlug = post.category.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+       if (!categories.has(fallbackSlug)) {
+          categories.set(fallbackSlug, {
+            title: post.category,
+            slug: fallbackSlug
+          });
+       }
+    }
+
+    if (post.tags) {
+      post.tags.forEach(tag => tags.add(tag));
+    }
+  });
+
+  return {
+    categories: Array.from(categories.values()),
+    tags: Array.from(tags)
+  };
 }

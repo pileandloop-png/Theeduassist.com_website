@@ -19,9 +19,11 @@ try {
   console.log("Error fetching blog posts for index");
 }
 
+const featuredPost = posts.length > 0 ? posts[0] : null;
+
 // SEO details
-const title = "Blog & Resources | E-Learning, Kajabi, LMS & Course Design Insights | TheEduAssist";
-const description = "Read practical guides from TheEduAssist on course creation, Kajabi setup, LMS migration, content conversion, AI-powered e-learning, funnels, and online course support.";
+const title = "E-Learning Blog | TheEduAssist";
+const description = "Read practical guides on course creation, LMS migration, Kajabi setup, AI-powered e-learning, content conversion, learner experience, and corporate learning systems.";
 const canonicalPath = "/blog/";
 const ogTitle = title;
 const ogDescription = description;
@@ -29,7 +31,7 @@ const ogDescription = description;
 // Basic WebPage schema for the hub
 const schema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
+  "@type": "Blog",
   "name": title,
   "description": description,
   "url": `https://theeduassist.com${canonicalPath}`,
@@ -58,24 +60,82 @@ const schema = {
       </div>
     ) : (
       <>
+        {featuredPost && (
+          <div class="mb-16">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6">Featured Article</h2>
+            <article class="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden group flex flex-col md:flex-row hover:shadow-lg transition-all duration-300">
+               {featuredPost.heroImage || featuredPost.featuredImage?.asset?.url ? (
+                  <div class="md:w-1/2 overflow-hidden aspect-video md:aspect-auto">
+                    <img
+                      src={featuredPost.heroImage || featuredPost.featuredImage?.asset?.url}
+                      alt={featuredPost.heroImageAlt || featuredPost.title}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                ) : (
+                  <div class="md:w-1/2 overflow-hidden aspect-video md:aspect-auto bg-slate-100 flex items-center justify-center">
+                    <span class="text-slate-400">No Image</span>
+                  </div>
+                )}
+
+                <div class="p-8 md:w-1/2 flex flex-col justify-center">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] mb-3 inline-block">
+                    {featuredPost.category}
+                  </span>
+
+                  <h3 class="text-2xl md:text-3xl font-bold text-slate-800 mb-4 group-hover:text-[var(--color-primary)] transition-colors">
+                    <a href={`/blog/${featuredPost.slug}`}>
+                      <span class="absolute inset-0" aria-hidden="true"></span>
+                      {featuredPost.title}
+                    </a>
+                  </h3>
+
+                  <p class="text-slate-600 mb-6 line-clamp-3">
+                    {featuredPost.excerpt}
+                  </p>
+
+                  <div class="mt-auto flex items-center justify-between text-sm text-slate-500 pt-4 border-t border-slate-100">
+                    <div class="flex gap-4">
+                      {featuredPost.publishedAt ? (
+                        <time datetime={featuredPost.publishedAt}>{new Date(featuredPost.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time>
+                      ) : null}
+                      {featuredPost.readingTime ? (
+                         <span>{featuredPost.readingTime} min read</span>
+                      ) : null}
+                    </div>
+
+                    <span class="font-medium text-[var(--color-primary)] flex items-center group-hover:text-[var(--color-accent)] transition-colors relative z-10">
+                      Read Article
+                      <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+            </article>
+          </div>
+        )}
+
         <div class="mb-12">
             <BlogSearchFilters />
         </div>
 
         <BlogCategoryCards />
 
-        <FeaturedResourceGrid />
-
         <LatestArticles />
 
-        <div class="my-16">
-            <BlogMigrationFlow />
-        </div>
-
-        <TopicClusterMap />
-
         <div class="mt-20">
-            <BlogCTA />
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 md:p-12 text-center shadow-sm relative overflow-hidden max-w-4xl mx-auto">
+              <h2 class="text-3xl font-bold text-slate-800 mb-4">Not sure what your course or platform needs next?</h2>
+              <p class="text-slate-600 mb-8 text-lg max-w-2xl mx-auto">
+                Start with a 24–48 Hour Review so TheEduAssist can help identify the right learning experience, platform, content, and launch improvements.
+              </p>
+              <div class="flex justify-center">
+                <a href="/book-free-audit/" class="inline-flex items-center justify-center px-8 py-4 bg-[var(--color-accent)] text-white font-bold rounded-lg hover:bg-opacity-90 transition-transform hover:-translate-y-0.5 focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)] focus:outline-none">
+                  Get 24–48 Hour Review &rarr;
+                </a>
+              </div>
+            </div>
         </div>
       </>
     )}

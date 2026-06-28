@@ -1,18 +1,30 @@
 ---
-import { blogCategories } from '../../data/blogTaxonomy';
+import { getUniqueBlogCategoriesAndTags } from '../../lib/content/getAllBlogPosts';
+
+let categories = [];
+try {
+  const data = await getUniqueBlogCategoriesAndTags();
+  categories = data.categories;
+} catch (e) {
+  console.log("Error fetching categories for cards");
+}
+
+// Fallback logic to show default layout if empty (handled gracefully if zero length)
 ---
-<div class="mb-16">
-  <h2 class="text-2xl font-bold text-slate-800 mb-6">Explore by Category</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    {blogCategories.slice(0, 8).map(category => (
-      <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full cursor-default">
-        <h3 class="text-lg font-semibold text-slate-800 mb-2 group-hover:text-[var(--color-primary)] transition-colors">
-          {category.title}
-        </h3>
-        <p class="text-sm text-slate-600 line-clamp-2 mt-auto">
-          {category.description}
-        </p>
-      </div>
-    ))}
+{categories.length > 0 && (
+  <div class="mb-16">
+    <h2 class="text-2xl font-bold text-slate-800 mb-6">Explore by Category</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {categories.slice(0, 8).map(category => (
+        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full cursor-default">
+          <h3 class="text-lg font-semibold text-slate-800 mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+            {category.title}
+          </h3>
+          <p class="text-sm text-slate-600 line-clamp-2 mt-auto">
+            {category.description || `Explore articles about ${category.title.toLowerCase()}.`}
+          </p>
+        </div>
+      ))}
+    </div>
   </div>
-</div>
+)}

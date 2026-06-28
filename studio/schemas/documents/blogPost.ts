@@ -39,6 +39,12 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'category'}]}],
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',

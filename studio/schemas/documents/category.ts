@@ -27,6 +27,12 @@ export default defineType({
       type: 'text',
     }),
     defineField({
+      name: 'orderRank',
+      title: 'Order Rank',
+      type: 'string',
+      hidden: true,
+    }),
+    defineField({
       name: 'oldWordPressUrls',
       title: 'Old WordPress URLs',
       type: 'array',

@@ -66,19 +66,24 @@ export async function getAuthorBySlug(slug: string) {
 
 // Posts
 export async function getAllPosts() {
-  return await fetchFromSanity(`*[_type == "blogPost" && defined(publishedAt) && defined(slug.current) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])] | order(publishedAt desc, _createdAt desc)`)
+  return await fetchFromSanity(`*[_type == "blogPost" && defined(slug.current) && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"]) && (!defined(seo.noindex) || seo.noindex != true)] | order(publishedAt desc, _createdAt desc)`)
 }
 
 export async function getPostBySlug(slug: string) {
-  return await fetchFromSanity(`*[_type == "blogPost" && slug.current == $slug && defined(publishedAt) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])][0]`, { slug })
+  return await fetchFromSanity(`*[_type == "blogPost" && slug.current == $slug && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])][0]`, { slug })
 }
 
 // Get latest blog posts
-export const latestBlogPostsQuery = `*[_type == "blogPost" && defined(publishedAt) && defined(slug.current) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])] | order(publishedAt desc) {
+export const latestBlogPostsQuery = `*[_type == "blogPost" && defined(slug.current) && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"]) && (!defined(seo.noindex) || seo.noindex != true)] | order(publishedAt desc) {
   title,
   slug,
   excerpt,
   category,
+  categories[]->{
+    title,
+    slug,
+    description
+  },
   tags,
   "author": author->name,
   publishedAt,
@@ -110,11 +115,12 @@ export const latestBlogPostsQuery = `*[_type == "blogPost" && defined(publishedA
     slug,
     "logo": logo.asset->url
   },
-  relatedPosts[]->[defined(slug.current) && defined(publishedAt) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])] {
+  relatedPosts[]->[defined(slug.current) && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])] {
     title,
     slug,
     excerpt,
-    "image": featuredImage.asset->url
+    "image": featuredImage.asset->url,
+    category
   },
   seo
 }`;

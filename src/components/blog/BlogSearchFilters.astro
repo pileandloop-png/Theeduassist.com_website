@@ -1,10 +1,24 @@
 ---
-import { cleanTags } from '../../data/blogTaxonomy';
+import { getUniqueBlogCategoriesAndTags } from '../../lib/content/getAllBlogPosts';
+
+let tags = [];
+let categories = [];
+try {
+  const data = await getUniqueBlogCategoriesAndTags();
+  tags = data.tags;
+  categories = data.categories;
+} catch (e) {
+  console.log("Error fetching tags for filters");
+}
+
+// Ensure tags have fallback values if empty, but we can combine category slugs and tags to give users something to click if tags are empty
+const filterChips = [...new Set([...tags, ...categories.map(c => c.slug)])].slice(0, 15);
 ---
+{filterChips.length > 0 && (
 <div class="mb-12 bg-white p-6 rounded-lg shadow-sm border border-slate-200">
   <div class="flex flex-col md:flex-row gap-4 items-center mb-6">
     <div class="relative w-full md:w-1/2">
-      <label for="blog-search" class="sr-only">Search resources</label>
+      <label for="blog-search" class="sr-only">Search articles</label>
       <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
         <svg class="h-5 w-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -29,7 +43,15 @@ import { cleanTags } from '../../data/blogTaxonomy';
     <div>
       <h3 class="text-sm font-medium text-slate-700 mb-2">Filter by Topic:</h3>
       <div class="flex flex-wrap gap-2" id="tag-filters">
-        {cleanTags.slice(0, 15).map(tag => (
+        <button
+            class="filter-chip px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[var(--color-primary)] aria-pressed:bg-[var(--color-primary)] aria-pressed:text-white aria-pressed:border-[var(--color-primary)]"
+            data-filter-type="all"
+            data-filter-value="all"
+            aria-pressed="false"
+          >
+            All
+          </button>
+        {filterChips.map(tag => (
           <button
             class="filter-chip px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[var(--color-primary)] aria-pressed:bg-[var(--color-primary)] aria-pressed:text-white aria-pressed:border-[var(--color-primary)]"
             data-filter-type="tag"
@@ -44,9 +66,10 @@ import { cleanTags } from '../../data/blogTaxonomy';
   </div>
 
   <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-sm text-slate-500">
-    <span id="search-result-count">Showing all resources</span>
+    <span id="search-result-count">Showing all articles</span>
   </div>
 </div>
+)}
 
 <script>
   function setupSearchFilters() {
@@ -54,7 +77,7 @@ import { cleanTags } from '../../data/blogTaxonomy';
     const clearBtn = document.getElementById('clear-filters') as HTMLButtonElement;
     const chips = document.querySelectorAll('.filter-chip');
     const resultCount = document.getElementById('search-result-count');
-    const cards = document.querySelectorAll('.resource-card');
+    const cards = document.querySelectorAll('article.blog-card'); // Updated selector
     const noResultsMsg = document.getElementById('no-results-message');
 
     if (!searchInput || !cards.length) return;
@@ -67,17 +90,21 @@ import { cleanTags } from '../../data/blogTaxonomy';
 
       cards.forEach((card: any) => {
         const title = card.getAttribute('data-title')?.toLowerCase() || '';
-        const desc = card.getAttribute('data-description')?.toLowerCase() || '';
-        const tags = (card.getAttribute('data-tags') || '').split(',');
+        const excerpt = card.getAttribute('data-excerpt')?.toLowerCase() || '';
+        const tags = (card.getAttribute('data-tags') || '').split(',').filter(Boolean);
         const category = card.getAttribute('data-category')?.toLowerCase() || '';
+
+        // Format category as tag for matching
+        const catSlug = category.replace(/[^a-z0-9]+/g, '-');
 
         const matchesSearch = currentQuery === '' ||
                               title.includes(currentQuery) ||
-                              desc.includes(currentQuery) ||
+                              excerpt.includes(currentQuery) ||
                               category.includes(currentQuery);
 
         const matchesTags = activeTags.size === 0 ||
-                            [...activeTags].some(tag => tags.includes(tag));
+                            activeTags.has('all') ||
+                            [...activeTags].some(tag => tags.includes(tag) || catSlug === tag);
 
         if (matchesSearch && matchesTags) {
           card.style.display = '';
@@ -90,8 +117,8 @@ import { cleanTags } from '../../data/blogTaxonomy';
       // Update UI
       if (resultCount) {
         resultCount.textContent = visibleCount === cards.length
-          ? 'Showing all resources'
-          : `Showing ${visibleCount} resource${visibleCount !== 1 ? 's' : ''}`;
+          ? 'Showing all articles'
+          : `Showing ${visibleCount} article${visibleCount !== 1 ? 's' : ''}`;
       }
 
       if (noResultsMsg) {
@@ -117,18 +144,29 @@ import { cleanTags } from '../../data/blogTaxonomy';
     chips.forEach(chip => {
       chip.addEventListener('click', () => {
         const tag = chip.getAttribute('data-filter-value');
-        const isPressed = chip.getAttribute('aria-pressed') === 'true';
 
-        if (isPressed) {
-          chip.setAttribute('aria-pressed', 'false');
-          activeTags.delete(tag);
+        if (tag === 'all') {
+            activeTags.clear();
+            chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+            chip.setAttribute('aria-pressed', 'true');
         } else {
-          chip.setAttribute('aria-pressed', 'true');
-          activeTags.add(tag);
+            const isPressed = chip.getAttribute('aria-pressed') === 'true';
 
-          if (window.dataLayer && typeof window.trackEvent === 'function') {
-              window.trackEvent('blog_filter_tag', { tag: tag });
-          }
+            // Remove 'all' if selected
+            const allChip = Array.from(chips).find(c => c.getAttribute('data-filter-value') === 'all');
+            if (allChip) allChip.setAttribute('aria-pressed', 'false');
+
+            if (isPressed) {
+              chip.setAttribute('aria-pressed', 'false');
+              activeTags.delete(tag);
+            } else {
+              chip.setAttribute('aria-pressed', 'true');
+              activeTags.add(tag);
+
+              if (window.dataLayer && typeof window.trackEvent === 'function') {
+                  window.trackEvent('blog_filter_tag', { tag: tag });
+              }
+            }
         }
 
         filterCards();
