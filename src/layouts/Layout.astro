@@ -41,6 +41,10 @@ const formattedDescription = formatDescription(description);
 const canonicalUrl = canonicalPath ? buildCanonicalUrl(canonicalPath) : buildCanonicalUrl(Astro.url.pathname);
 const finalOgTitle = ogTitle || formattedTitle;
 const finalOgDescription = ogDescription || formattedDescription;
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || '';
+const isMainDomain = siteUrl === 'https://theeduassist.com' || siteUrl === 'https://www.theeduassist.com';
+const shouldNoIndex = noindex || !isMainDomain;
 ---
 
 <!doctype html>
@@ -65,8 +69,8 @@ const finalOgDescription = ogDescription || formattedDescription;
         <meta name="twitter:description" content={finalOgDescription} />
         {ogImage && <meta name="twitter:image" content={ogImage} />}
 
-        {noindex && <meta name="robots" content="noindex, nofollow" />}
-        {!noindex && <meta name="robots" content="index, follow" />}
+        {shouldNoIndex && <meta name="robots" content="noindex, nofollow" />}
+        {!shouldNoIndex && <meta name="robots" content="index, follow" />}
 
         {jsonLd && jsonLd.length > 0 && jsonLd.map((schema) => (
             <script type="application/ld+json" set:html={JSON.stringify(schema)} />
