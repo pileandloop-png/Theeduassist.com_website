@@ -1,0 +1,127 @@
+---
+import PortableTextRenderer from './PortableTextRenderer';
+
+export interface FAQItem {
+  question: string;
+  answer: any;
+  showOnPage?: boolean;
+  showOnSite?: boolean;
+  orderRank?: string | number;
+  sortOrder?: number;
+}
+
+interface Props {
+  relatedFaqs?: FAQItem[];
+  blogFaqs?: FAQItem[];
+}
+
+const { relatedFaqs = [], blogFaqs = [] } = Astro.props;
+
+const sortedRelatedFaqs = relatedFaqs
+  .filter(faq => faq && faq.showOnSite === true)
+  .sort((a, b) => {
+    if (a.orderRank != null && b.orderRank != null) {
+      if (a.orderRank < b.orderRank) return -1;
+      if (a.orderRank > b.orderRank) return 1;
+      return 0;
+    }
+    if (a.orderRank != null) return -1;
+    if (b.orderRank != null) return 1;
+    return 0;
+  });
+
+const sortedBlogFaqs = blogFaqs
+  .filter(faq => faq && faq.showOnPage !== false)
+  .sort((a, b) => {
+    if (a.sortOrder != null && b.sortOrder != null) {
+      return a.sortOrder - b.sortOrder;
+    }
+    if (a.sortOrder != null) return -1;
+    if (b.sortOrder != null) return 1;
+    return 0;
+  });
+
+const allFaqs = [...sortedRelatedFaqs, ...sortedBlogFaqs];
+
+if (allFaqs.length === 0) {
+  return null;
+}
+---
+{allFaqs.length > 0 ? (
+  <div class="my-16">
+    <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center">Frequently Asked Questions</h2>
+    <div class="space-y-4 max-w-3xl mx-auto" data-accordion-group>
+      {allFaqs.map((faq, index) => (
+        <div class="border border-slate-200 rounded-lg bg-white overflow-hidden" data-accordion-item>
+          <button
+            type="button"
+            class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold text-slate-800 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] transition-colors"
+            data-accordion-trigger
+            aria-expanded="false"
+            aria-controls={`faq-answer-${index}`}
+            id={`faq-question-${index}`}
+          >
+            <span>{faq.question}</span>
+            <svg
+              class="w-5 h-5 text-slate-400 transform transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              data-accordion-icon
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            id={`faq-answer-${index}`}
+            role="region"
+            aria-labelledby={`faq-question-${index}`}
+            class="hidden px-6 pb-4 text-slate-600 prose prose-slate max-w-none"
+            data-accordion-content
+          >
+            {typeof faq.answer === 'string' ? (
+              <p>{faq.answer}</p>
+            ) : (
+              <div class="faq-portable-text">
+                <PortableTextRenderer value={faq.answer} client:load />
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+) : null}
+
+<script>
+  function setupAccordions() {
+    const triggers = document.querySelectorAll('[data-accordion-trigger]');
+    triggers.forEach(trigger => {
+      const newTrigger = trigger.cloneNode(true) as HTMLElement;
+      if (trigger.parentNode) {
+        trigger.parentNode.replaceChild(newTrigger, trigger);
+      }
+
+      newTrigger.addEventListener('click', () => {
+        const expanded = newTrigger.getAttribute('aria-expanded') === 'true';
+        const contentId = newTrigger.getAttribute('aria-controls');
+        if (!contentId) return;
+        const content = document.getElementById(contentId);
+        const icon = newTrigger.querySelector('[data-accordion-icon]');
+
+        if (expanded) {
+          newTrigger.setAttribute('aria-expanded', 'false');
+          content?.classList.add('hidden');
+          icon?.classList.remove('rotate-180');
+        } else {
+          newTrigger.setAttribute('aria-expanded', 'true');
+          content?.classList.remove('hidden');
+          icon?.classList.add('rotate-180');
+        }
+      });
+    });
+  }
+
+  setupAccordions();
+  document.addEventListener('astro:page-load', setupAccordions);
+</script>

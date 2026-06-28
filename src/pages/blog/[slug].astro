@@ -6,6 +6,8 @@ import ArticleShareButtons from '../../components/blog/ArticleShareButtons.astro
 import RelatedArticles from '../../components/blog/RelatedArticles.astro';
 import RelatedCaseStudies from '../../components/blog/RelatedCaseStudies.astro';
 import BlogCTA from '../../components/blog/BlogCTA.astro';
+import PortableTextRenderer from '../../components/blog/PortableTextRenderer';
+import BlogFAQs from '../../components/blog/BlogFAQs.astro';
 import { getAllBlogPosts } from '../../lib/content/getAllBlogPosts.ts';
 import { fetchFromSanity } from '../../sanity/client';
 import { latestBlogPostsQuery } from '../../sanity/queries';
@@ -27,6 +29,14 @@ if (!post) {
   return new Response("Post not found", { status: 404 });
 }
 
+// Prepare visible FAQs for schema
+const schemaFaqs = [
+  ...(post.relatedFaqs || [])
+    .filter((faq: any) => faq && faq.showOnSite === true && faq.question && faq.answer),
+  ...(post.blogFaqs || [])
+    .filter((faq: any) => faq && faq.showOnPage !== false && faq.includeInSchema !== false && faq.question && faq.answer)
+];
+
 // Ensure schema attributes match requirements (no fake author/dates if not real)
 const articleSchema = {
   "@context": "https://schema.org",
@@ -36,7 +46,7 @@ const articleSchema = {
   "author": post.author ? { "@type": "Organization", "name": post.author } : undefined,
   "datePublished": post.publishedAt || undefined,
   "dateModified": post.updatedAt || post.publishedAt || undefined,
-  "image": post.heroImage || post.featuredImage?.asset?.url ? `https://theeduassist.com${post.heroImage || post.featuredImage?.asset?.url}` : undefined,
+  "image": post.seo?.ogImage?.asset?.url || post.heroImage || post.featuredImage?.asset?.url ? `https://theeduassist.com${post.seo?.ogImage?.asset?.url || post.heroImage || post.featuredImage?.asset?.url}` : undefined,
   "publisher": {
     "@type": "Organization",
     "name": "TheEduAssist",
@@ -47,15 +57,33 @@ const articleSchema = {
     "@id": `https://theeduassist.com/blog/${post.slug.current || post.slug}/`
   }
 };
+
+const schemas = [articleSchema];
+
+if (schemaFaqs.length > 0) {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": schemaFaqs.map((faq: any) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": typeof faq.answer === 'string' ? faq.answer : 'Answer available on site.'
+      }
+    }))
+  };
+  schemas.push(faqSchema);
+}
 ---
 
 <BlogArticleLayout
   title={post.seoTitle || `${post.title} | TheEduAssist Blog`}
   description={post.seoDescription || post.excerpt}
   canonicalPath={post.canonicalUrl || `/blog/${post.slug.current || post.slug}/`}
-  ogImage={post.heroImage || post.featuredImage?.asset?.url}
+  ogImage={post.seo?.ogImage?.asset?.url || post.heroImage || post.featuredImage?.asset?.url}
   type="article"
-  jsonLd={[articleSchema]}
+  jsonLd={schemas}
 >
   <article class="container mx-auto px-4 py-16 max-w-4xl">
     <header class="mb-10 text-center max-w-3xl mx-auto">
@@ -106,7 +134,11 @@ const articleSchema = {
       <div class="flex flex-col md:flex-row gap-10 mt-10">
         <!-- Main Content -->
         <div class="md:w-full prose prose-lg prose-slate prose-a:text-[var(--color-primary)] hover:prose-a:text-[var(--color-accent)] max-w-none">
-          <div set:html={post.content || "<p>Content coming soon.</p>"} />
+          {post.body ? (
+            <PortableTextRenderer value={post.body} client:load />
+          ) : (
+            <div set:html={post.content || "<p>Content coming soon.</p>"} />
+          )}
 
           <ArticleShareButtons
             url={`https://theeduassist.com/blog/${post.slug.current || post.slug}/`}
@@ -130,10 +162,39 @@ const articleSchema = {
     )}
 
     <div class="max-w-4xl mx-auto mt-16 pt-8">
+        {post.relatedServices && post.relatedServices.length > 0 && (
+          <div class="my-12">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">Related Services</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {post.relatedServices.map((service: any) => (
+                <a href={service.slug?.current ? `/services/${service.slug.current}/` : service.slug || '#'} class="block bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+                  <h4 class="font-bold text-lg text-[var(--color-primary)] mb-2">{service.title}</h4>
+                  <p class="text-slate-600 text-sm">{service.description}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {post.relatedPlatforms && post.relatedPlatforms.length > 0 && (
+          <div class="my-12">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">Platforms Discussed</h3>
+            <div class="flex flex-wrap gap-4">
+              {post.relatedPlatforms.map((platform: any) => (
+                <div class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 flex items-center text-slate-700 font-medium">
+                  {platform.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <RelatedCaseStudies
           slugs={post.relatedCaseStudies}
           category={post.category}
         />
+
+        <BlogFAQs blogFaqs={post.blogFaqs} relatedFaqs={post.relatedFaqs} />
 
         <!-- Final CTA Update -->
         <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 md:p-12 text-center my-12 shadow-sm relative overflow-hidden">
