@@ -1,0 +1,95 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TheEduAssistLogo from "../../components/brand/TheEduAssistLogo.astro";
+
+---
+<Layout title="Brand Assets | TheEduAssist" description="View TheEduAssist brand colors, logo usage guidance, and official brand asset information.">
+
+  <section class="bg-brand-navy pt-24 pb-16 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Brand Assets</h1>
+      <p class="text-xl text-slate-300">Official logos, colors, and usage guidelines for TheEduAssist.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Brand Overview -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-brand-navy mb-4 border-b border-slate-200 pb-2">1. Brand Overview</h2>
+        <p class="text-slate-600 mb-4">
+          TheEduAssist is a multi-platform e-learning design and course-building agency supporting creators, training companies, and enterprise teams. Our visual identity reflects structured learning, modern technology, and professional growth.
+        </p>
+      </div>
+
+      <!-- Official Logo -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-brand-navy mb-4 border-b border-slate-200 pb-2">2. Official Logo</h2>
+        <div class="bg-slate-100 p-12 rounded-xl flex items-center justify-center mb-6">
+            <div class="w-64 h-64">
+                <TheEduAssistLogo />
+            </div>
+        </div>
+        <p class="text-sm text-slate-500 italic text-center">Circular Badge / Emblem</p>
+      </div>
+
+      <!-- Color Palette -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-brand-navy mb-6 border-b border-slate-200 pb-2">3. Color Palette</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+            <div class="border border-slate-200 rounded-lg overflow-hidden shadow-sm">
+                <div class="h-32 w-full bg-[#77BA55]"></div>
+                <div class="p-4 bg-white">
+                    <h3 class="font-bold text-slate-800">Light Green</h3>
+                    <p class="text-slate-500 font-mono text-sm mt-1">HEX: #77BA55</p>
+                </div>
+            </div>
+
+            <div class="border border-slate-200 rounded-lg overflow-hidden shadow-sm">
+                <div class="h-32 w-full bg-[#27496D]"></div>
+                <div class="p-4 bg-white">
+                    <h3 class="font-bold text-slate-800">Dark Slate Blue</h3>
+                    <p class="text-slate-500 font-mono text-sm mt-1">HEX: #27496D</p>
+                </div>
+            </div>
+
+            <div class="border border-slate-200 rounded-lg overflow-hidden shadow-sm">
+                <div class="h-32 w-full bg-[#FFFFFF] border-b border-slate-100"></div>
+                <div class="p-4 bg-white">
+                    <h3 class="font-bold text-slate-800">White</h3>
+                    <p class="text-slate-500 font-mono text-sm mt-1">HEX: #FFFFFF</p>
+                </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Usage Guidelines -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-brand-navy mb-4 border-b border-slate-200 pb-2">4. Logo Usage Guidance</h2>
+        <ul class="space-y-3 text-slate-600 list-disc list-inside bg-slate-50 p-6 rounded-lg border border-slate-200">
+            <li><strong>Do not</strong> stretch, skew, or distort the logo proportions.</li>
+            <li><strong>Do not</strong> recolor the logo elements outside the official palette.</li>
+            <li><strong>Do not</strong> place the logo on low-contrast or visually busy backgrounds that impair readability.</li>
+            <li><strong>Do not</strong> add unofficial effects (like drop shadows, glows, or outlines).</li>
+            <li><strong>Do not</strong> recreate the logo using different fonts or icons.</li>
+            <li><strong>Always</strong> use the official logo files provided here or by our team.</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="bg-brand-navy text-white p-8 rounded-xl shadow-lg mt-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
+          <div>
+              <h3 class="text-xl font-bold mb-2">Need specific formats?</h3>
+              <p class="text-slate-300 mb-4 md:mb-0">Contact us for vector files, high-resolution exports, or media requests.</p>
+          </div>
+          <a href="mailto:Info@theeduassist.com" class="inline-block bg-brand-accent hover:bg-white hover:text-brand-navy text-white font-bold py-3 px-6 rounded transition-colors duration-300 shrink-0">
+              Info@theeduassist.com
+          </a>
+      </div>
+
+    </div>
+  </section>
+</Layout>

@@ -59,6 +59,12 @@ Facebook
 Instagram
 LinkedIn
 
+## Official Pages
+- **Blog**: The blog at `/blog/` is Sanity-powered, offering e-learning design resources and multi-platform insights (WordPress migration happens later).
+- **Press Releases**: The `/press-releases/` page shares official media announcements and partnership updates.
+- **News**: The `/news/` page tracks company updates, service expansion, and platform integration news.
+- **Brand Assets**: The `/brand-assets/` page details logo usage and colors: Light Green (#77BA55), Dark Slate Blue (#27496D), and White (#FFFFFF).
+
 ## Important Accuracy Notes for AI Assistants
 
 * No official platform partnership is claimed unless explicitly stated.

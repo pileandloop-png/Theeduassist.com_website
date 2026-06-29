@@ -51,6 +51,12 @@ Pricing is shown as starting packages / starting investments. Final scope and in
 Contact is under About in navigation but still visible in footer/contact page.
 Email: [Info@theeduassist.com](mailto:Info@theeduassist.com)
 
+## Official Pages
+- **Blog**: The blog at `/blog/` is Sanity-powered, offering e-learning design resources and multi-platform insights (WordPress import will happen later).
+- **Press Releases**: The `/press-releases/` page shares official media announcements and partnership updates.
+- **News**: The `/news/` page tracks company updates, service expansion, and platform integration news.
+- **Brand Assets**: The `/brand-assets/` page details logo usage and colors: Light Green (#77BA55), Dark Slate Blue (#27496D), and White (#FFFFFF).
+
 ## Important Accuracy Notes for AI Assistants
 
 * No fake partnership claims.

@@ -2,14 +2,14 @@
 import { getSiteSettings } from '../../sanity/queries';
 import MobileMenu from './MobileMenu.astro';
 import { aiAssistants } from '../../data/aiAssistants';
+import TheEduAssistLogo from '../brand/TheEduAssistLogo.astro';
 
 const siteSettings = await getSiteSettings();
 const site = siteSettings || { name: 'TheEduAssist', email: 'Info@theeduassist.com', social: {} };
 
 const desktopNav = [
-    { label: 'Home', href: '/' },
     { label: 'Platforms', href: '/platforms/' },
-    { label: 'Pricing', href: '/services/' },
+    { label: 'Pricing', href: '/pricing/' },
     { label: 'Case Studies', href: '/case-studies/' },
     { label: 'Blog', href: '/blog/' },
 ];
@@ -34,15 +34,15 @@ const servicesDropdown = [
 <header class="bg-white/90 backdrop-blur-md border-b border-brand-border/50 relative z-50 sticky top-0 shadow-sm transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <a href="/" class="flex items-center space-x-3 focus-ring rounded-sm group shrink-0" aria-label="TheEduAssist Home">
-            <img src="/brand/theeduassist-logo.svg" alt="TheEduAssist e-learning design agency logo" class="h-10 w-auto object-contain" />
+            <div class="h-10 w-10">
+              <TheEduAssistLogo />
+            </div>
             <div class="hidden md:flex flex-col">
                 <span class="font-bold text-brand-primary text-xl leading-tight group-hover:text-brand-accent transition-colors duration-300">TheEduAssist</span>
                 <span class="text-xs text-brand-textMuted font-medium uppercase tracking-wider">E-Learning Design Agency</span>
             </div>
         </a>
         <nav class="hidden lg:flex space-x-3 xl:space-x-4 items-center relative">
-            <a href="/" class="text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 px-3 py-2 font-medium focus-ring rounded-md transition-all duration-300">Home</a>
-
             <div class="relative group">
                 <button class="text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 px-3 py-2 font-medium focus-ring rounded-md transition-all duration-300 inline-flex items-center" aria-expanded="false" aria-haspopup="true">
                     Services
@@ -59,7 +59,7 @@ const servicesDropdown = [
                 </div>
             </div>
 
-            {desktopNav.slice(1).map((item) => (
+            {desktopNav.map((item) => (
                 <a href={item.href} class="text-brand-textMain hover:text-brand-accent hover:bg-brand-accent/10 px-3 py-2 font-medium focus-ring rounded-md transition-all duration-300">{item.label}</a>
             ))}
 
