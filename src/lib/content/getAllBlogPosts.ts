@@ -1,7 +1,8 @@
 import { latestBlogPostsQuery } from '../../sanity/queries';
 import { fetchFromSanity } from '../../sanity/client';
+import { dedupePostsBySlug, estimateReadingTime } from './blogUtils';
 
-const normalizeSlug = (s: string) => s?.replace(/^https?:\/\/[^\/]+\/blog\//, '').replace(/\/$/, '');
+const normalizeSlug = (s: string) => s?.replace(/^https?:\/\/[^\/]+(\/blog)?\//, '').replace(/\/$/, '');
 
 export function isPublicBlogPost(post: any): boolean {
   if (!post) return false;
@@ -64,7 +65,7 @@ export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
           category: post.category || (post.categories?.[0]?.title) || 'General',
           categories: post.categories,
           excerpt: post.excerpt,
-          readingTime: post.readingTime,
+          readingTime: post.readingTime || estimateReadingTime(post.content || (Array.isArray(post.body) ? post.body.map((b: any) => b.children?.map((c: any) => c.text).join('')).join(' ') : '')),
           publishedAt: post.publishedAt,
           updatedAt: post.updatedAt,
           seoTitle: post.seo?.metaTitle || post.title,
@@ -89,8 +90,7 @@ export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
        }));
 
        // Deduplicate by slug
-       const unique = formattedSanity.filter((v, i, a) => a.findIndex(t => (t.slug === v.slug)) === i);
-       return unique;
+       return dedupePostsBySlug(formattedSanity);
     }
   } catch (error) {
     console.log("Sanity posts fetch failed or dataset not found.");
