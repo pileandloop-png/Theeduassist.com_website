@@ -52,7 +52,7 @@ export async function getTrainingSolutions() {
 
 // Blog posts by migration status
 export async function getBlogPostsByMigrationStatus(status: string) {
-  return await fetchFromSanity(`*[_type == "blogPost" && migrationStatus == $status] | order(publishedAt desc)`, { status })
+  return await fetchFromSanity(`*[_type == "post" && migrationStatus == $status] | order(publishedAt desc)`, { status })
 }
 
 // Authors
@@ -66,27 +66,32 @@ export async function getAuthorBySlug(slug: string) {
 
 // Posts
 export async function getAllPosts() {
-  return await fetchFromSanity(`*[_type == "blogPost" && defined(slug.current) && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"]) && (!defined(seo.noindex) || seo.noindex != true)] | order(publishedAt desc, _createdAt desc)`)
+  return await fetchFromSanity(`*[_type == "post" && defined(slug.current) && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"]) && (!defined(seo.noindex) || seo.noindex != true)] | order(publishedAt desc, _createdAt desc)`)
 }
 
 export async function getPostBySlug(slug: string) {
-  return await fetchFromSanity(`*[_type == "blogPost" && slug.current == $slug && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])][0]`, { slug })
+  return await fetchFromSanity(`*[_type == "post" && slug.current == $slug && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])][0]`, { slug })
 }
 
 // Get latest blog posts
-export const latestBlogPostsQuery = `*[_type == "blogPost" && defined(slug.current) && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"]) && (!defined(seo.noindex) || seo.noindex != true)] | order(publishedAt desc) {
+export const latestBlogPostsQuery = `*[_type == "post" && defined(slug.current) && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])] | order(publishedAt desc) {
+  _id,
+  _type,
   title,
-  slug,
+  "slug": slug.current,
   excerpt,
-  category,
-  categories[]->{
-    title,
-    slug,
-    description
-  },
-  tags,
-  "author": author->name,
   publishedAt,
+  migrationStatus,
+  "seoTitle": seo.metaTitle,
+  "seoDescription": seo.metaDescription,
+  "image": coalesce(mainImage, featuredImage).asset->url,
+  "authorName": author->name,
+  "categories": categories[]->title,
+  "categorySlugs": categories[]->slug.current,
+  "tags": tags[]->title,
+  "tagSlugs": tags[]->slug.current,
+  body,
+  category,
   updatedAt,
   readingTime,
   featuredImage {
@@ -95,7 +100,6 @@ export const latestBlogPostsQuery = `*[_type == "blogPost" && defined(slug.curre
     },
     alt
   },
-  body,
   content,
   blogFaqs,
   relatedFaqs[]->{
@@ -119,7 +123,7 @@ export const latestBlogPostsQuery = `*[_type == "blogPost" && defined(slug.curre
     title,
     slug,
     excerpt,
-    "image": featuredImage.asset->url,
+    "image": coalesce(mainImage, featuredImage).asset->url,
     category
   },
   seo

@@ -2,14 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import BlogHero from '../../components/blog/BlogHero.astro';
 import BlogSearchFilters from '../../components/blog/BlogSearchFilters.astro';
-import BlogCategoryCards from '../../components/blog/BlogCategoryCards.astro';
-import FeaturedResourceGrid from '../../components/blog/FeaturedResourceGrid.astro';
-import BlogMigrationFlow from '../../components/blog/BlogMigrationFlow.astro';
-import TopicClusterMap from '../../components/blog/TopicClusterMap.astro';
-import BlogCTA from '../../components/blog/BlogCTA.astro';
-
-import LatestArticles from '../../components/blog/LatestArticles.astro';
-
+import BlogCard from '../../components/blog/BlogCard.astro';
 import { getAllBlogPosts } from '../../lib/content/getAllBlogPosts';
 
 let posts = [];
@@ -120,9 +113,23 @@ const schema = {
             <BlogSearchFilters />
         </div>
 
-        <BlogCategoryCards />
-
-        <LatestArticles />
+        {posts.length > 1 && (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.slice(1).map((post) => (
+              <BlogCard
+                title={post.title}
+                slug={post.slug?.current || post.slug}
+                excerpt={post.excerpt}
+                category={post.category}
+                readTimeMinutes={post.readingTime}
+                publishedAt={post.publishedAt}
+                image={post.heroImage || post.featuredImage?.asset?.url}
+                imageAlt={post.heroImageAlt || post.featuredImage?.alt}
+                tags={post.tags}
+              />
+            ))}
+          </div>
+        )}
 
         <div class="mt-20">
             <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 md:p-12 text-center shadow-sm relative overflow-hidden max-w-4xl mx-auto">

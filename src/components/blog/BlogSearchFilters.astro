@@ -11,8 +11,18 @@ try {
   console.log("Error fetching tags for filters");
 }
 
-// Ensure tags have fallback values if empty, but we can combine category slugs and tags to give users something to click if tags are empty
-const filterChips = [...new Set([...tags, ...categories.map(c => c.slug)])].slice(0, 15);
+const filterChips = [
+  "Course Creation",
+  "Kajabi & Course Platforms",
+  "LMS Migration",
+  "AI in E-Learning",
+  "Content Conversion",
+  "Instructional Design",
+  "Funnels & Automation",
+  "Corporate Learning",
+  "Platform Comparisons",
+  "Online Course Business"
+];
 ---
 {filterChips.length > 0 && (
 <div class="mb-12 bg-white p-6 rounded-lg shadow-sm border border-slate-200">
@@ -51,16 +61,20 @@ const filterChips = [...new Set([...tags, ...categories.map(c => c.slug)])].slic
           >
             All
           </button>
-        {filterChips.map(tag => (
-          <button
-            class="filter-chip px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[var(--color-primary)] aria-pressed:bg-[var(--color-primary)] aria-pressed:text-white aria-pressed:border-[var(--color-primary)]"
-            data-filter-type="tag"
-            data-filter-value={tag}
-            aria-pressed="false"
-          >
-            {tag.replace(/-/g, ' ')}
-          </button>
-        ))}
+        {filterChips.map(chip => {
+          // Normalize chip text to match tag/category format in data attributes
+          const chipValue = chip.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          return (
+            <button
+              class="filter-chip px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[var(--color-primary)] aria-pressed:bg-[var(--color-primary)] aria-pressed:text-white aria-pressed:border-[var(--color-primary)]"
+              data-filter-type="tag"
+              data-filter-value={chipValue}
+              aria-pressed="false"
+            >
+              {chip}
+            </button>
+          )
+        })}
       </div>
     </div>
   </div>

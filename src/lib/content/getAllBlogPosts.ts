@@ -1,9 +1,11 @@
 import { latestBlogPostsQuery } from '../../sanity/queries';
 import { fetchFromSanity } from '../../sanity/client';
 
+const normalizeSlug = (s: string) => s?.replace(/^https?:\/\/[^\/]+\/blog\//, '').replace(/\/$/, '');
+
 export function isPublicBlogPost(post: any): boolean {
   if (!post) return false;
-  const slug = post.slug?.current || post.slug;
+  const slug = normalizeSlug(post.slug?.current || post.slug);
   const publishedAt = post.publishedAt;
   const migrationStatus = post.migrationStatus;
   const isDraft = post._id?.startsWith('drafts.');
@@ -58,7 +60,7 @@ export async function getAllBlogPosts(): Promise<NormalizedBlogPost[]> {
        const formattedSanity: NormalizedBlogPost[] = sanityPosts.filter(isPublicBlogPost).map((post: any) => ({
           id: post._id,
           title: post.title,
-          slug: post.slug.current || post.slug,
+          slug: normalizeSlug(post.slug?.current || post.slug),
           category: post.category || (post.categories?.[0]?.title) || 'General',
           categories: post.categories,
           excerpt: post.excerpt,
@@ -107,7 +109,7 @@ export async function getUniqueBlogCategoriesAndTags() {
     if (post.categories && post.categories.length > 0) {
       post.categories.forEach(cat => {
          if (cat.slug?.current || cat.slug) {
-            const catSlug = cat.slug?.current || cat.slug;
+            const catSlug = normalizeSlug(cat.slug?.current || cat.slug);
             if (!categories.has(catSlug)) {
                 categories.set(catSlug, {
                   title: cat.title,

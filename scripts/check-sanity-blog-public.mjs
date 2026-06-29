@@ -27,23 +27,23 @@ async function run() {
     console.log(`Token used: No`);
 
     try {
-        const query = `*[_type == "blogPost" && defined(slug.current) && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"]) && (!defined(seo.noindex) || seo.noindex != true)] | order(publishedAt desc)[0...5] {
+        const query = `*[_type == "post" && defined(slug.current) && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"]) && (!defined(seo.noindex) || seo.noindex != true)] | order(publishedAt desc) {
+            _type,
             title,
             slug,
             publishedAt,
-            category,
             migrationStatus
         }`;
 
         const posts = await client.fetch(query);
-        console.log(`\nFound ${posts.length} visible public posts (limit 5).`);
+        console.log(`\nFound ${posts.length} visible public posts.`);
         posts.forEach((post, i) => {
             console.log(`\nPost ${i + 1}:`);
+            console.log(`  _type: ${post._type}`);
             console.log(`  Title: ${post.title}`);
             console.log(`  Slug: ${post.slug?.current}`);
             console.log(`  PublishedAt: ${post.publishedAt}`);
-            console.log(`  Category: ${post.category}`);
-            console.log(`  MigrationStatus: ${post.migrationStatus || 'missing/approved'}`);
+            console.log(`  MigrationStatus: ${post.migrationStatus || 'missing'}`);
         });
 
     } catch (e) {
