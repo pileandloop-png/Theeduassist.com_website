@@ -1,4 +1,5 @@
 ---
+import { extractHeadingsForToc, getRelatedPosts } from '../../lib/content/blogUtils';
 import BlogArticleLayout from '../../layouts/BlogArticleLayout.astro';
 import ArticleMetaBar from '../../components/blog/ArticleMetaBar.astro';
 import PortableTextRenderer from '../../components/blog/PortableTextRenderer';
@@ -72,7 +73,9 @@ if (schemaFaqs.length > 0) {
   schemas.push(faqSchema);
 }
 
-const tocEnabled = post.body && Array.isArray(post.body) && post.body.some(block => block._type === 'block' && /^h[2-3]$/.test(block.style));
+const headings = extractHeadingsForToc(post.body);
+const tocEnabled = headings.length > 0;
+const safeRelatedPosts = getRelatedPosts(post, allPosts, 3);
 
 ---
 
@@ -85,6 +88,11 @@ const tocEnabled = post.body && Array.isArray(post.body) && post.body.some(block
   type="article"
   jsonLd={schemas}
 >
+
+<div id="reading-progress" class="fixed top-0 left-0 w-full h-1 bg-slate-200 z-[60] origin-left scale-x-0 transition-transform duration-100 hidden md:block">
+  <div class="h-full bg-[var(--color-primary)]"></div>
+</div>
+
   <article class="container mx-auto px-4 py-16 max-w-4xl">
     <header class="mb-10 text-center max-w-3xl mx-auto">
       <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800 leading-tight">
@@ -136,7 +144,7 @@ const tocEnabled = post.body && Array.isArray(post.body) && post.body.some(block
         {tocEnabled && (
           <aside class="md:w-1/4 hidden md:block">
             <div class="sticky top-24">
-              <BlogTableOfContents body={post.body} />
+              <BlogTableOfContents headings={headings} />
             </div>
           </aside>
         )}
@@ -225,25 +233,74 @@ const tocEnabled = post.body && Array.isArray(post.body) && post.body.some(block
 
         <BlogFAQs blogFaqs={post.blogFaqs} relatedFaqs={post.relatedFaqs} />
 
+
         <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 md:p-12 text-center my-12 shadow-sm relative overflow-hidden">
           <div class="relative z-10 max-w-2xl mx-auto">
-            <h2 class="text-3xl font-bold text-slate-800 mb-4">Need help turning your expertise into a structured online learning experience?</h2>
+            <h2 class="text-3xl font-bold text-slate-800 mb-4">{post.ctaHeading || "Need help improving your learning experience?"}</h2>
             <p class="text-slate-600 mb-8 text-lg">
-              Talk to TheEduAssist about course planning, platform setup, LMS migration, or content conversion.
+              {post.ctaDescription || "TheEduAssist helps clients structure courses, improve content, choose platforms, migrate LMS content, and build stronger online learning systems."}
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/book-free-audit/" class="blog-cta-btn inline-flex items-center justify-center px-8 py-4 bg-[var(--color-accent)] text-white font-bold rounded-lg hover:bg-opacity-90 transition-transform hover:-translate-y-0.5 focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)] focus:outline-none" data-cta-label="Get 24–48 Hour Review">
-                Get 24–48 Hour Review &rarr;
+              <a href={post.ctaPrimaryUrl || "/book-free-audit/"} class="blog-cta-btn inline-flex items-center justify-center px-8 py-4 bg-[var(--color-accent)] text-white font-bold rounded-lg hover:bg-opacity-90 transition-transform hover:-translate-y-0.5 focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)] focus:outline-none" data-cta-label={post.ctaPrimaryButton || "Get 24–48 Hour Review"}>
+                {post.ctaPrimaryButton || "Get 24–48 Hour Review"} &rarr;
+              </a>
+              <a href={post.ctaSecondaryUrl || "/services/"} class="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-700 border border-slate-300 font-bold rounded-lg hover:bg-slate-50 transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-slate-200 focus:outline-none">
+                {post.ctaSecondaryButton || "Explore Services"}
               </a>
             </div>
           </div>
         </div>
 
-        <RelatedArticles
-          currentSlug={post.slug.current || post.slug}
-          category={post.category}
-          allPosts={allPosts}
-        />
+
+        {safeRelatedPosts.length > 0 && (
+          <div class="my-12 pt-12 border-t border-slate-200">
+            <h3 class="text-2xl font-bold text-slate-800 mb-8">Related Articles</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {safeRelatedPosts.map((relatedPost) => (
+                <a href={`/blog/${relatedPost.slug}/`} class="group block border border-slate-200 rounded-xl overflow-hidden hover:shadow-md transition-all">
+                  <div class="aspect-video bg-slate-100 overflow-hidden">
+                    {relatedPost.heroImage || relatedPost.featuredImage?.asset?.url ? (
+                      <img src={relatedPost.heroImage || relatedPost.featuredImage?.asset?.url} alt={relatedPost.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center bg-slate-100">
+                         <span class="text-slate-400 uppercase tracking-widest text-xs font-bold">{relatedPost.category || 'Article'}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div class="p-5">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] mb-2 inline-block">{relatedPost.category}</span>
+                    <h4 class="font-bold text-slate-800 group-hover:text-[var(--color-primary)] transition-colors line-clamp-2">{relatedPost.title}</h4>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
     </div>
   </article>
+
+<script>
+  function updateProgress() {
+    const progressBar = document.getElementById('reading-progress');
+    if (!progressBar) return;
+
+    // Calculate scroll progress
+    const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPosition = window.scrollY;
+
+    if (scrollTotal > 0) {
+      const progress = scrollPosition / scrollTotal;
+      progressBar.style.transform = `scaleX(${progress})`;
+    }
+  }
+
+  // Use passive listener for performance
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  document.addEventListener('astro:page-load', () => {
+    updateProgress();
+    // Also re-attach in case of view transitions
+    window.addEventListener('scroll', updateProgress, { passive: true });
+  });
+</script>
+
 </BlogArticleLayout>
