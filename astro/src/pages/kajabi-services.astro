@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import KajabiHero from "../components/kajabi/KajabiHero.astro";
+import KajabiProblemSection from "../components/kajabi/KajabiProblemSection.astro";
+import KajabiLifecycle from "../components/kajabi/KajabiLifecycle.astro";
+import KajabiServicesGrid from "../components/kajabi/KajabiServicesGrid.astro";
+import KajabiEcosystemMap from "../components/kajabi/KajabiEcosystemMap.astro";
+import KajabiAudienceSection from "../components/kajabi/KajabiAudienceSection.astro";
+import KajabiMigrationSection from "../components/kajabi/KajabiMigrationSection.astro";
+import KajabiFunnelsAutomation from "../components/kajabi/KajabiFunnelsAutomation.astro";
+import KajabiStudentExperience from "../components/kajabi/KajabiStudentExperience.astro";
+import KajabiComparison from "../components/kajabi/KajabiComparison.astro";
+import StartingPoint from "../components/sections/StartingPoint.astro";
+import KajabiFAQ from "../components/kajabi/KajabiFAQ.astro";
+import KajabiFinalCTA from "../components/kajabi/KajabiFinalCTA.astro";
+import CaseStudyProof from "../components/case-studies/CaseStudyProof.astro";
+import { getAllKajabiServices } from '../sanity/queries';
+
+const kajabiServices = await getAllKajabiServices();
+
+import { serviceSchema, faqPageSchema, breadcrumbSchema } from '../lib/seo/schema';
+
+// Hardcoded faqs array to reuse the existing schema mapping logic without needing complex fetcher
+const faqs = [
+  { question: "Do you only build Kajabi websites?", answer: "No. We can build Kajabi websites, course products, landing pages, funnels, offers, email automations, migrations, and student onboarding systems." },
+  { question: "Can you set up my Kajabi course from existing content?", answer: "Yes. We can organize PDFs, videos, slides, notes, scripts, and documents into Kajabi modules, lessons, resources, and downloads." },
+  { question: "Can you migrate my content into Kajabi?", answer: "Yes. We can help move content from WordPress, Google Drive, old LMS platforms, PDFs, or scattered folders into a cleaner Kajabi structure." },
+  { question: "Do you write Kajabi email sequences?", answer: "Yes. We can help plan and create welcome emails, nurture emails, launch emails, onboarding emails, and follow-up sequences." },
+  { question: "Can you build my Kajabi funnel?", answer: "Yes. We can connect opt-in pages, forms, email follow-ups, sales pages, checkout offers, automations, and student onboarding." },
+  { question: "Can you improve my existing Kajabi setup?", answer: "Yes. We can review your current Kajabi pages, products, offers, emails, automations, and student experience, then recommend and implement improvements." },
+  { question: "Is Kajabi right for my business?", answer: "Kajabi can be a strong fit for creators, coaches, consultants, educators, and training businesses that want a connected system for courses, memberships, coaching, landing pages, email marketing, checkout, and automations. The best first step is to get a 24-48 hour review so we can review your content, goals, and platform needs." },
+  { question: "What should I prepare before booking a Kajabi audit?", answer: "Bring your course idea, current content, Kajabi login status, existing pages, offer details, audience information, and any launch goals or deadlines." }
+];
+
+const jsonLd = [
+  serviceSchema(
+    "Kajabi Services",
+    "TheEduAssist builds Kajabi websites, landing pages, course products, funnels, offers, email automations, templates, migrations, and launch-ready Kajabi learning systems for creators, coaches, educators, and training businesses.",
+    "/kajabi-services/"
+  ),
+  faqPageSchema(faqs),
+  breadcrumbSchema([
+    { name: "Home", urlPath: "/" },
+    { name: "Kajabi Services", urlPath: "/kajabi-services/" }
+  ])
+];
+---
+<Layout
+  title="Kajabi Services | Kajabi Websites, Courses, Funnels & Automations"
+  description="TheEduAssist builds Kajabi websites, landing pages, course products, funnels, offers, email automations, templates, migrations, and launch-ready Kajabi learning systems for creators, coaches, educators, and training businesses."
+  canonicalPath="/kajabi-services/"
+  jsonLd={jsonLd}
+>
+
+  <KajabiHero />
+  <KajabiProblemSection />
+  <KajabiLifecycle />
+  <KajabiServicesGrid services={kajabiServices} />
+  <KajabiEcosystemMap />
+  <KajabiAudienceSection />
+  <KajabiMigrationSection />
+  <KajabiFunnelsAutomation />
+  <KajabiStudentExperience />
+  <KajabiComparison />
+  <CaseStudyProof slugs={['business-analytics-corporate-training', 'language-courses-book-publisher']} />
+  <StartingPoint />
+  <KajabiFAQ />
+  <KajabiFinalCTA />
+
+</Layout>

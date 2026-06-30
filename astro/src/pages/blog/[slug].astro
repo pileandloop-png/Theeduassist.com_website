@@ -1,0 +1,270 @@
+---
+import BlogArticleLayout from '../../layouts/BlogArticleLayout.astro';
+import ArticleMetaBar from '../../components/blog/ArticleMetaBar.astro';
+import PortableTextRenderer from '../../components/blog/PortableTextRenderer';
+import RelatedArticles from '../../components/blog/RelatedArticles.astro';
+import RelatedCaseStudies from '../../components/blog/RelatedCaseStudies.astro';
+import BlogFAQs from '../../components/blog/BlogFAQs.astro';
+import ArticleShareButtons from '../../components/blog/ArticleShareButtons.astro';
+import BlogTableOfContents from '../../components/blog/BlogTableOfContents.astro';
+import { extractHeadings } from '../../utils/extractHeadings';
+
+export async function getStaticPaths() {
+  const allPosts = await import('../../lib/content/getAllBlogPosts').then(m => m.getAllBlogPosts());
+
+  return allPosts.map(post => {
+    return {
+      params: { slug: post.slug.replace(/^https?:\/\/[^\/]+\/blog\//, '').replace(/\/$/, '') },
+      props: { post, allPosts }
+    };
+  });
+}
+
+const { post, allPosts } = Astro.props;
+
+if (!post) {
+  return new Response("Post not found", { status: 404 });
+}
+
+// Prepare visible FAQs for schema
+const schemaFaqs = [
+  ...(post.relatedFaqs || [])
+    .filter((faq: any) => faq && faq.showOnSite === true && faq.question && faq.answer),
+  ...(post.blogFaqs || [])
+    .filter((faq: any) => faq && faq.showOnPage === true && faq.includeInSchema === true && faq.question && faq.answer)
+];
+
+// Ensure schema attributes match requirements (no fake author/dates if not real)
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.seoTitle || post.title,
+  "description": post.seoDescription || post.excerpt,
+  "author": post.author ? { "@type": "Organization", "name": post.author } : undefined,
+  "datePublished": post.publishedAt || undefined,
+  "dateModified": post.updatedAt || post.publishedAt || undefined,
+  "image": post.seo?.ogImage?.asset?.url || post.heroImage || post.mainImage?.asset?.url ? `https://theeduassist.com${post.seo?.ogImage?.asset?.url || post.heroImage || post.mainImage?.asset?.url}` : undefined,
+  "publisher": {
+    "@type": "Organization",
+    "name": "TheEduAssist",
+    "url": "https://theeduassist.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://theeduassist.com/blog/${post.slug}/`
+  }
+};
+
+const schemas: any[] = [articleSchema];
+
+if (schemaFaqs.length > 0) {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": schemaFaqs.map((faq: any) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": typeof faq.answer === 'string' ? faq.answer : 'Answer available on site.'
+      }
+    }))
+  };
+  schemas.push(faqSchema);
+}
+
+const headings = extractHeadings(post.body || []);
+const tocEnabled = headings.length > 0;
+
+---
+
+<BlogArticleLayout
+  title={post.seoTitle || `${post.title} | TheEduAssist Blog`}
+  description={post.seoDescription || post.excerpt}
+  canonicalPath={post.canonicalUrl || `/blog/${post.slug}/`}
+  ogImage={post.seo?.ogImage?.asset?.url || post.heroImage || post.mainImage?.asset?.url}
+  twitterCardType={post.seo?.twitterCardType}
+  type="article"
+  jsonLd={schemas}
+>
+  <article class="container mx-auto px-4 py-16 max-w-4xl">
+    <header class="mb-10 text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800 leading-tight">
+        {post.title}
+      </h1>
+      <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+        {post.excerpt}
+      </p>
+    </header>
+
+    {post.heroImage && (
+      <div class="mb-12 rounded-xl overflow-hidden shadow-md">
+        <img
+          src={post.heroImage}
+          alt={post.heroImageAlt || post.title}
+          class="w-full h-auto object-cover aspect-video"
+          loading="eager"
+        />
+      </div>
+    )}
+
+    <div class="max-w-3xl mx-auto">
+      <nav class="text-sm text-slate-500 mb-6" aria-label="Breadcrumb">
+        <ol class="list-none p-0 inline-flex">
+          <li class="flex items-center">
+            <a href="/" class="hover:text-[var(--color-primary)]">Home</a>
+            <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
+          </li>
+          <li class="flex items-center">
+            <a href="/blog/" class="hover:text-[var(--color-primary)]">Resources</a>
+            <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
+          </li>
+          <li>
+            <span class="text-slate-700" aria-current="page">{post.title}</span>
+          </li>
+        </ol>
+      </nav>
+
+      <ArticleMetaBar
+        category={post.category}
+        publishedAt={post.publishedAt}
+        updatedAt={post.updatedAt}
+        author={post.author}
+        readTimeMinutes={post.readingTime}
+      />
+
+      <div class="flex flex-col md:flex-row gap-10 mt-10">
+
+        {tocEnabled && (
+          <aside class="md:w-1/4 hidden md:block">
+            <div class="sticky top-24">
+              <BlogTableOfContents headings={headings} />
+            </div>
+          </aside>
+        )}
+
+        <!-- Main Content -->
+        <div class={`prose prose-lg prose-slate prose-a:text-[var(--color-primary)] hover:prose-a:text-[var(--color-accent)] max-w-none ${tocEnabled ? 'md:w-3/4' : 'md:w-full'}`}>
+          {post.body ? (
+            <PortableTextRenderer value={post.body} />
+          ) : (
+            <div set:html={post.content || "<p>Content coming soon.</p>"} />
+          )}
+
+          <ArticleShareButtons
+            url={`https://theeduassist.com/blog/${post.slug}/`}
+            title={post.title}
+          />
+
+          {post.endCta?.show && (
+            <div class="mt-16 p-8 bg-brand-softBg rounded-2xl border border-brand-border">
+              <h3 class="text-2xl font-bold text-brand-navy mb-4">{post.endCta.heading}</h3>
+              <p class="text-brand-textMain mb-8">{post.endCta.description}</p>
+              <div class="flex flex-wrap gap-4">
+                {post.endCta.primaryButtonText && (
+                  <a href={post.endCta.primaryButtonUrl} class="px-6 py-3 bg-brand-accent text-white font-bold rounded-lg hover:bg-opacity-90 transition-all">
+                    {post.endCta.primaryButtonText}
+                  </a>
+                )}
+                {post.endCta.secondaryButtonText && (
+                  <a href={post.endCta.secondaryButtonUrl} class="px-6 py-3 bg-transparent border-2 border-brand-accent text-brand-accent font-bold rounded-lg hover:bg-brand-accent hover:text-white transition-all">
+                    {post.endCta.secondaryButtonText}
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    {post.tags && post.tags.length > 0 && (
+      <div class="max-w-3xl mx-auto mt-8 mb-16">
+        <div class="flex flex-wrap gap-2">
+          {post.tags.map(tag => (
+            <span class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full">
+              {tag.replace(/-/g, ' ')}
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <div class="max-w-4xl mx-auto mt-16 pt-8">
+        {post.relatedServices && post.relatedServices.length > 0 && (
+          <div class="my-12">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">Related Services</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {post.relatedServices.map((service: any) => (
+                <a href={service.slug?.current ? `/services/${service.slug.current}/` : service.slug || '#'} class="block bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+                  <h4 class="font-bold text-lg text-[var(--color-primary)] mb-2">{service.title}</h4>
+                  <p class="text-slate-600 text-sm">{service.description}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {post.relatedPlatforms && post.relatedPlatforms.length > 0 && (
+          <div class="my-12">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">Platforms Discussed</h3>
+            <div class="flex flex-wrap gap-4">
+              {post.relatedPlatforms.map((platform: any) => (
+                <div class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 flex items-center text-slate-700 font-medium">
+                  {platform.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <RelatedCaseStudies
+          slugs={post.relatedCaseStudies}
+          category={post.category}
+        />
+
+        {post.sources && post.sources.length > 0 && (
+          <div class="my-12 pt-8 border-t border-slate-200">
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Sources & References</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-600 text-sm">
+              {post.sources.map((source: any) => (
+                <li>
+                  {source.url ? (
+                    <a href={source.url} target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] hover:underline">
+                      {source.label || source.url}
+                    </a>
+                  ) : (
+                    <span>{source.label}</span>
+                  )}
+                  {source.notes && <span class="text-slate-500 italic ml-2">- {source.notes}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <BlogFAQs blogFaqs={post.blogFaqs} relatedFaqs={post.relatedFaqs} />
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 md:p-12 text-center my-12 shadow-sm relative overflow-hidden">
+          <div class="relative z-10 max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4">Need help turning your expertise into a structured online learning experience?</h2>
+            <p class="text-slate-600 mb-8 text-lg">
+              Talk to TheEduAssist about course planning, platform setup, LMS migration, or content conversion.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/book-free-audit/" class="blog-cta-btn inline-flex items-center justify-center px-8 py-4 bg-[var(--color-accent)] text-white font-bold rounded-lg hover:bg-opacity-90 transition-transform hover:-translate-y-0.5 focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)] focus:outline-none" data-cta-label="Get 24–48 Hour Review">
+                Get 24–48 Hour Review &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <RelatedArticles
+          currentSlug={post.slug}
+          category={post.category}
+          allPosts={allPosts}
+        />
+    </div>
+  </article>
+</BlogArticleLayout>

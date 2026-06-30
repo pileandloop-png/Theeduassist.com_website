@@ -1,0 +1,49 @@
+---
+import BlogCard from "./BlogCard.astro";
+
+
+import { getAllBlogPosts } from '../../lib/content/getAllBlogPosts';
+
+
+let posts = [];
+try {
+  posts = await getAllBlogPosts();
+} catch (e) {
+  console.log("Error fetching blog posts for LatestArticles");
+}
+
+const displayPosts = posts;
+---
+
+
+
+<div class="mb-16 mt-16">
+  <div class="flex justify-between items-end mb-8 border-b border-slate-200 pb-4">
+    <div>
+      <h2 class="text-3xl font-bold text-slate-800">Latest Articles</h2>
+      <p class="text-slate-600 mt-2">Deep dives, guides, and practical advice.</p>
+    </div>
+  </div>
+
+  {posts.length === 0 ? (
+    <div class="text-center py-12 bg-slate-50 rounded-lg border border-slate-200 border-dashed">
+      <p class="text-slate-600">New articles coming soon.</p>
+    </div>
+  ) : (
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {displayPosts.map(post => (
+        <BlogCard
+          title={post.title}
+          slug={post.slug?.current || post.slug}
+          excerpt={post.excerpt}
+          category={post.category}
+          readTimeMinutes={post.readingTime}
+          publishedAt={post.publishedAt}
+          image={post.heroImage || post.mainImage?.asset?.url}
+          imageAlt={post.heroImageAlt || post.mainImage?.alt}
+          tags={post.tags}
+        />
+      ))}
+    </div>
+  )}
+</div>

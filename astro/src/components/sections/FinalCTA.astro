@@ -1,0 +1,42 @@
+---
+// src/components/sections/FinalCTA.astro
+const { ctaBlocks } = Astro.props;
+
+// Try to find a block named "Final CTA" or just take the first one
+const finalCta = ctaBlocks?.find((b: any) => b.title?.toLowerCase().includes('final')) || ctaBlocks?.[0];
+---
+<section class="py-24 bg-brand-primary text-white relative overflow-hidden">
+    <!-- Decorative background -->
+    <div class="absolute inset-0 z-0 opacity-10">
+        <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,100 C30,50 70,50 100,0 L100,100 Z" fill="currentColor"></path>
+        </svg>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">{finalCta?.title || "Ready to Turn Your Expertise Into a Professional Online Course System?"}</h2>
+        <p class="text-xl text-slate-300 mb-10 leading-relaxed">
+            {finalCta?.subtitle || "Get a 24-48 hour review and we’ll review your current content, course idea, Kajabi setup, LMS, or learning workflow and show you what needs to be structured, built, optimized, or improved."}
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            {finalCta?.ctas ? finalCta.ctas.map((cta: any, index: number) => (
+                <a
+                    href={cta.href}
+                    class={`w-full sm:w-auto px-8 py-4 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all shadow-lg text-center ${index === 0 ? 'bg-brand-accent text-white hover:bg-white hover:text-brand-navy' : 'bg-transparent border-2 border-white/30 text-white hover:bg-white/10'}`}
+                >
+                    {cta.label}
+                </a>
+            )) : (
+                <>
+                    <a href="/book-free-audit/" class="w-full sm:w-auto bg-brand-accent text-white px-8 py-4 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all hover:bg-white hover:text-brand-navy shadow-lg text-center">
+                        Get 24–48 Hour Review
+                    </a>
+                    <a href="/contact/" class="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-md font-bold text-lg hover-lift click-press focus-ring transition-all hover:bg-white/10 text-center">
+                        Contact TheEduAssist
+                    </a>
+                </>
+            )}
+        </div>
+    </div>
+</section>

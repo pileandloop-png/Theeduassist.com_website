@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PortableTextRenderer from '../components/blog/PortableTextRenderer';
+import { getAllPages } from '../sanity/queries';
+
+export async function getStaticPaths() {
+  const pages = await getAllPages();
+  return pages.map((page: any) => ({
+    params: { slug: page.slug.current },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+
+if (!page) {
+  return new Response("Page not found", { status: 404 });
+}
+
+const { title, body, seo } = page;
+---
+
+<Layout
+  title={seo?.metaTitle || title}
+  description={seo?.metaDescription}
+  noindex={seo?.noindex}
+>
+  <article class="container mx-auto px-4 py-16 max-w-4xl">
+    <header class="mb-10 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800 leading-tight">
+        {title}
+      </h1>
+    </header>
+
+    <div class="prose prose-lg prose-slate prose-a:text-[var(--color-primary)] hover:prose-a:text-[var(--color-accent)] max-w-none mx-auto">
+      {body ? (
+        <PortableTextRenderer value={body} client:load />
+      ) : (
+        <p>Content coming soon.</p>
+      )}
+    </div>
+  </article>
+</Layout>

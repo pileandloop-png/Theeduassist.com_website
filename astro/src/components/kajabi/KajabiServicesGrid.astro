@@ -1,0 +1,93 @@
+---
+// src/components/kajabi/KajabiServicesGrid.astro
+interface Props {
+  services?: any[];
+}
+
+const { services: sanityServices = [] } = Astro.props;
+
+const staticServices = [
+  {
+    title: 'Kajabi Website Design',
+    description: 'Build a professional Kajabi website that explains your offer, builds trust, and guides visitors toward your course, coaching, or membership.',
+    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+  },
+  {
+    title: 'Kajabi Landing Pages',
+    description: 'Create focused opt-in, webinar, waitlist, lead magnet, sales, and campaign landing pages for your Kajabi offers.',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z'
+  },
+  {
+    title: 'Kajabi Course Product Setup',
+    description: 'Structure modules, lessons, downloads, videos, resources, assessments, and access settings inside Kajabi products.',
+    icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'
+  },
+  {
+    title: 'Kajabi Offers & Checkout',
+    description: 'Set up offers, pricing options, checkout pages, order bumps, upsells, downsells, coupons, and purchase flow.',
+    icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z'
+  },
+  {
+    title: 'Kajabi Funnels',
+    description: 'Build lead capture, nurture, launch, webinar, sales, and onboarding funnels that connect pages, forms, emails, and offers.',
+    icon: 'M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z'
+  },
+  {
+    title: 'Kajabi Email Campaigns',
+    description: 'Create welcome sequences, nurture emails, launch emails, sales follow-ups, student onboarding emails, and course reminders.',
+    icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+  },
+  {
+    title: 'Kajabi Automations',
+    description: 'Set up smart triggers for form submissions, purchases, tags, email sequences, course access, onboarding, and student communication.',
+    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+  },
+  {
+    title: 'Kajabi Migration',
+    description: 'Move content from WordPress, Google Drive, PDFs, old LMS platforms, or scattered files into a cleaner Kajabi structure.',
+    icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12'
+  },
+  {
+    title: 'Kajabi Templates',
+    description: 'Create reusable page, course, email, and funnel templates so future launches are faster and more consistent.',
+    icon: 'M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2'
+  },
+  {
+    title: 'Kajabi Support & Maintenance',
+    description: 'Keep your Kajabi pages, products, automations, offers, emails, and course structure updated after launch.',
+    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z'
+  }
+];
+
+const displays = sanityServices.length > 0
+  ? sanityServices.map((s, i) => ({
+      title: s.title,
+      description: s.summary || s.description,
+      icon: staticServices[i % staticServices.length].icon
+    }))
+  : staticServices;
+---
+<section id="kajabi-services" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-slate-900">Kajabi Services Built Around the Full Learning Business</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {displays.map(service => (
+        <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col">
+          <div class="w-12 h-12 rounded-lg bg-[#EFF6FF] flex items-center justify-center mb-5 text-[#27496D]">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#27496D] mb-3">{service.title}</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-grow">{service.description}</p>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+             <span class="text-xs font-medium text-slate-500 uppercase tracking-wider">Included in build</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

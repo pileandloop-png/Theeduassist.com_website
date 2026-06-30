@@ -1,20 +1,53 @@
+## Node
 node_modules/
+npm-debug.log*
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+## Build outputs
 dist/
+build/
+.parcel-cache/
+.next/
+out/
+public/build/
 
-.env
-.env.local
-.env.production
-.env.development
-.env.preview
-functions/.env
-functions/.env.local
-functions/.secret.local
+## Logs
+*.log
+logs/
+log/
 
+## Runtime
 .env
-.env.local
-.env.production
-.env.development
-.env.preview
-functions/.env
-functions/.env.local
-functions/.secret.local
+.env.*
+.venv/
+venv/
+ENV/
+
+## OS
+.DS_Store
+Thumbs.db
+
+## IDEs
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.idea/
+
+## Python
+__pycache__/
+*.py[cod]
+
+## Firebase
+.firebase/
+
+## Others
+coverage/
+.cache/
+/.cache
+*.tgz
+*.bak

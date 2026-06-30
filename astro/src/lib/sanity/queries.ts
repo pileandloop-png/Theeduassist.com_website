@@ -1,0 +1,10 @@
+export const siteSettingsQuery = `*[_type == "siteSettings"][0]`;
+export const homepageContentQuery = `*[_type == "homepageContent"][0]`;
+export const servicesQuery = `*[_type == "service"] | order(orderRank asc)`;
+export const faqsQuery = `*[_type == "faq" && isPublished == true] | order(orderRank asc)`;
+export const latestBlogPostsQuery = `*[_type == "blogPost" && defined(publishedAt) && defined(slug.current) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])] | order(publishedAt desc)`;
+export const blogPostBySlugQuery = `*[_type == "blogPost" && slug.current == $slug && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])][0]`;
+export const blogPostSlugsQuery = `*[_type == "blogPost" && defined(slug.current) && defined(publishedAt) && !(_id in path("drafts.**")) && (!defined(migrationStatus) || migrationStatus in ["approved", "published"])][].slug.current`;
+export const categoriesQuery = `*[_type == "category"]`;
+export const tagsQuery = `*[_type == "tag"]`;
+export const authorsQuery = `*[_type == "author"]`;

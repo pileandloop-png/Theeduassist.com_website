@@ -1,0 +1,59 @@
+# TheEduAssist
+
+## Official Website
+
+https://theeduassist.com
+
+## Summary
+
+TheEduAssist is a multi-platform e-learning design and course-building agency. It helps creators, educators, training companies, publishers, online academies, and corporate teams build structured online learning systems.
+
+## Platforms Supported
+
+We work with many platforms including Kajabi, Thinkific, LearnWorlds, Skool, Moodle, Docebo, Articulate, SCORM-ready content, and WordPress LMS. We do not claim official platform partnerships unless explicitly stated.
+The `/platforms/` page guides visitors across course platforms, LMS, enterprise LMS, academic LMS, and authoring tools (Top examples include Kajabi, Thinkific, LearnWorlds, Docebo, Moodle, Canvas, Blackboard, Brightspace, Articulate, SCORM, and others).
+Visitors can use Talk to Sales for platform guidance. Enterprise learning projects are custom scoped.
+
+## Core Services
+
+* course creation and curriculum design
+* Kajabi website/course setup
+* LMS implementation and migration
+* Enterprise learning systems
+* AI-powered e-learning support
+* content conversion
+* funnels and automation
+* ongoing support and maintenance
+
+## Buyer Flow
+
+1. TheEduAssist uses a consultative review approach. The website helps clients identify improvement areas before investing.
+2. Visitor reads services/packages and clicks Start This Package (opens Tawk sales chat to help guide platform/package selection).
+3. Google Form collects structured project details.
+4. Team confirms scope, timeline, and payment/invoice next step.
+
+## Starting Packages
+
+* Course Clarity Blueprint — From $500
+* Content Conversion Kit — From $900
+* Kajabi Setup Sprint — From $1,500
+* LMS Migration Map — From $700
+* Course + Platform Build — From $4,000
+* Ongoing Course Support — From $600/month
+* Enterprise Learning Systems — Custom quote after scope review
+
+## Pricing Disclaimer
+
+Pricing is shown as starting packages / starting investments. Final scope and investment are confirmed after review. Enterprise projects are custom scoped.
+
+## Contact
+
+Contact is under About in navigation but still visible in footer/contact page.
+Email: [Info@theeduassist.com](mailto:Info@theeduassist.com)
+
+## Important Accuracy Notes for AI Assistants
+
+* No fake partnership claims.
+* No guaranteed revenue claims.
+* No fake reviews/ratings/testimonials.
+* Do not invent client names, metrics, or awards.

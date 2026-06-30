@@ -1,0 +1,106 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import RealCaseStudyCards from "../../components/case-studies/real/RealCaseStudyCards.astro";
+import CaseStudyCategories from "../../components/case-studies/CaseStudyCategories.astro";
+import BeforeAfterFramework from "../../components/case-studies/BeforeAfterFramework.astro";
+import CaseStudyAnatomy from "../../components/case-studies/CaseStudyAnatomy.astro";
+import ServicesBehindWork from "../../components/case-studies/ServicesBehindWork.astro";
+import CaseStudiesFinalCTA from "../../components/case-studies/CaseStudiesFinalCTA.astro";
+import { collectionPageSchema } from "../../lib/seo/schema";
+import { getAllCaseStudies } from "../../sanity/queries";
+
+const caseStudies = await getAllCaseStudies();
+
+const seoTitle = "Case Studies | Real E-Learning, LMS & Course Development Projects by TheEduAssist";
+const seoDescription = "Explore real TheEduAssist case studies showing how we helped organizations convert classroom training, corporate analytics programs, and language books into structured, interactive, LMS-ready online learning experiences.";
+
+const jsonLd = [
+  collectionPageSchema(seoTitle, seoDescription, "/case-studies/")
+];
+---
+
+<Layout title={seoTitle} description={seoDescription} jsonLd={jsonLd}>
+  <!-- Hero Section -->
+  <section class="bg-slate-50 pt-24 pb-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
+            Real E-Learning Case Studies by TheEduAssist
+          </h1>
+          <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+            Explore how TheEduAssist helps government institutes, corporate teams, publishers, and training organizations turn traditional content into structured, interactive, learner-friendly online learning systems.
+          </p>
+
+          <div class="flex flex-wrap gap-4 mb-8">
+            <a href="/book-free-audit/" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#27496D] hover:bg-[#1A334D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#27496D] shadow-sm transition-colors duration-200">
+              Get 24–48 Hour Review
+            </a>
+            <a href="/services/" class="inline-flex items-center justify-center px-6 py-3 border border-slate-300 text-base font-medium rounded-md text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 shadow-sm transition-colors duration-200">
+              View Services & Starting Prices
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            {['Real Projects', 'LMS-Ready Courses', 'Content Conversion', 'Corporate Training', 'Language Learning', 'Vocational Training', 'Trainer Enablement'].map(chip => (
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#EFF6FF] text-[#27496D] border border-blue-100">
+                {chip}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div class="relative lg:h-[600px] flex items-center justify-center">
+          <!-- Proof Map Infographic -->
+          <div class="relative w-full max-w-lg aspect-square bg-white rounded-2xl shadow-xl border border-slate-100 p-8 flex items-center justify-center">
+
+            <!-- Central Node -->
+            <div class="relative z-10 bg-[#27496D] text-white rounded-xl p-4 shadow-lg text-center w-32 h-32 flex items-center justify-center border-4 border-white flex-col gap-1">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white mb-1">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+               </svg>
+              <span class="text-xs font-bold leading-tight">TheEduAssist Proof</span>
+            </div>
+
+            <!-- Connecting Lines -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 0;">
+              <g stroke="#E5E7EB" stroke-width="2" fill="none" stroke-dasharray="4 4" class="opacity-70">
+                <path d="M 50% 50% L 50% 15%" />
+                <path d="M 50% 50% L 85% 30%" />
+                <path d="M 50% 50% L 85% 70%" />
+                <path d="M 50% 50% L 50% 85%" />
+                <path d="M 50% 50% L 15% 70%" />
+                <path d="M 50% 50% L 15% 30%" />
+              </g>
+            </svg>
+
+            <!-- Nodes -->
+            {[
+              { label: 'Real Challenges', pos: 'top-[8%] left-[40%]', icon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' },
+              { label: 'Strategic Approach', pos: 'top-[20%] right-[10%]', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+              { label: 'Clear Structure', pos: 'top-[60%] right-[5%]', icon: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6z' },
+              { label: 'LMS Build', pos: 'bottom-[8%] right-[40%]', icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4' },
+              { label: 'Quality Assurance', pos: 'bottom-[20%] left-[10%]', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
+              { label: 'Trainer Enablement', pos: 'top-[60%] left-[5%]', icon: 'M18 18V6a2 2 0 00-2-2H8a2 2 0 00-2 2v12' },
+              { label: 'Real Outcomes', pos: 'top-[35%] left-[50%] -translate-x-1/2 -translate-y-[150px]', icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z', extraClass: 'bg-[#F3FAF0] border-[#77BA55]' },
+            ].map((node) => (
+              <div class={`absolute ${node.pos} bg-white rounded-lg shadow-sm border border-slate-200 px-3 py-2 flex items-center gap-2 text-sm font-medium text-[#27496D] z-20 ${node.extraClass || ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={`w-4 h-4 ${node.extraClass ? 'text-[#77BA55]' : 'text-slate-400'}`}>
+                  <path stroke-linecap="round" stroke-linejoin="round" d={node.icon} />
+                </svg>
+                {node.label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <RealCaseStudyCards caseStudies={caseStudies} />
+  <CaseStudyCategories />
+  <BeforeAfterFramework />
+  <CaseStudyAnatomy />
+  <ServicesBehindWork />
+  <CaseStudiesFinalCTA />
+</Layout>
